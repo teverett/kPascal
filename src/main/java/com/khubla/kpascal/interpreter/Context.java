@@ -1,4 +1,6 @@
-package com.khubla.kpascal;
+package com.khubla.kpascal.interpreter;
+
+import java.util.Hashtable;
 
 /*
 * kPascal Copyright 2012, khubla.com
@@ -16,21 +18,13 @@ package com.khubla.kpascal;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-import java.io.InputStream;
+public class Context {
+   /**
+    * variables
+    */
+   private final Hashtable<String, Variable> variables = new Hashtable<String, Variable>();
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
-public class TestInterpreter {
-   @Test(enabled = true)
-   public void testHelloWorld() {
-      try {
-         InputStream is = TestInterpreter.class.getResourceAsStream("/helloworld.pas");
-         PascalInterpreter pascalInterpreter = new PascalInterpreter(is, System.in, System.out);
-         pascalInterpreter.run();
-      } catch (Exception e) {
-         e.printStackTrace();
-         Assert.fail();
-      }
+   public Hashtable<String, Variable> getVariables() {
+      return variables;
    }
 }
