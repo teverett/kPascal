@@ -1,5 +1,4 @@
-package com.khubla.kpascal.interpreter.variable;
-
+package com.khubla.kpascal.interpreter;
 /*
 * kPascal Copyright 2012, khubla.com
 *
@@ -16,19 +15,9 @@ package com.khubla.kpascal.interpreter.variable;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class RealVariable extends BaseVariable {
-   Float value;
 
-   RealVariable(String name, Float value, VarType varType) {
-      super(name, varType);
-      this.value = value;
-   }
+public interface VariableType {
+   public String getName();
 
-   public Float getValue() {
-      return value;
-   }
-
-   public void setValue(Float value) {
-      this.value = value;
-   }
+   public boolean isAtomicType();
 }

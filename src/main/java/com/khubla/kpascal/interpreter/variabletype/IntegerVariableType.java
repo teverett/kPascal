@@ -1,4 +1,6 @@
-package com.khubla.kpascal.interpreter.variable;
+package com.khubla.kpascal.interpreter.variabletype;
+
+import com.khubla.kpascal.interpreter.VariableType;
 
 /*
 * kPascal Copyright 2012, khubla.com
@@ -16,19 +18,14 @@ package com.khubla.kpascal.interpreter.variable;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class IntegerVariable extends BaseVariable {
-   Integer value;
-
-   IntegerVariable(String name, Integer value, VarType varType) {
-      super(name, varType);
-      this.value = value;
+public class IntegerVariableType implements VariableType {
+   @Override
+   public String getName() {
+      return "Integer";
    }
 
-   public Integer getValue() {
-      return value;
-   }
-
-   public void setValue(Integer value) {
-      this.value = value;
+   @Override
+   public boolean isAtomicType() {
+      return true;
    }
 }

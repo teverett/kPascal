@@ -1,4 +1,4 @@
-package com.khubla.kpascal.interpreter.variable;
+package com.khubla.kpascal.interpreter;
 
 /*
 * kPascal Copyright 2012, khubla.com
@@ -16,15 +16,17 @@ package com.khubla.kpascal.interpreter.variable;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-import com.khubla.kpascal.interpreter.Variable;
-
-public abstract class BaseVariable implements Variable {
+public class VariableImpl implements Variable {
    private final String name;
-   private final VarType varType;
+   private final VariableDeclarationType variableDeclarationType;
+   private final VariableType variableType;
+   private final String value;
 
-   BaseVariable(String name, VarType varType) {
+   public VariableImpl(String name, VariableType variableType, VariableDeclarationType variableDeclarationType, String value) {
       this.name = name;
-      this.varType = varType;
+      this.variableType = variableType;
+      this.variableDeclarationType = variableDeclarationType;
+      this.value = value;
    }
 
    @Override
@@ -32,8 +34,17 @@ public abstract class BaseVariable implements Variable {
       return name;
    }
 
+   public String getValue() {
+      return value;
+   }
+
    @Override
-   public VarType getVarType() {
-      return varType;
+   public VariableDeclarationType getVariableDeclarationType() {
+      return variableDeclarationType;
+   }
+
+   @Override
+   public VariableType getVariableType() {
+      return variableType;
    }
 }

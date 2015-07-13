@@ -1,7 +1,6 @@
-package com.khubla.kpascal.interpreter;
+package com.khubla.kpascal.interpreter.variabletype;
 
-import java.util.Hashtable;
-import java.util.Stack;
+import com.khubla.kpascal.interpreter.VariableType;
 
 /*
 * kPascal Copyright 2012, khubla.com
@@ -19,29 +18,14 @@ import java.util.Stack;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class Context {
-   /**
-    * variables
-    */
-   private final Hashtable<String, Variable> variables = new Hashtable<String, Variable>();
-   /**
-    * stack
-    */
-   final Stack<Variable> stack = new Stack<Variable>();
-   /**
-    * types
-    */
-   final VariableTypes variableTypes = new VariableTypes();
-
-   public Stack<Variable> getStack() {
-      return stack;
+public class RealVariableType implements VariableType {
+   @Override
+   public String getName() {
+      return "Real";
    }
 
-   public Hashtable<String, Variable> getVariables() {
-      return variables;
-   }
-
-   public VariableTypes getVariableTypes() {
-      return variableTypes;
+   @Override
+   public boolean isAtomicType() {
+      return true;
    }
 }
