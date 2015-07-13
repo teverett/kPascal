@@ -25,6 +25,7 @@ public abstract class BaseVariable implements Variable {
       this.name = name;
    }
 
+   @Override
    public String getName() {
       return name;
    }

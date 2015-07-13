@@ -17,7 +17,17 @@ package com.khubla.kpascal.interpreter.variable;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class StringVariable extends BaseVariable {
+   String value;
+
    StringVariable(String name) {
       super(name);
+   }
+
+   public String getValue() {
+      return value;
+   }
+
+   public void setValue(String value) {
+      this.value = value;
    }
 }

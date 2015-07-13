@@ -17,7 +17,17 @@ package com.khubla.kpascal.interpreter.variable;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class RealVariable extends BaseVariable {
+   Float value;
+
    RealVariable(String name) {
       super(name);
+   }
+
+   public Float getValue() {
+      return value;
+   }
+
+   public void setValue(Float value) {
+      this.value = value;
    }
 }

@@ -17,7 +17,17 @@ package com.khubla.kpascal.interpreter.variable;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class IntegerVariable extends BaseVariable {
+   Integer value;
+
    IntegerVariable(String name) {
       super(name);
+   }
+
+   public Integer getValue() {
+      return value;
+   }
+
+   public void setValue(Integer value) {
+      this.value = value;
    }
 }
