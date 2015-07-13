@@ -1,6 +1,7 @@
 package com.khubla.kpascal;
 
 import java.io.InputStream;
+import java.io.OutputStream;
 
 /*
 * kPascal Copyright 2012, khubla.com
@@ -19,14 +20,26 @@ import java.io.InputStream;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class PascalInterpreter {
+   private final InputStream pascalInputStream;
+   private final InputStream stdIn;
+   private final OutputStream stdOut;
+
+   public PascalInterpreter(InputStream pascalInputStream, InputStream stdIn, OutputStream stdOut) {
+      this.pascalInputStream = pascalInputStream;
+      this.stdIn = stdIn;
+      this.stdOut = stdOut;
+   }
+
    public InputStream getPascalInputStream() {
       return pascalInputStream;
    }
 
-   private final InputStream pascalInputStream;
+   public InputStream getStdIn() {
+      return stdIn;
+   }
 
-   public PascalInterpreter(InputStream pascalInputStream) {
-      this.pascalInputStream = pascalInputStream;
+   public OutputStream getStdOut() {
+      return stdOut;
    }
 
    public void run() {

@@ -24,7 +24,7 @@ public class TestInterpreter {
    @Test(enabled = true)
    public void testHelloWorld() {
       InputStream is = TestInterpreter.class.getResourceAsStream("/helloworld.pas");
-      PascalInterpreter pascalInterpreter = new PascalInterpreter(is);
+      PascalInterpreter pascalInterpreter = new PascalInterpreter(is, System.in, System.out);
       pascalInterpreter.run();
    }
 }

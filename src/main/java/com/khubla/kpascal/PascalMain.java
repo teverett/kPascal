@@ -75,7 +75,7 @@ public class PascalMain {
                /*
                 * interpreter
                 */
-               final PascalInterpreter pascalInterpreter = new PascalInterpreter(new FileInputStream(fl));
+               final PascalInterpreter pascalInterpreter = new PascalInterpreter(new FileInputStream(fl), System.in, System.out);
                pascalInterpreter.run();
             } else {
                throw new Exception("Unable to find: '" + pasFileName + "'");
