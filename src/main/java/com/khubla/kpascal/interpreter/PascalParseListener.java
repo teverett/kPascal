@@ -974,7 +974,7 @@ public class PascalParseListener implements PascalListener {
 
    @Override
    public void exitTypeDefinition(TypeDefinitionContext ctx) {
-      // TODO Auto-generated method stub
+      ctx.getChild(0).getText();
    }
 
    @Override
