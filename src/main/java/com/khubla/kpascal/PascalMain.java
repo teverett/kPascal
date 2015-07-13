@@ -26,6 +26,8 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 
+import com.khubla.kpascal.interpreter.PascalInterpreter;
+
 /**
  * @author tom
  */

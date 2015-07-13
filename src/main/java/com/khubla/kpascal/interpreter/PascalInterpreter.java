@@ -1,4 +1,4 @@
-package com.khubla.kpascal;
+package com.khubla.kpascal.interpreter;
 
 /*
 * kPascal Copyright 2012, khubla.com
@@ -30,9 +30,42 @@ import com.khubla.kpascal.antlr.pascalParser.ProgramContext;
 
 public class PascalInterpreter {
    /**
+    * context
+    */
+   private final Context context = new Context();
+   private final InputStream pascalInputStream;
+   private final InputStream stdIn;
+   private final OutputStream stdOut;
+
+   /**
+    * ctor
+    */
+   public PascalInterpreter(InputStream pascalInputStream, InputStream stdIn, OutputStream stdOut) {
+      this.pascalInputStream = pascalInputStream;
+      this.stdIn = stdIn;
+      this.stdOut = stdOut;
+   }
+
+   public Context getContext() {
+      return context;
+   }
+
+   public InputStream getPascalInputStream() {
+      return pascalInputStream;
+   }
+
+   public InputStream getStdIn() {
+      return stdIn;
+   }
+
+   public OutputStream getStdOut() {
+      return stdOut;
+   }
+
+   /**
     * parse an input file
     */
-   public static ProgramContext parse(InputStream inputStream) throws Exception {
+   private ProgramContext parse(InputStream inputStream) throws Exception {
       try {
          if (null != inputStream) {
             final Reader reader = new InputStreamReader(inputStream, "UTF-8");
@@ -47,28 +80,6 @@ public class PascalInterpreter {
       } catch (final Exception e) {
          throw new Exception("Exception reading and parsing file", e);
       }
-   }
-
-   private final InputStream pascalInputStream;
-   private final InputStream stdIn;
-   private final OutputStream stdOut;
-
-   public PascalInterpreter(InputStream pascalInputStream, InputStream stdIn, OutputStream stdOut) {
-      this.pascalInputStream = pascalInputStream;
-      this.stdIn = stdIn;
-      this.stdOut = stdOut;
-   }
-
-   public InputStream getPascalInputStream() {
-      return pascalInputStream;
-   }
-
-   public InputStream getStdIn() {
-      return stdIn;
-   }
-
-   public OutputStream getStdOut() {
-      return stdOut;
    }
 
    public void run() throws Exception {

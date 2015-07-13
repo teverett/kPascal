@@ -1,6 +1,7 @@
 package com.khubla.kpascal.interpreter;
 
 import java.util.Hashtable;
+import java.util.Stack;
 
 /*
 * kPascal Copyright 2012, khubla.com
@@ -23,6 +24,14 @@ public class Context {
     * variables
     */
    private final Hashtable<String, Variable> variables = new Hashtable<String, Variable>();
+   /**
+    * stack
+    */
+   final Stack<Variable> stack = new Stack<Variable>();
+
+   public Stack<Variable> getStack() {
+      return stack;
+   }
 
    public Hashtable<String, Variable> getVariables() {
       return variables;

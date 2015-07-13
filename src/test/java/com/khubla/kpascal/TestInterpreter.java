@@ -21,6 +21,8 @@ import java.io.InputStream;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.khubla.kpascal.interpreter.PascalInterpreter;
+
 public class TestInterpreter {
    @Test(enabled = true)
    public void testHelloWorld() {
