@@ -1,4 +1,4 @@
-// Generated from com/khubla/kpascal/antlr/pascal.g4 by ANTLR 4.5
+// Generated from com/khubla/kpascal/antlr/Pascal.g4 by ANTLR 4.5
 package com.khubla.kpascal.antlr;
 
 import java.util.List;
@@ -20,7 +20,7 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 @SuppressWarnings({ "all", "warnings", "unchecked", "unused", "cast" })
-public class pascalParser extends Parser {
+public class PascalParser extends Parser {
    public static class ActualParameterContext extends ParserRuleContext {
       public ActualParameterContext(ParserRuleContext parent, int invokingState) {
          super(parent, invokingState);
@@ -28,15 +28,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterActualParameter(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterActualParameter(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitActualParameter(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitActualParameter(this);
          }
       }
 
@@ -56,7 +56,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode ARRAY() {
-         return getToken(pascalParser.ARRAY, 0);
+         return getToken(PascalParser.ARRAY, 0);
       }
 
       public ComponentTypeContext componentType() {
@@ -65,15 +65,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterArrayType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterArrayType(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitArrayType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitArrayType(this);
          }
       }
 
@@ -83,23 +83,23 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode LBRACK() {
-         return getToken(pascalParser.LBRACK, 0);
+         return getToken(PascalParser.LBRACK, 0);
       }
 
       public TerminalNode LBRACK2() {
-         return getToken(pascalParser.LBRACK2, 0);
+         return getToken(PascalParser.LBRACK2, 0);
       }
 
       public TerminalNode OF() {
-         return getToken(pascalParser.OF, 0);
+         return getToken(PascalParser.OF, 0);
       }
 
       public TerminalNode RBRACK() {
-         return getToken(pascalParser.RBRACK, 0);
+         return getToken(PascalParser.RBRACK, 0);
       }
 
       public TerminalNode RBRACK2() {
-         return getToken(pascalParser.RBRACK2, 0);
+         return getToken(PascalParser.RBRACK2, 0);
       }
 
       public TypeListContext typeList() {
@@ -113,20 +113,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode ASSIGN() {
-         return getToken(pascalParser.ASSIGN, 0);
+         return getToken(PascalParser.ASSIGN, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterAssignmentStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterAssignmentStatement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitAssignmentStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitAssignmentStatement(this);
          }
       }
 
@@ -151,15 +151,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterBaseType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterBaseType(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitBaseType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitBaseType(this);
          }
       }
 
@@ -192,15 +192,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterBlock(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterBlock(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitBlock(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitBlock(this);
          }
       }
 
@@ -210,11 +210,11 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> IMPLEMENTATION() {
-         return getTokens(pascalParser.IMPLEMENTATION);
+         return getTokens(PascalParser.IMPLEMENTATION);
       }
 
       public TerminalNode IMPLEMENTATION(int i) {
-         return getToken(pascalParser.IMPLEMENTATION, i);
+         return getToken(PascalParser.IMPLEMENTATION, i);
       }
 
       public List<LabelDeclarationPartContext> labelDeclarationPart() {
@@ -264,7 +264,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode COLON() {
-         return getToken(pascalParser.COLON, 0);
+         return getToken(PascalParser.COLON, 0);
       }
 
       public ConstListContext constList() {
@@ -273,15 +273,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterCaseListElement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterCaseListElement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitCaseListElement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitCaseListElement(this);
          }
       }
 
@@ -301,7 +301,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode CASE() {
-         return getToken(pascalParser.CASE, 0);
+         return getToken(PascalParser.CASE, 0);
       }
 
       public List<CaseListElementContext> caseListElement() {
@@ -313,24 +313,24 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode ELSE() {
-         return getToken(pascalParser.ELSE, 0);
+         return getToken(PascalParser.ELSE, 0);
       }
 
       public TerminalNode END() {
-         return getToken(pascalParser.END, 0);
+         return getToken(PascalParser.END, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterCaseStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterCaseStatement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitCaseStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitCaseStatement(this);
          }
       }
 
@@ -344,15 +344,15 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode OF() {
-         return getToken(pascalParser.OF, 0);
+         return getToken(PascalParser.OF, 0);
       }
 
       public List<TerminalNode> SEMI() {
-         return getTokens(pascalParser.SEMI);
+         return getTokens(PascalParser.SEMI);
       }
 
       public TerminalNode SEMI(int i) {
-         return getToken(pascalParser.SEMI, i);
+         return getToken(PascalParser.SEMI, i);
       }
 
       public StatementsContext statements() {
@@ -367,15 +367,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterComponentType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterComponentType(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitComponentType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitComponentType(this);
          }
       }
 
@@ -395,24 +395,24 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode BEGIN() {
-         return getToken(pascalParser.BEGIN, 0);
+         return getToken(PascalParser.BEGIN, 0);
       }
 
       public TerminalNode END() {
-         return getToken(pascalParser.END, 0);
+         return getToken(PascalParser.END, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterCompoundStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterCompoundStatement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitCompoundStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitCompoundStatement(this);
          }
       }
 
@@ -437,15 +437,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterConditionalStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterConditionalStatement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitConditionalStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitConditionalStatement(this);
          }
       }
 
@@ -465,20 +465,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode CHR() {
-         return getToken(pascalParser.CHR, 0);
+         return getToken(PascalParser.CHR, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterConstantChr(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterConstantChr(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitConstantChr(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitConstantChr(this);
          }
       }
 
@@ -488,11 +488,11 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode LPAREN() {
-         return getToken(pascalParser.LPAREN, 0);
+         return getToken(PascalParser.LPAREN, 0);
       }
 
       public TerminalNode RPAREN() {
-         return getToken(pascalParser.RPAREN, 0);
+         return getToken(PascalParser.RPAREN, 0);
       }
 
       public UnsignedIntegerContext unsignedInteger() {
@@ -511,15 +511,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterConstant(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterConstant(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitConstant(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitConstant(this);
          }
       }
 
@@ -556,19 +556,19 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterConstantDefinition(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterConstantDefinition(this);
          }
       }
 
       public TerminalNode EQUAL() {
-         return getToken(pascalParser.EQUAL, 0);
+         return getToken(PascalParser.EQUAL, 0);
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitConstantDefinition(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitConstantDefinition(this);
          }
       }
 
@@ -588,7 +588,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode CONST() {
-         return getToken(pascalParser.CONST, 0);
+         return getToken(PascalParser.CONST, 0);
       }
 
       public List<ConstantDefinitionContext> constantDefinition() {
@@ -601,15 +601,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterConstantDefinitionPart(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterConstantDefinitionPart(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitConstantDefinitionPart(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitConstantDefinitionPart(this);
          }
       }
 
@@ -619,11 +619,11 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> SEMI() {
-         return getTokens(pascalParser.SEMI);
+         return getTokens(PascalParser.SEMI);
       }
 
       public TerminalNode SEMI(int i) {
-         return getToken(pascalParser.SEMI, i);
+         return getToken(PascalParser.SEMI, i);
       }
    }
 
@@ -633,11 +633,11 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> COMMA() {
-         return getTokens(pascalParser.COMMA);
+         return getTokens(PascalParser.COMMA);
       }
 
       public TerminalNode COMMA(int i) {
-         return getToken(pascalParser.COMMA, i);
+         return getToken(PascalParser.COMMA, i);
       }
 
       public List<ConstantContext> constant() {
@@ -650,15 +650,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterConstList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterConstList(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitConstList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitConstList(this);
          }
       }
 
@@ -674,20 +674,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode DOTDOT() {
-         return getToken(pascalParser.DOTDOT, 0);
+         return getToken(PascalParser.DOTDOT, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterElement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterElement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitElement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitElement(this);
          }
       }
 
@@ -711,11 +711,11 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> COMMA() {
-         return getTokens(pascalParser.COMMA);
+         return getTokens(PascalParser.COMMA);
       }
 
       public TerminalNode COMMA(int i) {
-         return getToken(pascalParser.COMMA, i);
+         return getToken(PascalParser.COMMA, i);
       }
 
       public List<ElementContext> element() {
@@ -728,15 +728,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterElementList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterElementList(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitElementList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitElementList(this);
          }
       }
 
@@ -753,15 +753,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterEmpty(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterEmpty(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitEmpty(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitEmpty(this);
          }
       }
 
@@ -778,15 +778,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterEmptyStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterEmptyStatement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitEmptyStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitEmptyStatement(this);
          }
       }
 
@@ -803,32 +803,32 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterExpression(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterExpression(this);
          }
       }
 
       public List<TerminalNode> EQUAL() {
-         return getTokens(pascalParser.EQUAL);
+         return getTokens(PascalParser.EQUAL);
       }
 
       public TerminalNode EQUAL(int i) {
-         return getToken(pascalParser.EQUAL, i);
+         return getToken(PascalParser.EQUAL, i);
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitExpression(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitExpression(this);
          }
       }
 
       public List<TerminalNode> GE() {
-         return getTokens(pascalParser.GE);
+         return getTokens(PascalParser.GE);
       }
 
       public TerminalNode GE(int i) {
-         return getToken(pascalParser.GE, i);
+         return getToken(PascalParser.GE, i);
       }
 
       @Override
@@ -837,43 +837,43 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> GT() {
-         return getTokens(pascalParser.GT);
+         return getTokens(PascalParser.GT);
       }
 
       public TerminalNode GT(int i) {
-         return getToken(pascalParser.GT, i);
+         return getToken(PascalParser.GT, i);
       }
 
       public List<TerminalNode> IN() {
-         return getTokens(pascalParser.IN);
+         return getTokens(PascalParser.IN);
       }
 
       public TerminalNode IN(int i) {
-         return getToken(pascalParser.IN, i);
+         return getToken(PascalParser.IN, i);
       }
 
       public List<TerminalNode> LE() {
-         return getTokens(pascalParser.LE);
+         return getTokens(PascalParser.LE);
       }
 
       public TerminalNode LE(int i) {
-         return getToken(pascalParser.LE, i);
+         return getToken(PascalParser.LE, i);
       }
 
       public List<TerminalNode> LT() {
-         return getTokens(pascalParser.LT);
+         return getTokens(PascalParser.LT);
       }
 
       public TerminalNode LT(int i) {
-         return getToken(pascalParser.LT, i);
+         return getToken(PascalParser.LT, i);
       }
 
       public List<TerminalNode> NOT_EQUAL() {
-         return getTokens(pascalParser.NOT_EQUAL);
+         return getTokens(PascalParser.NOT_EQUAL);
       }
 
       public TerminalNode NOT_EQUAL(int i) {
-         return getToken(pascalParser.NOT_EQUAL, i);
+         return getToken(PascalParser.NOT_EQUAL, i);
       }
 
       public List<SimpleExpressionContext> simpleExpression() {
@@ -892,15 +892,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterFactor(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterFactor(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitFactor(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitFactor(this);
          }
       }
 
@@ -922,15 +922,15 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode LPAREN() {
-         return getToken(pascalParser.LPAREN, 0);
+         return getToken(PascalParser.LPAREN, 0);
       }
 
       public TerminalNode NOT() {
-         return getToken(pascalParser.NOT, 0);
+         return getToken(PascalParser.NOT, 0);
       }
 
       public TerminalNode RPAREN() {
-         return getToken(pascalParser.RPAREN, 0);
+         return getToken(PascalParser.RPAREN, 0);
       }
 
       public SetContext set() {
@@ -953,15 +953,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterFieldList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterFieldList(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitFieldList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitFieldList(this);
          }
       }
 
@@ -975,7 +975,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode SEMI() {
-         return getToken(pascalParser.SEMI, 0);
+         return getToken(PascalParser.SEMI, 0);
       }
 
       public VariantPartContext variantPart() {
@@ -990,20 +990,20 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterFileType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterFileType(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitFileType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitFileType(this);
          }
       }
 
       public TerminalNode FILE() {
-         return getToken(pascalParser.FILE, 0);
+         return getToken(PascalParser.FILE, 0);
       }
 
       @Override
@@ -1012,7 +1012,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode OF() {
-         return getToken(pascalParser.OF, 0);
+         return getToken(PascalParser.OF, 0);
       }
 
       public TypeContext type() {
@@ -1027,15 +1027,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterFinalValue(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterFinalValue(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitFinalValue(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitFinalValue(this);
          }
       }
 
@@ -1056,15 +1056,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterFixedPart(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterFixedPart(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitFixedPart(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitFixedPart(this);
          }
       }
 
@@ -1082,11 +1082,11 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> SEMI() {
-         return getTokens(pascalParser.SEMI);
+         return getTokens(PascalParser.SEMI);
       }
 
       public TerminalNode SEMI(int i) {
-         return getToken(pascalParser.SEMI, i);
+         return getToken(PascalParser.SEMI, i);
       }
    }
 
@@ -1096,20 +1096,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode DOWNTO() {
-         return getToken(pascalParser.DOWNTO, 0);
+         return getToken(PascalParser.DOWNTO, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterForList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterForList(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitForList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitForList(this);
          }
       }
 
@@ -1127,7 +1127,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode TO() {
-         return getToken(pascalParser.TO, 0);
+         return getToken(PascalParser.TO, 0);
       }
    }
 
@@ -1138,15 +1138,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterFormalParameterList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterFormalParameterList(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitFormalParameterList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitFormalParameterList(this);
          }
       }
 
@@ -1164,19 +1164,19 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode LPAREN() {
-         return getToken(pascalParser.LPAREN, 0);
+         return getToken(PascalParser.LPAREN, 0);
       }
 
       public TerminalNode RPAREN() {
-         return getToken(pascalParser.RPAREN, 0);
+         return getToken(PascalParser.RPAREN, 0);
       }
 
       public List<TerminalNode> SEMI() {
-         return getTokens(pascalParser.SEMI);
+         return getTokens(PascalParser.SEMI);
       }
 
       public TerminalNode SEMI(int i) {
-         return getToken(pascalParser.SEMI, i);
+         return getToken(PascalParser.SEMI, i);
       }
    }
 
@@ -1187,20 +1187,20 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterFormalParameterSection(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterFormalParameterSection(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitFormalParameterSection(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitFormalParameterSection(this);
          }
       }
 
       public TerminalNode FUNCTION() {
-         return getToken(pascalParser.FUNCTION, 0);
+         return getToken(PascalParser.FUNCTION, 0);
       }
 
       @Override
@@ -1213,11 +1213,11 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode PROCEDURE() {
-         return getToken(pascalParser.PROCEDURE, 0);
+         return getToken(PascalParser.PROCEDURE, 0);
       }
 
       public TerminalNode VAR() {
-         return getToken(pascalParser.VAR, 0);
+         return getToken(PascalParser.VAR, 0);
       }
    }
 
@@ -1227,29 +1227,29 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode ASSIGN() {
-         return getToken(pascalParser.ASSIGN, 0);
+         return getToken(PascalParser.ASSIGN, 0);
       }
 
       public TerminalNode DO() {
-         return getToken(pascalParser.DO, 0);
+         return getToken(PascalParser.DO, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterForStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterForStatement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitForStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitForStatement(this);
          }
       }
 
       public TerminalNode FOR() {
-         return getToken(pascalParser.FOR, 0);
+         return getToken(PascalParser.FOR, 0);
       }
 
       public ForListContext forList() {
@@ -1280,20 +1280,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode COLON() {
-         return getToken(pascalParser.COLON, 0);
+         return getToken(PascalParser.COLON, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterFunctionDeclaration(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterFunctionDeclaration(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitFunctionDeclaration(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitFunctionDeclaration(this);
          }
       }
 
@@ -1302,7 +1302,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode FUNCTION() {
-         return getToken(pascalParser.FUNCTION, 0);
+         return getToken(PascalParser.FUNCTION, 0);
       }
 
       @Override
@@ -1319,7 +1319,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode SEMI() {
-         return getToken(pascalParser.SEMI, 0);
+         return getToken(PascalParser.SEMI, 0);
       }
    }
 
@@ -1330,15 +1330,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterFunctionDesignator(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterFunctionDesignator(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitFunctionDesignator(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitFunctionDesignator(this);
          }
       }
 
@@ -1352,7 +1352,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode LPAREN() {
-         return getToken(pascalParser.LPAREN, 0);
+         return getToken(PascalParser.LPAREN, 0);
       }
 
       public ParameterListContext parameterList() {
@@ -1360,7 +1360,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode RPAREN() {
-         return getToken(pascalParser.RPAREN, 0);
+         return getToken(PascalParser.RPAREN, 0);
       }
    }
 
@@ -1370,20 +1370,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode COLON() {
-         return getToken(pascalParser.COLON, 0);
+         return getToken(PascalParser.COLON, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterFunctionType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterFunctionType(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitFunctionType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitFunctionType(this);
          }
       }
 
@@ -1392,7 +1392,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode FUNCTION() {
-         return getToken(pascalParser.FUNCTION, 0);
+         return getToken(PascalParser.FUNCTION, 0);
       }
 
       @Override
@@ -1412,15 +1412,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterGotoStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterGotoStatement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitGotoStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitGotoStatement(this);
          }
       }
 
@@ -1430,7 +1430,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode GOTO() {
-         return getToken(pascalParser.GOTO, 0);
+         return getToken(PascalParser.GOTO, 0);
       }
 
       public LabelContext label() {
@@ -1445,15 +1445,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterIdentifier(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterIdentifier(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitIdentifier(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitIdentifier(this);
          }
       }
 
@@ -1463,7 +1463,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode IDENT() {
-         return getToken(pascalParser.IDENT, 0);
+         return getToken(PascalParser.IDENT, 0);
       }
    }
 
@@ -1473,24 +1473,24 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> COMMA() {
-         return getTokens(pascalParser.COMMA);
+         return getTokens(PascalParser.COMMA);
       }
 
       public TerminalNode COMMA(int i) {
-         return getToken(pascalParser.COMMA, i);
+         return getToken(PascalParser.COMMA, i);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterIdentifierList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterIdentifierList(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitIdentifierList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitIdentifierList(this);
          }
       }
 
@@ -1514,20 +1514,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode ELSE() {
-         return getToken(pascalParser.ELSE, 0);
+         return getToken(PascalParser.ELSE, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterIfStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterIfStatement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitIfStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitIfStatement(this);
          }
       }
 
@@ -1541,7 +1541,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode IF() {
-         return getToken(pascalParser.IF, 0);
+         return getToken(PascalParser.IF, 0);
       }
 
       public List<StatementContext> statement() {
@@ -1553,7 +1553,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode THEN() {
-         return getToken(pascalParser.THEN, 0);
+         return getToken(PascalParser.THEN, 0);
       }
    }
 
@@ -1564,15 +1564,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterIndexType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterIndexType(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitIndexType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitIndexType(this);
          }
       }
 
@@ -1593,15 +1593,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterInitialValue(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterInitialValue(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitInitialValue(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitInitialValue(this);
          }
       }
 
@@ -1622,15 +1622,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterLabel(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterLabel(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitLabel(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitLabel(this);
          }
       }
 
@@ -1650,24 +1650,24 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> COMMA() {
-         return getTokens(pascalParser.COMMA);
+         return getTokens(PascalParser.COMMA);
       }
 
       public TerminalNode COMMA(int i) {
-         return getToken(pascalParser.COMMA, i);
+         return getToken(PascalParser.COMMA, i);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterLabelDeclarationPart(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterLabelDeclarationPart(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitLabelDeclarationPart(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitLabelDeclarationPart(this);
          }
       }
 
@@ -1685,11 +1685,11 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode LABEL() {
-         return getToken(pascalParser.LABEL, 0);
+         return getToken(PascalParser.LABEL, 0);
       }
 
       public TerminalNode SEMI() {
-         return getToken(pascalParser.SEMI, 0);
+         return getToken(PascalParser.SEMI, 0);
       }
    }
 
@@ -1699,20 +1699,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode COLON() {
-         return getToken(pascalParser.COLON, 0);
+         return getToken(PascalParser.COLON, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterParameterGroup(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterParameterGroup(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitParameterGroup(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitParameterGroup(this);
          }
       }
 
@@ -1744,24 +1744,24 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> COMMA() {
-         return getTokens(pascalParser.COMMA);
+         return getTokens(PascalParser.COMMA);
       }
 
       public TerminalNode COMMA(int i) {
-         return getToken(pascalParser.COMMA, i);
+         return getToken(PascalParser.COMMA, i);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterParameterList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterParameterList(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitParameterList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitParameterList(this);
          }
       }
 
@@ -1778,15 +1778,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterPointerType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterPointerType(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitPointerType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitPointerType(this);
          }
       }
 
@@ -1796,7 +1796,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode POINTER() {
-         return getToken(pascalParser.POINTER, 0);
+         return getToken(PascalParser.POINTER, 0);
       }
 
       public TypeIdentifierContext typeIdentifier() {
@@ -1811,15 +1811,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterProcedureAndFunctionDeclarationPart(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterProcedureAndFunctionDeclarationPart(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitProcedureAndFunctionDeclarationPart(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitProcedureAndFunctionDeclarationPart(this);
          }
       }
 
@@ -1833,7 +1833,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode SEMI() {
-         return getToken(pascalParser.SEMI, 0);
+         return getToken(PascalParser.SEMI, 0);
       }
    }
 
@@ -1848,15 +1848,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterProcedureDeclaration(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterProcedureDeclaration(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitProcedureDeclaration(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitProcedureDeclaration(this);
          }
       }
 
@@ -1874,11 +1874,11 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode PROCEDURE() {
-         return getToken(pascalParser.PROCEDURE, 0);
+         return getToken(PascalParser.PROCEDURE, 0);
       }
 
       public TerminalNode SEMI() {
-         return getToken(pascalParser.SEMI, 0);
+         return getToken(PascalParser.SEMI, 0);
       }
    }
 
@@ -1889,15 +1889,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterProcedureOrFunctionDeclaration(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterProcedureOrFunctionDeclaration(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitProcedureOrFunctionDeclaration(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitProcedureOrFunctionDeclaration(this);
          }
       }
 
@@ -1922,15 +1922,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterProcedureStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterProcedureStatement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitProcedureStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitProcedureStatement(this);
          }
       }
 
@@ -1944,7 +1944,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode LPAREN() {
-         return getToken(pascalParser.LPAREN, 0);
+         return getToken(PascalParser.LPAREN, 0);
       }
 
       public ParameterListContext parameterList() {
@@ -1952,7 +1952,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode RPAREN() {
-         return getToken(pascalParser.RPAREN, 0);
+         return getToken(PascalParser.RPAREN, 0);
       }
    }
 
@@ -1963,15 +1963,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterProcedureType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterProcedureType(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitProcedureType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitProcedureType(this);
          }
       }
 
@@ -1985,7 +1985,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode PROCEDURE() {
-         return getToken(pascalParser.PROCEDURE, 0);
+         return getToken(PascalParser.PROCEDURE, 0);
       }
    }
 
@@ -1999,20 +1999,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode DOT() {
-         return getToken(pascalParser.DOT, 0);
+         return getToken(PascalParser.DOT, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterProgram(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterProgram(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitProgram(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitProgram(this);
          }
       }
 
@@ -2022,7 +2022,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode INTERFACE() {
-         return getToken(pascalParser.INTERFACE, 0);
+         return getToken(PascalParser.INTERFACE, 0);
       }
 
       public ProgramHeadingContext programHeading() {
@@ -2037,15 +2037,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterProgramHeading(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterProgramHeading(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitProgramHeading(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitProgramHeading(this);
          }
       }
 
@@ -2063,23 +2063,23 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode LPAREN() {
-         return getToken(pascalParser.LPAREN, 0);
+         return getToken(PascalParser.LPAREN, 0);
       }
 
       public TerminalNode PROGRAM() {
-         return getToken(pascalParser.PROGRAM, 0);
+         return getToken(PascalParser.PROGRAM, 0);
       }
 
       public TerminalNode RPAREN() {
-         return getToken(pascalParser.RPAREN, 0);
+         return getToken(PascalParser.RPAREN, 0);
       }
 
       public TerminalNode SEMI() {
-         return getToken(pascalParser.SEMI, 0);
+         return getToken(PascalParser.SEMI, 0);
       }
 
       public TerminalNode UNIT() {
-         return getToken(pascalParser.UNIT, 0);
+         return getToken(PascalParser.UNIT, 0);
       }
    }
 
@@ -2089,20 +2089,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode COLON() {
-         return getToken(pascalParser.COLON, 0);
+         return getToken(PascalParser.COLON, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterRecordSection(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterRecordSection(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitRecordSection(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitRecordSection(this);
          }
       }
 
@@ -2126,20 +2126,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode END() {
-         return getToken(pascalParser.END, 0);
+         return getToken(PascalParser.END, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterRecordType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterRecordType(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitRecordType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitRecordType(this);
          }
       }
 
@@ -2153,7 +2153,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode RECORD() {
-         return getToken(pascalParser.RECORD, 0);
+         return getToken(PascalParser.RECORD, 0);
       }
    }
 
@@ -2163,24 +2163,24 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> COMMA() {
-         return getTokens(pascalParser.COMMA);
+         return getTokens(PascalParser.COMMA);
       }
 
       public TerminalNode COMMA(int i) {
-         return getToken(pascalParser.COMMA, i);
+         return getToken(PascalParser.COMMA, i);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterRecordVariableList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterRecordVariableList(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitRecordVariableList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitRecordVariableList(this);
          }
       }
 
@@ -2205,15 +2205,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterRepeatStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterRepeatStatement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitRepeatStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitRepeatStatement(this);
          }
       }
 
@@ -2227,7 +2227,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode REPEAT() {
-         return getToken(pascalParser.REPEAT, 0);
+         return getToken(PascalParser.REPEAT, 0);
       }
 
       public StatementsContext statements() {
@@ -2235,7 +2235,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode UNTIL() {
-         return getToken(pascalParser.UNTIL, 0);
+         return getToken(PascalParser.UNTIL, 0);
       }
    }
 
@@ -2246,15 +2246,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterRepetetiveStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterRepetetiveStatement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitRepetetiveStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitRepetetiveStatement(this);
          }
       }
 
@@ -2283,15 +2283,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterResultType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterResultType(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitResultType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitResultType(this);
          }
       }
 
@@ -2312,15 +2312,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterScalarType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterScalarType(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitScalarType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitScalarType(this);
          }
       }
 
@@ -2334,11 +2334,11 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode LPAREN() {
-         return getToken(pascalParser.LPAREN, 0);
+         return getToken(PascalParser.LPAREN, 0);
       }
 
       public TerminalNode RPAREN() {
-         return getToken(pascalParser.RPAREN, 0);
+         return getToken(PascalParser.RPAREN, 0);
       }
    }
 
@@ -2353,15 +2353,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterSet(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterSet(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitSet(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitSet(this);
          }
       }
 
@@ -2371,19 +2371,19 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode LBRACK() {
-         return getToken(pascalParser.LBRACK, 0);
+         return getToken(PascalParser.LBRACK, 0);
       }
 
       public TerminalNode LBRACK2() {
-         return getToken(pascalParser.LBRACK2, 0);
+         return getToken(PascalParser.LBRACK2, 0);
       }
 
       public TerminalNode RBRACK() {
-         return getToken(pascalParser.RBRACK, 0);
+         return getToken(PascalParser.RBRACK, 0);
       }
 
       public TerminalNode RBRACK2() {
-         return getToken(pascalParser.RBRACK2, 0);
+         return getToken(PascalParser.RBRACK2, 0);
       }
    }
 
@@ -2398,15 +2398,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterSetType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterSetType(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitSetType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitSetType(this);
          }
       }
 
@@ -2416,11 +2416,11 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode OF() {
-         return getToken(pascalParser.OF, 0);
+         return getToken(PascalParser.OF, 0);
       }
 
       public TerminalNode SET() {
-         return getToken(pascalParser.SET, 0);
+         return getToken(PascalParser.SET, 0);
       }
    }
 
@@ -2431,15 +2431,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterSign(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterSign(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitSign(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitSign(this);
          }
       }
 
@@ -2449,11 +2449,11 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode MINUS() {
-         return getToken(pascalParser.MINUS, 0);
+         return getToken(PascalParser.MINUS, 0);
       }
 
       public TerminalNode PLUS() {
-         return getToken(pascalParser.PLUS, 0);
+         return getToken(PascalParser.PLUS, 0);
       }
    }
 
@@ -2464,15 +2464,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterSignedFactor(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterSignedFactor(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitSignedFactor(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitSignedFactor(this);
          }
       }
 
@@ -2486,11 +2486,11 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode MINUS() {
-         return getToken(pascalParser.MINUS, 0);
+         return getToken(PascalParser.MINUS, 0);
       }
 
       public TerminalNode PLUS() {
-         return getToken(pascalParser.PLUS, 0);
+         return getToken(PascalParser.PLUS, 0);
       }
    }
 
@@ -2501,15 +2501,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterSimpleExpression(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterSimpleExpression(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitSimpleExpression(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitSimpleExpression(this);
          }
       }
 
@@ -2519,27 +2519,27 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> MINUS() {
-         return getTokens(pascalParser.MINUS);
+         return getTokens(PascalParser.MINUS);
       }
 
       public TerminalNode MINUS(int i) {
-         return getToken(pascalParser.MINUS, i);
+         return getToken(PascalParser.MINUS, i);
       }
 
       public List<TerminalNode> OR() {
-         return getTokens(pascalParser.OR);
+         return getTokens(PascalParser.OR);
       }
 
       public TerminalNode OR(int i) {
-         return getToken(pascalParser.OR, i);
+         return getToken(PascalParser.OR, i);
       }
 
       public List<TerminalNode> PLUS() {
-         return getTokens(pascalParser.PLUS);
+         return getTokens(PascalParser.PLUS);
       }
 
       public TerminalNode PLUS(int i) {
-         return getToken(pascalParser.PLUS, i);
+         return getToken(PascalParser.PLUS, i);
       }
 
       public List<TermContext> term() {
@@ -2566,15 +2566,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterSimpleStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterSimpleStatement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitSimpleStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitSimpleStatement(this);
          }
       }
 
@@ -2599,15 +2599,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterSimpleType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterSimpleType(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitSimpleType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitSimpleType(this);
          }
       }
 
@@ -2639,20 +2639,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode COLON() {
-         return getToken(pascalParser.COLON, 0);
+         return getToken(PascalParser.COLON, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterStatement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitStatement(this);
          }
       }
 
@@ -2677,15 +2677,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterStatements(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterStatements(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitStatements(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitStatements(this);
          }
       }
 
@@ -2695,11 +2695,11 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> SEMI() {
-         return getTokens(pascalParser.SEMI);
+         return getTokens(PascalParser.SEMI);
       }
 
       public TerminalNode SEMI(int i) {
-         return getToken(pascalParser.SEMI, i);
+         return getToken(PascalParser.SEMI, i);
       }
 
       public List<StatementContext> statement() {
@@ -2718,15 +2718,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterString(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterString(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitString(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitString(this);
          }
       }
 
@@ -2736,7 +2736,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode STRING_LITERAL() {
-         return getToken(pascalParser.STRING_LITERAL, 0);
+         return getToken(PascalParser.STRING_LITERAL, 0);
       }
    }
 
@@ -2747,15 +2747,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterStringtype(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterStringtype(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitStringtype(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitStringtype(this);
          }
       }
 
@@ -2769,15 +2769,15 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode LBRACK() {
-         return getToken(pascalParser.LBRACK, 0);
+         return getToken(PascalParser.LBRACK, 0);
       }
 
       public TerminalNode RBRACK() {
-         return getToken(pascalParser.RBRACK, 0);
+         return getToken(PascalParser.RBRACK, 0);
       }
 
       public TerminalNode STRING() {
-         return getToken(pascalParser.STRING, 0);
+         return getToken(PascalParser.STRING, 0);
       }
 
       public UnsignedNumberContext unsignedNumber() {
@@ -2800,15 +2800,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterStructuredStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterStructuredStatement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitStructuredStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitStructuredStatement(this);
          }
       }
 
@@ -2833,15 +2833,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterStructuredType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterStructuredType(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitStructuredType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitStructuredType(this);
          }
       }
 
@@ -2851,7 +2851,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode PACKED() {
-         return getToken(pascalParser.PACKED, 0);
+         return getToken(PascalParser.PACKED, 0);
       }
 
       public UnpackedStructuredTypeContext unpackedStructuredType() {
@@ -2873,20 +2873,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode DOTDOT() {
-         return getToken(pascalParser.DOTDOT, 0);
+         return getToken(PascalParser.DOTDOT, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterSubrangeType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterSubrangeType(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitSubrangeType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitSubrangeType(this);
          }
       }
 
@@ -2902,20 +2902,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode COLON() {
-         return getToken(pascalParser.COLON, 0);
+         return getToken(PascalParser.COLON, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterTag(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterTag(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitTag(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitTag(this);
          }
       }
 
@@ -2939,32 +2939,32 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> AND() {
-         return getTokens(pascalParser.AND);
+         return getTokens(PascalParser.AND);
       }
 
       public TerminalNode AND(int i) {
-         return getToken(pascalParser.AND, i);
+         return getToken(PascalParser.AND, i);
       }
 
       public List<TerminalNode> DIV() {
-         return getTokens(pascalParser.DIV);
+         return getTokens(PascalParser.DIV);
       }
 
       public TerminalNode DIV(int i) {
-         return getToken(pascalParser.DIV, i);
+         return getToken(PascalParser.DIV, i);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterTerm(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterTerm(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitTerm(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitTerm(this);
          }
       }
 
@@ -2974,11 +2974,11 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> MOD() {
-         return getTokens(pascalParser.MOD);
+         return getTokens(PascalParser.MOD);
       }
 
       public TerminalNode MOD(int i) {
-         return getToken(pascalParser.MOD, i);
+         return getToken(PascalParser.MOD, i);
       }
 
       public List<SignedFactorContext> signedFactor() {
@@ -2990,19 +2990,19 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> SLASH() {
-         return getTokens(pascalParser.SLASH);
+         return getTokens(PascalParser.SLASH);
       }
 
       public TerminalNode SLASH(int i) {
-         return getToken(pascalParser.SLASH, i);
+         return getToken(PascalParser.SLASH, i);
       }
 
       public List<TerminalNode> STAR() {
-         return getTokens(pascalParser.STAR);
+         return getTokens(PascalParser.STAR);
       }
 
       public TerminalNode STAR(int i) {
-         return getToken(pascalParser.STAR, i);
+         return getToken(PascalParser.STAR, i);
       }
    }
 
@@ -3013,15 +3013,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterType(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitType(this);
          }
       }
 
@@ -3050,19 +3050,19 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterTypeDefinition(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterTypeDefinition(this);
          }
       }
 
       public TerminalNode EQUAL() {
-         return getToken(pascalParser.EQUAL, 0);
+         return getToken(PascalParser.EQUAL, 0);
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitTypeDefinition(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitTypeDefinition(this);
          }
       }
 
@@ -3095,15 +3095,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterTypeDefinitionPart(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterTypeDefinitionPart(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitTypeDefinitionPart(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitTypeDefinitionPart(this);
          }
       }
 
@@ -3113,15 +3113,15 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> SEMI() {
-         return getTokens(pascalParser.SEMI);
+         return getTokens(PascalParser.SEMI);
       }
 
       public TerminalNode SEMI(int i) {
-         return getToken(pascalParser.SEMI, i);
+         return getToken(PascalParser.SEMI, i);
       }
 
       public TerminalNode TYPE() {
-         return getToken(pascalParser.TYPE, 0);
+         return getToken(PascalParser.TYPE, 0);
       }
 
       public List<TypeDefinitionContext> typeDefinition() {
@@ -3139,24 +3139,24 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode BOOLEAN() {
-         return getToken(pascalParser.BOOLEAN, 0);
+         return getToken(PascalParser.BOOLEAN, 0);
       }
 
       public TerminalNode CHAR() {
-         return getToken(pascalParser.CHAR, 0);
+         return getToken(PascalParser.CHAR, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterTypeIdentifier(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterTypeIdentifier(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitTypeIdentifier(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitTypeIdentifier(this);
          }
       }
 
@@ -3170,15 +3170,15 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode INTEGER() {
-         return getToken(pascalParser.INTEGER, 0);
+         return getToken(PascalParser.INTEGER, 0);
       }
 
       public TerminalNode REAL() {
-         return getToken(pascalParser.REAL, 0);
+         return getToken(PascalParser.REAL, 0);
       }
 
       public TerminalNode STRING() {
-         return getToken(pascalParser.STRING, 0);
+         return getToken(PascalParser.STRING, 0);
       }
    }
 
@@ -3188,24 +3188,24 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> COMMA() {
-         return getTokens(pascalParser.COMMA);
+         return getTokens(PascalParser.COMMA);
       }
 
       public TerminalNode COMMA(int i) {
-         return getToken(pascalParser.COMMA, i);
+         return getToken(PascalParser.COMMA, i);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterTypeList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterTypeList(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitTypeList(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitTypeList(this);
          }
       }
 
@@ -3230,15 +3230,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterUnlabelledStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterUnlabelledStatement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitUnlabelledStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitUnlabelledStatement(this);
          }
       }
 
@@ -3267,15 +3267,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterUnpackedStructuredType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterUnpackedStructuredType(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitUnpackedStructuredType(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitUnpackedStructuredType(this);
          }
       }
 
@@ -3308,15 +3308,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterUnsignedConstant(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterUnsignedConstant(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitUnsignedConstant(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitUnsignedConstant(this);
          }
       }
 
@@ -3326,7 +3326,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode NIL() {
-         return getToken(pascalParser.NIL, 0);
+         return getToken(PascalParser.NIL, 0);
       }
 
       public StringContext string() {
@@ -3345,15 +3345,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterUnsignedInteger(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterUnsignedInteger(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitUnsignedInteger(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitUnsignedInteger(this);
          }
       }
 
@@ -3363,7 +3363,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode NUM_INT() {
-         return getToken(pascalParser.NUM_INT, 0);
+         return getToken(PascalParser.NUM_INT, 0);
       }
    }
 
@@ -3374,15 +3374,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterUnsignedNumber(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterUnsignedNumber(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitUnsignedNumber(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitUnsignedNumber(this);
          }
       }
 
@@ -3407,15 +3407,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterUnsignedReal(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterUnsignedReal(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitUnsignedReal(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitUnsignedReal(this);
          }
       }
 
@@ -3425,7 +3425,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode NUM_INT() {
-         return getToken(pascalParser.NUM_INT, 0);
+         return getToken(PascalParser.NUM_INT, 0);
       }
    }
 
@@ -3436,15 +3436,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterUsesUnitsPart(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterUsesUnitsPart(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitUsesUnitsPart(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitUsesUnitsPart(this);
          }
       }
 
@@ -3458,11 +3458,11 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode SEMI() {
-         return getToken(pascalParser.SEMI, 0);
+         return getToken(PascalParser.SEMI, 0);
       }
 
       public TerminalNode USES() {
-         return getToken(pascalParser.USES, 0);
+         return getToken(PascalParser.USES, 0);
       }
    }
 
@@ -3472,36 +3472,36 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode AT() {
-         return getToken(pascalParser.AT, 0);
+         return getToken(PascalParser.AT, 0);
       }
 
       public List<TerminalNode> COMMA() {
-         return getTokens(pascalParser.COMMA);
+         return getTokens(PascalParser.COMMA);
       }
 
       public TerminalNode COMMA(int i) {
-         return getToken(pascalParser.COMMA, i);
+         return getToken(PascalParser.COMMA, i);
       }
 
       public List<TerminalNode> DOT() {
-         return getTokens(pascalParser.DOT);
+         return getTokens(PascalParser.DOT);
       }
 
       public TerminalNode DOT(int i) {
-         return getToken(pascalParser.DOT, i);
+         return getToken(PascalParser.DOT, i);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterVariable(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterVariable(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitVariable(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitVariable(this);
          }
       }
 
@@ -3527,43 +3527,43 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> LBRACK() {
-         return getTokens(pascalParser.LBRACK);
+         return getTokens(PascalParser.LBRACK);
       }
 
       public TerminalNode LBRACK(int i) {
-         return getToken(pascalParser.LBRACK, i);
+         return getToken(PascalParser.LBRACK, i);
       }
 
       public List<TerminalNode> LBRACK2() {
-         return getTokens(pascalParser.LBRACK2);
+         return getTokens(PascalParser.LBRACK2);
       }
 
       public TerminalNode LBRACK2(int i) {
-         return getToken(pascalParser.LBRACK2, i);
+         return getToken(PascalParser.LBRACK2, i);
       }
 
       public List<TerminalNode> POINTER() {
-         return getTokens(pascalParser.POINTER);
+         return getTokens(PascalParser.POINTER);
       }
 
       public TerminalNode POINTER(int i) {
-         return getToken(pascalParser.POINTER, i);
+         return getToken(PascalParser.POINTER, i);
       }
 
       public List<TerminalNode> RBRACK() {
-         return getTokens(pascalParser.RBRACK);
+         return getTokens(PascalParser.RBRACK);
       }
 
       public TerminalNode RBRACK(int i) {
-         return getToken(pascalParser.RBRACK, i);
+         return getToken(PascalParser.RBRACK, i);
       }
 
       public List<TerminalNode> RBRACK2() {
-         return getTokens(pascalParser.RBRACK2);
+         return getTokens(PascalParser.RBRACK2);
       }
 
       public TerminalNode RBRACK2(int i) {
-         return getToken(pascalParser.RBRACK2, i);
+         return getToken(PascalParser.RBRACK2, i);
       }
    }
 
@@ -3573,20 +3573,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode COLON() {
-         return getToken(pascalParser.COLON, 0);
+         return getToken(PascalParser.COLON, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterVariableDeclaration(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterVariableDeclaration(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitVariableDeclaration(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitVariableDeclaration(this);
          }
       }
 
@@ -3611,15 +3611,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterVariableDeclarationPart(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterVariableDeclarationPart(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitVariableDeclarationPart(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitVariableDeclarationPart(this);
          }
       }
 
@@ -3629,15 +3629,15 @@ public class pascalParser extends Parser {
       }
 
       public List<TerminalNode> SEMI() {
-         return getTokens(pascalParser.SEMI);
+         return getTokens(PascalParser.SEMI);
       }
 
       public TerminalNode SEMI(int i) {
-         return getToken(pascalParser.SEMI, i);
+         return getToken(PascalParser.SEMI, i);
       }
 
       public TerminalNode VAR() {
-         return getToken(pascalParser.VAR, 0);
+         return getToken(PascalParser.VAR, 0);
       }
 
       public List<VariableDeclarationContext> variableDeclaration() {
@@ -3655,7 +3655,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode COLON() {
-         return getToken(pascalParser.COLON, 0);
+         return getToken(PascalParser.COLON, 0);
       }
 
       public ConstListContext constList() {
@@ -3664,15 +3664,15 @@ public class pascalParser extends Parser {
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterVariant(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterVariant(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitVariant(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitVariant(this);
          }
       }
 
@@ -3686,11 +3686,11 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode LPAREN() {
-         return getToken(pascalParser.LPAREN, 0);
+         return getToken(PascalParser.LPAREN, 0);
       }
 
       public TerminalNode RPAREN() {
-         return getToken(pascalParser.RPAREN, 0);
+         return getToken(PascalParser.RPAREN, 0);
       }
    }
 
@@ -3700,20 +3700,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode CASE() {
-         return getToken(pascalParser.CASE, 0);
+         return getToken(PascalParser.CASE, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterVariantPart(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterVariantPart(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitVariantPart(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitVariantPart(this);
          }
       }
 
@@ -3723,15 +3723,15 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode OF() {
-         return getToken(pascalParser.OF, 0);
+         return getToken(PascalParser.OF, 0);
       }
 
       public List<TerminalNode> SEMI() {
-         return getTokens(pascalParser.SEMI);
+         return getTokens(PascalParser.SEMI);
       }
 
       public TerminalNode SEMI(int i) {
-         return getToken(pascalParser.SEMI, i);
+         return getToken(PascalParser.SEMI, i);
       }
 
       public TagContext tag() {
@@ -3753,20 +3753,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode DO() {
-         return getToken(pascalParser.DO, 0);
+         return getToken(PascalParser.DO, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterWhileStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterWhileStatement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitWhileStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitWhileStatement(this);
          }
       }
 
@@ -3784,7 +3784,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode WHILE() {
-         return getToken(pascalParser.WHILE, 0);
+         return getToken(PascalParser.WHILE, 0);
       }
    }
 
@@ -3794,20 +3794,20 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode DO() {
-         return getToken(pascalParser.DO, 0);
+         return getToken(PascalParser.DO, 0);
       }
 
       @Override
       public void enterRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).enterWithStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).enterWithStatement(this);
          }
       }
 
       @Override
       public void exitRule(ParseTreeListener listener) {
-         if (listener instanceof pascalListener) {
-            ((pascalListener) listener).exitWithStatement(this);
+         if (listener instanceof PascalListener) {
+            ((PascalListener) listener).exitWithStatement(this);
          }
       }
 
@@ -3825,7 +3825,7 @@ public class pascalParser extends Parser {
       }
 
       public TerminalNode WITH() {
-         return getToken(pascalParser.WITH, 0);
+         return getToken(PascalParser.WITH, 0);
       }
    }
 
@@ -4036,7 +4036,7 @@ public class pascalParser extends Parser {
       }
    }
 
-   public pascalParser(TokenStream input) {
+   public PascalParser(TokenStream input) {
       super(input);
       _interp = new ParserATNSimulator(this, _ATN, _decisionToDFA, _sharedContextCache);
    }
@@ -5169,7 +5169,7 @@ public class pascalParser extends Parser {
 
    @Override
    public String getGrammarFileName() {
-      return "pascal.g4";
+      return "Pascal.g4";
    }
 
    @Override

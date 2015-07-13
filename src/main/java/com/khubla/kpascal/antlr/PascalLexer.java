@@ -1,4 +1,4 @@
-// Generated from com/khubla/kpascal/antlr/pascal.g4 by ANTLR 4.5
+// Generated from com/khubla/kpascal/antlr/Pascal.g4 by ANTLR 4.5
 package com.khubla.kpascal.antlr;
 
 import org.antlr.v4.runtime.CharStream;
@@ -13,7 +13,7 @@ import org.antlr.v4.runtime.atn.PredictionContextCache;
 import org.antlr.v4.runtime.dfa.DFA;
 
 @SuppressWarnings({ "all", "warnings", "unchecked", "unused", "cast" })
-public class pascalLexer extends Lexer {
+public class PascalLexer extends Lexer {
    static {
       RuntimeMetaData.checkVersion("4.5", RuntimeMetaData.VERSION);
    }
@@ -175,7 +175,7 @@ public class pascalLexer extends Lexer {
       }
    }
 
-   public pascalLexer(CharStream input) {
+   public PascalLexer(CharStream input) {
       super(input);
       _interp = new LexerATNSimulator(this, _ATN, _decisionToDFA, _sharedContextCache);
    }
@@ -187,7 +187,7 @@ public class pascalLexer extends Lexer {
 
    @Override
    public String getGrammarFileName() {
-      return "pascal.g4";
+      return "Pascal.g4";
    }
 
    @Override

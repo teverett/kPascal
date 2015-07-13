@@ -1,4 +1,4 @@
-// Generated from com/khubla/kpascal/antlr/pascal.g4 by ANTLR 4.5
+// Generated from com/khubla/kpascal/antlr/Pascal.g4 by ANTLR 4.5
 package com.khubla.kpascal.antlr;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -6,9 +6,9 @@ import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link pascalListener}, which can be extended to create a listener which only needs to handle a subset of the available methods.
+ * This class provides an empty implementation of {@link PascalListener}, which can be extended to create a listener which only needs to handle a subset of the available methods.
  */
-public class pascalBaseListener implements pascalListener {
+public class PascalBaseListener implements PascalListener {
    /**
     * {@inheritDoc}
     * <p>
@@ -16,7 +16,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterActualParameter(pascalParser.ActualParameterContext ctx) {
+   public void enterActualParameter(PascalParser.ActualParameterContext ctx) {
    }
 
    /**
@@ -26,7 +26,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterArrayType(pascalParser.ArrayTypeContext ctx) {
+   public void enterArrayType(PascalParser.ArrayTypeContext ctx) {
    }
 
    /**
@@ -36,7 +36,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterAssignmentStatement(pascalParser.AssignmentStatementContext ctx) {
+   public void enterAssignmentStatement(PascalParser.AssignmentStatementContext ctx) {
    }
 
    /**
@@ -46,7 +46,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterBaseType(pascalParser.BaseTypeContext ctx) {
+   public void enterBaseType(PascalParser.BaseTypeContext ctx) {
    }
 
    /**
@@ -56,7 +56,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterBlock(pascalParser.BlockContext ctx) {
+   public void enterBlock(PascalParser.BlockContext ctx) {
    }
 
    /**
@@ -66,7 +66,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterCaseListElement(pascalParser.CaseListElementContext ctx) {
+   public void enterCaseListElement(PascalParser.CaseListElementContext ctx) {
    }
 
    /**
@@ -76,7 +76,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterCaseStatement(pascalParser.CaseStatementContext ctx) {
+   public void enterCaseStatement(PascalParser.CaseStatementContext ctx) {
    }
 
    /**
@@ -86,7 +86,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterComponentType(pascalParser.ComponentTypeContext ctx) {
+   public void enterComponentType(PascalParser.ComponentTypeContext ctx) {
    }
 
    /**
@@ -96,7 +96,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterCompoundStatement(pascalParser.CompoundStatementContext ctx) {
+   public void enterCompoundStatement(PascalParser.CompoundStatementContext ctx) {
    }
 
    /**
@@ -106,7 +106,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterConditionalStatement(pascalParser.ConditionalStatementContext ctx) {
+   public void enterConditionalStatement(PascalParser.ConditionalStatementContext ctx) {
    }
 
    /**
@@ -116,7 +116,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterConstant(pascalParser.ConstantContext ctx) {
+   public void enterConstant(PascalParser.ConstantContext ctx) {
    }
 
    /**
@@ -126,7 +126,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterConstantChr(pascalParser.ConstantChrContext ctx) {
+   public void enterConstantChr(PascalParser.ConstantChrContext ctx) {
    }
 
    /**
@@ -136,7 +136,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterConstantDefinition(pascalParser.ConstantDefinitionContext ctx) {
+   public void enterConstantDefinition(PascalParser.ConstantDefinitionContext ctx) {
    }
 
    /**
@@ -146,7 +146,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterConstantDefinitionPart(pascalParser.ConstantDefinitionPartContext ctx) {
+   public void enterConstantDefinitionPart(PascalParser.ConstantDefinitionPartContext ctx) {
    }
 
    /**
@@ -156,7 +156,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterConstList(pascalParser.ConstListContext ctx) {
+   public void enterConstList(PascalParser.ConstListContext ctx) {
    }
 
    /**
@@ -166,7 +166,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterElement(pascalParser.ElementContext ctx) {
+   public void enterElement(PascalParser.ElementContext ctx) {
    }
 
    /**
@@ -176,7 +176,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterElementList(pascalParser.ElementListContext ctx) {
+   public void enterElementList(PascalParser.ElementListContext ctx) {
    }
 
    /**
@@ -186,7 +186,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterEmpty(pascalParser.EmptyContext ctx) {
+   public void enterEmpty(PascalParser.EmptyContext ctx) {
    }
 
    /**
@@ -196,7 +196,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterEmptyStatement(pascalParser.EmptyStatementContext ctx) {
+   public void enterEmptyStatement(PascalParser.EmptyStatementContext ctx) {
    }
 
    /**
@@ -216,7 +216,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterExpression(pascalParser.ExpressionContext ctx) {
+   public void enterExpression(PascalParser.ExpressionContext ctx) {
    }
 
    /**
@@ -226,7 +226,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterFactor(pascalParser.FactorContext ctx) {
+   public void enterFactor(PascalParser.FactorContext ctx) {
    }
 
    /**
@@ -236,7 +236,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterFieldList(pascalParser.FieldListContext ctx) {
+   public void enterFieldList(PascalParser.FieldListContext ctx) {
    }
 
    /**
@@ -246,7 +246,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterFileType(pascalParser.FileTypeContext ctx) {
+   public void enterFileType(PascalParser.FileTypeContext ctx) {
    }
 
    /**
@@ -256,7 +256,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterFinalValue(pascalParser.FinalValueContext ctx) {
+   public void enterFinalValue(PascalParser.FinalValueContext ctx) {
    }
 
    /**
@@ -266,7 +266,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterFixedPart(pascalParser.FixedPartContext ctx) {
+   public void enterFixedPart(PascalParser.FixedPartContext ctx) {
    }
 
    /**
@@ -276,7 +276,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterForList(pascalParser.ForListContext ctx) {
+   public void enterForList(PascalParser.ForListContext ctx) {
    }
 
    /**
@@ -286,7 +286,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterFormalParameterList(pascalParser.FormalParameterListContext ctx) {
+   public void enterFormalParameterList(PascalParser.FormalParameterListContext ctx) {
    }
 
    /**
@@ -296,7 +296,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterFormalParameterSection(pascalParser.FormalParameterSectionContext ctx) {
+   public void enterFormalParameterSection(PascalParser.FormalParameterSectionContext ctx) {
    }
 
    /**
@@ -306,7 +306,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterForStatement(pascalParser.ForStatementContext ctx) {
+   public void enterForStatement(PascalParser.ForStatementContext ctx) {
    }
 
    /**
@@ -316,7 +316,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterFunctionDeclaration(pascalParser.FunctionDeclarationContext ctx) {
+   public void enterFunctionDeclaration(PascalParser.FunctionDeclarationContext ctx) {
    }
 
    /**
@@ -326,7 +326,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterFunctionDesignator(pascalParser.FunctionDesignatorContext ctx) {
+   public void enterFunctionDesignator(PascalParser.FunctionDesignatorContext ctx) {
    }
 
    /**
@@ -336,7 +336,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterFunctionType(pascalParser.FunctionTypeContext ctx) {
+   public void enterFunctionType(PascalParser.FunctionTypeContext ctx) {
    }
 
    /**
@@ -346,7 +346,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterGotoStatement(pascalParser.GotoStatementContext ctx) {
+   public void enterGotoStatement(PascalParser.GotoStatementContext ctx) {
    }
 
    /**
@@ -356,7 +356,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterIdentifier(pascalParser.IdentifierContext ctx) {
+   public void enterIdentifier(PascalParser.IdentifierContext ctx) {
    }
 
    /**
@@ -366,7 +366,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterIdentifierList(pascalParser.IdentifierListContext ctx) {
+   public void enterIdentifierList(PascalParser.IdentifierListContext ctx) {
    }
 
    /**
@@ -376,7 +376,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterIfStatement(pascalParser.IfStatementContext ctx) {
+   public void enterIfStatement(PascalParser.IfStatementContext ctx) {
    }
 
    /**
@@ -386,7 +386,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterIndexType(pascalParser.IndexTypeContext ctx) {
+   public void enterIndexType(PascalParser.IndexTypeContext ctx) {
    }
 
    /**
@@ -396,7 +396,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterInitialValue(pascalParser.InitialValueContext ctx) {
+   public void enterInitialValue(PascalParser.InitialValueContext ctx) {
    }
 
    /**
@@ -406,7 +406,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterLabel(pascalParser.LabelContext ctx) {
+   public void enterLabel(PascalParser.LabelContext ctx) {
    }
 
    /**
@@ -416,7 +416,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterLabelDeclarationPart(pascalParser.LabelDeclarationPartContext ctx) {
+   public void enterLabelDeclarationPart(PascalParser.LabelDeclarationPartContext ctx) {
    }
 
    /**
@@ -426,7 +426,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterParameterGroup(pascalParser.ParameterGroupContext ctx) {
+   public void enterParameterGroup(PascalParser.ParameterGroupContext ctx) {
    }
 
    /**
@@ -436,7 +436,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterParameterList(pascalParser.ParameterListContext ctx) {
+   public void enterParameterList(PascalParser.ParameterListContext ctx) {
    }
 
    /**
@@ -446,7 +446,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterPointerType(pascalParser.PointerTypeContext ctx) {
+   public void enterPointerType(PascalParser.PointerTypeContext ctx) {
    }
 
    /**
@@ -456,7 +456,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterProcedureAndFunctionDeclarationPart(pascalParser.ProcedureAndFunctionDeclarationPartContext ctx) {
+   public void enterProcedureAndFunctionDeclarationPart(PascalParser.ProcedureAndFunctionDeclarationPartContext ctx) {
    }
 
    /**
@@ -466,7 +466,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterProcedureDeclaration(pascalParser.ProcedureDeclarationContext ctx) {
+   public void enterProcedureDeclaration(PascalParser.ProcedureDeclarationContext ctx) {
    }
 
    /**
@@ -476,7 +476,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterProcedureOrFunctionDeclaration(pascalParser.ProcedureOrFunctionDeclarationContext ctx) {
+   public void enterProcedureOrFunctionDeclaration(PascalParser.ProcedureOrFunctionDeclarationContext ctx) {
    }
 
    /**
@@ -486,7 +486,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterProcedureStatement(pascalParser.ProcedureStatementContext ctx) {
+   public void enterProcedureStatement(PascalParser.ProcedureStatementContext ctx) {
    }
 
    /**
@@ -496,7 +496,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterProcedureType(pascalParser.ProcedureTypeContext ctx) {
+   public void enterProcedureType(PascalParser.ProcedureTypeContext ctx) {
    }
 
    /**
@@ -506,7 +506,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterProgram(pascalParser.ProgramContext ctx) {
+   public void enterProgram(PascalParser.ProgramContext ctx) {
    }
 
    /**
@@ -516,7 +516,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterProgramHeading(pascalParser.ProgramHeadingContext ctx) {
+   public void enterProgramHeading(PascalParser.ProgramHeadingContext ctx) {
    }
 
    /**
@@ -526,7 +526,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterRecordSection(pascalParser.RecordSectionContext ctx) {
+   public void enterRecordSection(PascalParser.RecordSectionContext ctx) {
    }
 
    /**
@@ -536,7 +536,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterRecordType(pascalParser.RecordTypeContext ctx) {
+   public void enterRecordType(PascalParser.RecordTypeContext ctx) {
    }
 
    /**
@@ -546,7 +546,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterRecordVariableList(pascalParser.RecordVariableListContext ctx) {
+   public void enterRecordVariableList(PascalParser.RecordVariableListContext ctx) {
    }
 
    /**
@@ -556,7 +556,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterRepeatStatement(pascalParser.RepeatStatementContext ctx) {
+   public void enterRepeatStatement(PascalParser.RepeatStatementContext ctx) {
    }
 
    /**
@@ -566,7 +566,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterRepetetiveStatement(pascalParser.RepetetiveStatementContext ctx) {
+   public void enterRepetetiveStatement(PascalParser.RepetetiveStatementContext ctx) {
    }
 
    /**
@@ -576,7 +576,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterResultType(pascalParser.ResultTypeContext ctx) {
+   public void enterResultType(PascalParser.ResultTypeContext ctx) {
    }
 
    /**
@@ -586,7 +586,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterScalarType(pascalParser.ScalarTypeContext ctx) {
+   public void enterScalarType(PascalParser.ScalarTypeContext ctx) {
    }
 
    /**
@@ -596,7 +596,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterSet(pascalParser.SetContext ctx) {
+   public void enterSet(PascalParser.SetContext ctx) {
    }
 
    /**
@@ -606,7 +606,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterSetType(pascalParser.SetTypeContext ctx) {
+   public void enterSetType(PascalParser.SetTypeContext ctx) {
    }
 
    /**
@@ -616,7 +616,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterSign(pascalParser.SignContext ctx) {
+   public void enterSign(PascalParser.SignContext ctx) {
    }
 
    /**
@@ -626,7 +626,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterSignedFactor(pascalParser.SignedFactorContext ctx) {
+   public void enterSignedFactor(PascalParser.SignedFactorContext ctx) {
    }
 
    /**
@@ -636,7 +636,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterSimpleExpression(pascalParser.SimpleExpressionContext ctx) {
+   public void enterSimpleExpression(PascalParser.SimpleExpressionContext ctx) {
    }
 
    /**
@@ -646,7 +646,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterSimpleStatement(pascalParser.SimpleStatementContext ctx) {
+   public void enterSimpleStatement(PascalParser.SimpleStatementContext ctx) {
    }
 
    /**
@@ -656,7 +656,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterSimpleType(pascalParser.SimpleTypeContext ctx) {
+   public void enterSimpleType(PascalParser.SimpleTypeContext ctx) {
    }
 
    /**
@@ -666,7 +666,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterStatement(pascalParser.StatementContext ctx) {
+   public void enterStatement(PascalParser.StatementContext ctx) {
    }
 
    /**
@@ -676,7 +676,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterStatements(pascalParser.StatementsContext ctx) {
+   public void enterStatements(PascalParser.StatementsContext ctx) {
    }
 
    /**
@@ -686,7 +686,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterString(pascalParser.StringContext ctx) {
+   public void enterString(PascalParser.StringContext ctx) {
    }
 
    /**
@@ -696,7 +696,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterStringtype(pascalParser.StringtypeContext ctx) {
+   public void enterStringtype(PascalParser.StringtypeContext ctx) {
    }
 
    /**
@@ -706,7 +706,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterStructuredStatement(pascalParser.StructuredStatementContext ctx) {
+   public void enterStructuredStatement(PascalParser.StructuredStatementContext ctx) {
    }
 
    /**
@@ -716,7 +716,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterStructuredType(pascalParser.StructuredTypeContext ctx) {
+   public void enterStructuredType(PascalParser.StructuredTypeContext ctx) {
    }
 
    /**
@@ -726,7 +726,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterSubrangeType(pascalParser.SubrangeTypeContext ctx) {
+   public void enterSubrangeType(PascalParser.SubrangeTypeContext ctx) {
    }
 
    /**
@@ -736,7 +736,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterTag(pascalParser.TagContext ctx) {
+   public void enterTag(PascalParser.TagContext ctx) {
    }
 
    /**
@@ -746,7 +746,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterTerm(pascalParser.TermContext ctx) {
+   public void enterTerm(PascalParser.TermContext ctx) {
    }
 
    /**
@@ -756,7 +756,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterType(pascalParser.TypeContext ctx) {
+   public void enterType(PascalParser.TypeContext ctx) {
    }
 
    /**
@@ -766,7 +766,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterTypeDefinition(pascalParser.TypeDefinitionContext ctx) {
+   public void enterTypeDefinition(PascalParser.TypeDefinitionContext ctx) {
    }
 
    /**
@@ -776,7 +776,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterTypeDefinitionPart(pascalParser.TypeDefinitionPartContext ctx) {
+   public void enterTypeDefinitionPart(PascalParser.TypeDefinitionPartContext ctx) {
    }
 
    /**
@@ -786,7 +786,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterTypeIdentifier(pascalParser.TypeIdentifierContext ctx) {
+   public void enterTypeIdentifier(PascalParser.TypeIdentifierContext ctx) {
    }
 
    /**
@@ -796,7 +796,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterTypeList(pascalParser.TypeListContext ctx) {
+   public void enterTypeList(PascalParser.TypeListContext ctx) {
    }
 
    /**
@@ -806,7 +806,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterUnlabelledStatement(pascalParser.UnlabelledStatementContext ctx) {
+   public void enterUnlabelledStatement(PascalParser.UnlabelledStatementContext ctx) {
    }
 
    /**
@@ -816,7 +816,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterUnpackedStructuredType(pascalParser.UnpackedStructuredTypeContext ctx) {
+   public void enterUnpackedStructuredType(PascalParser.UnpackedStructuredTypeContext ctx) {
    }
 
    /**
@@ -826,7 +826,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterUnsignedConstant(pascalParser.UnsignedConstantContext ctx) {
+   public void enterUnsignedConstant(PascalParser.UnsignedConstantContext ctx) {
    }
 
    /**
@@ -836,7 +836,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterUnsignedInteger(pascalParser.UnsignedIntegerContext ctx) {
+   public void enterUnsignedInteger(PascalParser.UnsignedIntegerContext ctx) {
    }
 
    /**
@@ -846,7 +846,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterUnsignedNumber(pascalParser.UnsignedNumberContext ctx) {
+   public void enterUnsignedNumber(PascalParser.UnsignedNumberContext ctx) {
    }
 
    /**
@@ -856,7 +856,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterUnsignedReal(pascalParser.UnsignedRealContext ctx) {
+   public void enterUnsignedReal(PascalParser.UnsignedRealContext ctx) {
    }
 
    /**
@@ -866,7 +866,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterUsesUnitsPart(pascalParser.UsesUnitsPartContext ctx) {
+   public void enterUsesUnitsPart(PascalParser.UsesUnitsPartContext ctx) {
    }
 
    /**
@@ -876,7 +876,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterVariable(pascalParser.VariableContext ctx) {
+   public void enterVariable(PascalParser.VariableContext ctx) {
    }
 
    /**
@@ -886,7 +886,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterVariableDeclaration(pascalParser.VariableDeclarationContext ctx) {
+   public void enterVariableDeclaration(PascalParser.VariableDeclarationContext ctx) {
    }
 
    /**
@@ -896,7 +896,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterVariableDeclarationPart(pascalParser.VariableDeclarationPartContext ctx) {
+   public void enterVariableDeclarationPart(PascalParser.VariableDeclarationPartContext ctx) {
    }
 
    /**
@@ -906,7 +906,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterVariant(pascalParser.VariantContext ctx) {
+   public void enterVariant(PascalParser.VariantContext ctx) {
    }
 
    /**
@@ -916,7 +916,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterVariantPart(pascalParser.VariantPartContext ctx) {
+   public void enterVariantPart(PascalParser.VariantPartContext ctx) {
    }
 
    /**
@@ -926,7 +926,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterWhileStatement(pascalParser.WhileStatementContext ctx) {
+   public void enterWhileStatement(PascalParser.WhileStatementContext ctx) {
    }
 
    /**
@@ -936,7 +936,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void enterWithStatement(pascalParser.WithStatementContext ctx) {
+   public void enterWithStatement(PascalParser.WithStatementContext ctx) {
    }
 
    /**
@@ -946,7 +946,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitActualParameter(pascalParser.ActualParameterContext ctx) {
+   public void exitActualParameter(PascalParser.ActualParameterContext ctx) {
    }
 
    /**
@@ -956,7 +956,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitArrayType(pascalParser.ArrayTypeContext ctx) {
+   public void exitArrayType(PascalParser.ArrayTypeContext ctx) {
    }
 
    /**
@@ -966,7 +966,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitAssignmentStatement(pascalParser.AssignmentStatementContext ctx) {
+   public void exitAssignmentStatement(PascalParser.AssignmentStatementContext ctx) {
    }
 
    /**
@@ -976,7 +976,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitBaseType(pascalParser.BaseTypeContext ctx) {
+   public void exitBaseType(PascalParser.BaseTypeContext ctx) {
    }
 
    /**
@@ -986,7 +986,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitBlock(pascalParser.BlockContext ctx) {
+   public void exitBlock(PascalParser.BlockContext ctx) {
    }
 
    /**
@@ -996,7 +996,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitCaseListElement(pascalParser.CaseListElementContext ctx) {
+   public void exitCaseListElement(PascalParser.CaseListElementContext ctx) {
    }
 
    /**
@@ -1006,7 +1006,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitCaseStatement(pascalParser.CaseStatementContext ctx) {
+   public void exitCaseStatement(PascalParser.CaseStatementContext ctx) {
    }
 
    /**
@@ -1016,7 +1016,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitComponentType(pascalParser.ComponentTypeContext ctx) {
+   public void exitComponentType(PascalParser.ComponentTypeContext ctx) {
    }
 
    /**
@@ -1026,7 +1026,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitCompoundStatement(pascalParser.CompoundStatementContext ctx) {
+   public void exitCompoundStatement(PascalParser.CompoundStatementContext ctx) {
    }
 
    /**
@@ -1036,7 +1036,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitConditionalStatement(pascalParser.ConditionalStatementContext ctx) {
+   public void exitConditionalStatement(PascalParser.ConditionalStatementContext ctx) {
    }
 
    /**
@@ -1046,7 +1046,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitConstant(pascalParser.ConstantContext ctx) {
+   public void exitConstant(PascalParser.ConstantContext ctx) {
    }
 
    /**
@@ -1056,7 +1056,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitConstantChr(pascalParser.ConstantChrContext ctx) {
+   public void exitConstantChr(PascalParser.ConstantChrContext ctx) {
    }
 
    /**
@@ -1066,7 +1066,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitConstantDefinition(pascalParser.ConstantDefinitionContext ctx) {
+   public void exitConstantDefinition(PascalParser.ConstantDefinitionContext ctx) {
    }
 
    /**
@@ -1076,7 +1076,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitConstantDefinitionPart(pascalParser.ConstantDefinitionPartContext ctx) {
+   public void exitConstantDefinitionPart(PascalParser.ConstantDefinitionPartContext ctx) {
    }
 
    /**
@@ -1086,7 +1086,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitConstList(pascalParser.ConstListContext ctx) {
+   public void exitConstList(PascalParser.ConstListContext ctx) {
    }
 
    /**
@@ -1096,7 +1096,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitElement(pascalParser.ElementContext ctx) {
+   public void exitElement(PascalParser.ElementContext ctx) {
    }
 
    /**
@@ -1106,7 +1106,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitElementList(pascalParser.ElementListContext ctx) {
+   public void exitElementList(PascalParser.ElementListContext ctx) {
    }
 
    /**
@@ -1116,7 +1116,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitEmpty(pascalParser.EmptyContext ctx) {
+   public void exitEmpty(PascalParser.EmptyContext ctx) {
    }
 
    /**
@@ -1126,7 +1126,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitEmptyStatement(pascalParser.EmptyStatementContext ctx) {
+   public void exitEmptyStatement(PascalParser.EmptyStatementContext ctx) {
    }
 
    /**
@@ -1146,7 +1146,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitExpression(pascalParser.ExpressionContext ctx) {
+   public void exitExpression(PascalParser.ExpressionContext ctx) {
    }
 
    /**
@@ -1156,7 +1156,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitFactor(pascalParser.FactorContext ctx) {
+   public void exitFactor(PascalParser.FactorContext ctx) {
    }
 
    /**
@@ -1166,7 +1166,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitFieldList(pascalParser.FieldListContext ctx) {
+   public void exitFieldList(PascalParser.FieldListContext ctx) {
    }
 
    /**
@@ -1176,7 +1176,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitFileType(pascalParser.FileTypeContext ctx) {
+   public void exitFileType(PascalParser.FileTypeContext ctx) {
    }
 
    /**
@@ -1186,7 +1186,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitFinalValue(pascalParser.FinalValueContext ctx) {
+   public void exitFinalValue(PascalParser.FinalValueContext ctx) {
    }
 
    /**
@@ -1196,7 +1196,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitFixedPart(pascalParser.FixedPartContext ctx) {
+   public void exitFixedPart(PascalParser.FixedPartContext ctx) {
    }
 
    /**
@@ -1206,7 +1206,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitForList(pascalParser.ForListContext ctx) {
+   public void exitForList(PascalParser.ForListContext ctx) {
    }
 
    /**
@@ -1216,7 +1216,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitFormalParameterList(pascalParser.FormalParameterListContext ctx) {
+   public void exitFormalParameterList(PascalParser.FormalParameterListContext ctx) {
    }
 
    /**
@@ -1226,7 +1226,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitFormalParameterSection(pascalParser.FormalParameterSectionContext ctx) {
+   public void exitFormalParameterSection(PascalParser.FormalParameterSectionContext ctx) {
    }
 
    /**
@@ -1236,7 +1236,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitForStatement(pascalParser.ForStatementContext ctx) {
+   public void exitForStatement(PascalParser.ForStatementContext ctx) {
    }
 
    /**
@@ -1246,7 +1246,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitFunctionDeclaration(pascalParser.FunctionDeclarationContext ctx) {
+   public void exitFunctionDeclaration(PascalParser.FunctionDeclarationContext ctx) {
    }
 
    /**
@@ -1256,7 +1256,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitFunctionDesignator(pascalParser.FunctionDesignatorContext ctx) {
+   public void exitFunctionDesignator(PascalParser.FunctionDesignatorContext ctx) {
    }
 
    /**
@@ -1266,7 +1266,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitFunctionType(pascalParser.FunctionTypeContext ctx) {
+   public void exitFunctionType(PascalParser.FunctionTypeContext ctx) {
    }
 
    /**
@@ -1276,7 +1276,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitGotoStatement(pascalParser.GotoStatementContext ctx) {
+   public void exitGotoStatement(PascalParser.GotoStatementContext ctx) {
    }
 
    /**
@@ -1286,7 +1286,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitIdentifier(pascalParser.IdentifierContext ctx) {
+   public void exitIdentifier(PascalParser.IdentifierContext ctx) {
    }
 
    /**
@@ -1296,7 +1296,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitIdentifierList(pascalParser.IdentifierListContext ctx) {
+   public void exitIdentifierList(PascalParser.IdentifierListContext ctx) {
    }
 
    /**
@@ -1306,7 +1306,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitIfStatement(pascalParser.IfStatementContext ctx) {
+   public void exitIfStatement(PascalParser.IfStatementContext ctx) {
    }
 
    /**
@@ -1316,7 +1316,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitIndexType(pascalParser.IndexTypeContext ctx) {
+   public void exitIndexType(PascalParser.IndexTypeContext ctx) {
    }
 
    /**
@@ -1326,7 +1326,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitInitialValue(pascalParser.InitialValueContext ctx) {
+   public void exitInitialValue(PascalParser.InitialValueContext ctx) {
    }
 
    /**
@@ -1336,7 +1336,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitLabel(pascalParser.LabelContext ctx) {
+   public void exitLabel(PascalParser.LabelContext ctx) {
    }
 
    /**
@@ -1346,7 +1346,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitLabelDeclarationPart(pascalParser.LabelDeclarationPartContext ctx) {
+   public void exitLabelDeclarationPart(PascalParser.LabelDeclarationPartContext ctx) {
    }
 
    /**
@@ -1356,7 +1356,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitParameterGroup(pascalParser.ParameterGroupContext ctx) {
+   public void exitParameterGroup(PascalParser.ParameterGroupContext ctx) {
    }
 
    /**
@@ -1366,7 +1366,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitParameterList(pascalParser.ParameterListContext ctx) {
+   public void exitParameterList(PascalParser.ParameterListContext ctx) {
    }
 
    /**
@@ -1376,7 +1376,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitPointerType(pascalParser.PointerTypeContext ctx) {
+   public void exitPointerType(PascalParser.PointerTypeContext ctx) {
    }
 
    /**
@@ -1386,7 +1386,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitProcedureAndFunctionDeclarationPart(pascalParser.ProcedureAndFunctionDeclarationPartContext ctx) {
+   public void exitProcedureAndFunctionDeclarationPart(PascalParser.ProcedureAndFunctionDeclarationPartContext ctx) {
    }
 
    /**
@@ -1396,7 +1396,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitProcedureDeclaration(pascalParser.ProcedureDeclarationContext ctx) {
+   public void exitProcedureDeclaration(PascalParser.ProcedureDeclarationContext ctx) {
    }
 
    /**
@@ -1406,7 +1406,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitProcedureOrFunctionDeclaration(pascalParser.ProcedureOrFunctionDeclarationContext ctx) {
+   public void exitProcedureOrFunctionDeclaration(PascalParser.ProcedureOrFunctionDeclarationContext ctx) {
    }
 
    /**
@@ -1416,7 +1416,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitProcedureStatement(pascalParser.ProcedureStatementContext ctx) {
+   public void exitProcedureStatement(PascalParser.ProcedureStatementContext ctx) {
    }
 
    /**
@@ -1426,7 +1426,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitProcedureType(pascalParser.ProcedureTypeContext ctx) {
+   public void exitProcedureType(PascalParser.ProcedureTypeContext ctx) {
    }
 
    /**
@@ -1436,7 +1436,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitProgram(pascalParser.ProgramContext ctx) {
+   public void exitProgram(PascalParser.ProgramContext ctx) {
    }
 
    /**
@@ -1446,7 +1446,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitProgramHeading(pascalParser.ProgramHeadingContext ctx) {
+   public void exitProgramHeading(PascalParser.ProgramHeadingContext ctx) {
    }
 
    /**
@@ -1456,7 +1456,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitRecordSection(pascalParser.RecordSectionContext ctx) {
+   public void exitRecordSection(PascalParser.RecordSectionContext ctx) {
    }
 
    /**
@@ -1466,7 +1466,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitRecordType(pascalParser.RecordTypeContext ctx) {
+   public void exitRecordType(PascalParser.RecordTypeContext ctx) {
    }
 
    /**
@@ -1476,7 +1476,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitRecordVariableList(pascalParser.RecordVariableListContext ctx) {
+   public void exitRecordVariableList(PascalParser.RecordVariableListContext ctx) {
    }
 
    /**
@@ -1486,7 +1486,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitRepeatStatement(pascalParser.RepeatStatementContext ctx) {
+   public void exitRepeatStatement(PascalParser.RepeatStatementContext ctx) {
    }
 
    /**
@@ -1496,7 +1496,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitRepetetiveStatement(pascalParser.RepetetiveStatementContext ctx) {
+   public void exitRepetetiveStatement(PascalParser.RepetetiveStatementContext ctx) {
    }
 
    /**
@@ -1506,7 +1506,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitResultType(pascalParser.ResultTypeContext ctx) {
+   public void exitResultType(PascalParser.ResultTypeContext ctx) {
    }
 
    /**
@@ -1516,7 +1516,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitScalarType(pascalParser.ScalarTypeContext ctx) {
+   public void exitScalarType(PascalParser.ScalarTypeContext ctx) {
    }
 
    /**
@@ -1526,7 +1526,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitSet(pascalParser.SetContext ctx) {
+   public void exitSet(PascalParser.SetContext ctx) {
    }
 
    /**
@@ -1536,7 +1536,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitSetType(pascalParser.SetTypeContext ctx) {
+   public void exitSetType(PascalParser.SetTypeContext ctx) {
    }
 
    /**
@@ -1546,7 +1546,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitSign(pascalParser.SignContext ctx) {
+   public void exitSign(PascalParser.SignContext ctx) {
    }
 
    /**
@@ -1556,7 +1556,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitSignedFactor(pascalParser.SignedFactorContext ctx) {
+   public void exitSignedFactor(PascalParser.SignedFactorContext ctx) {
    }
 
    /**
@@ -1566,7 +1566,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitSimpleExpression(pascalParser.SimpleExpressionContext ctx) {
+   public void exitSimpleExpression(PascalParser.SimpleExpressionContext ctx) {
    }
 
    /**
@@ -1576,7 +1576,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitSimpleStatement(pascalParser.SimpleStatementContext ctx) {
+   public void exitSimpleStatement(PascalParser.SimpleStatementContext ctx) {
    }
 
    /**
@@ -1586,7 +1586,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitSimpleType(pascalParser.SimpleTypeContext ctx) {
+   public void exitSimpleType(PascalParser.SimpleTypeContext ctx) {
    }
 
    /**
@@ -1596,7 +1596,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitStatement(pascalParser.StatementContext ctx) {
+   public void exitStatement(PascalParser.StatementContext ctx) {
    }
 
    /**
@@ -1606,7 +1606,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitStatements(pascalParser.StatementsContext ctx) {
+   public void exitStatements(PascalParser.StatementsContext ctx) {
    }
 
    /**
@@ -1616,7 +1616,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitString(pascalParser.StringContext ctx) {
+   public void exitString(PascalParser.StringContext ctx) {
    }
 
    /**
@@ -1626,7 +1626,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitStringtype(pascalParser.StringtypeContext ctx) {
+   public void exitStringtype(PascalParser.StringtypeContext ctx) {
    }
 
    /**
@@ -1636,7 +1636,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitStructuredStatement(pascalParser.StructuredStatementContext ctx) {
+   public void exitStructuredStatement(PascalParser.StructuredStatementContext ctx) {
    }
 
    /**
@@ -1646,7 +1646,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitStructuredType(pascalParser.StructuredTypeContext ctx) {
+   public void exitStructuredType(PascalParser.StructuredTypeContext ctx) {
    }
 
    /**
@@ -1656,7 +1656,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitSubrangeType(pascalParser.SubrangeTypeContext ctx) {
+   public void exitSubrangeType(PascalParser.SubrangeTypeContext ctx) {
    }
 
    /**
@@ -1666,7 +1666,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitTag(pascalParser.TagContext ctx) {
+   public void exitTag(PascalParser.TagContext ctx) {
    }
 
    /**
@@ -1676,7 +1676,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitTerm(pascalParser.TermContext ctx) {
+   public void exitTerm(PascalParser.TermContext ctx) {
    }
 
    /**
@@ -1686,7 +1686,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitType(pascalParser.TypeContext ctx) {
+   public void exitType(PascalParser.TypeContext ctx) {
    }
 
    /**
@@ -1696,7 +1696,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitTypeDefinition(pascalParser.TypeDefinitionContext ctx) {
+   public void exitTypeDefinition(PascalParser.TypeDefinitionContext ctx) {
    }
 
    /**
@@ -1706,7 +1706,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitTypeDefinitionPart(pascalParser.TypeDefinitionPartContext ctx) {
+   public void exitTypeDefinitionPart(PascalParser.TypeDefinitionPartContext ctx) {
    }
 
    /**
@@ -1716,7 +1716,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitTypeIdentifier(pascalParser.TypeIdentifierContext ctx) {
+   public void exitTypeIdentifier(PascalParser.TypeIdentifierContext ctx) {
    }
 
    /**
@@ -1726,7 +1726,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitTypeList(pascalParser.TypeListContext ctx) {
+   public void exitTypeList(PascalParser.TypeListContext ctx) {
    }
 
    /**
@@ -1736,7 +1736,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitUnlabelledStatement(pascalParser.UnlabelledStatementContext ctx) {
+   public void exitUnlabelledStatement(PascalParser.UnlabelledStatementContext ctx) {
    }
 
    /**
@@ -1746,7 +1746,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitUnpackedStructuredType(pascalParser.UnpackedStructuredTypeContext ctx) {
+   public void exitUnpackedStructuredType(PascalParser.UnpackedStructuredTypeContext ctx) {
    }
 
    /**
@@ -1756,7 +1756,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitUnsignedConstant(pascalParser.UnsignedConstantContext ctx) {
+   public void exitUnsignedConstant(PascalParser.UnsignedConstantContext ctx) {
    }
 
    /**
@@ -1766,7 +1766,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitUnsignedInteger(pascalParser.UnsignedIntegerContext ctx) {
+   public void exitUnsignedInteger(PascalParser.UnsignedIntegerContext ctx) {
    }
 
    /**
@@ -1776,7 +1776,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitUnsignedNumber(pascalParser.UnsignedNumberContext ctx) {
+   public void exitUnsignedNumber(PascalParser.UnsignedNumberContext ctx) {
    }
 
    /**
@@ -1786,7 +1786,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitUnsignedReal(pascalParser.UnsignedRealContext ctx) {
+   public void exitUnsignedReal(PascalParser.UnsignedRealContext ctx) {
    }
 
    /**
@@ -1796,7 +1796,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitUsesUnitsPart(pascalParser.UsesUnitsPartContext ctx) {
+   public void exitUsesUnitsPart(PascalParser.UsesUnitsPartContext ctx) {
    }
 
    /**
@@ -1806,7 +1806,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitVariable(pascalParser.VariableContext ctx) {
+   public void exitVariable(PascalParser.VariableContext ctx) {
    }
 
    /**
@@ -1816,7 +1816,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitVariableDeclaration(pascalParser.VariableDeclarationContext ctx) {
+   public void exitVariableDeclaration(PascalParser.VariableDeclarationContext ctx) {
    }
 
    /**
@@ -1826,7 +1826,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitVariableDeclarationPart(pascalParser.VariableDeclarationPartContext ctx) {
+   public void exitVariableDeclarationPart(PascalParser.VariableDeclarationPartContext ctx) {
    }
 
    /**
@@ -1836,7 +1836,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitVariant(pascalParser.VariantContext ctx) {
+   public void exitVariant(PascalParser.VariantContext ctx) {
    }
 
    /**
@@ -1846,7 +1846,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitVariantPart(pascalParser.VariantPartContext ctx) {
+   public void exitVariantPart(PascalParser.VariantPartContext ctx) {
    }
 
    /**
@@ -1856,7 +1856,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitWhileStatement(pascalParser.WhileStatementContext ctx) {
+   public void exitWhileStatement(PascalParser.WhileStatementContext ctx) {
    }
 
    /**
@@ -1866,7 +1866,7 @@ public class pascalBaseListener implements pascalListener {
     * </p>
     */
    @Override
-   public void exitWithStatement(pascalParser.WithStatementContext ctx) {
+   public void exitWithStatement(PascalParser.WithStatementContext ctx) {
    }
 
    /**
