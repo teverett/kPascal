@@ -1,4 +1,4 @@
-package com.khubla.kpascal.interpreter;
+package com.khubla.kpascal.interpreter.variable;
 
 /*
 * kPascal Copyright 2012, khubla.com
@@ -16,6 +16,16 @@ package com.khubla.kpascal.interpreter;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public interface Variable {
-   public String getName();
+import com.khubla.kpascal.interpreter.Variable;
+
+public abstract class BaseVariable implements Variable {
+   private final String name;
+
+   BaseVariable(String name) {
+      this.name = name;
+   }
+
+   public String getName() {
+      return name;
+   }
 }
