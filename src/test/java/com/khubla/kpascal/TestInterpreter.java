@@ -2,6 +2,7 @@ package com.khubla.kpascal;
 
 import java.io.InputStream;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /*
@@ -23,8 +24,13 @@ import org.testng.annotations.Test;
 public class TestInterpreter {
    @Test(enabled = true)
    public void testHelloWorld() {
-      InputStream is = TestInterpreter.class.getResourceAsStream("/helloworld.pas");
-      PascalInterpreter pascalInterpreter = new PascalInterpreter(is, System.in, System.out);
-      pascalInterpreter.run();
+      try {
+         InputStream is = TestInterpreter.class.getResourceAsStream("/helloworld.pas");
+         PascalInterpreter pascalInterpreter = new PascalInterpreter(is, System.in, System.out);
+         pascalInterpreter.run();
+      } catch (Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
    }
 }
