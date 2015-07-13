@@ -20,18 +20,30 @@ import com.khubla.kpascal.interpreter.VariableType;
 */
 public class ArrayType implements VariableType {
    private final VariableType containedType;
+   private final int lowerIndex;
+   private final int upperIndex;
 
-   public ArrayType(VariableType containedType) {
+   public ArrayType(VariableType containedType, int lowerIndex, int upperIndex) {
       this.containedType = containedType;
+      this.lowerIndex = lowerIndex;
+      this.upperIndex = upperIndex;
    }
 
    public VariableType getContainedType() {
       return containedType;
    }
 
+   public int getLowerIndex() {
+      return lowerIndex;
+   }
+
    @Override
    public String getName() {
       return "Array";
+   }
+
+   public int getUpperIndex() {
+      return upperIndex;
    }
 
    @Override
