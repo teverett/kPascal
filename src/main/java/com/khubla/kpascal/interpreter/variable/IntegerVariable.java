@@ -19,8 +19,9 @@ package com.khubla.kpascal.interpreter.variable;
 public class IntegerVariable extends BaseVariable {
    Integer value;
 
-   IntegerVariable(String name) {
-      super(name);
+   IntegerVariable(String name, Integer value, VarType varType) {
+      super(name, varType);
+      this.value = value;
    }
 
    public Integer getValue() {

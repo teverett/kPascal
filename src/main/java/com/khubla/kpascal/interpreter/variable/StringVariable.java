@@ -19,8 +19,9 @@ package com.khubla.kpascal.interpreter.variable;
 public class StringVariable extends BaseVariable {
    String value;
 
-   StringVariable(String name) {
-      super(name);
+   StringVariable(String name, String value, VarType varType) {
+      super(name, varType);
+      this.value = value;
    }
 
    public String getValue() {

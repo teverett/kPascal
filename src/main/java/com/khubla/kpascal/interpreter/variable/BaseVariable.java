@@ -20,13 +20,20 @@ import com.khubla.kpascal.interpreter.Variable;
 
 public abstract class BaseVariable implements Variable {
    private final String name;
+   private final VarType varType;
 
-   BaseVariable(String name) {
+   BaseVariable(String name, VarType varType) {
       this.name = name;
+      this.varType = varType;
    }
 
    @Override
    public String getName() {
       return name;
+   }
+
+   @Override
+   public VarType getVarType() {
+      return varType;
    }
 }

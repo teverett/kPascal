@@ -17,5 +17,11 @@ package com.khubla.kpascal.interpreter;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public interface Variable {
+   public enum VarType {
+      constant, variable
+   }
+
    public String getName();
+
+   public VarType getVarType();
 }

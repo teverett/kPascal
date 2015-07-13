@@ -19,8 +19,9 @@ package com.khubla.kpascal.interpreter.variable;
 public class RealVariable extends BaseVariable {
    Float value;
 
-   RealVariable(String name) {
-      super(name);
+   RealVariable(String name, Float value, VarType varType) {
+      super(name, varType);
+      this.value = value;
    }
 
    public Float getValue() {

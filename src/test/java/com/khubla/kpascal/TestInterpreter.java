@@ -26,8 +26,12 @@ import com.khubla.kpascal.interpreter.PascalInterpreter;
 public class TestInterpreter {
    @Test(enabled = true)
    public void testHelloWorld() {
+      doTest("/add.pas");
+   }
+
+   private void doTest(String name) {
       try {
-         InputStream is = TestInterpreter.class.getResourceAsStream("/helloworld.pas");
+         InputStream is = TestInterpreter.class.getResourceAsStream(name);
          PascalInterpreter pascalInterpreter = new PascalInterpreter(is, System.in, System.out);
          pascalInterpreter.run();
       } catch (Exception e) {
