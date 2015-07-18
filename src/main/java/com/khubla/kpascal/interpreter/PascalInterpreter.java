@@ -23,12 +23,14 @@ import java.io.Reader;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.ParserRuleContext;
 
+import com.khubla.kpascal.antlr.PascalBaseVisitor;
 import com.khubla.kpascal.antlr.PascalLexer;
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.antlr.PascalParser.ProgramContext;
 
-public class PascalInterpreter {
+public class PascalInterpreter extends PascalBaseVisitor<ProgramContext> {
    /**
     * context
     */
@@ -36,7 +38,6 @@ public class PascalInterpreter {
    private final InputStream pascalInputStream;
    private final InputStream stdIn;
    private final OutputStream stdOut;
-   private final PascalParseListener pascalParseListener;
 
    /**
     * ctor
@@ -45,7 +46,6 @@ public class PascalInterpreter {
       this.pascalInputStream = pascalInputStream;
       this.stdIn = stdIn;
       this.stdOut = stdOut;
-      pascalParseListener = new PascalParseListener(context);
    }
 
    public Context getContext() {
@@ -74,8 +74,6 @@ public class PascalInterpreter {
             final PascalLexer lexer = new PascalLexer(new ANTLRInputStream(reader));
             final CommonTokenStream tokens = new CommonTokenStream(lexer);
             final PascalParser parser = new PascalParser(tokens);
-            parser.setBuildParseTree(true);
-            parser.addParseListener(pascalParseListener);
             return parser.program();
          } else {
             throw new IllegalArgumentException();
@@ -87,9 +85,27 @@ public class PascalInterpreter {
 
    public void run() throws Exception {
       try {
-         parse(pascalInputStream);
+         final ProgramContext programContext = parse(pascalInputStream);
+         programContext.accept(this);
       } catch (final Exception e) {
          throw new Exception("Exception in run", e);
       }
+   }
+
+   @Override
+   public ProgramContext visitConstantDefinition(PascalParser.ConstantDefinitionContext ctx) {
+      final String name = ctx.getChild(0).getText();
+      final String value = ctx.getChild(2).getText();
+      final ParserRuleContext parserRuleContext = (ParserRuleContext) ctx.getChild(2).getChild(0).getChild(0);
+      Variable v = null;
+      if (parserRuleContext instanceof PascalParser.UnsignedRealContext) {
+         v = new VariableImpl(name, context.getVariableTypes().getVariableType("Real"), Variable.VariableDeclarationType.constant, value);
+      } else if (parserRuleContext instanceof PascalParser.UnsignedIntegerContext) {
+         v = new VariableImpl(name, context.getVariableTypes().getVariableType("Integer"), Variable.VariableDeclarationType.constant, value);
+      } else if (parserRuleContext instanceof PascalParser.StringContext) {
+         v = new VariableImpl(name, context.getVariableTypes().getVariableType("String"), Variable.VariableDeclarationType.constant, value);
+      }
+      context.getVariables().put(name, v);
+      return visitChildren(ctx);
    }
 }
