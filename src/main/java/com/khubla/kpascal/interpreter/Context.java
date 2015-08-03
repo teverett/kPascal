@@ -28,10 +28,6 @@ public class Context {
     * stack
     */
    final Stack<Variable> stack = new Stack<Variable>();
-   /**
-    * types
-    */
-   final VariableTypes variableTypes = new VariableTypes();
 
    public Stack<Variable> getStack() {
       return stack;
@@ -39,9 +35,5 @@ public class Context {
 
    public Hashtable<String, Variable> getVariables() {
       return variables;
-   }
-
-   public VariableTypes getVariableTypes() {
-      return variableTypes;
    }
 }

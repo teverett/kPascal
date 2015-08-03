@@ -20,6 +20,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Reader;
+import java.util.Hashtable;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -38,6 +39,7 @@ public class PascalInterpreter extends PascalBaseVisitor<ProgramContext> {
    private final InputStream pascalInputStream;
    private final InputStream stdIn;
    private final OutputStream stdOut;
+   private final Hashtable<String, PascalParser.ProcedureDeclarationContext> procedures = new Hashtable<String, PascalParser.ProcedureDeclarationContext>();
 
    /**
     * ctor
@@ -98,14 +100,48 @@ public class PascalInterpreter extends PascalBaseVisitor<ProgramContext> {
       final String value = ctx.getChild(2).getText();
       final ParserRuleContext parserRuleContext = (ParserRuleContext) ctx.getChild(2).getChild(0).getChild(0);
       Variable v = null;
+      Variable.VariableType variableType = null;
       if (parserRuleContext instanceof PascalParser.UnsignedRealContext) {
-         v = new VariableImpl(name, context.getVariableTypes().getVariableType("Real"), Variable.VariableDeclarationType.constant, value);
+         variableType = Variable.VariableType.real;
       } else if (parserRuleContext instanceof PascalParser.UnsignedIntegerContext) {
-         v = new VariableImpl(name, context.getVariableTypes().getVariableType("Integer"), Variable.VariableDeclarationType.constant, value);
+         variableType = Variable.VariableType.integer;
       } else if (parserRuleContext instanceof PascalParser.StringContext) {
-         v = new VariableImpl(name, context.getVariableTypes().getVariableType("String"), Variable.VariableDeclarationType.constant, value);
+         variableType = Variable.VariableType.string;
       }
+      v = new Variable(name, variableType, Variable.VariableDeclarationType.constant, 0, value);
       context.getVariables().put(name, v);
+      return visitChildren(ctx);
+   }
+
+   @Override
+   public ProgramContext visitTypeDefinition(PascalParser.TypeDefinitionContext ctx) {
+      final String name = ctx.getChild(0).getText();
+      return visitChildren(ctx);
+   }
+
+   @Override
+   public ProgramContext visitVariableDeclaration(PascalParser.VariableDeclarationContext ctx) {
+      final String name = ctx.getChild(0).getText();
+      final String typename = ctx.getChild(2).getText();
+      return visitChildren(ctx);
+   }
+
+   @Override
+   public ProgramContext visitProcedureDeclaration(PascalParser.ProcedureDeclarationContext ctx) {
+      final String name = ctx.getChild(1).getText();
+      procedures.put(name, ctx);
+      return visitChildren(ctx);
+   }
+
+   @Override
+   public ProgramContext visitBlock(PascalParser.BlockContext ctx) {
+      // code starts here
+      return visitChildren(ctx);
+   }
+
+   @Override
+   public ProgramContext visitProcedureStatement(PascalParser.ProcedureStatementContext ctx) {
+      final String name = ctx.getChild(0).getText();
       return visitChildren(ctx);
    }
 }

@@ -1,4 +1,5 @@
 package com.khubla.kpascal.interpreter;
+
 /*
 * kPascal Copyright 2012, khubla.com
 *
@@ -15,9 +16,14 @@ package com.khubla.kpascal.interpreter;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+public class VariableType {
+   private final String name;
 
-public interface VariableType {
-   public String getName();
+   public VariableType(String name) {
+      this.name = name;
+   }
 
-   public boolean isAtomicType();
+   public String getName() {
+      return name;
+   }
 }

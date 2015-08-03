@@ -8,9 +8,10 @@
 	<name>khubla.com Pascal Interpreter</name>
 	<properties>
 		<commons-cli.version>1.3.1</commons-cli.version>
-		<antlr.version>4.5</antlr.version>
+		<antlr.version>4.5.1</antlr.version>
 		<testng.version>6.9.4</testng.version>
 		<logback.version>1.1.3</logback.version>
+		<target.jvm>1.6</target.jvm>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -42,6 +43,15 @@
 	</dependencies>
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<source>${target.jvm}</source>
+					<target>${target.jvm}</target>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.antlr</groupId>
 				<artifactId>antlr4-maven-plugin</artifactId>
