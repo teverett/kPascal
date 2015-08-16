@@ -1,7 +1,7 @@
 package com.khubla.kpascal.interpreter;
 
 /*
-* kPascal Copyright 2012, khubla.com
+* kPascal Copyright 2015, khubla.com
 *
 *   This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -30,6 +30,10 @@ import com.khubla.kpascal.antlr.PascalBaseVisitor;
 import com.khubla.kpascal.antlr.PascalLexer;
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.antlr.PascalParser.ProgramContext;
+import com.khubla.kpascal.type.IntegerType;
+import com.khubla.kpascal.type.RealType;
+import com.khubla.kpascal.type.StringType;
+import com.khubla.kpascal.type.Type;
 
 public class PascalInterpreter extends PascalBaseVisitor<ProgramContext> {
    /**
@@ -95,34 +99,27 @@ public class PascalInterpreter extends PascalBaseVisitor<ProgramContext> {
    }
 
    @Override
+   public ProgramContext visitBlock(PascalParser.BlockContext ctx) {
+      // code starts here
+      return visitChildren(ctx);
+   }
+
+   @Override
    public ProgramContext visitConstantDefinition(PascalParser.ConstantDefinitionContext ctx) {
       final String name = ctx.getChild(0).getText();
       final String value = ctx.getChild(2).getText();
       final ParserRuleContext parserRuleContext = (ParserRuleContext) ctx.getChild(2).getChild(0).getChild(0);
-      Variable v = null;
-      Variable.VariableType variableType = null;
+      VariableInstance v = null;
+      Type type = null;
       if (parserRuleContext instanceof PascalParser.UnsignedRealContext) {
-         variableType = Variable.VariableType.real;
+         type = new RealType();
       } else if (parserRuleContext instanceof PascalParser.UnsignedIntegerContext) {
-         variableType = Variable.VariableType.integer;
+         type = new IntegerType();
       } else if (parserRuleContext instanceof PascalParser.StringContext) {
-         variableType = Variable.VariableType.string;
+         type = new StringType();
       }
-      v = new Variable(name, variableType, Variable.VariableDeclarationType.constant, 0, value);
+      v = new VariableInstance(name, type, VariableInstance.VariableDeclarationType.constant, 0, value);
       context.getVariables().put(name, v);
-      return visitChildren(ctx);
-   }
-
-   @Override
-   public ProgramContext visitTypeDefinition(PascalParser.TypeDefinitionContext ctx) {
-      final String name = ctx.getChild(0).getText();
-      return visitChildren(ctx);
-   }
-
-   @Override
-   public ProgramContext visitVariableDeclaration(PascalParser.VariableDeclarationContext ctx) {
-      final String name = ctx.getChild(0).getText();
-      final String typename = ctx.getChild(2).getText();
       return visitChildren(ctx);
    }
 
@@ -134,14 +131,21 @@ public class PascalInterpreter extends PascalBaseVisitor<ProgramContext> {
    }
 
    @Override
-   public ProgramContext visitBlock(PascalParser.BlockContext ctx) {
-      // code starts here
+   public ProgramContext visitProcedureStatement(PascalParser.ProcedureStatementContext ctx) {
+      ctx.getChild(0).getText();
       return visitChildren(ctx);
    }
 
    @Override
-   public ProgramContext visitProcedureStatement(PascalParser.ProcedureStatementContext ctx) {
-      final String name = ctx.getChild(0).getText();
+   public ProgramContext visitTypeDefinition(PascalParser.TypeDefinitionContext ctx) {
+      ctx.getChild(0).getText();
+      return visitChildren(ctx);
+   }
+
+   @Override
+   public ProgramContext visitVariableDeclaration(PascalParser.VariableDeclarationContext ctx) {
+      ctx.getChild(0).getText();
+      ctx.getChild(2).getText();
       return visitChildren(ctx);
    }
 }

@@ -4,7 +4,7 @@ import java.util.Hashtable;
 import java.util.Stack;
 
 /*
-* kPascal Copyright 2012, khubla.com
+* kPascal Copyright 2015, khubla.com
 *
 *   This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -23,17 +23,17 @@ public class Context {
    /**
     * variables
     */
-   private final Hashtable<String, Variable> variables = new Hashtable<String, Variable>();
+   private final Hashtable<String, VariableInstance> variables = new Hashtable<String, VariableInstance>();
    /**
     * stack
     */
-   final Stack<Variable> stack = new Stack<Variable>();
+   final Stack<VariableInstance> stack = new Stack<VariableInstance>();
 
-   public Stack<Variable> getStack() {
+   public Stack<VariableInstance> getStack() {
       return stack;
    }
 
-   public Hashtable<String, Variable> getVariables() {
+   public Hashtable<String, VariableInstance> getVariables() {
       return variables;
    }
 }

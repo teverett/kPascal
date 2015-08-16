@@ -1,7 +1,7 @@
-package com.khubla.kpascal.interpreter;
+package com.khubla.kpascal.type;
 
 /*
-* kPascal Copyright 2012, khubla.com
+* kPascal Copyright 2015, khubla.com
 *
 *   This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -16,14 +16,5 @@ package com.khubla.kpascal.interpreter;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class VariableType {
-   private final String name;
-
-   public VariableType(String name) {
-      this.name = name;
-   }
-
-   public String getName() {
-      return name;
-   }
+public class RecordType implements Type {
 }

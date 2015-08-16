@@ -1,4 +1,4 @@
-package com.khubla.kpascal;
+package com.khubla.kpascal.type;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -16,27 +16,5 @@ package com.khubla.kpascal;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-import java.io.InputStream;
-
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
-import com.khubla.kpascal.interpreter.PascalInterpreter;
-
-public class TestInterpreter {
-   @Test(enabled = true)
-   public void testHelloWorld() {
-      doTest("/add.pas");
-   }
-
-   private void doTest(String name) {
-      try {
-         InputStream is = TestInterpreter.class.getResourceAsStream(name);
-         PascalInterpreter pascalInterpreter = new PascalInterpreter(is, System.in, System.out);
-         pascalInterpreter.run();
-      } catch (Exception e) {
-         e.printStackTrace();
-         Assert.fail();
-      }
-   }
+public class BooleanType implements Type {
 }

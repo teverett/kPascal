@@ -1,7 +1,9 @@
 package com.khubla.kpascal.interpreter;
 
+import com.khubla.kpascal.type.Type;
+
 /*
-* kPascal Copyright 2012, khubla.com
+* kPascal Copyright 2015, khubla.com
 *
 *   This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -16,28 +18,20 @@ package com.khubla.kpascal.interpreter;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class Variable {
+public class VariableInstance {
    public enum VariableDeclarationType {
       constant, variable;
    }
 
-   public enum VariableType {
-      string, integer, real, struct;
-   }
-
    private final String name;
    private final VariableDeclarationType variableDeclarationType;
-   private final VariableType variableType;
+   private final Type type;
    private final String value;
    private final int ordinality;
 
-   public int getOrdinality() {
-      return ordinality;
-   }
-
-   public Variable(String name, VariableType variableType, VariableDeclarationType variableDeclarationType, int ordinality, String value) {
+   public VariableInstance(String name, Type type, VariableDeclarationType variableDeclarationType, int ordinality, String value) {
       this.name = name;
-      this.variableType = variableType;
+      this.type = type;
       this.variableDeclarationType = variableDeclarationType;
       this.value = value;
       this.ordinality = ordinality;
@@ -45,6 +39,10 @@ public class Variable {
 
    public String getName() {
       return name;
+   }
+
+   public int getOrdinality() {
+      return ordinality;
    }
 
    public String getValue() {
@@ -55,7 +53,7 @@ public class Variable {
       return variableDeclarationType;
    }
 
-   public VariableType getVariableType() {
-      return variableType;
+   public Type getType() {
+      return type;
    }
 }
