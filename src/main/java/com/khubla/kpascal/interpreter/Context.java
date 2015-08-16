@@ -38,7 +38,7 @@ public class Context {
    }
 
    public void reportVariables() {
-      for (String key : variables.keySet()) {
+      for (final String key : variables.keySet()) {
          System.out.println("\t" + key + " " + variables.get(key).getType().getClass().getName());
       }
    }
