@@ -118,7 +118,7 @@ public class PascalInterpreter extends PascalBaseVisitor<ProgramContext> {
       } else if (parserRuleContext instanceof PascalParser.StringContext) {
          type = new StringType();
       }
-      v = new VariableInstance(name, type, VariableInstance.VariableDeclarationType.constant, 0, value);
+      v = new VariableInstance(name, type, VariableInstance.VariableDeclarationType.constant, value);
       context.getVariables().put(name, v);
       return visitChildren(ctx);
    }
@@ -144,8 +144,15 @@ public class PascalInterpreter extends PascalBaseVisitor<ProgramContext> {
 
    @Override
    public ProgramContext visitVariableDeclaration(PascalParser.VariableDeclarationContext ctx) {
-      ctx.getChild(0).getText();
-      ctx.getChild(2).getText();
+      final String instanceName = ctx.getChild(0).getText();
+      final String typeName = ctx.getChild(2).getText();
+      final Type type = context.getTypes().find(typeName);
+      if (null != type) {
+         final VariableInstance v = new VariableInstance(instanceName, type, VariableInstance.VariableDeclarationType.variable, null);
+         context.getVariables().put(instanceName, v);
+      } else {
+         System.out.println("Unknown type '" + typeName + "'");
+      }
       return visitChildren(ctx);
    }
 }

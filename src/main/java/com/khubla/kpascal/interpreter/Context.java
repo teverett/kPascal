@@ -19,18 +19,28 @@ package com.khubla.kpascal.interpreter;
 import java.util.Hashtable;
 import java.util.Stack;
 
+import com.khubla.kpascal.type.Types;
+
 public class Context {
    /**
     * variables
     */
    private final Hashtable<String, VariableInstance> variables = new Hashtable<String, VariableInstance>();
    /**
+    * types
+    */
+   private final Types types = new Types();
+   /**
     * stack
     */
-   final Stack<VariableInstance> stack = new Stack<VariableInstance>();
+   private final Stack<VariableInstance> stack = new Stack<VariableInstance>();
 
    public Stack<VariableInstance> getStack() {
       return stack;
+   }
+
+   public Types getTypes() {
+      return types;
    }
 
    public Hashtable<String, VariableInstance> getVariables() {

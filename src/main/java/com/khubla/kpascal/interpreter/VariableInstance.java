@@ -27,22 +27,16 @@ public class VariableInstance {
    private final VariableDeclarationType variableDeclarationType;
    private final Type type;
    private final String value;
-   private final int ordinality;
 
-   public VariableInstance(String name, Type type, VariableDeclarationType variableDeclarationType, int ordinality, String value) {
+   public VariableInstance(String name, Type type, VariableDeclarationType variableDeclarationType, String value) {
       this.name = name;
       this.type = type;
       this.variableDeclarationType = variableDeclarationType;
       this.value = value;
-      this.ordinality = ordinality;
    }
 
    public String getName() {
       return name;
-   }
-
-   public int getOrdinality() {
-      return ordinality;
    }
 
    public Type getType() {
