@@ -1,7 +1,5 @@
 package com.khubla.kpascal;
 
-import java.io.File;
-import java.io.FileInputStream;
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -18,6 +16,8 @@ import java.io.FileInputStream;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.List;
 
@@ -26,7 +26,9 @@ import org.testng.annotations.Test;
 
 import com.khubla.kpascal.interpreter.PascalInterpreter;
 
-public class TestInterpreter {
+public class TestParser {
+   public static final String TEST_RESOURCES = "src/test/resources/";
+
    private void doTest(String name) {
       try {
          System.out.println("Parsing: " + name);
@@ -42,7 +44,7 @@ public class TestInterpreter {
    @Test(enabled = true)
    public void testExampleModels() {
       try {
-         final List<File> files = FileUtil.getAllFiles("src/test/resources/");
+         final List<File> files = FileUtil.getAllFiles(TEST_RESOURCES);
          if (null != files) {
             for (final File file : files) {
                doTest(file.getAbsolutePath());

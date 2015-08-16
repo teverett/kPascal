@@ -1,8 +1,5 @@
 package com.khubla.kpascal.interpreter;
 
-import java.util.Hashtable;
-import java.util.Stack;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -19,6 +16,9 @@ import java.util.Stack;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import java.util.Hashtable;
+import java.util.Stack;
+
 public class Context {
    /**
     * variables

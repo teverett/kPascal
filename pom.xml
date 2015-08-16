@@ -64,4 +64,8 @@
 			</plugin>
 		</plugins>
 	</build>
+	<organization>
+		<name>khubla.com</name>
+		<url>www.khubla.com</url>
+	</organization>
 </project>
