@@ -36,4 +36,10 @@ public class Context {
    public Hashtable<String, VariableInstance> getVariables() {
       return variables;
    }
+
+   public void reportVariables() {
+      for (String key : variables.keySet()) {
+         System.out.println("\t" + key + " " + variables.get(key).getType().getClass().getName());
+      }
+   }
 }
