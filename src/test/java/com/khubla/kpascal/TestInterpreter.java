@@ -1,5 +1,7 @@
 package com.khubla.kpascal;
 
+import java.io.File;
+import java.io.FileInputStream;
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -17,6 +19,7 @@ package com.khubla.kpascal;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 import java.io.InputStream;
+import java.util.List;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -24,17 +27,28 @@ import org.testng.annotations.Test;
 import com.khubla.kpascal.interpreter.PascalInterpreter;
 
 public class TestInterpreter {
-   @Test(enabled = true)
-   public void testHelloWorld() {
-      doTest("/add.pas");
-   }
-
    private void doTest(String name) {
       try {
-         InputStream is = TestInterpreter.class.getResourceAsStream(name);
-         PascalInterpreter pascalInterpreter = new PascalInterpreter(is, System.in, System.out);
+         System.out.println("Parsing: " + name);
+         final InputStream is = new FileInputStream(name);
+         final PascalInterpreter pascalInterpreter = new PascalInterpreter(is, System.in, System.out);
          pascalInterpreter.run();
-      } catch (Exception e) {
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
+
+   @Test(enabled = true)
+   public void testExampleModels() {
+      try {
+         final List<File> files = FileUtil.getAllFiles("src/test/resources/");
+         if (null != files) {
+            for (final File file : files) {
+               doTest(file.getAbsolutePath());
+            }
+         }
+      } catch (final Exception e) {
          e.printStackTrace();
          Assert.fail();
       }
