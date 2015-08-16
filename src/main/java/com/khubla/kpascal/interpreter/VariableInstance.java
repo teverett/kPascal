@@ -45,15 +45,15 @@ public class VariableInstance {
       return ordinality;
    }
 
+   public Type getType() {
+      return type;
+   }
+
    public String getValue() {
       return value;
    }
 
    public VariableDeclarationType getVariableDeclarationType() {
       return variableDeclarationType;
-   }
-
-   public Type getType() {
-      return type;
    }
 }

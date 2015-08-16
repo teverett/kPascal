@@ -26,7 +26,7 @@ import org.testng.annotations.Test;
 
 import com.khubla.kpascal.interpreter.PascalInterpreter;
 
-public class TestParser {
+public class TestInterpreter {
    public static final String TEST_RESOURCES = "src/test/resources/";
 
    private void doTest(String name) {
