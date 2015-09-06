@@ -1,6 +1,6 @@
-package com.khubla.kpascal.type;
+package com.khubla.kpascal.interpreter;
 
-import java.util.Hashtable;
+import com.khubla.kpascal.antlr.PascalParser;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -19,31 +19,19 @@ import java.util.Hashtable;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 /**
- * Hashtable of all known types
+ * A procedure is implemented as, simply, a reference to a parse tree. When the procedure is invoked, the parse tree is parsed. There is a specific difference in that a procedure has its own context
+ * object
  *
  * @author tom
  */
-public class Types {
-   private final Hashtable<String, Type> types = new Hashtable<String, Type>();
+public class Procedure {
+   private final PascalParser.ProcedureDeclarationContext procedureDeclarationContext;
 
-   /**
-    * default ctor
-    */
-   public Types() {
+   public Procedure(PascalParser.ProcedureDeclarationContext procedureDeclarationContext) {
+      this.procedureDeclarationContext = procedureDeclarationContext;
    }
 
-   /**
-    * copy ctor
-    */
-   public Types(Types types) {
-      types.types.putAll(this.types);
-   }
-
-   public void addType(String name, Type type) {
-      types.put(name, type);
-   }
-
-   public Type find(String name) {
-      return types.get(name);
+   public PascalParser.ProcedureDeclarationContext getProcedureDeclarationContext() {
+      return procedureDeclarationContext;
    }
 }

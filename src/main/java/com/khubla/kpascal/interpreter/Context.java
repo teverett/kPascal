@@ -19,6 +19,11 @@ package com.khubla.kpascal.interpreter;
 import java.util.Hashtable;
 import java.util.Stack;
 
+import com.khubla.kpascal.type.BooleanType;
+import com.khubla.kpascal.type.CharType;
+import com.khubla.kpascal.type.IntegerType;
+import com.khubla.kpascal.type.RealType;
+import com.khubla.kpascal.type.StringType;
 import com.khubla.kpascal.type.Types;
 
 public class Context {
@@ -29,14 +34,43 @@ public class Context {
    /**
     * types
     */
-   private final Types types = new Types();
+   private final Types types;
    /**
     * stack
     */
-   private final Stack<VariableInstance> stack = new Stack<VariableInstance>();
+   private final Stack<VariableInstance> executionStack = new Stack<VariableInstance>();
 
-   public Stack<VariableInstance> getStack() {
-      return stack;
+   /**
+    * default ctor
+    */
+   public Context() {
+      types = new Types();
+      /*
+       * add the known atomic types
+       */
+      types.addType("integer", new IntegerType());
+      types.addType("char", new CharType());
+      types.addType("boolean", new BooleanType());
+      types.addType("real", new RealType());
+      types.addType("string", new StringType());
+   }
+
+   /**
+    * copy ctor
+    */
+   public Context(Context ctx) {
+      /*
+       * copy variables
+       */
+      ctx.variables.putAll(variables);
+      /*
+       * copy types
+       */
+      types = new Types(ctx.types);
+   }
+
+   public Stack<VariableInstance> getExecutionStack() {
+      return executionStack;
    }
 
    public Types getTypes() {
