@@ -1,7 +1,8 @@
-package com.khubla.kpascal.interpreter;
+package com.khubla.kpascal.interpreter.visitor;
 
-import java.util.Hashtable;
-import java.util.Stack;
+import com.khubla.kpascal.antlr.PascalBaseVisitor;
+import com.khubla.kpascal.antlr.PascalParser;
+import com.khubla.kpascal.interpreter.Context;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -19,28 +20,19 @@ import java.util.Stack;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class Context {
-   /**
-    * all procedures by name
-    */
-   private final Hashtable<String, Procedure> procedures = new Hashtable<String, Procedure>();
-   /**
-    * stack of execution contexts
-    */
-   private final Stack<Scope> scopeStack = new Stack<Scope>();
+public class ProcedureVisitor extends PascalBaseVisitor<Void> {
+   private final Context context;
 
-   /**
-    * the current scope is the scope on the top of the stack
-    */
-   public Scope getCurrentScope() {
-      return getScopeStack().get(0);
+   public ProcedureVisitor(Context context) {
+      this.context = context;
    }
 
-   public Hashtable<String, Procedure> getProcedures() {
-      return procedures;
+   public Context getContext() {
+      return context;
    }
 
-   public Stack<Scope> getScopeStack() {
-      return scopeStack;
+   @Override
+   public Void visitProcedureDeclaration(PascalParser.ProcedureDeclarationContext ctx) {
+      return visitChildren(ctx);
    }
 }

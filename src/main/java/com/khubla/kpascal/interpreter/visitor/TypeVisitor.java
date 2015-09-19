@@ -2,8 +2,7 @@ package com.khubla.kpascal.interpreter.visitor;
 
 import com.khubla.kpascal.antlr.PascalBaseVisitor;
 import com.khubla.kpascal.antlr.PascalParser;
-import com.khubla.kpascal.interpreter.Scope;
-import com.khubla.kpascal.type.Type;
+import com.khubla.kpascal.interpreter.Context;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -21,19 +20,19 @@ import com.khubla.kpascal.type.Type;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class TypeVisitor extends PascalBaseVisitor<Type> {
-   private final Scope scope;
+public class TypeVisitor extends PascalBaseVisitor<Void> {
+   private final Context context;
 
-   public TypeVisitor(Scope scope) {
-      this.scope = scope;
+   public TypeVisitor(Context context) {
+      this.context = context;
    }
 
-   public Scope getScope() {
-      return scope;
+   public Context getContext() {
+      return context;
    }
 
    @Override
-   public Type visitTypeDefinition(PascalParser.TypeDefinitionContext ctx) {
+   public Void visitTypeDefinition(PascalParser.TypeDefinitionContext ctx) {
       return visitChildren(ctx);
    }
 }

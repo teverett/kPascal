@@ -27,15 +27,12 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import com.khubla.kpascal.antlr.PascalLexer;
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.antlr.PascalParser.ProgramContext;
+import com.khubla.kpascal.interpreter.visitor.ProcedureVisitor;
 import com.khubla.kpascal.interpreter.visitor.ProgramVisitor;
 import com.khubla.kpascal.interpreter.visitor.TypeVisitor;
 import com.khubla.kpascal.interpreter.visitor.VariableVisitor;
 
 public class PascalInterpreter {
-   /**
-    * program name
-    */
-   private String programName;
    /**
     * input stream
     */
@@ -60,19 +57,12 @@ public class PascalInterpreter {
       context.getScopeStack().push(new Scope());
    }
 
-   /**
-    * the current scope is the scope on the top of the stack
-    */
-   public Scope getCurrentScope() {
-      return context.getScopeStack().get(0);
+   public Context getContext() {
+      return context;
    }
 
    public InputStream getPascalInputStream() {
       return pascalInputStream;
-   }
-
-   public String getProgramName() {
-      return programName;
    }
 
    public InputStream getStdIn() {
@@ -111,17 +101,22 @@ public class PascalInterpreter {
          /*
           * types
           */
-         final TypeVisitor typeVisitor = new TypeVisitor(getCurrentScope());
+         final TypeVisitor typeVisitor = new TypeVisitor(context);
          typeVisitor.visit(programContext);
          /*
           * variables
           */
-         final VariableVisitor variableVisitor = new VariableVisitor(getCurrentScope());
+         final VariableVisitor variableVisitor = new VariableVisitor(context);
          variableVisitor.visit(programContext);
+         /*
+          * procedures
+          */
+         final ProcedureVisitor procedureVisitor = new ProcedureVisitor(context);
+         procedureVisitor.visit(programContext);
          /*
           * program
           */
-         final ProgramVisitor programVisitor = new ProgramVisitor(getCurrentScope());
+         final ProgramVisitor programVisitor = new ProgramVisitor(context);
          programVisitor.visit(programContext);
       } catch (final Exception e) {
          throw new Exception("Exception in run", e);
