@@ -3,6 +3,7 @@ package com.khubla.kpascal.interpreter.visitor;
 import com.khubla.kpascal.antlr.PascalBaseVisitor;
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.interpreter.Context;
+import com.khubla.kpascal.type.Type;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -20,7 +21,7 @@ import com.khubla.kpascal.interpreter.Context;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class TypeVisitor extends PascalBaseVisitor<Void> {
+public class TypeVisitor extends PascalBaseVisitor<Type> {
    private final Context context;
 
    public TypeVisitor(Context context) {
@@ -32,7 +33,29 @@ public class TypeVisitor extends PascalBaseVisitor<Void> {
    }
 
    @Override
-   public Void visitTypeDefinition(PascalParser.TypeDefinitionContext ctx) {
+   public Type visitArrayType(PascalParser.ArrayTypeContext ctx) {
+      return visitChildren(ctx);
+   }
+
+   @Override
+   public Type visitFileType(PascalParser.FileTypeContext ctx) {
+      return visitChildren(ctx);
+   }
+
+   @Override
+   public Type visitRecordType(PascalParser.RecordTypeContext ctx) {
+      return visitChildren(ctx);
+   }
+
+   @Override
+   public Type visitSetType(PascalParser.SetTypeContext ctx) {
+      return visitChildren(ctx);
+   }
+
+   @Override
+   public Type visitTypeDefinition(PascalParser.TypeDefinitionContext ctx) {
+      ctx.getChild(0).getText();
+      System.out.println(ctx.getChild(2).getClass().getName());
       return visitChildren(ctx);
    }
 }
