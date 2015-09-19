@@ -3,6 +3,7 @@ package com.khubla.kpascal.interpreter.visitor;
 import com.khubla.kpascal.antlr.PascalBaseVisitor;
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.interpreter.Context;
+import com.khubla.kpascal.interpreter.Procedure;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -33,6 +34,8 @@ public class ProcedureVisitor extends PascalBaseVisitor<Void> {
 
    @Override
    public Void visitProcedureDeclaration(PascalParser.ProcedureDeclarationContext ctx) {
+      final String name = ctx.getChild(1).getText();
+      context.getProcedures().put(name, new Procedure(ctx));
       return visitChildren(ctx);
    }
 }
