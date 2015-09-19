@@ -26,7 +26,7 @@ import com.khubla.kpascal.type.RealType;
 import com.khubla.kpascal.type.StringType;
 import com.khubla.kpascal.type.Types;
 
-public class Context {
+public class Scope {
    /**
     * variables
     */
@@ -43,7 +43,7 @@ public class Context {
    /**
     * default ctor
     */
-   public Context() {
+   public Scope() {
       types = new Types();
       /*
        * add the known atomic types
@@ -58,7 +58,7 @@ public class Context {
    /**
     * copy ctor
     */
-   public Context(Context ctx) {
+   public Scope(Scope ctx) {
       /*
        * copy variables
        */

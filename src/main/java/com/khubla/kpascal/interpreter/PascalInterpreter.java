@@ -25,18 +25,15 @@ import java.util.Stack;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.ParserRuleContext;
 
-import com.khubla.kpascal.antlr.PascalBaseVisitor;
 import com.khubla.kpascal.antlr.PascalLexer;
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.antlr.PascalParser.ProgramContext;
-import com.khubla.kpascal.type.IntegerType;
-import com.khubla.kpascal.type.RealType;
-import com.khubla.kpascal.type.StringType;
-import com.khubla.kpascal.type.Type;
+import com.khubla.kpascal.interpreter.visitor.ProgramVisitor;
+import com.khubla.kpascal.interpreter.visitor.TypeVisitor;
+import com.khubla.kpascal.interpreter.visitor.VariableVisitor;
 
-public class PascalInterpreter extends PascalBaseVisitor<ProgramContext> {
+public class PascalInterpreter {
    /**
     * program name
     */
@@ -54,15 +51,11 @@ public class PascalInterpreter extends PascalBaseVisitor<ProgramContext> {
    /**
     * stack of execution contexts
     */
-   private final Stack<Context> contextStack = new Stack<Context>();
+   private final Stack<Scope> scopeStack = new Stack<Scope>();
    /**
     * interpreter stack
     */
    private final Stack<String> interpreterStack = new Stack<String>();
-
-   public Stack<String> getInterpreterStack() {
-      return interpreterStack;
-   }
 
    /**
     * ctor
@@ -74,18 +67,18 @@ public class PascalInterpreter extends PascalBaseVisitor<ProgramContext> {
       /**
        * push the program context
        */
-      contextStack.push(new Context());
-   }
-
-   public Stack<Context> getContextStack() {
-      return contextStack;
+      scopeStack.push(new Scope());
    }
 
    /**
-    * the current context is the context on the top of the stack
+    * the current scope is the scope on the top of the stack
     */
-   public Context getCurrentContext() {
-      return contextStack.get(0);
+   public Scope getCurrentScope() {
+      return scopeStack.get(0);
+   }
+
+   public Stack<String> getInterpreterStack() {
+      return interpreterStack;
    }
 
    public InputStream getPascalInputStream() {
@@ -94,6 +87,14 @@ public class PascalInterpreter extends PascalBaseVisitor<ProgramContext> {
 
    public Hashtable<String, Procedure> getProcedures() {
       return procedures;
+   }
+
+   public String getProgramName() {
+      return programName;
+   }
+
+   public Stack<Scope> getScopeStack() {
+      return scopeStack;
    }
 
    public InputStream getStdIn() {
@@ -112,8 +113,8 @@ public class PascalInterpreter extends PascalBaseVisitor<ProgramContext> {
          if (null != inputStream) {
             final Reader reader = new InputStreamReader(inputStream, "UTF-8");
             final PascalLexer lexer = new PascalLexer(new ANTLRInputStream(reader));
-            final CommonTokenStream tokens = new CommonTokenStream(lexer);
-            final PascalParser parser = new PascalParser(tokens);
+            final PascalParser parser = new PascalParser(new CommonTokenStream(lexer));
+            parser.setBuildParseTree(true);
             return parser.program();
          } else {
             throw new IllegalArgumentException();
@@ -125,108 +126,27 @@ public class PascalInterpreter extends PascalBaseVisitor<ProgramContext> {
 
    public void run() throws Exception {
       try {
+         /*
+          * parse
+          */
          final ProgramContext programContext = parse(pascalInputStream);
-         programContext.accept(this);
+         /*
+          * types
+          */
+         final TypeVisitor typeVisitor = new TypeVisitor(getCurrentScope());
+         typeVisitor.visit(programContext);
+         /*
+          * variables
+          */
+         final VariableVisitor variableVisitor = new VariableVisitor(getCurrentScope());
+         variableVisitor.visit(programContext);
+         /*
+          * program
+          */
+         final ProgramVisitor programVisitor = new ProgramVisitor(getCurrentScope());
+         programVisitor.visit(programContext);
       } catch (final Exception e) {
          throw new Exception("Exception in run", e);
       }
-   }
-
-   @Override
-   public ProgramContext visitBlock(PascalParser.BlockContext ctx) {
-      new Context(getCurrentContext());
-      return visitChildren(ctx);
-   }
-
-   @Override
-   public ProgramContext visitConstantDefinition(PascalParser.ConstantDefinitionContext ctx) {
-      final String name = ctx.getChild(0).getText();
-      final String value = ctx.getChild(2).getText();
-      final ParserRuleContext parserRuleContext = (ParserRuleContext) ctx.getChild(2).getChild(0).getChild(0);
-      VariableInstance v = null;
-      Type type = null;
-      if (parserRuleContext instanceof PascalParser.UnsignedRealContext) {
-         type = new RealType();
-      } else if (parserRuleContext instanceof PascalParser.UnsignedIntegerContext) {
-         type = new IntegerType();
-      } else if (parserRuleContext instanceof PascalParser.StringContext) {
-         type = new StringType();
-      }
-      v = new VariableInstance(name, type, VariableInstance.VariableDeclarationType.constant, value);
-      getCurrentContext().getVariables().put(name, v);
-      return visitChildren(ctx);
-   }
-
-   @Override
-   public ProgramContext visitProcedureDeclaration(PascalParser.ProcedureDeclarationContext ctx) {
-      final String name = ctx.getChild(1).getText();
-      procedures.put(name, new Procedure(ctx));
-      return visitChildren(ctx);
-   }
-
-   @Override
-   public ProgramContext visitProcedureStatement(PascalParser.ProcedureStatementContext ctx) {
-      ctx.getChild(0).getText();
-      return visitChildren(ctx);
-   }
-
-   @Override
-   public ProgramContext visitTypeDefinition(PascalParser.TypeDefinitionContext ctx) {
-      ctx.getChild(0).getText();
-      ctx.getChild(1);
-      return visitChildren(ctx);
-   }
-
-   @Override
-   public ProgramContext visitVariableDeclaration(PascalParser.VariableDeclarationContext ctx) {
-      final String instanceName = ctx.getChild(0).getText();
-      final String typeName = ctx.getChild(2).getText();
-      final Type type = getCurrentContext().getTypes().find(typeName);
-      if (null != type) {
-         final VariableInstance v = new VariableInstance(instanceName, type, VariableInstance.VariableDeclarationType.variable, null);
-         getCurrentContext().getVariables().put(instanceName, v);
-      } else {
-         System.out.println("Unknown type '" + typeName + "'");
-      }
-      return visitChildren(ctx);
-   }
-
-   @Override
-   public ProgramContext visitIdentifier(PascalParser.IdentifierContext ctx) {
-      String identifier = ctx.getText();
-      System.out.println("Identifier: " + identifier);
-      this.interpreterStack.push(identifier);
-      return visitChildren(ctx);
-   }
-
-   @Override
-   public ProgramContext visitProgramHeading(PascalParser.ProgramHeadingContext ctx) {
-      int arguments = (ctx.getChild(3).getChildCount() + 1) / 2;
-      ProgramContext returnCtx = visitChildren(ctx);
-      for (int i = 0; i < arguments; i++) {
-         this.interpreterStack.pop();
-      }
-      programName = this.interpreterStack.pop();
-      return returnCtx;
-   }
-
-   public String getProgramName() {
-      return programName;
-   }
-
-   @Override
-   public ProgramContext visitUnsignedInteger(PascalParser.UnsignedIntegerContext ctx) {
-      String unsignedInteger = ctx.getText();
-      System.out.println("unsignedInteger: " + unsignedInteger);
-      this.interpreterStack.push(unsignedInteger);
-      return visitChildren(ctx);
-   }
-
-   @Override
-   public ProgramContext visitUnsignedReal(PascalParser.UnsignedRealContext ctx) {
-      String unsignedReal = ctx.getText();
-      System.out.println("unsignedReal: " + unsignedReal);
-      this.interpreterStack.push(unsignedReal);
-      return visitChildren(ctx);
    }
 }
