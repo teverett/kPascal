@@ -20,8 +20,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Reader;
-import java.util.Hashtable;
-import java.util.Stack;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -39,23 +37,15 @@ public class PascalInterpreter {
     */
    private String programName;
    /**
-    * context
+    * input stream
     */
    private final InputStream pascalInputStream;
    private final InputStream stdIn;
    private final OutputStream stdOut;
    /**
-    * all procedures by name
+    * context
     */
-   private final Hashtable<String, Procedure> procedures = new Hashtable<String, Procedure>();
-   /**
-    * stack of execution contexts
-    */
-   private final Stack<Scope> scopeStack = new Stack<Scope>();
-   /**
-    * interpreter stack
-    */
-   private final Stack<String> interpreterStack = new Stack<String>();
+   private final Context context = new Context();
 
    /**
     * ctor
@@ -67,34 +57,22 @@ public class PascalInterpreter {
       /**
        * push the program context
        */
-      scopeStack.push(new Scope());
+      context.getScopeStack().push(new Scope());
    }
 
    /**
     * the current scope is the scope on the top of the stack
     */
    public Scope getCurrentScope() {
-      return scopeStack.get(0);
-   }
-
-   public Stack<String> getInterpreterStack() {
-      return interpreterStack;
+      return context.getScopeStack().get(0);
    }
 
    public InputStream getPascalInputStream() {
       return pascalInputStream;
    }
 
-   public Hashtable<String, Procedure> getProcedures() {
-      return procedures;
-   }
-
    public String getProgramName() {
       return programName;
-   }
-
-   public Stack<Scope> getScopeStack() {
-      return scopeStack;
    }
 
    public InputStream getStdIn() {
