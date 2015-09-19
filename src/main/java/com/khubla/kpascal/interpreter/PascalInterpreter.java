@@ -27,6 +27,7 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import com.khubla.kpascal.antlr.PascalLexer;
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.antlr.PascalParser.ProgramContext;
+import com.khubla.kpascal.interpreter.visitor.ConstantVisitor;
 import com.khubla.kpascal.interpreter.visitor.ProcedureVisitor;
 import com.khubla.kpascal.interpreter.visitor.ProgramVisitor;
 import com.khubla.kpascal.interpreter.visitor.TypeVisitor;
@@ -98,6 +99,11 @@ public class PascalInterpreter {
           * parse
           */
          final ProgramContext programContext = parse(pascalInputStream);
+         /*
+          * constants
+          */
+         final ConstantVisitor constantVisitor = new ConstantVisitor(context);
+         constantVisitor.visit(programContext);
          /*
           * types
           */

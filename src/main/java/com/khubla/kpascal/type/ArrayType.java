@@ -17,4 +17,31 @@ package com.khubla.kpascal.type;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class ArrayType implements Type {
+   private int lowerRange;
+   private int upperRange;
+   private Type componentType;
+
+   public Type getComponentType() {
+      return componentType;
+   }
+
+   public int getLowerRange() {
+      return lowerRange;
+   }
+
+   public int getUpperRange() {
+      return upperRange;
+   }
+
+   public void setComponentType(Type componentType) {
+      this.componentType = componentType;
+   }
+
+   public void setLowerRange(int lowerRange) {
+      this.lowerRange = lowerRange;
+   }
+
+   public void setUpperRange(int upperRange) {
+      this.upperRange = upperRange;
+   }
 }

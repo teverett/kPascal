@@ -28,6 +28,14 @@ public class Context {
     * stack of execution contexts
     */
    private final Stack<Scope> scopeStack = new Stack<Scope>();
+   /**
+    * constants
+    */
+   private final Hashtable<String, VariableInstance> constants = new Hashtable<String, VariableInstance>();
+
+   public Hashtable<String, VariableInstance> getConstants() {
+      return constants;
+   }
 
    /**
     * the current scope is the scope on the top of the stack
