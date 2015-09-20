@@ -63,7 +63,7 @@ public class Context {
        * string
        */
       if (v.startsWith("\'") && (v.endsWith("\'"))) {
-         return new Value(new SimpleType(SimpleType.Type.string), v.substring(1, v.length() - 2));
+         return new Value(new SimpleType(SimpleType.Type.string), v.substring(1, v.length() - 1));
       }
       /*
        * is a constant?

@@ -44,6 +44,10 @@ public class RTLFunctions {
    private RTLFunctions() {
       rtlFunctions.put("writeln", WritelnFunction.class);
       rtlFunctions.put("write", WriteFunction.class);
+      rtlFunctions.put("readln", ReadlnFunction.class);
+      rtlFunctions.put("read", ReadFunction.class);
+      rtlFunctions.put("new", NewFunction.class);
+      rtlFunctions.put("dispose", DisposeFunction.class);
    }
 
    /**
@@ -51,7 +55,7 @@ public class RTLFunctions {
     */
    public RTLFunction getRTLFunction(String functionName) throws InterpreterException {
       try {
-         Class<? extends RTLFunction> clazz = rtlFunctions.get(functionName);
+         final Class<? extends RTLFunction> clazz = rtlFunctions.get(functionName.toLowerCase());
          if (null != clazz) {
             return clazz.newInstance();
          } else {

@@ -76,12 +76,21 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
    public Void visitProcedureStatement(PascalParser.ProcedureStatementContext ctx) {
       try {
          final String procedureName = ctx.getChild(0).getText();
-         if (ctx.getChildCount() > 1) {
-            final PascalParser.ParameterListContext ctx2 = (PascalParser.ParameterListContext) ctx.getChild(2);
-            final List<String> parameters = getParameters(ctx2);
-            invokeRTLFunction(procedureName, parameters);
+         if (context.getProcedures().containsKey(procedureName)) {
+            /*
+             * invoke pascal procedure
+             */
          } else {
-            invokeRTLFunction(procedureName, null);
+            /*
+             * invoke RTL function
+             */
+            if (ctx.getChildCount() > 1) {
+               final PascalParser.ParameterListContext ctx2 = (PascalParser.ParameterListContext) ctx.getChild(2);
+               final List<String> parameters = getParameters(ctx2);
+               invokeRTLFunction(procedureName, parameters);
+            } else {
+               invokeRTLFunction(procedureName, null);
+            }
          }
       } catch (final Exception e) {
          e.printStackTrace();
