@@ -1,5 +1,8 @@
 package com.khubla.kpascal.interpreter.visitor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.khubla.kpascal.antlr.PascalBaseVisitor;
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.interpreter.Context;
@@ -31,8 +34,39 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
       return context;
    }
 
+   /**
+    * get a parameter list
+    */
+   private List<String> getParameters(PascalParser.ParameterListContext ctx) {
+      final List<String> ret = new ArrayList<String>();
+      for (int i = 0; i < ctx.getChildCount(); i++) {
+         final String parameter = ctx.getChild(i).getText();
+         ret.add(parameter);
+      }
+      return ret;
+   }
+
+   /**
+    * invoke RTL function
+    */
+   private void invokeRTLFunction(String functionname, List<String> parameters) {
+   }
+
    @Override
    public Void visitBlock(PascalParser.BlockContext ctx) {
+      return visitChildren(ctx);
+   }
+
+   @Override
+   public Void visitProcedureStatement(PascalParser.ProcedureStatementContext ctx) {
+      final String procedureName = ctx.getChild(0).getText();
+      if (ctx.getChildCount() > 1) {
+         final PascalParser.ParameterListContext ctx2 = (PascalParser.ParameterListContext) ctx.getChild(2);
+         final List<String> parameters = getParameters(ctx2);
+         invokeRTLFunction(procedureName, parameters);
+      } else {
+         invokeRTLFunction(procedureName, null);
+      }
       return visitChildren(ctx);
    }
 }

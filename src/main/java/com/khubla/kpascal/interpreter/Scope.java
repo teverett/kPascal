@@ -83,7 +83,7 @@ public class Scope {
 
    public void reportVariables() {
       for (final String key : variables.keySet()) {
-         System.out.println("\t" + key + " " + variables.get(key).getType().getClass().getName());
+         System.out.println("\t" + key + " " + variables.get(key).getValue().getType().getClass().getName());
       }
    }
 }

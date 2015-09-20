@@ -5,6 +5,7 @@ import org.antlr.v4.runtime.ParserRuleContext;
 import com.khubla.kpascal.antlr.PascalBaseVisitor;
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.interpreter.Context;
+import com.khubla.kpascal.interpreter.Value;
 import com.khubla.kpascal.interpreter.VariableInstance;
 import com.khubla.kpascal.type.IntegerType;
 import com.khubla.kpascal.type.RealType;
@@ -52,7 +53,8 @@ public class ConstantVisitor extends PascalBaseVisitor<Void> {
       } else if (parserRuleContext instanceof PascalParser.StringContext) {
          type = new StringType();
       }
-      v = new VariableInstance(name, type, VariableInstance.VariableDeclarationType.constant, value);
+      final Value val = new Value(type, value);
+      v = new VariableInstance(name, val, VariableInstance.VariableDeclarationType.constant);
       context.getConstants().put(name, v);
       return visitChildren(ctx);
    }

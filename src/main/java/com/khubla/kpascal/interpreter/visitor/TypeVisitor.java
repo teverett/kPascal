@@ -78,13 +78,13 @@ public class TypeVisitor extends PascalBaseVisitor<Type> {
          final ArrayType arrayType = (ArrayType) type;
          final String lowerRange = ctx.getChild(0).getText();
          if (null != context.getConstants().get(lowerRange)) {
-            arrayType.setLowerRange(Integer.parseInt(context.getConstants().get(lowerRange).getValue()));
+            arrayType.setLowerRange(Integer.parseInt(context.getConstants().get(lowerRange).getValue().getValue()));
          } else {
             arrayType.setLowerRange(Integer.parseInt(lowerRange));
          }
          final String upperRange = ctx.getChild(2).getText();
          if (null != context.getConstants().get(upperRange)) {
-            arrayType.setUpperRange(Integer.parseInt(context.getConstants().get(upperRange).getValue()));
+            arrayType.setUpperRange(Integer.parseInt(context.getConstants().get(upperRange).getValue().getValue()));
          } else {
             arrayType.setUpperRange(Integer.parseInt(upperRange));
          }

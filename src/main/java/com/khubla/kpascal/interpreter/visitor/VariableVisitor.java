@@ -3,6 +3,7 @@ package com.khubla.kpascal.interpreter.visitor;
 import com.khubla.kpascal.antlr.PascalBaseVisitor;
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.interpreter.Context;
+import com.khubla.kpascal.interpreter.Value;
 import com.khubla.kpascal.interpreter.VariableInstance;
 import com.khubla.kpascal.type.Type;
 
@@ -39,7 +40,8 @@ public class VariableVisitor extends PascalBaseVisitor<Void> {
       final String typeName = ctx.getChild(2).getText();
       final Type type = context.getCurrentScope().getTypes().find(typeName);
       if (null != type) {
-         final VariableInstance v = new VariableInstance(instanceName, type, VariableInstance.VariableDeclarationType.variable, null);
+         final Value val = new Value(type, null);
+         final VariableInstance v = new VariableInstance(instanceName, val, VariableInstance.VariableDeclarationType.variable);
          context.getCurrentScope().getVariables().put(instanceName, v);
       } else {
          System.out.println("Unknown type '" + typeName + "'");

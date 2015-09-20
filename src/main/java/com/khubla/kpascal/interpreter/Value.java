@@ -1,5 +1,7 @@
 package com.khubla.kpascal.interpreter;
 
+import com.khubla.kpascal.type.Type;
+
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -16,30 +18,20 @@ package com.khubla.kpascal.interpreter;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class VariableInstance {
-   public enum VariableDeclarationType {
-      constant, variable;
-   }
+public class Value {
+   private final Type type;
+   private final String value;
 
-   private final String name;
-   private final VariableDeclarationType variableDeclarationType;
-   private final Value value;
-
-   public VariableInstance(String name, Value value, VariableDeclarationType variableDeclarationType) {
-      this.name = name;
-      this.variableDeclarationType = variableDeclarationType;
+   public Value(Type type, String value) {
+      this.type = type;
       this.value = value;
    }
 
-   public String getName() {
-      return name;
+   public Type getType() {
+      return type;
    }
 
-   public Value getValue() {
+   public String getValue() {
       return value;
-   }
-
-   public VariableDeclarationType getVariableDeclarationType() {
-      return variableDeclarationType;
    }
 }
