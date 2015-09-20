@@ -5,7 +5,11 @@ import java.util.List;
 
 import com.khubla.kpascal.antlr.PascalBaseVisitor;
 import com.khubla.kpascal.antlr.PascalParser;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.interpreter.Context;
+import com.khubla.kpascal.interpreter.Value;
+import com.khubla.kpascal.rtl.RTLFunction;
+import com.khubla.kpascal.rtl.RTLFunctions;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -49,7 +53,18 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
    /**
     * invoke RTL function
     */
-   private void invokeRTLFunction(String functionname, List<String> parameters) {
+   private void invokeRTLFunction(String functionName, List<String> parameters) throws InterpreterException {
+      final List<Value> values = new ArrayList<Value>();
+      if (null != parameters) {
+         for (final String str : parameters) {
+            final Value v = context.resolve(str);
+            values.add(v);
+         }
+      }
+      final RTLFunction function = RTLFunctions.getInstance().getRTLFunction(functionName);
+      if (null != function) {
+         function.invoke(context, values);
+      }
    }
 
    @Override
@@ -59,13 +74,17 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
 
    @Override
    public Void visitProcedureStatement(PascalParser.ProcedureStatementContext ctx) {
-      final String procedureName = ctx.getChild(0).getText();
-      if (ctx.getChildCount() > 1) {
-         final PascalParser.ParameterListContext ctx2 = (PascalParser.ParameterListContext) ctx.getChild(2);
-         final List<String> parameters = getParameters(ctx2);
-         invokeRTLFunction(procedureName, parameters);
-      } else {
-         invokeRTLFunction(procedureName, null);
+      try {
+         final String procedureName = ctx.getChild(0).getText();
+         if (ctx.getChildCount() > 1) {
+            final PascalParser.ParameterListContext ctx2 = (PascalParser.ParameterListContext) ctx.getChild(2);
+            final List<String> parameters = getParameters(ctx2);
+            invokeRTLFunction(procedureName, parameters);
+         } else {
+            invokeRTLFunction(procedureName, null);
+         }
+      } catch (final Exception e) {
+         e.printStackTrace();
       }
       return visitChildren(ctx);
    }

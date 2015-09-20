@@ -2,6 +2,7 @@ package com.khubla.kpascal.rtl;
 
 import java.util.List;
 
+import com.khubla.kpascal.interpreter.Context;
 import com.khubla.kpascal.interpreter.Value;
 
 /*
@@ -22,7 +23,7 @@ import com.khubla.kpascal.interpreter.Value;
 */
 public class WritelnFunction implements RTLFunction {
    @Override
-   public void invoke(List<Value> parameters) {
+   public void invoke(Context context, List<Value> parameters) {
       // TODO Auto-generated method stub
    }
 }

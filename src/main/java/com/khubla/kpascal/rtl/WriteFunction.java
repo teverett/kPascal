@@ -21,6 +21,9 @@ import com.khubla.kpascal.interpreter.Value;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public interface RTLFunction {
-   void invoke(Context context, List<Value> parameters);
+public class WriteFunction implements RTLFunction {
+   @Override
+   public void invoke(Context context, List<Value> parameters) {
+      // TODO Auto-generated method stub
+   }
 }
