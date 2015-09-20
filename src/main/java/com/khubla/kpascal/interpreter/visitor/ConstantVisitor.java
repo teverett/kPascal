@@ -7,9 +7,7 @@ import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.interpreter.Context;
 import com.khubla.kpascal.interpreter.Value;
 import com.khubla.kpascal.interpreter.VariableInstance;
-import com.khubla.kpascal.type.IntegerType;
-import com.khubla.kpascal.type.RealType;
-import com.khubla.kpascal.type.StringType;
+import com.khubla.kpascal.type.SimpleType;
 import com.khubla.kpascal.type.Type;
 
 /*
@@ -47,11 +45,11 @@ public class ConstantVisitor extends PascalBaseVisitor<Void> {
       VariableInstance v = null;
       Type type = null;
       if (parserRuleContext instanceof PascalParser.UnsignedRealContext) {
-         type = new RealType();
+         type = new SimpleType(SimpleType.Type.real);
       } else if (parserRuleContext instanceof PascalParser.UnsignedIntegerContext) {
-         type = new IntegerType();
+         type = new SimpleType(SimpleType.Type.integer);
       } else if (parserRuleContext instanceof PascalParser.StringContext) {
-         type = new StringType();
+         type = new SimpleType(SimpleType.Type.string);
       }
       final Value val = new Value(type, value);
       v = new VariableInstance(name, val, VariableInstance.VariableDeclarationType.constant);

@@ -19,11 +19,7 @@ package com.khubla.kpascal.interpreter;
 import java.util.Hashtable;
 import java.util.Stack;
 
-import com.khubla.kpascal.type.BooleanType;
-import com.khubla.kpascal.type.CharType;
-import com.khubla.kpascal.type.IntegerType;
-import com.khubla.kpascal.type.RealType;
-import com.khubla.kpascal.type.StringType;
+import com.khubla.kpascal.type.SimpleType;
 import com.khubla.kpascal.type.Types;
 
 public class Scope {
@@ -48,11 +44,11 @@ public class Scope {
       /*
        * add the known atomic types
        */
-      types.addType("integer", new IntegerType());
-      types.addType("char", new CharType());
-      types.addType("boolean", new BooleanType());
-      types.addType("real", new RealType());
-      types.addType("string", new StringType());
+      types.addType("integer", new SimpleType(SimpleType.Type.integer));
+      types.addType("char", new SimpleType(SimpleType.Type.character));
+      types.addType("boolean", new SimpleType(SimpleType.Type.bool));
+      types.addType("real", new SimpleType(SimpleType.Type.real));
+      types.addType("string", new SimpleType(SimpleType.Type.string));
    }
 
    /**

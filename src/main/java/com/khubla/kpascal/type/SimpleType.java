@@ -16,5 +16,18 @@ package com.khubla.kpascal.type;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class IntegerType implements Type {
+public class SimpleType implements Type {
+   public enum Type {
+      real, string, integer, bool, character;
+   }
+
+   private final Type type;
+
+   public SimpleType(Type type) {
+      this.type = type;
+   }
+
+   public Type getType() {
+      return type;
+   }
 }

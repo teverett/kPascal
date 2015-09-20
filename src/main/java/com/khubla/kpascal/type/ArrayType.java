@@ -1,5 +1,7 @@
 package com.khubla.kpascal.type;
 
+import com.khubla.kpascal.interpreter.Value;
+
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -17,19 +19,19 @@ package com.khubla.kpascal.type;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class ArrayType implements Type {
-   private int lowerRange;
-   private int upperRange;
+   private Value lowerRange;
+   private Value upperRange;
    private Type componentType;
 
    public Type getComponentType() {
       return componentType;
    }
 
-   public int getLowerRange() {
+   public Value getLowerRange() {
       return lowerRange;
    }
 
-   public int getUpperRange() {
+   public Value getUpperRange() {
       return upperRange;
    }
 
@@ -37,11 +39,11 @@ public class ArrayType implements Type {
       this.componentType = componentType;
    }
 
-   public void setLowerRange(int lowerRange) {
+   public void setLowerRange(Value lowerRange) {
       this.lowerRange = lowerRange;
    }
 
-   public void setUpperRange(int upperRange) {
+   public void setUpperRange(Value upperRange) {
       this.upperRange = upperRange;
    }
 }

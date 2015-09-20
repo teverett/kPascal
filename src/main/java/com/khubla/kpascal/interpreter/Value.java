@@ -1,5 +1,6 @@
 package com.khubla.kpascal.interpreter;
 
+import com.khubla.kpascal.type.SimpleType;
 import com.khubla.kpascal.type.Type;
 
 /*
@@ -21,6 +22,46 @@ import com.khubla.kpascal.type.Type;
 public class Value {
    private final Type type;
    private final String value;
+
+   /**
+    * ctor for boolean
+    */
+   public Value(Boolean value) {
+      type = new SimpleType(SimpleType.Type.bool);
+      this.value = Boolean.toString(value);
+   }
+
+   /**
+    * ctor for char
+    */
+   public Value(char value) {
+      type = new SimpleType(SimpleType.Type.character);
+      this.value = Character.toString(value);
+   }
+
+   /**
+    * ctor for double
+    */
+   public Value(Double value) {
+      type = new SimpleType(SimpleType.Type.real);
+      this.value = Double.toString(value);
+   }
+
+   /**
+    * ctor for integer
+    */
+   public Value(Integer value) {
+      type = new SimpleType(SimpleType.Type.integer);
+      this.value = Integer.toString(value);
+   }
+
+   /**
+    * ctor for string
+    */
+   public Value(String value) {
+      type = new SimpleType(SimpleType.Type.string);
+      this.value = value;
+   }
 
    public Value(Type type, String value) {
       this.type = type;

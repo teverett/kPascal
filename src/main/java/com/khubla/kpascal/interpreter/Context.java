@@ -3,6 +3,9 @@ package com.khubla.kpascal.interpreter;
 import java.util.Hashtable;
 import java.util.Stack;
 
+import com.khubla.kpascal.exception.InterpreterException;
+import com.khubla.kpascal.type.SimpleType;
+
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -50,5 +53,57 @@ public class Context {
 
    public Stack<Scope> getScopeStack() {
       return scopeStack;
+   }
+
+   /**
+    * resolve a string to a value
+    */
+   public Value resolve(String v) throws InterpreterException {
+      /*
+       * string
+       */
+      if (v.startsWith("\'") && (v.endsWith("\'"))) {
+         return new Value(new SimpleType(SimpleType.Type.string), v.substring(1, v.length() - 2));
+      }
+      /*
+       * is a constant?
+       */
+      if (null != constants.get(v)) {
+         return constants.get(v).getValue();
+      }
+      /*
+       * is boolean?
+       */
+      try {
+         return new Value(Boolean.parseBoolean(v));
+      } catch (final NumberFormatException e) {
+         // do nothing
+      }
+      /*
+       * is variable?
+       */
+      if (null != getCurrentScope().getVariables().get(v)) {
+         return getCurrentScope().getVariables().get(v).getValue();
+      }
+      /*
+       * is integer?
+       */
+      try {
+         return new Value(Integer.parseInt(v));
+      } catch (final NumberFormatException e) {
+         // do nothing
+      }
+      /*
+       * is real?
+       */
+      try {
+         return new Value(Double.parseDouble(v));
+      } catch (final NumberFormatException e) {
+         // do nothing
+      }
+      /*
+       * nope
+       */
+      throw new InterpreterException("Unable to resolve '" + v + "'");
    }
 }
