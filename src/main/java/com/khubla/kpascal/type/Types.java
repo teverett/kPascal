@@ -24,26 +24,42 @@ import java.util.Hashtable;
  * @author tom
  */
 public class Types {
-   private final Hashtable<String, Type> types = new Hashtable<String, Type>();
+	private final Hashtable<String, Type> types = new Hashtable<String, Type>();
 
-   /**
-    * default ctor
-    */
-   public Types() {
-   }
+	/**
+	 * default ctor
+	 */
+	public Types() {
+	}
 
-   /**
-    * copy ctor
-    */
-   public Types(Types types) {
-      types.types.putAll(this.types);
-   }
+	/**
+	 * copy ctor
+	 */
+	public Types(Types types) {
+		types.types.putAll(this.types);
+	}
 
-   public void addType(String name, Type type) {
-      types.put(name, type);
-   }
+	public void addType(String name, Type type) {
+		types.put(name.toLowerCase(), type);
+	}
 
-   public Type find(String name) {
-      return types.get(name);
-   }
+	public Type find(String name) {
+		return types.get(name.toLowerCase());
+	}
+
+	public void resolveComponentTypes() {
+		for (Type type : types.values()) {
+			{
+				if (type instanceof ArrayType) {
+					ArrayType arrayType = (ArrayType) type;
+					Type containedType = this.find(arrayType.getComponentTypeName());
+					if (null != containedType) {
+						arrayType.setComponentType(containedType);
+					} else {
+						System.out.println("Unable to find type '" + arrayType.getComponentTypeName() + "'");
+					}
+				}
+			}
+		}
+	}
 }

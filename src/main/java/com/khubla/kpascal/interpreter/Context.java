@@ -23,87 +23,89 @@ import com.khubla.kpascal.type.SimpleType;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class Context {
-   /**
-    * all procedures by name
-    */
-   private final Hashtable<String, Procedure> procedures = new Hashtable<String, Procedure>();
-   /**
-    * stack of execution contexts
-    */
-   private final Stack<Scope> scopeStack = new Stack<Scope>();
-   /**
-    * constants
-    */
-   private final Hashtable<String, VariableInstance> constants = new Hashtable<String, VariableInstance>();
+	/**
+	 * all procedures by name
+	 */
+	private final Hashtable<String, Procedure> procedures = new Hashtable<String, Procedure>();
+	/**
+	 * stack of execution contexts
+	 */
+	private final Stack<Scope> scopeStack = new Stack<Scope>();
+	/**
+	 * constants
+	 */
+	private final Hashtable<String, VariableInstance> constants = new Hashtable<String, VariableInstance>();
 
-   public Hashtable<String, VariableInstance> getConstants() {
-      return constants;
-   }
+	public Hashtable<String, VariableInstance> getConstants() {
+		return constants;
+	}
 
-   /**
-    * the current scope is the scope on the top of the stack
-    */
-   public Scope getCurrentScope() {
-      return getScopeStack().get(0);
-   }
+	/**
+	 * the current scope is the scope on the top of the stack
+	 */
+	public Scope getCurrentScope() {
+		return getScopeStack().get(0);
+	}
 
-   public Hashtable<String, Procedure> getProcedures() {
-      return procedures;
-   }
+	public Hashtable<String, Procedure> getProcedures() {
+		return procedures;
+	}
 
-   public Stack<Scope> getScopeStack() {
-      return scopeStack;
-   }
+	public Stack<Scope> getScopeStack() {
+		return scopeStack;
+	}
 
-   /**
-    * resolve a string to a value
-    */
-   public Value resolve(String v) throws InterpreterException {
-      /*
-       * string
-       */
-      if (v.startsWith("\'") && (v.endsWith("\'"))) {
-         return new Value(new SimpleType(SimpleType.Type.string), v.substring(1, v.length() - 1));
-      }
-      /*
-       * is a constant?
-       */
-      if (null != constants.get(v)) {
-         return constants.get(v).getValue();
-      }
-      /*
-       * is boolean?
-       */
-      try {
-         return new Value(Boolean.parseBoolean(v));
-      } catch (final NumberFormatException e) {
-         // do nothing
-      }
-      /*
-       * is variable?
-       */
-      if (null != getCurrentScope().getVariables().get(v)) {
-         return getCurrentScope().getVariables().get(v).getValue();
-      }
-      /*
-       * is integer?
-       */
-      try {
-         return new Value(Integer.parseInt(v));
-      } catch (final NumberFormatException e) {
-         // do nothing
-      }
-      /*
-       * is real?
-       */
-      try {
-         return new Value(Double.parseDouble(v));
-      } catch (final NumberFormatException e) {
-         // do nothing
-      }
-      /*
-       * nope
-       */
-      throw new InterpreterException("Unable to resolve '" + v + "'");
-   }
+	/**
+	 * resolve a string to a value
+	 */
+	public Value resolve(String v) throws InterpreterException {
+		/*
+		 * string
+		 */
+		if (v.startsWith("\'") && (v.endsWith("\'"))) {
+			return new Value(new SimpleType(SimpleType.Type.string), v.substring(1, v.length() - 1));
+		}
+		/*
+		 * is a constant?
+		 */
+		if (null != constants.get(v)) {
+			return constants.get(v).getValue();
+		}
+
+		/*
+		 * is variable?
+		 */
+		if (null != getCurrentScope().getVariables().get(v)) {
+			return getCurrentScope().getVariables().get(v).getValue();
+		}
+		/*
+		 * is integer?
+		 */
+		try {
+			return new Value(Integer.parseInt(v));
+		} catch (final NumberFormatException e) {
+			// do nothing
+		}
+
+		/*
+		 * is real?
+		 */
+		try {
+			return new Value(Double.parseDouble(v));
+		} catch (final NumberFormatException e) {
+			// do nothing
+		}
+		/*
+		 * is boolean?
+		 */
+		try {
+			return new Value(Boolean.parseBoolean(v));
+		} catch (final NumberFormatException e) {
+			// do nothing
+		}
+		/*
+		 * nope
+		 */
+		throw new InterpreterException("Unable to resolve '" + v + "'");
+	}
 }

@@ -1,5 +1,8 @@
 package com.khubla.kpascal.type;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.khubla.kpascal.interpreter.Value;
 
 /*
@@ -19,31 +22,39 @@ import com.khubla.kpascal.interpreter.Value;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class ArrayType implements Type {
-   private Value lowerRange;
-   private Value upperRange;
-   private Type componentType;
 
-   public Type getComponentType() {
-      return componentType;
-   }
+	public static class Range {
+		public Value lowerRange;
+		public Value upperRange;
 
-   public Value getLowerRange() {
-      return lowerRange;
-   }
+	};
 
-   public Value getUpperRange() {
-      return upperRange;
-   }
+	public List<Range> ranges = new ArrayList<Range>();
+	private Type componentType;
+	private String componentTypeName;
 
-   public void setComponentType(Type componentType) {
-      this.componentType = componentType;
-   }
+	public String getComponentTypeName() {
+		return componentTypeName;
+	}
 
-   public void setLowerRange(Value lowerRange) {
-      this.lowerRange = lowerRange;
-   }
+	public void setComponentTypeName(String componentTypeName) {
+		this.componentTypeName = componentTypeName;
+	}
 
-   public void setUpperRange(Value upperRange) {
-      this.upperRange = upperRange;
-   }
+	public Type getComponentType() {
+		return componentType;
+	}
+
+	public void setComponentType(Type componentType) {
+		this.componentType = componentType;
+	}
+
+	public List<Range> getRanges() {
+		return ranges;
+	}
+
+	public void setRanges(List<Range> ranges) {
+		this.ranges = ranges;
+	}
+
 }
