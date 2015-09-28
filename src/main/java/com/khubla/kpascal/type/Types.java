@@ -40,7 +40,11 @@ public class Types {
 	}
 
 	public void addType(String name, Type type) {
-		types.put(name.toLowerCase(), type);
+		if (null != name) {
+			types.put(name.toLowerCase(), type);
+		} else {
+			System.out.println("Nameless type");
+		}
 	}
 
 	public Type find(String name) {

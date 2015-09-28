@@ -5,6 +5,7 @@ import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.interpreter.Context;
 import com.khubla.kpascal.type.ArrayType;
 import com.khubla.kpascal.type.FileType;
+import com.khubla.kpascal.type.PointerType;
 import com.khubla.kpascal.type.RecordType;
 import com.khubla.kpascal.type.SetType;
 import com.khubla.kpascal.type.Type;
@@ -128,6 +129,13 @@ public class TypeVisitor extends PascalBaseVisitor<Type> {
 			final ArrayType arrayType = (ArrayType) type;
 			arrayType.setComponentTypeName(containedTypeName);
 		}
+		return visitChildren(ctx);
+	}
+
+	@Override
+	public Type visitPointerType(PascalParser.PointerTypeContext ctx) {
+		type = new PointerType();
+		context.getCurrentScope().getTypes().addType(this.typeName, type);
 		return visitChildren(ctx);
 	}
 
