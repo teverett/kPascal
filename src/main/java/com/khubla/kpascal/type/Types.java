@@ -62,6 +62,14 @@ public class Types {
 					} else {
 						System.out.println("Unable to find type '" + arrayType.getComponentTypeName() + "'");
 					}
+				} else if (type instanceof PointerType) {
+					PointerType pointerType = (PointerType) type;
+					Type containedType = this.find(pointerType.getComponentTypeName());
+					if (null != containedType) {
+						pointerType.setComponentType(containedType);
+					} else {
+						System.out.println("Unable to find type '" + pointerType.getComponentTypeName() + "'");
+					}
 				}
 			}
 		}

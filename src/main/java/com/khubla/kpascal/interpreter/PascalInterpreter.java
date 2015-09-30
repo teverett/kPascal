@@ -38,21 +38,25 @@ public class PascalInterpreter {
 	 * input stream
 	 */
 	private final InputStream pascalInputStream;
-	private final InputStream stdIn;
-	private final OutputStream stdOut;
 	/**
 	 * context
 	 */
-	private final Context context = new Context();
+	private final Context context;
 
 	/**
 	 * ctor
 	 */
 	public PascalInterpreter(InputStream pascalInputStream, InputStream stdIn, OutputStream stdOut) {
+		/*
+		 * pascal input stream
+		 */
 		this.pascalInputStream = pascalInputStream;
-		this.stdIn = stdIn;
-		this.stdOut = stdOut;
-		/**
+		/*
+		 * context
+		 */
+		this.context = new Context(stdIn, stdOut);
+
+		/*
 		 * push the program context
 		 */
 		context.getScopeStack().push(new Scope());
@@ -64,14 +68,6 @@ public class PascalInterpreter {
 
 	public InputStream getPascalInputStream() {
 		return pascalInputStream;
-	}
-
-	public InputStream getStdIn() {
-		return stdIn;
-	}
-
-	public OutputStream getStdOut() {
-		return stdOut;
 	}
 
 	/**

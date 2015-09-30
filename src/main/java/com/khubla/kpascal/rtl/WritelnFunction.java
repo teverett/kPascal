@@ -1,5 +1,6 @@
 package com.khubla.kpascal.rtl;
 
+import java.io.PrintStream;
 import java.util.List;
 
 import com.khubla.kpascal.interpreter.Context;
@@ -22,8 +23,13 @@ import com.khubla.kpascal.interpreter.Value;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class WritelnFunction implements RTLFunction {
-   @Override
-   public void invoke(Context context, List<Value> parameters) {
-      // TODO Auto-generated method stub
-   }
+	@Override
+	public void invoke(Context context, List<Value> parameters) {
+		if (null != parameters) {
+			for (Value value : parameters) {
+				new PrintStream(context.getStdOut()).print(value.getValue());
+			}
+		}
+
+	}
 }

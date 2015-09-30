@@ -1,5 +1,7 @@
 package com.khubla.kpascal.interpreter;
 
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Hashtable;
 import java.util.Stack;
 
@@ -24,6 +26,14 @@ import com.khubla.kpascal.type.SimpleType;
 */
 public class Context {
 	/**
+	 * input stream
+	 */
+	private final InputStream stdIn;
+	/**
+	 * output stream
+	 */
+	private final OutputStream stdOut;
+	/**
 	 * all procedures by name
 	 */
 	private final Hashtable<String, Procedure> procedures = new Hashtable<String, Procedure>();
@@ -35,6 +45,22 @@ public class Context {
 	 * constants
 	 */
 	private final Hashtable<String, VariableInstance> constants = new Hashtable<String, VariableInstance>();
+
+	/**
+	 * ctor
+	 */
+	public Context(InputStream stdIn, OutputStream stdOut) {
+		this.stdIn = stdIn;
+		this.stdOut = stdOut;
+	}
+
+	public InputStream getStdIn() {
+		return stdIn;
+	}
+
+	public OutputStream getStdOut() {
+		return stdOut;
+	}
 
 	public Hashtable<String, VariableInstance> getConstants() {
 		return constants;

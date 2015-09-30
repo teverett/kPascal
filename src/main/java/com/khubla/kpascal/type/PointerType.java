@@ -17,4 +17,23 @@ package com.khubla.kpascal.type;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class PointerType implements Type {
+	public Type getComponentType() {
+		return componentType;
+	}
+
+	public void setComponentType(Type componentType) {
+		this.componentType = componentType;
+	}
+
+	public String getComponentTypeName() {
+		return componentTypeName;
+	}
+
+	public void setComponentTypeName(String componentTypeName) {
+		this.componentTypeName = componentTypeName;
+	}
+
+	private Type componentType;
+	private String componentTypeName;
+
 }

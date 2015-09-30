@@ -103,7 +103,6 @@ public class TypeVisitor extends PascalBaseVisitor<Type> {
 				final String upperRange = ctx.getChild(2).getText();
 				range.lowerRange = context.resolve(lowerRange);
 				range.upperRange = context.resolve(upperRange);
-
 			}
 		} catch (final Exception e) {
 			e.printStackTrace();
@@ -125,17 +124,25 @@ public class TypeVisitor extends PascalBaseVisitor<Type> {
 	@Override
 	public Type visitComponentType(PascalParser.ComponentTypeContext ctx) {
 		containedTypeName = ctx.getChild(0).getText();
-		if ((null != type) && (type instanceof ArrayType)) {
-			final ArrayType arrayType = (ArrayType) type;
-			arrayType.setComponentTypeName(containedTypeName);
-		}
+		if (null != type)
+			if ((type instanceof ArrayType)) {
+				final ArrayType arrayType = (ArrayType) type;
+				arrayType.setComponentTypeName(containedTypeName);
+			}
 		return visitChildren(ctx);
 	}
 
 	@Override
 	public Type visitPointerType(PascalParser.PointerTypeContext ctx) {
-		type = new PointerType();
+		PointerType pointerType = new PointerType();
+		pointerType.setComponentTypeName(ctx.getChild(1).getText());
+		type = pointerType;
 		context.getCurrentScope().getTypes().addType(this.typeName, type);
+		return visitChildren(ctx);
+	}
+
+	@Override
+	public Type visitType(PascalParser.TypeContext ctx) {
 		return visitChildren(ctx);
 	}
 
