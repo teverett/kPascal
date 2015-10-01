@@ -1,9 +1,6 @@
-package com.khubla.kpascal.rtl;
+package com.khubla.kpascal.value;
 
-import java.util.List;
-
-import com.khubla.kpascal.interpreter.Context;
-import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.type.Type;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -21,9 +18,6 @@ import com.khubla.kpascal.value.SimpleValue;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class DisposeFunction implements RTLFunction {
-   @Override
-   public void invoke(Context context, List<SimpleValue> parameters) {
-      // TODO Auto-generated method stub
-   }
+public interface Value {
+	Type getType();
 }

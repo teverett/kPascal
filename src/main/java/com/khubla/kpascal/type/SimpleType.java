@@ -1,5 +1,8 @@
 package com.khubla.kpascal.type;
 
+import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.Value;
+
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -17,17 +20,22 @@ package com.khubla.kpascal.type;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class SimpleType implements Type {
-   public enum Type {
-      real, string, integer, bool, character;
-   }
+	public enum Type {
+		real, string, integer, bool, character;
+	}
 
-   private final Type type;
+	private final Type type;
 
-   public SimpleType(Type type) {
-      this.type = type;
-   }
+	public SimpleType(Type type) {
+		this.type = type;
+	}
 
-   public Type getType() {
-      return type;
-   }
+	public Type getType() {
+		return type;
+	}
+
+	@Override
+	public Value createValue() {
+		return new SimpleValue(this);
+	}
 }

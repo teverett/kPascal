@@ -7,6 +7,7 @@ import java.util.Stack;
 
 import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.type.SimpleType;
+import com.khubla.kpascal.value.SimpleValue;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -84,31 +85,31 @@ public class Context {
 	/**
 	 * resolve a string to a value
 	 */
-	public Value resolve(String v) throws InterpreterException {
+	public SimpleValue resolve(String v) throws InterpreterException {
 		/*
 		 * string
 		 */
 		if (v.startsWith("\'") && (v.endsWith("\'"))) {
-			return new Value(new SimpleType(SimpleType.Type.string), v.substring(1, v.length() - 1));
+			return new SimpleValue(new SimpleType(SimpleType.Type.string), v.substring(1, v.length() - 1));
 		}
 		/*
 		 * is a constant?
 		 */
 		if (null != constants.get(v)) {
-			return constants.get(v).getValue();
+			return (SimpleValue) constants.get(v).getValue();
 		}
 
 		/*
 		 * is variable?
 		 */
 		if (null != getCurrentScope().getVariables().get(v)) {
-			return getCurrentScope().getVariables().get(v).getValue();
+			return (SimpleValue) getCurrentScope().getVariables().get(v).getValue();
 		}
 		/*
 		 * is integer?
 		 */
 		try {
-			return new Value(Integer.parseInt(v));
+			return new SimpleValue(Integer.parseInt(v));
 		} catch (final NumberFormatException e) {
 			// do nothing
 		}
@@ -117,7 +118,7 @@ public class Context {
 		 * is real?
 		 */
 		try {
-			return new Value(Double.parseDouble(v));
+			return new SimpleValue(Double.parseDouble(v));
 		} catch (final NumberFormatException e) {
 			// do nothing
 		}
@@ -125,7 +126,7 @@ public class Context {
 		 * is boolean?
 		 */
 		try {
-			return new Value(Boolean.parseBoolean(v));
+			return new SimpleValue(Boolean.parseBoolean(v));
 		} catch (final NumberFormatException e) {
 			// do nothing
 		}

@@ -4,7 +4,7 @@ import java.io.PrintStream;
 import java.util.List;
 
 import com.khubla.kpascal.interpreter.Context;
-import com.khubla.kpascal.interpreter.Value;
+import com.khubla.kpascal.value.SimpleValue;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -24,10 +24,10 @@ import com.khubla.kpascal.interpreter.Value;
 */
 public class WritelnFunction implements RTLFunction {
 	@Override
-	public void invoke(Context context, List<Value> parameters) {
+	public void invoke(Context context, List<SimpleValue> parameters) {
 		if (null != parameters) {
-			for (Value value : parameters) {
-				new PrintStream(context.getStdOut()).print(value.getValue());
+			for (SimpleValue value : parameters) {
+				new PrintStream(context.getStdOut()).print(value.getValue() + "\n");
 			}
 		}
 

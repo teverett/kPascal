@@ -3,7 +3,8 @@ package com.khubla.kpascal.type;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.khubla.kpascal.interpreter.Value;
+import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.Value;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -24,8 +25,8 @@ import com.khubla.kpascal.interpreter.Value;
 public class ArrayType implements Type {
 
 	public static class Range {
-		public Value lowerRange;
-		public Value upperRange;
+		public SimpleValue lowerRange;
+		public SimpleValue upperRange;
 
 	};
 
@@ -55,6 +56,12 @@ public class ArrayType implements Type {
 
 	public void setRanges(List<Range> ranges) {
 		this.ranges = ranges;
+	}
+
+	@Override
+	public Value createValue() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

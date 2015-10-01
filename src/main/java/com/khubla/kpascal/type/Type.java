@@ -1,5 +1,7 @@
 package com.khubla.kpascal.type;
 
+import com.khubla.kpascal.value.Value;
+
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -17,4 +19,5 @@ package com.khubla.kpascal.type;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public interface Type {
+	Value createValue();
 }

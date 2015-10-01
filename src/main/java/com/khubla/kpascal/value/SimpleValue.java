@@ -1,4 +1,4 @@
-package com.khubla.kpascal.interpreter;
+package com.khubla.kpascal.value;
 
 import com.khubla.kpascal.type.SimpleType;
 import com.khubla.kpascal.type.Type;
@@ -19,57 +19,62 @@ import com.khubla.kpascal.type.Type;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class Value {
-	private final Type type;
+public class SimpleValue implements Value {
+	private final SimpleType simpleType;
 	private final String value;
+
+	public SimpleValue(SimpleType simpleType) {
+		this.simpleType = simpleType;
+		this.value = null;
+	}
 
 	/**
 	 * ctor for boolean
 	 */
-	public Value(Boolean value) {
-		type = new SimpleType(SimpleType.Type.bool);
+	public SimpleValue(Boolean value) {
+		simpleType = new SimpleType(SimpleType.Type.bool);
 		this.value = Boolean.toString(value);
 	}
 
 	/**
 	 * ctor for char
 	 */
-	public Value(char value) {
-		type = new SimpleType(SimpleType.Type.character);
+	public SimpleValue(char value) {
+		simpleType = new SimpleType(SimpleType.Type.character);
 		this.value = Character.toString(value);
 	}
 
 	/**
 	 * ctor for double
 	 */
-	public Value(Double value) {
-		type = new SimpleType(SimpleType.Type.real);
+	public SimpleValue(Double value) {
+		simpleType = new SimpleType(SimpleType.Type.real);
 		this.value = Double.toString(value);
 	}
 
 	/**
 	 * ctor for integer
 	 */
-	public Value(Integer value) {
-		type = new SimpleType(SimpleType.Type.integer);
+	public SimpleValue(Integer value) {
+		simpleType = new SimpleType(SimpleType.Type.integer);
 		this.value = Integer.toString(value);
 	}
 
 	/**
 	 * ctor for string
 	 */
-	public Value(String value) {
-		type = new SimpleType(SimpleType.Type.string);
+	public SimpleValue(String value) {
+		simpleType = new SimpleType(SimpleType.Type.string);
 		this.value = value;
 	}
 
-	public Value(Type type, String value) {
-		this.type = type;
+	public SimpleValue(SimpleType simpleType, String value) {
+		this.simpleType = simpleType;
 		this.value = value;
 	}
 
-	public Type getType() {
-		return type;
+	public SimpleType getSimpleType() {
+		return simpleType;
 	}
 
 	public String getValue() {
@@ -86,5 +91,10 @@ public class Value {
 
 	public Boolean asBoolean() throws NumberFormatException {
 		return Boolean.valueOf(value);
+	}
+
+	@Override
+	public Type getType() {
+		return this.simpleType;
 	}
 }

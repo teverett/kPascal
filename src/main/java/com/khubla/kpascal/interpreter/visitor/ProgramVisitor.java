@@ -7,9 +7,9 @@ import com.khubla.kpascal.antlr.PascalBaseVisitor;
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.interpreter.Context;
-import com.khubla.kpascal.interpreter.Value;
 import com.khubla.kpascal.rtl.RTLFunction;
 import com.khubla.kpascal.rtl.RTLFunctions;
+import com.khubla.kpascal.value.SimpleValue;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -54,10 +54,10 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
     * invoke RTL function
     */
    private void invokeRTLFunction(String functionName, List<String> parameters) throws InterpreterException {
-      final List<Value> values = new ArrayList<Value>();
+      final List<SimpleValue> values = new ArrayList<SimpleValue>();
       if (null != parameters) {
          for (final String str : parameters) {
-            final Value v = context.resolve(str);
+            final SimpleValue v = context.resolve(str);
             values.add(v);
          }
       }

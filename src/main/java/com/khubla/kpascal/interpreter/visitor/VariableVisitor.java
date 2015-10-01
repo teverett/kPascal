@@ -3,9 +3,9 @@ package com.khubla.kpascal.interpreter.visitor;
 import com.khubla.kpascal.antlr.PascalBaseVisitor;
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.interpreter.Context;
-import com.khubla.kpascal.interpreter.Value;
 import com.khubla.kpascal.interpreter.VariableInstance;
 import com.khubla.kpascal.type.Type;
+import com.khubla.kpascal.value.Value;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -24,28 +24,29 @@ import com.khubla.kpascal.type.Type;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class VariableVisitor extends PascalBaseVisitor<Void> {
-   private final Context context;
+	private final Context context;
 
-   public VariableVisitor(Context context) {
-      this.context = context;
-   }
+	public VariableVisitor(Context context) {
+		this.context = context;
+	}
 
-   public Context getContext() {
-      return context;
-   }
+	public Context getContext() {
+		return context;
+	}
 
-   @Override
-   public Void visitVariableDeclaration(PascalParser.VariableDeclarationContext ctx) {
-      final String instanceName = ctx.getChild(0).getText();
-      final String typeName = ctx.getChild(2).getText();
-      final Type type = context.getCurrentScope().getTypes().find(typeName);
-      if (null != type) {
-         final Value val = new Value(type, null);
-         final VariableInstance v = new VariableInstance(instanceName, val, VariableInstance.VariableDeclarationType.variable);
-         context.getCurrentScope().getVariables().put(instanceName, v);
-      } else {
-         System.out.println("Unknown type '" + typeName + "'");
-      }
-      return visitChildren(ctx);
-   }
+	@Override
+	public Void visitVariableDeclaration(PascalParser.VariableDeclarationContext ctx) {
+		final String instanceName = ctx.getChild(0).getText();
+		final String typeName = ctx.getChild(2).getText();
+		final Type type = context.getCurrentScope().getTypes().find(typeName);
+		if (null != type) {
+			final Value val = type.createValue();
+			final VariableInstance v = new VariableInstance(instanceName, val,
+					VariableInstance.VariableDeclarationType.variable);
+			context.getCurrentScope().getVariables().put(instanceName, v);
+		} else {
+			System.out.println("Unknown type '" + typeName + "'");
+		}
+		return visitChildren(ctx);
+	}
 }

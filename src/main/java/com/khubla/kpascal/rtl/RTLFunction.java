@@ -3,7 +3,7 @@ package com.khubla.kpascal.rtl;
 import java.util.List;
 
 import com.khubla.kpascal.interpreter.Context;
-import com.khubla.kpascal.interpreter.Value;
+import com.khubla.kpascal.value.SimpleValue;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -22,5 +22,5 @@ import com.khubla.kpascal.interpreter.Value;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public interface RTLFunction {
-   void invoke(Context context, List<Value> parameters);
+   void invoke(Context context, List<SimpleValue> parameters);
 }

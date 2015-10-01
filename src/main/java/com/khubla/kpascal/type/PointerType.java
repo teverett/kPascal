@@ -1,5 +1,7 @@
 package com.khubla.kpascal.type;
 
+import com.khubla.kpascal.value.Value;
+
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -35,5 +37,11 @@ public class PointerType implements Type {
 
 	private Type componentType;
 	private String componentTypeName;
+
+	@Override
+	public Value createValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
