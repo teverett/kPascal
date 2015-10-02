@@ -1,5 +1,6 @@
 package com.khubla.kpascal.type;
 
+import java.util.Enumeration;
 import java.util.Hashtable;
 
 /*
@@ -70,6 +71,20 @@ public class Types {
 					} else {
 						System.out.println("Unable to find type '" + pointerType.getComponentTypeName() + "'");
 					}
+				} else if (type instanceof RecordType) {
+					RecordType recordType = (RecordType) type;
+					Enumeration<String> keys = recordType.getFieldTypeNames().keys();
+					while (keys.hasMoreElements()) {
+						String id = keys.nextElement();
+						String typeName = recordType.getFieldTypeNames().get(id);
+						Type containedType = this.find(typeName);
+						if (null != containedType) {
+							recordType.getFields().put(id, containedType);
+						} else {
+							System.out.println("Unable to find type '" + typeName + "'");
+						}
+					}
+
 				}
 			}
 		}

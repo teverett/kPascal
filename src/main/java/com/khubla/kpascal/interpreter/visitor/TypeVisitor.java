@@ -146,4 +146,15 @@ public class TypeVisitor extends PascalBaseVisitor<Type> {
 		return visitChildren(ctx);
 	}
 
+	@Override
+	public Type visitRecordSection(PascalParser.RecordSectionContext ctx) {
+		String name = ctx.getChild(0).getText();
+		String ttype = ctx.getChild(2).getText();
+		if ((type instanceof RecordType)) {
+			final RecordType recordType = (RecordType) type;
+			recordType.getFieldTypeNames().put(name, ttype);
+		}
+		return visitChildren(ctx);
+	}
+
 }

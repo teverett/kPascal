@@ -24,6 +24,11 @@ import com.khubla.kpascal.value.Value;
 public class RecordType implements Type {
 
 	private final Hashtable<String, Type> fields = new Hashtable<String, Type>();
+	private final Hashtable<String, String> fieldTypeNames = new Hashtable<String, String>();
+
+	public Hashtable<String, String> getFieldTypeNames() {
+		return fieldTypeNames;
+	}
 
 	public Hashtable<String, Type> getFields() {
 		return fields;
