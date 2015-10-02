@@ -1,5 +1,7 @@
 package com.khubla.kpascal.type;
 
+import java.util.Hashtable;
+
 import com.khubla.kpascal.value.RecordValue;
 import com.khubla.kpascal.value.Value;
 
@@ -20,6 +22,12 @@ import com.khubla.kpascal.value.Value;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class RecordType implements Type {
+
+	private final Hashtable<String, Type> fields = new Hashtable<String, Type>();
+
+	public Hashtable<String, Type> getFields() {
+		return fields;
+	}
 
 	@Override
 	public Value createValue() {

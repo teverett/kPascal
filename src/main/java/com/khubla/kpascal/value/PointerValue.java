@@ -22,6 +22,15 @@ import com.khubla.kpascal.type.Type;
 public class PointerValue implements Value {
 
 	private final PointerType pointerType;
+	private Value targetValue;
+
+	public Value getTargetValue() {
+		return targetValue;
+	}
+
+	public void setTargetValue(Value targetValue) {
+		this.targetValue = targetValue;
+	}
 
 	public PointerValue(PointerType pointerType) {
 		this.pointerType = pointerType;

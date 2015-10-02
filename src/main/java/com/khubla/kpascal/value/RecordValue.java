@@ -1,5 +1,7 @@
 package com.khubla.kpascal.value;
 
+import java.util.Hashtable;
+
 import com.khubla.kpascal.type.RecordType;
 import com.khubla.kpascal.type.Type;
 
@@ -22,6 +24,11 @@ import com.khubla.kpascal.type.Type;
 public class RecordValue implements Value {
 
 	private final RecordType recordType;
+	private final Hashtable<String, Value> fieldValues = new Hashtable<String, Value>();
+
+	public Hashtable<String, Value> getFieldValues() {
+		return fieldValues;
+	}
 
 	public RecordValue(RecordType recordType) {
 		this.recordType = recordType;
