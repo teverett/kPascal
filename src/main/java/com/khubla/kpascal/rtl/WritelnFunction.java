@@ -23,13 +23,12 @@ import com.khubla.kpascal.value.SimpleValue;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class WritelnFunction implements RTLFunction {
-	@Override
-	public void invoke(Context context, List<SimpleValue> parameters) {
-		if (null != parameters) {
-			for (SimpleValue value : parameters) {
-				new PrintStream(context.getStdOut()).print(value.getValue() + "\n");
-			}
-		}
-
-	}
+   @Override
+   public void invoke(Context context, List<SimpleValue> parameters) {
+      if (null != parameters) {
+         for (final SimpleValue value : parameters) {
+            new PrintStream(context.getStdOut()).print(value.getValue() + "\n");
+         }
+      }
+   }
 }

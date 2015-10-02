@@ -27,134 +27,134 @@ import com.khubla.kpascal.type.Type;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class TypeVisitor extends PascalBaseVisitor<Type> {
-	private final Context context;
-	private Type type = null;
-	private String typeName = null;
-	private String containedTypeName = null;
+   private final Context context;
+   private Type type = null;
+   private String typeName = null;
+   private String containedTypeName = null;
 
-	public String getContainedTypeName() {
-		return containedTypeName;
-	}
+   public TypeVisitor(Context context) {
+      this.context = context;
+   }
 
-	public void setContainedTypeName(String containedTypeName) {
-		this.containedTypeName = containedTypeName;
-	}
+   public String getContainedTypeName() {
+      return containedTypeName;
+   }
 
-	public TypeVisitor(Context context) {
-		this.context = context;
-	}
+   public Context getContext() {
+      return context;
+   }
 
-	public Context getContext() {
-		return context;
-	}
+   public Type getType() {
+      return type;
+   }
 
-	public Type getType() {
-		return type;
-	}
+   public String getTypeName() {
+      return typeName;
+   }
 
-	public String getTypeName() {
-		return typeName;
-	}
+   public void setContainedTypeName(String containedTypeName) {
+      this.containedTypeName = containedTypeName;
+   }
 
-	public void setType(Type type) {
-		this.type = type;
-	}
+   public void setType(Type type) {
+      this.type = type;
+   }
 
-	public void setTypeName(String typeName) {
-		this.typeName = typeName;
-	}
+   public void setTypeName(String typeName) {
+      this.typeName = typeName;
+   }
 
-	@Override
-	public Type visitArrayType(PascalParser.ArrayTypeContext ctx) {
-		type = new ArrayType();
-		context.getCurrentScope().getTypes().addType(this.typeName, type);
-		return visitChildren(ctx);
-	}
+   @Override
+   public Type visitArrayType(PascalParser.ArrayTypeContext ctx) {
+      type = new ArrayType();
+      context.getCurrentScope().getTypes().addType(typeName, type);
+      return visitChildren(ctx);
+   }
 
-	@Override
-	public Type visitFileType(PascalParser.FileTypeContext ctx) {
-		type = new FileType();
-		context.getCurrentScope().getTypes().addType(this.typeName, type);
-		return visitChildren(ctx);
-	}
+   @Override
+   public Type visitComponentType(PascalParser.ComponentTypeContext ctx) {
+      containedTypeName = ctx.getChild(0).getText();
+      if (null != type) {
+         if ((type instanceof ArrayType)) {
+            final ArrayType arrayType = (ArrayType) type;
+            arrayType.setComponentTypeName(containedTypeName);
+         }
+      }
+      return visitChildren(ctx);
+   }
 
-	@Override
-	public Type visitRecordType(PascalParser.RecordTypeContext ctx) {
-		type = new RecordType();
-		context.getCurrentScope().getTypes().addType(this.typeName, type);
-		return visitChildren(ctx);
-	}
+   @Override
+   public Type visitFileType(PascalParser.FileTypeContext ctx) {
+      type = new FileType();
+      context.getCurrentScope().getTypes().addType(typeName, type);
+      return visitChildren(ctx);
+   }
 
-	@Override
-	public Type visitSetType(PascalParser.SetTypeContext ctx) {
-		type = new SetType();
-		context.getCurrentScope().getTypes().addType(this.typeName, type);
-		return visitChildren(ctx);
-	}
+   @Override
+   public Type visitPointerType(PascalParser.PointerTypeContext ctx) {
+      final PointerType pointerType = new PointerType();
+      pointerType.setComponentTypeName(ctx.getChild(1).getText());
+      type = pointerType;
+      context.getCurrentScope().getTypes().addType(typeName, type);
+      return visitChildren(ctx);
+   }
 
-	@Override
-	public Type visitSubrangeType(PascalParser.SubrangeTypeContext ctx) {
-		try {
-			if ((null != type) && (type instanceof ArrayType)) {
-				ArrayType.Range range = new ArrayType.Range();
-				final ArrayType arrayType = (ArrayType) type;
-				arrayType.ranges.add(range);
-				final String lowerRange = ctx.getChild(0).getText();
-				final String upperRange = ctx.getChild(2).getText();
-				range.lowerRange = context.resolve(lowerRange);
-				range.upperRange = context.resolve(upperRange);
-			}
-		} catch (final Exception e) {
-			e.printStackTrace();
-		}
-		return visitChildren(ctx);
-	}
+   @Override
+   public Type visitRecordSection(PascalParser.RecordSectionContext ctx) {
+      final String name = ctx.getChild(0).getText();
+      final String ttype = ctx.getChild(2).getText();
+      if ((type instanceof RecordType)) {
+         final RecordType recordType = (RecordType) type;
+         recordType.getFieldTypeNames().put(name, ttype);
+      }
+      return visitChildren(ctx);
+   }
 
-	@Override
-	public Type visitTypeDefinition(PascalParser.TypeDefinitionContext ctx) {
-		typeName = ctx.getChild(0).getText();
-		return visitChildren(ctx);
-	}
+   @Override
+   public Type visitRecordType(PascalParser.RecordTypeContext ctx) {
+      type = new RecordType();
+      context.getCurrentScope().getTypes().addType(typeName, type);
+      return visitChildren(ctx);
+   }
 
-	@Override
-	public Type visitTypeList(PascalParser.TypeListContext ctx) {
-		return visitChildren(ctx);
-	}
+   @Override
+   public Type visitSetType(PascalParser.SetTypeContext ctx) {
+      type = new SetType();
+      context.getCurrentScope().getTypes().addType(typeName, type);
+      return visitChildren(ctx);
+   }
 
-	@Override
-	public Type visitComponentType(PascalParser.ComponentTypeContext ctx) {
-		containedTypeName = ctx.getChild(0).getText();
-		if (null != type)
-			if ((type instanceof ArrayType)) {
-				final ArrayType arrayType = (ArrayType) type;
-				arrayType.setComponentTypeName(containedTypeName);
-			}
-		return visitChildren(ctx);
-	}
+   @Override
+   public Type visitSubrangeType(PascalParser.SubrangeTypeContext ctx) {
+      try {
+         if ((null != type) && (type instanceof ArrayType)) {
+            final ArrayType.Range range = new ArrayType.Range();
+            final ArrayType arrayType = (ArrayType) type;
+            arrayType.ranges.add(range);
+            final String lowerRange = ctx.getChild(0).getText();
+            final String upperRange = ctx.getChild(2).getText();
+            range.lowerRange = context.resolve(lowerRange);
+            range.upperRange = context.resolve(upperRange);
+         }
+      } catch (final Exception e) {
+         e.printStackTrace();
+      }
+      return visitChildren(ctx);
+   }
 
-	@Override
-	public Type visitPointerType(PascalParser.PointerTypeContext ctx) {
-		PointerType pointerType = new PointerType();
-		pointerType.setComponentTypeName(ctx.getChild(1).getText());
-		type = pointerType;
-		context.getCurrentScope().getTypes().addType(this.typeName, type);
-		return visitChildren(ctx);
-	}
+   @Override
+   public Type visitType(PascalParser.TypeContext ctx) {
+      return visitChildren(ctx);
+   }
 
-	@Override
-	public Type visitType(PascalParser.TypeContext ctx) {
-		return visitChildren(ctx);
-	}
+   @Override
+   public Type visitTypeDefinition(PascalParser.TypeDefinitionContext ctx) {
+      typeName = ctx.getChild(0).getText();
+      return visitChildren(ctx);
+   }
 
-	@Override
-	public Type visitRecordSection(PascalParser.RecordSectionContext ctx) {
-		String name = ctx.getChild(0).getText();
-		String ttype = ctx.getChild(2).getText();
-		if ((type instanceof RecordType)) {
-			final RecordType recordType = (RecordType) type;
-			recordType.getFieldTypeNames().put(name, ttype);
-		}
-		return visitChildren(ctx);
-	}
-
+   @Override
+   public Type visitTypeList(PascalParser.TypeListContext ctx) {
+      return visitChildren(ctx);
+   }
 }

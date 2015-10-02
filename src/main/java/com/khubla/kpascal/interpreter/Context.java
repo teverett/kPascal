@@ -26,113 +26,111 @@ import com.khubla.kpascal.value.SimpleValue;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class Context {
-	/**
-	 * input stream
-	 */
-	private final InputStream stdIn;
-	/**
-	 * output stream
-	 */
-	private final OutputStream stdOut;
-	/**
-	 * all procedures by name
-	 */
-	private final Hashtable<String, Procedure> procedures = new Hashtable<String, Procedure>();
-	/**
-	 * stack of execution contexts
-	 */
-	private final Stack<Scope> scopeStack = new Stack<Scope>();
-	/**
-	 * constants
-	 */
-	private final Hashtable<String, VariableInstance> constants = new Hashtable<String, VariableInstance>();
+   /**
+    * input stream
+    */
+   private final InputStream stdIn;
+   /**
+    * output stream
+    */
+   private final OutputStream stdOut;
+   /**
+    * all procedures by name
+    */
+   private final Hashtable<String, Procedure> procedures = new Hashtable<String, Procedure>();
+   /**
+    * stack of execution contexts
+    */
+   private final Stack<Scope> scopeStack = new Stack<Scope>();
+   /**
+    * constants
+    */
+   private final Hashtable<String, VariableInstance> constants = new Hashtable<String, VariableInstance>();
 
-	/**
-	 * ctor
-	 */
-	public Context(InputStream stdIn, OutputStream stdOut) {
-		this.stdIn = stdIn;
-		this.stdOut = stdOut;
-	}
+   /**
+    * ctor
+    */
+   public Context(InputStream stdIn, OutputStream stdOut) {
+      this.stdIn = stdIn;
+      this.stdOut = stdOut;
+   }
 
-	public InputStream getStdIn() {
-		return stdIn;
-	}
+   public Hashtable<String, VariableInstance> getConstants() {
+      return constants;
+   }
 
-	public OutputStream getStdOut() {
-		return stdOut;
-	}
+   /**
+    * the current scope is the scope on the top of the stack
+    */
+   public Scope getCurrentScope() {
+      return getScopeStack().get(0);
+   }
 
-	public Hashtable<String, VariableInstance> getConstants() {
-		return constants;
-	}
+   public Hashtable<String, Procedure> getProcedures() {
+      return procedures;
+   }
 
-	/**
-	 * the current scope is the scope on the top of the stack
-	 */
-	public Scope getCurrentScope() {
-		return getScopeStack().get(0);
-	}
+   public Stack<Scope> getScopeStack() {
+      return scopeStack;
+   }
 
-	public Hashtable<String, Procedure> getProcedures() {
-		return procedures;
-	}
+   public InputStream getStdIn() {
+      return stdIn;
+   }
 
-	public Stack<Scope> getScopeStack() {
-		return scopeStack;
-	}
+   public OutputStream getStdOut() {
+      return stdOut;
+   }
 
-	/**
-	 * resolve a string to a value
-	 */
-	public SimpleValue resolve(String v) throws InterpreterException {
-		/*
-		 * string
-		 */
-		if (v.startsWith("\'") && (v.endsWith("\'"))) {
-			return new SimpleValue(new SimpleType(SimpleType.Type.string), v.substring(1, v.length() - 1));
-		}
-		/*
-		 * is a constant?
-		 */
-		if (null != constants.get(v)) {
-			return (SimpleValue) constants.get(v).getValue();
-		}
-
-		/*
-		 * is variable?
-		 */
-		if (null != getCurrentScope().getVariables().get(v)) {
-			return (SimpleValue) getCurrentScope().getVariables().get(v).getValue();
-		}
-		/*
-		 * is integer?
-		 */
-		try {
-			return new SimpleValue(Integer.parseInt(v));
-		} catch (final NumberFormatException e) {
-			// do nothing
-		}
-
-		/*
-		 * is real?
-		 */
-		try {
-			return new SimpleValue(Double.parseDouble(v));
-		} catch (final NumberFormatException e) {
-			// do nothing
-		}
-		/*
-		 * is boolean?
-		 */
-		try {
-			return new SimpleValue(Boolean.parseBoolean(v));
-		} catch (final NumberFormatException e) {
-			// do nothing
-		}
-		/*
-		 * nope
-		 */
-		throw new InterpreterException("Unable to resolve '" + v + "'");
-	}
+   /**
+    * resolve a string to a value
+    */
+   public SimpleValue resolve(String v) throws InterpreterException {
+      /*
+       * string
+       */
+      if (v.startsWith("\'") && (v.endsWith("\'"))) {
+         return new SimpleValue(new SimpleType(SimpleType.Type.string), v.substring(1, v.length() - 1));
+      }
+      /*
+       * is a constant?
+       */
+      if (null != constants.get(v)) {
+         return (SimpleValue) constants.get(v).getValue();
+      }
+      /*
+       * is variable?
+       */
+      if (null != getCurrentScope().getVariables().get(v)) {
+         return (SimpleValue) getCurrentScope().getVariables().get(v).getValue();
+      }
+      /*
+       * is integer?
+       */
+      try {
+         return new SimpleValue(Integer.parseInt(v));
+      } catch (final NumberFormatException e) {
+         // do nothing
+      }
+      /*
+       * is real?
+       */
+      try {
+         return new SimpleValue(Double.parseDouble(v));
+      } catch (final NumberFormatException e) {
+         // do nothing
+      }
+      /*
+       * is boolean?
+       */
+      try {
+         return new SimpleValue(Boolean.parseBoolean(v));
+      } catch (final NumberFormatException e) {
+         // do nothing
+      }
+      /*
+       * nope
+       */
+      throw new InterpreterException("Unable to resolve '" + v + "'");
+   }
 }

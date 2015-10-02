@@ -22,25 +22,23 @@ import com.khubla.kpascal.type.Type;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class RecordValue implements Value {
+   private final RecordType recordType;
+   private final Hashtable<String, Value> fieldValues = new Hashtable<String, Value>();
 
-	private final RecordType recordType;
-	private final Hashtable<String, Value> fieldValues = new Hashtable<String, Value>();
+   public RecordValue(RecordType recordType) {
+      this.recordType = recordType;
+   }
 
-	public Hashtable<String, Value> getFieldValues() {
-		return fieldValues;
-	}
+   public Hashtable<String, Value> getFieldValues() {
+      return fieldValues;
+   }
 
-	public RecordValue(RecordType recordType) {
-		this.recordType = recordType;
-	}
+   public RecordType getRecordType() {
+      return recordType;
+   }
 
-	public RecordType getRecordType() {
-		return recordType;
-	}
-
-	@Override
-	public Type getType() {
-		return this.recordType;
-	}
-
+   @Override
+   public Type getType() {
+      return recordType;
+   }
 }

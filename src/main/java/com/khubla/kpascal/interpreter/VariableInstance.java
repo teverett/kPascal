@@ -19,29 +19,29 @@ import com.khubla.kpascal.value.Value;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class VariableInstance {
-	public enum VariableDeclarationType {
-		constant, variable;
-	}
+   public enum VariableDeclarationType {
+      constant, variable;
+   }
 
-	private final String name;
-	private final VariableDeclarationType variableDeclarationType;
-	private final Value value;
+   private final String name;
+   private final VariableDeclarationType variableDeclarationType;
+   private final Value value;
 
-	public VariableInstance(String name, Value value, VariableDeclarationType variableDeclarationType) {
-		this.name = name;
-		this.variableDeclarationType = variableDeclarationType;
-		this.value = value;
-	}
+   public VariableInstance(String name, Value value, VariableDeclarationType variableDeclarationType) {
+      this.name = name;
+      this.variableDeclarationType = variableDeclarationType;
+      this.value = value;
+   }
 
-	public String getName() {
-		return name;
-	}
+   public String getName() {
+      return name;
+   }
 
-	public Value getValue() {
-		return value;
-	}
+   public Value getValue() {
+      return value;
+   }
 
-	public VariableDeclarationType getVariableDeclarationType() {
-		return variableDeclarationType;
-	}
+   public VariableDeclarationType getVariableDeclarationType() {
+      return variableDeclarationType;
+   }
 }

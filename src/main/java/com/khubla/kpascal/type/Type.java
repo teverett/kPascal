@@ -19,5 +19,5 @@ import com.khubla.kpascal.value.Value;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public interface Type {
-	Value createValue();
+   Value createValue();
 }

@@ -20,29 +20,27 @@ import com.khubla.kpascal.type.Type;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class PointerValue implements Value {
+   private final PointerType pointerType;
+   private Value targetValue;
 
-	private final PointerType pointerType;
-	private Value targetValue;
+   public PointerValue(PointerType pointerType) {
+      this.pointerType = pointerType;
+   }
 
-	public Value getTargetValue() {
-		return targetValue;
-	}
+   public PointerType getPointerType() {
+      return pointerType;
+   }
 
-	public void setTargetValue(Value targetValue) {
-		this.targetValue = targetValue;
-	}
+   public Value getTargetValue() {
+      return targetValue;
+   }
 
-	public PointerValue(PointerType pointerType) {
-		this.pointerType = pointerType;
-	}
+   @Override
+   public Type getType() {
+      return pointerType;
+   }
 
-	@Override
-	public Type getType() {
-		return this.pointerType;
-	}
-
-	public PointerType getPointerType() {
-		return pointerType;
-	}
-
+   public void setTargetValue(Value targetValue) {
+      this.targetValue = targetValue;
+   }
 }

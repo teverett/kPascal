@@ -20,20 +20,18 @@ import com.khubla.kpascal.type.Type;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class FileValue implements Value {
+   private final FileType fileType;
 
-	private final FileType fileType;
+   public FileValue(FileType fileType) {
+      this.fileType = fileType;
+   }
 
-	public FileValue(FileType fileType) {
-		this.fileType = fileType;
-	}
+   public FileType getFileType() {
+      return fileType;
+   }
 
-	@Override
-	public Type getType() {
-		return this.fileType;
-	}
-
-	public FileType getFileType() {
-		return fileType;
-	}
-
+   @Override
+   public Type getType() {
+      return fileType;
+   }
 }

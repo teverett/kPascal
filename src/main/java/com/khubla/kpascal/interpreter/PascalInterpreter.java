@@ -34,95 +34,94 @@ import com.khubla.kpascal.interpreter.visitor.TypeVisitor;
 import com.khubla.kpascal.interpreter.visitor.VariableVisitor;
 
 public class PascalInterpreter {
-	/**
-	 * input stream
-	 */
-	private final InputStream pascalInputStream;
-	/**
-	 * context
-	 */
-	private final Context context;
+   /**
+    * input stream
+    */
+   private final InputStream pascalInputStream;
+   /**
+    * context
+    */
+   private final Context context;
 
-	/**
-	 * ctor
-	 */
-	public PascalInterpreter(InputStream pascalInputStream, InputStream stdIn, OutputStream stdOut) {
-		/*
-		 * pascal input stream
-		 */
-		this.pascalInputStream = pascalInputStream;
-		/*
-		 * context
-		 */
-		this.context = new Context(stdIn, stdOut);
+   /**
+    * ctor
+    */
+   public PascalInterpreter(InputStream pascalInputStream, InputStream stdIn, OutputStream stdOut) {
+      /*
+       * pascal input stream
+       */
+      this.pascalInputStream = pascalInputStream;
+      /*
+       * context
+       */
+      context = new Context(stdIn, stdOut);
+      /*
+       * push the program context
+       */
+      context.getScopeStack().push(new Scope());
+   }
 
-		/*
-		 * push the program context
-		 */
-		context.getScopeStack().push(new Scope());
-	}
+   public Context getContext() {
+      return context;
+   }
 
-	public Context getContext() {
-		return context;
-	}
+   public InputStream getPascalInputStream() {
+      return pascalInputStream;
+   }
 
-	public InputStream getPascalInputStream() {
-		return pascalInputStream;
-	}
+   /**
+    * parse an input file
+    */
+   private ProgramContext parse(InputStream inputStream) throws Exception {
+      try {
+         if (null != inputStream) {
+            final Reader reader = new InputStreamReader(inputStream, "UTF-8");
+            final PascalLexer lexer = new PascalLexer(new ANTLRInputStream(reader));
+            final PascalParser parser = new PascalParser(new CommonTokenStream(lexer));
+            parser.setBuildParseTree(true);
+            return parser.program();
+         } else {
+            throw new IllegalArgumentException();
+         }
+      } catch (final Exception e) {
+         throw new Exception("Exception reading and parsing file", e);
+      }
+   }
 
-	/**
-	 * parse an input file
-	 */
-	private ProgramContext parse(InputStream inputStream) throws Exception {
-		try {
-			if (null != inputStream) {
-				final Reader reader = new InputStreamReader(inputStream, "UTF-8");
-				final PascalLexer lexer = new PascalLexer(new ANTLRInputStream(reader));
-				final PascalParser parser = new PascalParser(new CommonTokenStream(lexer));
-				parser.setBuildParseTree(true);
-				return parser.program();
-			} else {
-				throw new IllegalArgumentException();
-			}
-		} catch (final Exception e) {
-			throw new Exception("Exception reading and parsing file", e);
-		}
-	}
-
-	public void run() throws Exception {
-		try {
-			/*
-			 * parse
-			 */
-			final ProgramContext programContext = parse(pascalInputStream);
-			/*
-			 * constants
-			 */
-			final ConstantVisitor constantVisitor = new ConstantVisitor(context);
-			constantVisitor.visit(programContext);
-			/*
-			 * types
-			 */
-			final TypeVisitor typeVisitor = new TypeVisitor(context);
-			typeVisitor.visit(programContext);
-			this.getContext().getCurrentScope().getTypes().resolveComponentTypes();
-			/*
-			 * variables
-			 */
-			final VariableVisitor variableVisitor = new VariableVisitor(context);
-			variableVisitor.visit(programContext);
-			/*
-			 * procedures
-			 */
-			final ProcedureVisitor procedureVisitor = new ProcedureVisitor(context);
-			procedureVisitor.visit(programContext);
-			/*
-			 * program
-			 */
-			final ProgramVisitor programVisitor = new ProgramVisitor(context);
-			programVisitor.visit(programContext);
-		} catch (final Exception e) {
-			throw new Exception("Exception in run", e);
-		}
-	}
+   public void run() throws Exception {
+      try {
+         /*
+          * parse
+          */
+         final ProgramContext programContext = parse(pascalInputStream);
+         /*
+          * constants
+          */
+         final ConstantVisitor constantVisitor = new ConstantVisitor(context);
+         constantVisitor.visit(programContext);
+         /*
+          * types
+          */
+         final TypeVisitor typeVisitor = new TypeVisitor(context);
+         typeVisitor.visit(programContext);
+         getContext().getCurrentScope().getTypes().resolveComponentTypes();
+         /*
+          * variables
+          */
+         final VariableVisitor variableVisitor = new VariableVisitor(context);
+         variableVisitor.visit(programContext);
+         /*
+          * procedures
+          */
+         final ProcedureVisitor procedureVisitor = new ProcedureVisitor(context);
+         procedureVisitor.visit(programContext);
+         /*
+          * program
+          */
+         final ProgramVisitor programVisitor = new ProgramVisitor(context);
+         programVisitor.visit(programContext);
+      } catch (final Exception e) {
+         throw new Exception("Exception in run", e);
+      }
+   }
 }

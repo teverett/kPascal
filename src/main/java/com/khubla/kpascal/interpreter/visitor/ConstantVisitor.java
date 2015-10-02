@@ -26,33 +26,33 @@ import com.khubla.kpascal.value.SimpleValue;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class ConstantVisitor extends PascalBaseVisitor<Void> {
-	private final Context context;
+   private final Context context;
 
-	public ConstantVisitor(Context context) {
-		this.context = context;
-	}
+   public ConstantVisitor(Context context) {
+      this.context = context;
+   }
 
-	public Context getContext() {
-		return context;
-	}
+   public Context getContext() {
+      return context;
+   }
 
-	@Override
-	public Void visitConstantDefinition(PascalParser.ConstantDefinitionContext ctx) {
-		final String name = ctx.getChild(0).getText();
-		final String value = ctx.getChild(2).getText();
-		final ParserRuleContext parserRuleContext = (ParserRuleContext) ctx.getChild(2).getChild(0).getChild(0);
-		VariableInstance v = null;
-		SimpleType simpleType = null;
-		if (parserRuleContext instanceof PascalParser.UnsignedRealContext) {
-			simpleType = new SimpleType(SimpleType.Type.real);
-		} else if (parserRuleContext instanceof PascalParser.UnsignedIntegerContext) {
-			simpleType = new SimpleType(SimpleType.Type.integer);
-		} else if (parserRuleContext instanceof PascalParser.StringContext) {
-			simpleType = new SimpleType(SimpleType.Type.string);
-		}
-		final SimpleValue val = new SimpleValue(simpleType, value);
-		v = new VariableInstance(name, val, VariableInstance.VariableDeclarationType.constant);
-		context.getConstants().put(name, v);
-		return visitChildren(ctx);
-	}
+   @Override
+   public Void visitConstantDefinition(PascalParser.ConstantDefinitionContext ctx) {
+      final String name = ctx.getChild(0).getText();
+      final String value = ctx.getChild(2).getText();
+      final ParserRuleContext parserRuleContext = (ParserRuleContext) ctx.getChild(2).getChild(0).getChild(0);
+      VariableInstance v = null;
+      SimpleType simpleType = null;
+      if (parserRuleContext instanceof PascalParser.UnsignedRealContext) {
+         simpleType = new SimpleType(SimpleType.Type.real);
+      } else if (parserRuleContext instanceof PascalParser.UnsignedIntegerContext) {
+         simpleType = new SimpleType(SimpleType.Type.integer);
+      } else if (parserRuleContext instanceof PascalParser.StringContext) {
+         simpleType = new SimpleType(SimpleType.Type.string);
+      }
+      final SimpleValue val = new SimpleValue(simpleType, value);
+      v = new VariableInstance(name, val, VariableInstance.VariableDeclarationType.constant);
+      context.getConstants().put(name, v);
+      return visitChildren(ctx);
+   }
 }

@@ -20,20 +20,18 @@ import com.khubla.kpascal.type.Type;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class SetValue implements Value {
+   private final SetType setType;
 
-	private final SetType setType;
+   public SetValue(SetType setType) {
+      this.setType = setType;
+   }
 
-	public SetValue(SetType setType) {
-		this.setType = setType;
-	}
+   public SetType getSetType() {
+      return setType;
+   }
 
-	public SetType getSetType() {
-		return setType;
-	}
-
-	@Override
-	public Type getType() {
-		return this.setType;
-	}
-
+   @Override
+   public Type getType() {
+      return setType;
+   }
 }

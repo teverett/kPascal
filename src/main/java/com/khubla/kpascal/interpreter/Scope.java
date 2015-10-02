@@ -27,67 +27,67 @@ import com.khubla.kpascal.type.Types;
 import com.khubla.kpascal.value.Value;
 
 public class Scope {
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	/**
-	 * variables
-	 */
-	private final Hashtable<String, VariableInstance> variables = new Hashtable<String, VariableInstance>();
-	/**
-	 * types
-	 */
-	private final Types types;
-	/**
-	 * stack
-	 */
-	private final Stack<VariableInstance> executionStack = new Stack<VariableInstance>();
+   private final Logger logger = LoggerFactory.getLogger(this.getClass());
+   /**
+    * variables
+    */
+   private final Hashtable<String, VariableInstance> variables = new Hashtable<String, VariableInstance>();
+   /**
+    * types
+    */
+   private final Types types;
+   /**
+    * stack
+    */
+   private final Stack<VariableInstance> executionStack = new Stack<VariableInstance>();
 
-	/**
-	 * default ctor
-	 */
-	public Scope() {
-		types = new Types();
-		/*
-		 * add the known atomic types
-		 */
-		types.addType("integer", new SimpleType(SimpleType.Type.integer));
-		types.addType("char", new SimpleType(SimpleType.Type.character));
-		types.addType("boolean", new SimpleType(SimpleType.Type.bool));
-		types.addType("real", new SimpleType(SimpleType.Type.real));
-		types.addType("string", new SimpleType(SimpleType.Type.string));
-	}
+   /**
+    * default ctor
+    */
+   public Scope() {
+      types = new Types();
+      /*
+       * add the known atomic types
+       */
+      types.addType("integer", new SimpleType(SimpleType.Type.integer));
+      types.addType("char", new SimpleType(SimpleType.Type.character));
+      types.addType("boolean", new SimpleType(SimpleType.Type.bool));
+      types.addType("real", new SimpleType(SimpleType.Type.real));
+      types.addType("string", new SimpleType(SimpleType.Type.string));
+   }
 
-	/**
-	 * copy ctor
-	 */
-	public Scope(Scope ctx) {
-		/*
-		 * copy variables
-		 */
-		ctx.variables.putAll(variables);
-		/*
-		 * copy types
-		 */
-		types = new Types(ctx.types);
-	}
+   /**
+    * copy ctor
+    */
+   public Scope(Scope ctx) {
+      /*
+       * copy variables
+       */
+      ctx.variables.putAll(variables);
+      /*
+       * copy types
+       */
+      types = new Types(ctx.types);
+   }
 
-	public Stack<VariableInstance> getExecutionStack() {
-		return executionStack;
-	}
+   public Stack<VariableInstance> getExecutionStack() {
+      return executionStack;
+   }
 
-	public Types getTypes() {
-		return types;
-	}
+   public Types getTypes() {
+      return types;
+   }
 
-	public Hashtable<String, VariableInstance> getVariables() {
-		return variables;
-	}
+   public Hashtable<String, VariableInstance> getVariables() {
+      return variables;
+   }
 
-	public void reportVariables() {
-		for (final String key : variables.keySet()) {
-			Value v = variables.get(key).getValue();
-			if (null != v) {
-				logger.info("\t" + key + " " + v.getType().getClass().getName());
-			}
-		}
-	}
+   public void reportVariables() {
+      for (final String key : variables.keySet()) {
+         final Value v = variables.get(key).getValue();
+         if (null != v) {
+            logger.info("\t" + key + " " + v.getType().getClass().getName());
+         }
+      }
+   }
 }

@@ -19,5 +19,5 @@ import com.khubla.kpascal.type.Type;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public interface Value {
-	Type getType();
+   Type getType();
 }

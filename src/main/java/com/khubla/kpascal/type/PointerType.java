@@ -20,29 +20,27 @@ import com.khubla.kpascal.value.Value;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class PointerType implements Type {
-	public Type getComponentType() {
-		return componentType;
-	}
+   private Type componentType;
+   private String componentTypeName;
 
-	public void setComponentType(Type componentType) {
-		this.componentType = componentType;
-	}
+   @Override
+   public Value createValue() {
+      return new PointerValue(this);
+   }
 
-	public String getComponentTypeName() {
-		return componentTypeName;
-	}
+   public Type getComponentType() {
+      return componentType;
+   }
 
-	public void setComponentTypeName(String componentTypeName) {
-		this.componentTypeName = componentTypeName;
-	}
+   public String getComponentTypeName() {
+      return componentTypeName;
+   }
 
-	private Type componentType;
-	private String componentTypeName;
+   public void setComponentType(Type componentType) {
+      this.componentType = componentType;
+   }
 
-	@Override
-	public Value createValue() {
-
-		return new PointerValue(this);
-	}
-
+   public void setComponentTypeName(String componentTypeName) {
+      this.componentTypeName = componentTypeName;
+   }
 }

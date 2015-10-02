@@ -23,26 +23,23 @@ import com.khubla.kpascal.type.Type;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class ArrayValue implements Value {
+   private final List<Value> values = new ArrayList<Value>();
+   private final ArrayType arrayType;
 
-	private final List<Value> values = new ArrayList<Value>();
+   public ArrayValue(ArrayType arrayType) {
+      this.arrayType = arrayType;
+   }
 
-	public List<Value> getValues() {
-		return values;
-	}
+   public ArrayType getArrayType() {
+      return arrayType;
+   }
 
-	public ArrayType getArrayType() {
-		return arrayType;
-	}
+   @Override
+   public Type getType() {
+      return arrayType;
+   }
 
-	private final ArrayType arrayType;
-
-	public ArrayValue(ArrayType arrayType) {
-		this.arrayType = arrayType;
-	}
-
-	@Override
-	public Type getType() {
-		return this.arrayType;
-	}
-
+   public List<Value> getValues() {
+      return values;
+   }
 }

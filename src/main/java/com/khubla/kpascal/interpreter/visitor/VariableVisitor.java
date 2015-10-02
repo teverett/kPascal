@@ -27,30 +27,29 @@ import com.khubla.kpascal.value.Value;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class VariableVisitor extends PascalBaseVisitor<Void> {
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	private final Context context;
+   private final Logger logger = LoggerFactory.getLogger(this.getClass());
+   private final Context context;
 
-	public VariableVisitor(Context context) {
-		this.context = context;
-	}
+   public VariableVisitor(Context context) {
+      this.context = context;
+   }
 
-	public Context getContext() {
-		return context;
-	}
+   public Context getContext() {
+      return context;
+   }
 
-	@Override
-	public Void visitVariableDeclaration(PascalParser.VariableDeclarationContext ctx) {
-		final String instanceName = ctx.getChild(0).getText();
-		final String typeName = ctx.getChild(2).getText();
-		final Type type = context.getCurrentScope().getTypes().find(typeName);
-		if (null != type) {
-			final Value val = type.createValue();
-			final VariableInstance v = new VariableInstance(instanceName, val,
-					VariableInstance.VariableDeclarationType.variable);
-			context.getCurrentScope().getVariables().put(instanceName, v);
-		} else {
-			logger.info("Unknown type '" + typeName + "'");
-		}
-		return visitChildren(ctx);
-	}
+   @Override
+   public Void visitVariableDeclaration(PascalParser.VariableDeclarationContext ctx) {
+      final String instanceName = ctx.getChild(0).getText();
+      final String typeName = ctx.getChild(2).getText();
+      final Type type = context.getCurrentScope().getTypes().find(typeName);
+      if (null != type) {
+         final Value val = type.createValue();
+         final VariableInstance v = new VariableInstance(instanceName, val, VariableInstance.VariableDeclarationType.variable);
+         context.getCurrentScope().getVariables().put(instanceName, v);
+      } else {
+         logger.info("Unknown type '" + typeName + "'");
+      }
+      return visitChildren(ctx);
+   }
 }

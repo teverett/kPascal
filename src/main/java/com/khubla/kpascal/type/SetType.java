@@ -20,10 +20,8 @@ import com.khubla.kpascal.value.Value;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class SetType implements Type {
-
-	@Override
-	public Value createValue() {
-
-		return new SetValue(this);
-	}
+   @Override
+   public Value createValue() {
+      return new SetValue(this);
+   }
 }

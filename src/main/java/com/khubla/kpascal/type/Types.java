@@ -28,70 +28,68 @@ import org.slf4j.LoggerFactory;
  * @author tom
  */
 public class Types {
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+   private final Logger logger = LoggerFactory.getLogger(this.getClass());
+   private final Hashtable<String, Type> types = new Hashtable<String, Type>();
 
-	private final Hashtable<String, Type> types = new Hashtable<String, Type>();
+   /**
+    * default ctor
+    */
+   public Types() {
+   }
 
-	/**
-	 * default ctor
-	 */
-	public Types() {
-	}
+   /**
+    * copy ctor
+    */
+   public Types(Types types) {
+      types.types.putAll(this.types);
+   }
 
-	/**
-	 * copy ctor
-	 */
-	public Types(Types types) {
-		types.types.putAll(this.types);
-	}
+   public void addType(String name, Type type) {
+      if (null != name) {
+         types.put(name.toLowerCase(), type);
+      } else {
+         logger.debug("Nameless type");
+      }
+   }
 
-	public void addType(String name, Type type) {
-		if (null != name) {
-			types.put(name.toLowerCase(), type);
-		} else {
-			logger.debug("Nameless type");
-		}
-	}
+   public Type find(String name) {
+      return types.get(name.toLowerCase());
+   }
 
-	public Type find(String name) {
-		return types.get(name.toLowerCase());
-	}
-
-	public void resolveComponentTypes() {
-		for (Type type : types.values()) {
-			{
-				if (type instanceof ArrayType) {
-					ArrayType arrayType = (ArrayType) type;
-					Type containedType = this.find(arrayType.getComponentTypeName());
-					if (null != containedType) {
-						arrayType.setComponentType(containedType);
-					} else {
-						logger.info("Unable to find type '" + arrayType.getComponentTypeName() + "'");
-					}
-				} else if (type instanceof PointerType) {
-					PointerType pointerType = (PointerType) type;
-					Type containedType = this.find(pointerType.getComponentTypeName());
-					if (null != containedType) {
-						pointerType.setComponentType(containedType);
-					} else {
-						logger.info("Unable to find type '" + pointerType.getComponentTypeName() + "'");
-					}
-				} else if (type instanceof RecordType) {
-					RecordType recordType = (RecordType) type;
-					Enumeration<String> keys = recordType.getFieldTypeNames().keys();
-					while (keys.hasMoreElements()) {
-						String id = keys.nextElement();
-						String typeName = recordType.getFieldTypeNames().get(id);
-						Type containedType = this.find(typeName);
-						if (null != containedType) {
-							recordType.getFields().put(id, containedType);
-						} else {
-							logger.info("Unable to find type '" + typeName + "'");
-						}
-					}
-
-				}
-			}
-		}
-	}
+   public void resolveComponentTypes() {
+      for (final Type type : types.values()) {
+         {
+            if (type instanceof ArrayType) {
+               final ArrayType arrayType = (ArrayType) type;
+               final Type containedType = find(arrayType.getComponentTypeName());
+               if (null != containedType) {
+                  arrayType.setComponentType(containedType);
+               } else {
+                  logger.info("Unable to find type '" + arrayType.getComponentTypeName() + "'");
+               }
+            } else if (type instanceof PointerType) {
+               final PointerType pointerType = (PointerType) type;
+               final Type containedType = find(pointerType.getComponentTypeName());
+               if (null != containedType) {
+                  pointerType.setComponentType(containedType);
+               } else {
+                  logger.info("Unable to find type '" + pointerType.getComponentTypeName() + "'");
+               }
+            } else if (type instanceof RecordType) {
+               final RecordType recordType = (RecordType) type;
+               final Enumeration<String> keys = recordType.getFieldTypeNames().keys();
+               while (keys.hasMoreElements()) {
+                  final String id = keys.nextElement();
+                  final String typeName = recordType.getFieldTypeNames().get(id);
+                  final Type containedType = find(typeName);
+                  if (null != containedType) {
+                     recordType.getFields().put(id, containedType);
+                  } else {
+                     logger.info("Unable to find type '" + typeName + "'");
+                  }
+               }
+            }
+         }
+      }
+   }
 }

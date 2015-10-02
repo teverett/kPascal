@@ -24,44 +24,41 @@ import com.khubla.kpascal.value.Value;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class ArrayType implements Type {
+   public static class Range {
+      public SimpleValue lowerRange;
+      public SimpleValue upperRange;
+   };
 
-	public static class Range {
-		public SimpleValue lowerRange;
-		public SimpleValue upperRange;
+   public List<Range> ranges = new ArrayList<Range>();
+   private Type componentType;
+   private String componentTypeName;
 
-	};
+   @Override
+   public Value createValue() {
+      return new ArrayValue(this);
+   }
 
-	public List<Range> ranges = new ArrayList<Range>();
-	private Type componentType;
-	private String componentTypeName;
+   public Type getComponentType() {
+      return componentType;
+   }
 
-	public String getComponentTypeName() {
-		return componentTypeName;
-	}
+   public String getComponentTypeName() {
+      return componentTypeName;
+   }
 
-	public void setComponentTypeName(String componentTypeName) {
-		this.componentTypeName = componentTypeName;
-	}
+   public List<Range> getRanges() {
+      return ranges;
+   }
 
-	public Type getComponentType() {
-		return componentType;
-	}
+   public void setComponentType(Type componentType) {
+      this.componentType = componentType;
+   }
 
-	public void setComponentType(Type componentType) {
-		this.componentType = componentType;
-	}
+   public void setComponentTypeName(String componentTypeName) {
+      this.componentTypeName = componentTypeName;
+   }
 
-	public List<Range> getRanges() {
-		return ranges;
-	}
-
-	public void setRanges(List<Range> ranges) {
-		this.ranges = ranges;
-	}
-
-	@Override
-	public Value createValue() {
-		return new ArrayValue(this);
-	}
-
+   public void setRanges(List<Range> ranges) {
+      this.ranges = ranges;
+   }
 }
