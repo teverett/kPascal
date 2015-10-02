@@ -1,7 +1,7 @@
-package com.khubla.kpascal.type;
+package com.khubla.kpascal.value;
 
-import com.khubla.kpascal.value.FileValue;
-import com.khubla.kpascal.value.Value;
+import com.khubla.kpascal.type.SetType;
+import com.khubla.kpascal.type.Type;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -19,11 +19,21 @@ import com.khubla.kpascal.value.Value;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class FileType implements Type {
+public class SetValue implements Value {
+
+	private final SetType setType;
+
+	public SetValue(SetType setType) {
+		this.setType = setType;
+	}
+
+	public SetType getSetType() {
+		return setType;
+	}
 
 	@Override
-	public Value createValue() {
-
-		return new FileValue(this);
+	public Type getType() {
+		return this.setType;
 	}
+
 }

@@ -1,5 +1,6 @@
 package com.khubla.kpascal.type;
 
+import com.khubla.kpascal.value.SetValue;
 import com.khubla.kpascal.value.Value;
 
 /*
@@ -22,7 +23,7 @@ public class SetType implements Type {
 
 	@Override
 	public Value createValue() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return new SetValue(this);
 	}
 }

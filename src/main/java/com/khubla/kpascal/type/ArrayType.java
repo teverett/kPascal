@@ -3,6 +3,7 @@ package com.khubla.kpascal.type;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.khubla.kpascal.value.ArrayValue;
 import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
 
@@ -60,8 +61,7 @@ public class ArrayType implements Type {
 
 	@Override
 	public Value createValue() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ArrayValue(this);
 	}
 
 }

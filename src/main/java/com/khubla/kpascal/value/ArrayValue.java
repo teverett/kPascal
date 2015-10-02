@@ -1,7 +1,10 @@
-package com.khubla.kpascal.type;
+package com.khubla.kpascal.value;
 
-import com.khubla.kpascal.value.FileValue;
-import com.khubla.kpascal.value.Value;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.khubla.kpascal.type.ArrayType;
+import com.khubla.kpascal.type.Type;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -19,11 +22,27 @@ import com.khubla.kpascal.value.Value;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class FileType implements Type {
+public class ArrayValue implements Value {
+
+	private final List<Value> values = new ArrayList<Value>();
+
+	public List<Value> getValues() {
+		return values;
+	}
+
+	public ArrayType getArrayType() {
+		return arrayType;
+	}
+
+	private final ArrayType arrayType;
+
+	public ArrayValue(ArrayType arrayType) {
+		this.arrayType = arrayType;
+	}
 
 	@Override
-	public Value createValue() {
-
-		return new FileValue(this);
+	public Type getType() {
+		return this.arrayType;
 	}
+
 }

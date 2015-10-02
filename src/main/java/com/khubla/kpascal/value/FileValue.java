@@ -1,7 +1,7 @@
-package com.khubla.kpascal.type;
+package com.khubla.kpascal.value;
 
-import com.khubla.kpascal.value.FileValue;
-import com.khubla.kpascal.value.Value;
+import com.khubla.kpascal.type.FileType;
+import com.khubla.kpascal.type.Type;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -19,11 +19,21 @@ import com.khubla.kpascal.value.Value;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class FileType implements Type {
+public class FileValue implements Value {
+
+	private final FileType fileType;
+
+	public FileValue(FileType fileType) {
+		this.fileType = fileType;
+	}
 
 	@Override
-	public Value createValue() {
-
-		return new FileValue(this);
+	public Type getType() {
+		return this.fileType;
 	}
+
+	public FileType getFileType() {
+		return fileType;
+	}
+
 }

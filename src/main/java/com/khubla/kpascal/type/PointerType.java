@@ -1,5 +1,6 @@
 package com.khubla.kpascal.type;
 
+import com.khubla.kpascal.value.PointerValue;
 import com.khubla.kpascal.value.Value;
 
 /*
@@ -40,8 +41,8 @@ public class PointerType implements Type {
 
 	@Override
 	public Value createValue() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return new PointerValue(this);
 	}
 
 }
