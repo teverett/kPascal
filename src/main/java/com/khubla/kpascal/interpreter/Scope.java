@@ -19,11 +19,15 @@ package com.khubla.kpascal.interpreter;
 import java.util.Hashtable;
 import java.util.Stack;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.khubla.kpascal.type.SimpleType;
 import com.khubla.kpascal.type.Types;
 import com.khubla.kpascal.value.Value;
 
 public class Scope {
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	/**
 	 * variables
 	 */
@@ -82,7 +86,7 @@ public class Scope {
 		for (final String key : variables.keySet()) {
 			Value v = variables.get(key).getValue();
 			if (null != v) {
-				System.out.println("\t" + key + " " + v.getType().getClass().getName());
+				logger.info("\t" + key + " " + v.getType().getClass().getName());
 			}
 		}
 	}

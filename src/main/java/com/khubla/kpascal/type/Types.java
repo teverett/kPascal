@@ -3,6 +3,9 @@ package com.khubla.kpascal.type;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -25,6 +28,8 @@ import java.util.Hashtable;
  * @author tom
  */
 public class Types {
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	private final Hashtable<String, Type> types = new Hashtable<String, Type>();
 
 	/**
@@ -44,7 +49,7 @@ public class Types {
 		if (null != name) {
 			types.put(name.toLowerCase(), type);
 		} else {
-			System.out.println("Nameless type");
+			logger.debug("Nameless type");
 		}
 	}
 
@@ -61,7 +66,7 @@ public class Types {
 					if (null != containedType) {
 						arrayType.setComponentType(containedType);
 					} else {
-						System.out.println("Unable to find type '" + arrayType.getComponentTypeName() + "'");
+						logger.info("Unable to find type '" + arrayType.getComponentTypeName() + "'");
 					}
 				} else if (type instanceof PointerType) {
 					PointerType pointerType = (PointerType) type;
@@ -69,7 +74,7 @@ public class Types {
 					if (null != containedType) {
 						pointerType.setComponentType(containedType);
 					} else {
-						System.out.println("Unable to find type '" + pointerType.getComponentTypeName() + "'");
+						logger.info("Unable to find type '" + pointerType.getComponentTypeName() + "'");
 					}
 				} else if (type instanceof RecordType) {
 					RecordType recordType = (RecordType) type;
@@ -81,7 +86,7 @@ public class Types {
 						if (null != containedType) {
 							recordType.getFields().put(id, containedType);
 						} else {
-							System.out.println("Unable to find type '" + typeName + "'");
+							logger.info("Unable to find type '" + typeName + "'");
 						}
 					}
 

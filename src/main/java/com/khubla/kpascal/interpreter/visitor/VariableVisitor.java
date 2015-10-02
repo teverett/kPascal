@@ -1,5 +1,8 @@
 package com.khubla.kpascal.interpreter.visitor;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.khubla.kpascal.antlr.PascalBaseVisitor;
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.interpreter.Context;
@@ -24,6 +27,7 @@ import com.khubla.kpascal.value.Value;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class VariableVisitor extends PascalBaseVisitor<Void> {
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	private final Context context;
 
 	public VariableVisitor(Context context) {
@@ -45,7 +49,7 @@ public class VariableVisitor extends PascalBaseVisitor<Void> {
 					VariableInstance.VariableDeclarationType.variable);
 			context.getCurrentScope().getVariables().put(instanceName, v);
 		} else {
-			System.out.println("Unknown type '" + typeName + "'");
+			logger.info("Unknown type '" + typeName + "'");
 		}
 		return visitChildren(ctx);
 	}
