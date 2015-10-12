@@ -46,7 +46,7 @@ public class VariableVisitor extends PascalBaseVisitor<Void> {
       if (null != type) {
          final Value val = type.createValue();
          final VariableInstance v = new VariableInstance(instanceName, val, VariableInstance.VariableDeclarationType.variable);
-         context.getCurrentScope().getVariables().put(instanceName, v);
+         context.getCurrentScope().addVariable(instanceName, v);
       } else {
          logger.info("Unknown type '" + typeName + "'");
       }

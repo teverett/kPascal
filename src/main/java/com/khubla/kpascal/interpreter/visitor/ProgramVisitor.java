@@ -57,7 +57,7 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
       final List<SimpleValue> values = new ArrayList<SimpleValue>();
       if (null != parameters) {
          for (final String str : parameters) {
-            final SimpleValue v = context.resolve(str);
+            final SimpleValue v = context.resolveStringToValue(str);
             values.add(v);
          }
       }

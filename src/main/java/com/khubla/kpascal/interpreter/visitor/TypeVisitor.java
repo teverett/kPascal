@@ -133,8 +133,8 @@ public class TypeVisitor extends PascalBaseVisitor<Type> {
             arrayType.ranges.add(range);
             final String lowerRange = ctx.getChild(0).getText();
             final String upperRange = ctx.getChild(2).getText();
-            range.lowerRange = context.resolve(lowerRange);
-            range.upperRange = context.resolve(upperRange);
+            range.lowerRange = context.resolveStringToValue(lowerRange);
+            range.upperRange = context.resolveStringToValue(upperRange);
          }
       } catch (final Exception e) {
          e.printStackTrace();

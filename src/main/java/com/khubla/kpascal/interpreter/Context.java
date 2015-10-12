@@ -85,7 +85,7 @@ public class Context {
    /**
     * resolve a string to a value
     */
-   public SimpleValue resolve(String v) throws InterpreterException {
+   public SimpleValue resolveStringToValue(String v) throws InterpreterException {
       /*
        * string
        */
@@ -101,8 +101,8 @@ public class Context {
       /*
        * is variable?
        */
-      if (null != getCurrentScope().getVariables().get(v)) {
-         return (SimpleValue) getCurrentScope().getVariables().get(v).getValue();
+      if (null != getCurrentScope().findVariable(v)) {
+         return (SimpleValue) getCurrentScope().findVariable(v).getValue();
       }
       /*
        * is integer?
@@ -132,5 +132,18 @@ public class Context {
        * nope
        */
       throw new InterpreterException("Unable to resolve '" + v + "'");
+   }
+
+   /**
+    * given a name, walk the scope stack, looking for a matching variable
+    */
+   public VariableInstance resolveVariable(String name) {
+      for (final Scope scope : scopeStack) {
+         final VariableInstance variableInstance = scope.findVariable(name);
+         if (null != variableInstance) {
+            return variableInstance;
+         }
+      }
+      return null;
    }
 }

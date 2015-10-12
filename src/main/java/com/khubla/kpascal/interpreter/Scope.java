@@ -70,16 +70,23 @@ public class Scope {
       types = new Types(ctx.types);
    }
 
+   public void addVariable(String name, VariableInstance variableInstance) {
+      variables.put(name.toLowerCase(), variableInstance);
+   }
+
+   /**
+    * find a variable in the scope
+    */
+   public VariableInstance findVariable(String name) {
+      return variables.get(name.toLowerCase());
+   }
+
    public Stack<VariableInstance> getExecutionStack() {
       return executionStack;
    }
 
    public Types getTypes() {
       return types;
-   }
-
-   public Hashtable<String, VariableInstance> getVariables() {
-      return variables;
    }
 
    public void reportVariables() {
