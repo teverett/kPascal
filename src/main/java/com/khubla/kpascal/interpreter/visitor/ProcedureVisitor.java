@@ -1,9 +1,14 @@
 package com.khubla.kpascal.interpreter.visitor;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.khubla.kpascal.antlr.PascalBaseVisitor;
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.interpreter.Context;
 import com.khubla.kpascal.interpreter.Procedure;
+import com.khubla.kpascal.interpreter.ProcedureArgument;
+import com.khubla.kpascal.type.Type;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -23,6 +28,8 @@ import com.khubla.kpascal.interpreter.Procedure;
 */
 public class ProcedureVisitor extends PascalBaseVisitor<Void> {
    private final Context context;
+   private final Logger logger = LoggerFactory.getLogger(this.getClass());
+   private Procedure procedure = null;
 
    public ProcedureVisitor(Context context) {
       this.context = context;
@@ -33,9 +40,42 @@ public class ProcedureVisitor extends PascalBaseVisitor<Void> {
    }
 
    @Override
+   public Void visitFormalParameterSection(PascalParser.FormalParameterSectionContext ctx) {
+      /*
+       * var parameters?
+       */
+      String typeName;
+      String parameterNames;
+      boolean var;
+      if (ctx.getChildCount() == 2) {
+         var = true;
+         typeName = ctx.getChild(1).getChild(2).getText();
+         parameterNames = ctx.getChild(1).getChild(0).getText();
+      } else {
+         var = false;
+         typeName = ctx.getChild(0).getChild(2).getText();
+         parameterNames = ctx.getChild(0).getChild(0).getText();
+      }
+      final String[] parameterNamesArray = parameterNames.split(",");
+      final Type type = context.getCurrentScope().getTypes().find(typeName);
+      if (null != type) {
+         for (final String parameterName : parameterNamesArray) {
+            final ProcedureArgument procedureArgument = new ProcedureArgument(parameterName, type, var);
+            procedure.addArgument(procedureArgument);
+         }
+      } else {
+         logger.info("Unknown type '" + typeName + "'");
+      }
+      return visitChildren(ctx);
+   }
+
+   @Override
    public Void visitProcedureDeclaration(PascalParser.ProcedureDeclarationContext ctx) {
       final String name = ctx.getChild(1).getText();
-      context.getProcedures().put(name, new Procedure(ctx));
-      return visitChildren(ctx);
+      final PascalParser.BlockContext blockContext = (PascalParser.BlockContext) ctx.getChild(ctx.getChildCount() - 1);
+      procedure = new Procedure(name, blockContext);
+      context.getProcedures().put(name, procedure);
+      final Void ret = visitChildren(ctx);
+      return ret;
    }
 }

@@ -1,5 +1,8 @@
 package com.khubla.kpascal.interpreter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.khubla.kpascal.antlr.PascalParser;
 
 /*
@@ -25,13 +28,28 @@ import com.khubla.kpascal.antlr.PascalParser;
  * @author tom
  */
 public class Procedure {
-   private final PascalParser.ProcedureDeclarationContext procedureDeclarationContext;
+   private final PascalParser.BlockContext procedureBlockContext;
+   private final List<ProcedureArgument> arguments = new ArrayList<ProcedureArgument>();
+   private final String name;
 
-   public Procedure(PascalParser.ProcedureDeclarationContext procedureDeclarationContext) {
-      this.procedureDeclarationContext = procedureDeclarationContext;
+   public Procedure(String name, PascalParser.BlockContext procedureBlockContext) {
+      this.procedureBlockContext = procedureBlockContext;
+      this.name = name;
    }
 
-   public PascalParser.ProcedureDeclarationContext getProcedureDeclarationContext() {
-      return procedureDeclarationContext;
+   public void addArgument(ProcedureArgument procedureArgument) {
+      arguments.add(procedureArgument);
+   }
+
+   public List<ProcedureArgument> getArguments() {
+      return arguments;
+   }
+
+   public String getName() {
+      return name;
+   }
+
+   public PascalParser.BlockContext getProcedureBlockContext() {
+      return procedureBlockContext;
    }
 }

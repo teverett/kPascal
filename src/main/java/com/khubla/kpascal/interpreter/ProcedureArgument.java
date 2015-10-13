@@ -1,11 +1,6 @@
-package com.khubla.kpascal;
+package com.khubla.kpascal.interpreter;
 
-import java.io.InputStream;
-
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
-import com.khubla.kpascal.interpreter.PascalInterpreter;
+import com.khubla.kpascal.type.Type;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -23,17 +18,26 @@ import com.khubla.kpascal.interpreter.PascalInterpreter;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class TestAdd {
-   @Test(enabled = true)
-   public void testAdd() {
-      try {
-         InputStream is = TestAdd.class.getResourceAsStream("/add.pas");
-         final PascalInterpreter pascalInterpreter = new PascalInterpreter(is, System.in, System.out);
-         pascalInterpreter.run();
-         pascalInterpreter.getContext().getCurrentScope().reportVariables();
-      } catch (final Exception e) {
-         e.printStackTrace();
-         Assert.fail();
-      }
+public class ProcedureArgument {
+   private final boolean var;
+   private final String name;
+   private final Type type;
+
+   public ProcedureArgument(String name, Type type, boolean var) {
+      this.var = var;
+      this.name = name;
+      this.type = type;
+   }
+
+   public String getName() {
+      return name;
+   }
+
+   public Type getType() {
+      return type;
+   }
+
+   public boolean isVar() {
+      return var;
    }
 }

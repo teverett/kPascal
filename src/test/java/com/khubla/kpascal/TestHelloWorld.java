@@ -23,11 +23,11 @@ import com.khubla.kpascal.interpreter.PascalInterpreter;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class TestAdd {
+public class TestHelloWorld {
    @Test(enabled = true)
-   public void testAdd() {
+   public void testHelloWorld() {
       try {
-         InputStream is = TestAdd.class.getResourceAsStream("/add.pas");
+         InputStream is = TestHelloWorld.class.getResourceAsStream("/helloworld.pas");
          final PascalInterpreter pascalInterpreter = new PascalInterpreter(is, System.in, System.out);
          pascalInterpreter.run();
          pascalInterpreter.getContext().getCurrentScope().reportVariables();

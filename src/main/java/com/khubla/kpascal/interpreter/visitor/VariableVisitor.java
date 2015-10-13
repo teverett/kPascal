@@ -40,13 +40,16 @@ public class VariableVisitor extends PascalBaseVisitor<Void> {
 
    @Override
    public Void visitVariableDeclaration(PascalParser.VariableDeclarationContext ctx) {
-      final String instanceName = ctx.getChild(0).getText();
+      final String instanceNames = ctx.getChild(0).getText();
+      final String[] instanceNamesArray = instanceNames.split(",");
       final String typeName = ctx.getChild(2).getText();
       final Type type = context.getCurrentScope().getTypes().find(typeName);
       if (null != type) {
-         final Value val = type.createValue();
-         final VariableInstance v = new VariableInstance(instanceName, val, VariableInstance.VariableDeclarationType.variable);
-         context.getCurrentScope().addVariable(instanceName, v);
+         for (final String instanceName : instanceNamesArray) {
+            final Value val = type.createValue();
+            final VariableInstance v = new VariableInstance(instanceName, val, VariableInstance.VariableDeclarationType.variable);
+            context.getCurrentScope().addVariable(instanceName, v);
+         }
       } else {
          logger.info("Unknown type '" + typeName + "'");
       }
