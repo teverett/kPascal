@@ -23,7 +23,7 @@ import com.khubla.kpascal.value.SimpleValue;
 */
 public class DisposeFunction implements RTLFunction {
    @Override
-   public void invoke(Context context, List<SimpleValue> parameters) {
+   public void invoke(Context context, List<SimpleValue> argumentValues) {
       // TODO Auto-generated method stub
    }
 }

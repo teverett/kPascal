@@ -24,9 +24,9 @@ import com.khubla.kpascal.value.SimpleValue;
 */
 public class WriteFunction implements RTLFunction {
    @Override
-   public void invoke(Context context, List<SimpleValue> parameters) {
-      if (null != parameters) {
-         for (final SimpleValue value : parameters) {
+   public void invoke(Context context, List<SimpleValue> argumentValues) {
+      if (null != argumentValues) {
+         for (final SimpleValue value : argumentValues) {
             new PrintStream(context.getStdOut()).print(value.getValue());
          }
       }

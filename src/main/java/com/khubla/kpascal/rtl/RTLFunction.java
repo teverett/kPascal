@@ -22,5 +22,5 @@ import com.khubla.kpascal.value.SimpleValue;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public interface RTLFunction {
-   void invoke(Context context, List<SimpleValue> parameters);
+   void invoke(Context context, List<SimpleValue> argumentValues);
 }

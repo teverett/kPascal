@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.khubla.kpascal.antlr.PascalParser;
+import com.khubla.kpascal.value.SimpleValue;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -51,5 +52,8 @@ public class Procedure {
 
    public PascalParser.BlockContext getProcedureBlockContext() {
       return procedureBlockContext;
+   }
+
+   public void invoke(Context context, List<SimpleValue> parameters) {
    }
 }
