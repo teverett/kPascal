@@ -3,6 +3,9 @@ package com.khubla.kpascal.interpreter.visitor;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.khubla.kpascal.antlr.PascalBaseVisitor;
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.exception.InterpreterException;
@@ -29,19 +32,16 @@ import com.khubla.kpascal.value.SimpleValue;
 */
 public class ProgramVisitor extends PascalBaseVisitor<Void> {
    private final Context context;
+   private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
    public ProgramVisitor(Context context) {
       this.context = context;
    }
 
-   public Context getContext() {
-      return context;
-   }
-
    /**
     * get a parameter list
     */
-   private List<String> getParameters(PascalParser.ParameterListContext ctx) {
+   private List<String> getArguments(PascalParser.ParameterListContext ctx) {
       final List<String> ret = new ArrayList<String>();
       for (int i = 0; i < ctx.getChildCount(); i++) {
          final String parameter = ctx.getChild(i).getText();
@@ -50,21 +50,22 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
       return ret;
    }
 
+   public Context getContext() {
+      return context;
+   }
+
    /**
     * invoke RTL function
     */
-   private void invokeRTLFunction(String functionName, List<String> parameters) throws InterpreterException {
-      final List<SimpleValue> values = new ArrayList<SimpleValue>();
-      if (null != parameters) {
-         for (final String str : parameters) {
-            final SimpleValue v = context.resolveStringToValue(str);
-            values.add(v);
+   private void invokeRTLFunction(RTLFunction rtlFunction, List<String> arguments) throws InterpreterException {
+      final List<SimpleValue> argumentValues = new ArrayList<SimpleValue>();
+      if (null != arguments) {
+         for (final String argument : arguments) {
+            final SimpleValue v = context.resolveStringToValue(argument);
+            argumentValues.add(v);
          }
       }
-      final RTLFunction function = RTLFunctions.getInstance().getRTLFunction(functionName);
-      if (null != function) {
-         function.invoke(context, values);
-      }
+      rtlFunction.invoke(context, argumentValues);
    }
 
    @Override
@@ -82,14 +83,22 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
              */
          } else {
             /*
-             * invoke RTL function
+             * find the function
              */
-            if (ctx.getChildCount() > 1) {
-               final PascalParser.ParameterListContext ctx2 = (PascalParser.ParameterListContext) ctx.getChild(2);
-               final List<String> parameters = getParameters(ctx2);
-               invokeRTLFunction(procedureName, parameters);
+            final RTLFunction rtlFunction = RTLFunctions.getInstance().getRTLFunction(procedureName);
+            if (null != rtlFunction) {
+               /*
+                * invoke RTL function
+                */
+               if (ctx.getChildCount() > 1) {
+                  final PascalParser.ParameterListContext ctx2 = (PascalParser.ParameterListContext) ctx.getChild(2);
+                  final List<String> arguments = getArguments(ctx2);
+                  invokeRTLFunction(rtlFunction, arguments);
+               } else {
+                  invokeRTLFunction(rtlFunction, null);
+               }
             } else {
-               invokeRTLFunction(procedureName, null);
+               logger.error("Unab;e to find procedure '" + procedureName + "'");
             }
          }
       } catch (final Exception e) {

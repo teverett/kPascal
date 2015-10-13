@@ -1,5 +1,6 @@
 package com.khubla.kpascal.rtl;
 
+import java.io.PrintStream;
 import java.util.List;
 
 import com.khubla.kpascal.interpreter.Context;
@@ -24,6 +25,10 @@ import com.khubla.kpascal.value.SimpleValue;
 public class WriteFunction implements RTLFunction {
    @Override
    public void invoke(Context context, List<SimpleValue> parameters) {
-      // TODO Auto-generated method stub
+      if (null != parameters) {
+         for (final SimpleValue value : parameters) {
+            new PrintStream(context.getStdOut()).print(value.getValue());
+         }
+      }
    }
 }
