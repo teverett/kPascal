@@ -106,7 +106,7 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
                 */
                rtlFunction.invoke(context, argumentValues);
             } else {
-               logger.error("Unab;e to find procedure '" + procedureName + "'");
+               logger.error("Unable to find procedure '" + procedureName + "'");
             }
          }
       } catch (final Exception e) {
