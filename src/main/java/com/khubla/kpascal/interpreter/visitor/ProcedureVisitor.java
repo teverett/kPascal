@@ -77,8 +77,7 @@ public class ProcedureVisitor extends PascalBaseVisitor<Void> {
       final Type type = context.getCurrentScope().getTypes().find(resultTypeString);
       procedure = new Procedure(name, blockContext, type);
       context.getProcedures().put(name, procedure);
-      final Void ret = visitChildren(ctx);
-      return ret;
+      return visitChildren(ctx);
    }
 
    @Override
@@ -87,7 +86,6 @@ public class ProcedureVisitor extends PascalBaseVisitor<Void> {
       final PascalParser.BlockContext blockContext = (PascalParser.BlockContext) ctx.getChild(ctx.getChildCount() - 1);
       procedure = new Procedure(name, blockContext, null);
       context.getProcedures().put(name, procedure);
-      final Void ret = visitChildren(ctx);
-      return ret;
+      return visitChildren(ctx);
    }
 }
