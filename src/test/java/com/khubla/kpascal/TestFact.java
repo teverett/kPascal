@@ -18,9 +18,9 @@ import org.testng.annotations.Test;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class TestHelloWorld extends BasicPascalTest {
+public class TestFact extends BasicPascalTest {
    @Test(enabled = true)
    public void testAdd() {
-      testPascalProgram("/helloworld.pas");
+      testPascalProgram("/fact.pas");
    }
 }

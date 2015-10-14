@@ -64,6 +64,14 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
    }
 
    @Override
+   public Void visitForStatement(PascalParser.ForStatementContext ctx) {
+      ctx.getChild(1).getText();
+      ctx.getChild(3).getChild(0).getText();
+      ctx.getChild(3).getChild(2).getText();
+      return visitChildren(ctx);
+   }
+
+   @Override
    public Void visitProcedureStatement(PascalParser.ProcedureStatementContext ctx) {
       try {
          /*

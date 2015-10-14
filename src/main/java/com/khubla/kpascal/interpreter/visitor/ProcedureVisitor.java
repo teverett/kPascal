@@ -70,10 +70,22 @@ public class ProcedureVisitor extends PascalBaseVisitor<Void> {
    }
 
    @Override
+   public Void visitFunctionDeclaration(PascalParser.FunctionDeclarationContext ctx) {
+      final String name = ctx.getChild(1).getText();
+      final PascalParser.BlockContext blockContext = (PascalParser.BlockContext) ctx.getChild(ctx.getChildCount() - 1);
+      final String resultTypeString = ctx.getChild(ctx.getChildCount() - 3).getText();
+      final Type type = context.getCurrentScope().getTypes().find(resultTypeString);
+      procedure = new Procedure(name, blockContext, type);
+      context.getProcedures().put(name, procedure);
+      final Void ret = visitChildren(ctx);
+      return ret;
+   }
+
+   @Override
    public Void visitProcedureDeclaration(PascalParser.ProcedureDeclarationContext ctx) {
       final String name = ctx.getChild(1).getText();
       final PascalParser.BlockContext blockContext = (PascalParser.BlockContext) ctx.getChild(ctx.getChildCount() - 1);
-      procedure = new Procedure(name, blockContext);
+      procedure = new Procedure(name, blockContext, null);
       context.getProcedures().put(name, procedure);
       final Void ret = visitChildren(ctx);
       return ret;

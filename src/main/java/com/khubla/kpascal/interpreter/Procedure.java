@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.khubla.kpascal.antlr.PascalParser;
+import com.khubla.kpascal.type.Type;
 import com.khubla.kpascal.value.SimpleValue;
 
 /*
@@ -32,10 +33,15 @@ public class Procedure {
    private final PascalParser.BlockContext procedureBlockContext;
    private final List<ProcedureArgument> arguments = new ArrayList<ProcedureArgument>();
    private final String name;
+   /**
+    * if the returnType is null, this is a procedure. Otherwise, it's a function.
+    */
+   private final Type returnType;
 
-   public Procedure(String name, PascalParser.BlockContext procedureBlockContext) {
+   public Procedure(String name, PascalParser.BlockContext procedureBlockContext, Type returnType) {
       this.procedureBlockContext = procedureBlockContext;
       this.name = name;
+      this.returnType = returnType;
    }
 
    public void addArgument(ProcedureArgument procedureArgument) {
@@ -52,6 +58,10 @@ public class Procedure {
 
    public PascalParser.BlockContext getProcedureBlockContext() {
       return procedureBlockContext;
+   }
+
+   public Type getReturnType() {
+      return returnType;
    }
 
    public void invoke(Context context, List<SimpleValue> parameters) {
