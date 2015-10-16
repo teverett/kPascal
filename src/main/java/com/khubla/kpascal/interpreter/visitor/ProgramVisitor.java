@@ -82,14 +82,14 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
           * get the arguments, as strings
           */
          final PascalParser.ParameterListContext ctx2 = (PascalParser.ParameterListContext) ctx.getChild(2);
-         final List<String> arguments = getArguments(ctx2);
+         final List<String> argumentNames = getArguments(ctx2);
          /*
           * convert the strings to values
           */
          List<SimpleValue> argumentValues = null;
-         if (null != arguments) {
+         if (null != argumentNames) {
             argumentValues = new ArrayList<SimpleValue>();
-            for (final String argument : arguments) {
+            for (final String argument : argumentNames) {
                final SimpleValue v = context.resolveStringToValue(argument);
                argumentValues.add(v);
             }

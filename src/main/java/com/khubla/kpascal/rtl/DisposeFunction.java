@@ -21,7 +21,7 @@ import com.khubla.kpascal.value.SimpleValue;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class DisposeFunction implements RTLFunction {
+public class DisposeFunction extends BaseRTLFunction {
    @Override
    public void invoke(Context context, List<SimpleValue> argumentValues) {
       // TODO Auto-generated method stub

@@ -22,7 +22,7 @@ import com.khubla.kpascal.value.SimpleValue;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class WriteFunction implements RTLFunction {
+public class WriteFunction extends BaseRTLFunction {
    @Override
    public void invoke(Context context, List<SimpleValue> argumentValues) {
       if (null != argumentValues) {

@@ -1,11 +1,5 @@
 package com.khubla.kpascal.rtl;
 
-import java.io.PrintStream;
-import java.util.List;
-
-import com.khubla.kpascal.interpreter.Context;
-import com.khubla.kpascal.value.SimpleValue;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -22,13 +16,5 @@ import com.khubla.kpascal.value.SimpleValue;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public class WritelnFunction extends BaseRTLFunction {
-   @Override
-   public void invoke(Context context, List<SimpleValue> argumentValues) {
-      if (null != argumentValues) {
-         for (final SimpleValue value : argumentValues) {
-            new PrintStream(context.getStdOut()).print(value.getValue() + "\n");
-         }
-      }
-   }
+public abstract class BaseRTLFunction implements RTLFunction {
 }
