@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.type.Type;
-import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.Value;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -64,6 +64,6 @@ public class Procedure {
       return returnType;
    }
 
-   public void invoke(Context context, List<SimpleValue> parameters) {
+   public void invoke(Context context, List<Value> parameters) {
    }
 }

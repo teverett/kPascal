@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.khubla.kpascal.interpreter.Context;
 import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.Value;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -24,10 +25,12 @@ import com.khubla.kpascal.value.SimpleValue;
 */
 public class WritelnFunction extends BaseRTLFunction {
    @Override
-   public void invoke(Context context, List<SimpleValue> argumentValues) {
+   public void invoke(Context context, List<Value> argumentValues) {
       if (null != argumentValues) {
-         for (final SimpleValue value : argumentValues) {
-            new PrintStream(context.getStdOut()).print(value.getValue() + "\n");
+         for (final Value value : argumentValues) {
+            if (value instanceof SimpleValue) {
+               new PrintStream(context.getStdOut()).print(((SimpleValue) value).getValue() + "\n");
+            }
          }
       }
    }

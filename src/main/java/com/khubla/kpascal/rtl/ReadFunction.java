@@ -3,7 +3,7 @@ package com.khubla.kpascal.rtl;
 import java.util.List;
 
 import com.khubla.kpascal.interpreter.Context;
-import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.Value;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -23,7 +23,7 @@ import com.khubla.kpascal.value.SimpleValue;
 */
 public class ReadFunction extends BaseRTLFunction {
    @Override
-   public void invoke(Context context, List<SimpleValue> argumentValues) {
+   public void invoke(Context context, List<Value> argumentValues) {
       // TODO Auto-generated method stub
    }
 }
