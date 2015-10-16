@@ -44,7 +44,7 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
    private List<String> getArguments(PascalParser.ParameterListContext ctx) {
       if ((null != ctx) && (ctx.getChildCount() > 0)) {
          final List<String> ret = new ArrayList<String>();
-         for (int i = 0; i < ctx.getChildCount(); i++) {
+         for (int i = 0; i < ctx.getChildCount(); i += 2) {
             final String parameter = ctx.getChild(i).getText();
             ret.add(parameter);
          }
