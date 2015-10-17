@@ -29,7 +29,7 @@ import com.khubla.kpascal.value.Value;
  *
  * @author tom
  */
-public class Procedure {
+public class Procedure implements Invocable {
    private final PascalParser.BlockContext procedureBlockContext;
    private final List<ProcedureArgument> arguments = new ArrayList<ProcedureArgument>();
    private final String name;
@@ -64,6 +64,7 @@ public class Procedure {
       return returnType;
    }
 
+   @Override
    public void invoke(Context context, List<Value> parameters) {
    }
 }

@@ -9,8 +9,8 @@ import org.slf4j.LoggerFactory;
 import com.khubla.kpascal.antlr.PascalBaseVisitor;
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.interpreter.Context;
+import com.khubla.kpascal.interpreter.Invocable;
 import com.khubla.kpascal.interpreter.Procedure;
-import com.khubla.kpascal.rtl.RTLFunction;
 import com.khubla.kpascal.rtl.RTLFunctions;
 import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
@@ -108,7 +108,7 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
             /*
              * find the function
              */
-            final RTLFunction rtlFunction = RTLFunctions.getInstance().getRTLFunction(procedureName);
+            final Invocable rtlFunction = RTLFunctions.getInstance().getRTLFunction(procedureName);
             if (null != rtlFunction) {
                /*
                 * invoke RTL function

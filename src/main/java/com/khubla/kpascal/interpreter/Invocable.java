@@ -1,8 +1,7 @@
-package com.khubla.kpascal.rtl;
+package com.khubla.kpascal.interpreter;
 
 import java.util.List;
 
-import com.khubla.kpascal.interpreter.Context;
 import com.khubla.kpascal.value.Value;
 
 /*
@@ -21,6 +20,6 @@ import com.khubla.kpascal.value.Value;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-public interface RTLFunction {
+public interface Invocable {
    void invoke(Context context, List<Value> argumentValues);
 }

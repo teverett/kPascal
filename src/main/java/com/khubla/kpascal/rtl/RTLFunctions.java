@@ -3,6 +3,7 @@ package com.khubla.kpascal.rtl;
 import java.util.Hashtable;
 
 import com.khubla.kpascal.exception.InterpreterException;
+import com.khubla.kpascal.interpreter.Invocable;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -36,7 +37,7 @@ public class RTLFunctions {
    /**
     * all functions
     */
-   private final Hashtable<String, Class<? extends RTLFunction>> rtlFunctions = new Hashtable<String, Class<? extends RTLFunction>>();
+   private final Hashtable<String, Class<? extends Invocable>> rtlFunctions = new Hashtable<String, Class<? extends Invocable>>();
 
    /**
     * ctor
@@ -53,9 +54,9 @@ public class RTLFunctions {
    /**
     * find an RTL function
     */
-   public RTLFunction getRTLFunction(String functionName) throws InterpreterException {
+   public Invocable getRTLFunction(String functionName) throws InterpreterException {
       try {
-         final Class<? extends RTLFunction> clazz = rtlFunctions.get(functionName.toLowerCase());
+         final Class<? extends Invocable> clazz = rtlFunctions.get(functionName.toLowerCase());
          if (null != clazz) {
             return clazz.newInstance();
          } else {
