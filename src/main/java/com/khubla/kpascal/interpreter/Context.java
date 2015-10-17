@@ -141,7 +141,7 @@ public class Context {
    /**
     * given a name, walk the scope stack, looking for a matching variable
     */
-   public VariableInstance resolveVariable(String name) {
+   public VariableInstance resolveVariableInstance(String name) {
       for (final Scope scope : scopeStack) {
          final VariableInstance variableInstance = scope.findVariable(name);
          if (null != variableInstance) {
