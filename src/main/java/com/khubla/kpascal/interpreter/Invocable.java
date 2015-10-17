@@ -22,7 +22,7 @@ import com.khubla.kpascal.value.Value;
 */
 /**
  * A Pascal function, procedure or RTL function is invocable. The arguments are values and can be of any type.
- * 
+ *
  * @author tom
  */
 public interface Invocable {

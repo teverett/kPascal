@@ -12,7 +12,6 @@ import com.khubla.kpascal.interpreter.Context;
 import com.khubla.kpascal.interpreter.Invocable;
 import com.khubla.kpascal.interpreter.Procedure;
 import com.khubla.kpascal.rtl.RTLFunctions;
-import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
 
 /*
@@ -91,7 +90,7 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
          if (null != argumentNames) {
             argumentValues = new ArrayList<Value>();
             for (final String argument : argumentNames) {
-               final SimpleValue v = context.resolveStringToValue(argument);
+               final Value v = context.resolveStringToValue(argument);
                argumentValues.add(v);
             }
          }

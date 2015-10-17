@@ -9,6 +9,8 @@ import com.khubla.kpascal.type.PointerType;
 import com.khubla.kpascal.type.RecordType;
 import com.khubla.kpascal.type.SetType;
 import com.khubla.kpascal.type.Type;
+import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.Value;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -133,8 +135,14 @@ public class TypeVisitor extends PascalBaseVisitor<Type> {
             arrayType.ranges.add(range);
             final String lowerRange = ctx.getChild(0).getText();
             final String upperRange = ctx.getChild(2).getText();
-            range.lowerRange = context.resolveStringToValue(lowerRange);
-            range.upperRange = context.resolveStringToValue(upperRange);
+            Value v = context.resolveStringToValue(lowerRange);
+            if (v instanceof SimpleValue) {
+               range.lowerRange = (SimpleValue) v;
+            }
+            v = context.resolveStringToValue(upperRange);
+            if (v instanceof SimpleValue) {
+               range.lowerRange = (SimpleValue) v;
+            }
          }
       } catch (final Exception e) {
          e.printStackTrace();

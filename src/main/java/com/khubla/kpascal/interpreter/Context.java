@@ -8,6 +8,7 @@ import java.util.Stack;
 import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.type.SimpleType;
 import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.Value;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -83,9 +84,12 @@ public class Context {
    }
 
    /**
-    * resolve a string to a value
+    * Resolve a string to a value.
+    * <p>
+    * Not to be used for composite strings like a[i], but to be used by atomic strings like "a".
+    * </p>
     */
-   public SimpleValue resolveStringToValue(String v) throws InterpreterException {
+   public Value resolveStringToValue(String v) throws InterpreterException {
       /*
        * string
        */
@@ -96,13 +100,13 @@ public class Context {
        * is a constant?
        */
       if (null != constants.get(v)) {
-         return (SimpleValue) constants.get(v).getValue();
+         return constants.get(v).getValue();
       }
       /*
        * is variable?
        */
       if (null != getCurrentScope().findVariable(v)) {
-         return (SimpleValue) getCurrentScope().findVariable(v).getValue();
+         return getCurrentScope().findVariable(v).getValue();
       }
       /*
        * is integer?
