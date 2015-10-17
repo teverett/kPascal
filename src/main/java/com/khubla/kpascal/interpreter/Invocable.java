@@ -20,6 +20,11 @@ import com.khubla.kpascal.value.Value;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+/**
+ * A Pascal function, procedure or RTL function is invocable. The arguments are values and can be of any type.
+ * 
+ * @author tom
+ */
 public interface Invocable {
    void invoke(Context context, List<Value> argumentValues);
 }
