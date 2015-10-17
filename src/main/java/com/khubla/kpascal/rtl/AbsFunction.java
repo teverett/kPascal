@@ -2,7 +2,9 @@ package com.khubla.kpascal.rtl;
 
 import java.util.List;
 
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.interpreter.Context;
+import com.khubla.kpascal.type.SimpleType;
 import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
 
@@ -24,9 +26,20 @@ import com.khubla.kpascal.value.Value;
 */
 public class AbsFunction extends BaseRTLFunction {
    @Override
-   public Value invoke(Context context, List<Value> argumentValues) {
+   public Value invoke(Context context, List<Value> argumentValues) throws InterpreterException {
       if ((null != argumentValues) && (argumentValues.size() == 1) && (argumentValues.get(0) instanceof SimpleValue)) {
+         final SimpleValue simpleValue = (SimpleValue) argumentValues.get(0);
+         if (simpleValue.getSimpleType().getType() == SimpleType.Type.integer) {
+            final int i = simpleValue.asInteger();
+            return new SimpleValue(Math.abs(i));
+         } else if (simpleValue.getSimpleType().getType() == SimpleType.Type.real) {
+            final double f = simpleValue.asFloat();
+            return new SimpleValue(Math.abs(f));
+         } else {
+            throw new InterpreterException("Invalid Parameter '" + simpleValue.toString() + "'");
+         }
+      } else {
+         throw new InterpreterException("Invalid Parameter");
       }
-      return null;
    }
 }

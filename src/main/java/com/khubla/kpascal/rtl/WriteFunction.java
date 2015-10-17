@@ -3,6 +3,7 @@ package com.khubla.kpascal.rtl;
 import java.io.PrintStream;
 import java.util.List;
 
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.interpreter.Context;
 import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
@@ -25,7 +26,7 @@ import com.khubla.kpascal.value.Value;
 */
 public class WriteFunction extends BaseRTLFunction {
    @Override
-   public Value invoke(Context context, List<Value> argumentValues) {
+   public Value invoke(Context context, List<Value> argumentValues) throws InterpreterException {
       if (null != argumentValues) {
          for (final Value value : argumentValues) {
             if (value instanceof SimpleValue) {

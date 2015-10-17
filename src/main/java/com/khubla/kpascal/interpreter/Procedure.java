@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.khubla.kpascal.antlr.PascalParser;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.type.Type;
 import com.khubla.kpascal.value.Value;
 
@@ -65,7 +66,7 @@ public class Procedure implements Invocable {
    }
 
    @Override
-   public Value invoke(Context context, List<Value> parameters) {
+   public Value invoke(Context context, List<Value> parameters) throws InterpreterException {
       return null;
    }
 }

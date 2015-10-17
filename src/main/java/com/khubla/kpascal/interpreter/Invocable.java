@@ -2,6 +2,7 @@ package com.khubla.kpascal.interpreter;
 
 import java.util.List;
 
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.value.Value;
 
 /*
@@ -26,5 +27,5 @@ import com.khubla.kpascal.value.Value;
  * @author tom
  */
 public interface Invocable {
-   Value invoke(Context context, List<Value> argumentValues);
+   Value invoke(Context context, List<Value> argumentValues) throws InterpreterException;
 }

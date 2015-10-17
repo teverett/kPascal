@@ -49,6 +49,7 @@ public class RTLFunctions {
       rtlFunctions.put("read", ReadFunction.class);
       rtlFunctions.put("new", NewFunction.class);
       rtlFunctions.put("dispose", DisposeFunction.class);
+      rtlFunctions.put("abs", AbsFunction.class);
    }
 
    /**
