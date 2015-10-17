@@ -65,6 +65,7 @@ public class Procedure implements Invocable {
    }
 
    @Override
-   public void invoke(Context context, List<Value> parameters) {
+   public Value invoke(Context context, List<Value> parameters) {
+      return null;
    }
 }

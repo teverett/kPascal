@@ -25,7 +25,7 @@ import com.khubla.kpascal.value.Value;
 */
 public class WriteFunction extends BaseRTLFunction {
    @Override
-   public void invoke(Context context, List<Value> argumentValues) {
+   public Value invoke(Context context, List<Value> argumentValues) {
       if (null != argumentValues) {
          for (final Value value : argumentValues) {
             if (value instanceof SimpleValue) {
@@ -33,5 +33,6 @@ public class WriteFunction extends BaseRTLFunction {
             }
          }
       }
+      return null;
    }
 }

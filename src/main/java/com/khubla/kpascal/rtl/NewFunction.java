@@ -23,7 +23,7 @@ import com.khubla.kpascal.value.Value;
 */
 public class NewFunction extends BaseRTLFunction {
    @Override
-   public void invoke(Context context, List<Value> argumentValues) {
-      // TODO Auto-generated method stub
+   public Value invoke(Context context, List<Value> argumentValues) {
+      return null;
    }
 }

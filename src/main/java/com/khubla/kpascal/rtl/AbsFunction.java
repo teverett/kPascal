@@ -24,8 +24,9 @@ import com.khubla.kpascal.value.Value;
 */
 public class AbsFunction extends BaseRTLFunction {
    @Override
-   public void invoke(Context context, List<Value> argumentValues) {
+   public Value invoke(Context context, List<Value> argumentValues) {
       if ((null != argumentValues) && (argumentValues.size() == 1) && (argumentValues.get(0) instanceof SimpleValue)) {
       }
+      return null;
    }
 }

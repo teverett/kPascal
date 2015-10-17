@@ -26,5 +26,5 @@ import com.khubla.kpascal.value.Value;
  * @author tom
  */
 public interface Invocable {
-   void invoke(Context context, List<Value> argumentValues);
+   Value invoke(Context context, List<Value> argumentValues);
 }
