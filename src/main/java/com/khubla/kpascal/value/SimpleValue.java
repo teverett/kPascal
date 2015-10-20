@@ -1,5 +1,6 @@
 package com.khubla.kpascal.value;
 
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.type.SimpleType;
 import com.khubla.kpascal.type.Type;
 
@@ -73,6 +74,37 @@ public class SimpleValue implements Value {
       this.value = value;
    }
 
+   public SimpleValue add(SimpleValue v1, SimpleValue v2) throws InterpreterException {
+      /*
+       * incompatible v1
+       */
+      if ((v1.getSimpleType().getType() == SimpleType.Type.bool) || (v1.getSimpleType().getType() == SimpleType.Type.character) || (v1.getSimpleType().getType() == SimpleType.Type.string)) {
+         throw new InterpreterException("Incompatible type '" + v1.value + "'");
+      }
+      /*
+       * incompatible v2
+       */
+      if ((v2.getSimpleType().getType() == SimpleType.Type.bool) || (v2.getSimpleType().getType() == SimpleType.Type.character) || (v2.getSimpleType().getType() == SimpleType.Type.string)) {
+         throw new InterpreterException("Incompatible type '" + v2.value + "'");
+      }
+      /*
+       * resulting type
+       */
+      if ((v1.getSimpleType().getType() == SimpleType.Type.real) || ((v2.getSimpleType().getType() == SimpleType.Type.real))) {
+         /*
+          * real
+          */
+         final double db = v1.asFloat() + v2.asFloat();
+         return new SimpleValue(db);
+      } else {
+         /*
+          * int
+          */
+         final int i = v1.asInteger() + v2.asInteger();
+         return new SimpleValue(i);
+      }
+   }
+
    public Boolean asBoolean() throws NumberFormatException {
       return Boolean.valueOf(value);
    }
@@ -83,6 +115,37 @@ public class SimpleValue implements Value {
 
    public Integer asInteger() throws NumberFormatException {
       return Integer.parseInt(value);
+   }
+
+   public SimpleValue div(SimpleValue v1, SimpleValue v2) throws InterpreterException {
+      /*
+       * incompatible v1
+       */
+      if ((v1.getSimpleType().getType() == SimpleType.Type.bool) || (v1.getSimpleType().getType() == SimpleType.Type.character) || (v1.getSimpleType().getType() == SimpleType.Type.string)) {
+         throw new InterpreterException("Incompatible type '" + v1.value + "'");
+      }
+      /*
+       * incompatible v2
+       */
+      if ((v2.getSimpleType().getType() == SimpleType.Type.bool) || (v2.getSimpleType().getType() == SimpleType.Type.character) || (v2.getSimpleType().getType() == SimpleType.Type.string)) {
+         throw new InterpreterException("Incompatible type '" + v2.value + "'");
+      }
+      /*
+       * resulting type
+       */
+      if ((v1.getSimpleType().getType() == SimpleType.Type.real) || ((v2.getSimpleType().getType() == SimpleType.Type.real))) {
+         /*
+          * real
+          */
+         final double db = v1.asFloat() / v2.asFloat();
+         return new SimpleValue(db);
+      } else {
+         /*
+          * int
+          */
+         final int i = v1.asInteger() / v2.asInteger();
+         return new SimpleValue(i);
+      }
    }
 
    public SimpleType getSimpleType() {
@@ -96,5 +159,67 @@ public class SimpleValue implements Value {
 
    public String getValue() {
       return value;
+   }
+
+   public SimpleValue mult(SimpleValue v1, SimpleValue v2) throws InterpreterException {
+      /*
+       * incompatible v1
+       */
+      if ((v1.getSimpleType().getType() == SimpleType.Type.bool) || (v1.getSimpleType().getType() == SimpleType.Type.character) || (v1.getSimpleType().getType() == SimpleType.Type.string)) {
+         throw new InterpreterException("Incompatible type '" + v1.value + "'");
+      }
+      /*
+       * incompatible v2
+       */
+      if ((v2.getSimpleType().getType() == SimpleType.Type.bool) || (v2.getSimpleType().getType() == SimpleType.Type.character) || (v2.getSimpleType().getType() == SimpleType.Type.string)) {
+         throw new InterpreterException("Incompatible type '" + v2.value + "'");
+      }
+      /*
+       * resulting type
+       */
+      if ((v1.getSimpleType().getType() == SimpleType.Type.real) || ((v2.getSimpleType().getType() == SimpleType.Type.real))) {
+         /*
+          * real
+          */
+         final double db = v1.asFloat() * v2.asFloat();
+         return new SimpleValue(db);
+      } else {
+         /*
+          * int
+          */
+         final int i = v1.asInteger() * v2.asInteger();
+         return new SimpleValue(i);
+      }
+   }
+
+   public SimpleValue subtract(SimpleValue v1, SimpleValue v2) throws InterpreterException {
+      /*
+       * incompatible v1
+       */
+      if ((v1.getSimpleType().getType() == SimpleType.Type.bool) || (v1.getSimpleType().getType() == SimpleType.Type.character) || (v1.getSimpleType().getType() == SimpleType.Type.string)) {
+         throw new InterpreterException("Incompatible type '" + v1.value + "'");
+      }
+      /*
+       * incompatible v2
+       */
+      if ((v2.getSimpleType().getType() == SimpleType.Type.bool) || (v2.getSimpleType().getType() == SimpleType.Type.character) || (v2.getSimpleType().getType() == SimpleType.Type.string)) {
+         throw new InterpreterException("Incompatible type '" + v2.value + "'");
+      }
+      /*
+       * resulting type
+       */
+      if ((v1.getSimpleType().getType() == SimpleType.Type.real) || ((v2.getSimpleType().getType() == SimpleType.Type.real))) {
+         /*
+          * real
+          */
+         final double db = v1.asFloat() - v2.asFloat();
+         return new SimpleValue(db);
+      } else {
+         /*
+          * int
+          */
+         final int i = v1.asInteger() - v2.asInteger();
+         return new SimpleValue(i);
+      }
    }
 }

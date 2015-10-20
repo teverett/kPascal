@@ -30,7 +30,7 @@ public class VariableInstance {
 
    private final String name;
    private final VariableDeclarationType variableDeclarationType;
-   private final Value value;
+   private Value value;
 
    public VariableInstance(String name, Value value, VariableDeclarationType variableDeclarationType) {
       this.name = name;
@@ -48,5 +48,9 @@ public class VariableInstance {
 
    public VariableDeclarationType getVariableDeclarationType() {
       return variableDeclarationType;
+   }
+
+   public void setValue(Value value) {
+      this.value = value;
    }
 }

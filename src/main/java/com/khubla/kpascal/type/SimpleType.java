@@ -24,7 +24,7 @@ public class SimpleType implements Type {
       real, string, integer, bool, character;
    }
 
-   private final Type type;
+   private Type type;
 
    public SimpleType(Type type) {
       this.type = type;
@@ -37,5 +37,9 @@ public class SimpleType implements Type {
 
    public Type getType() {
       return type;
+   }
+
+   public void setType(Type type) {
+      this.type = type;
    }
 }

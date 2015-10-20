@@ -1,8 +1,9 @@
 
 program HelloWorld;   
+var   
+ a: integer;
+begin 
 
-begin    
- write('Hello World.');
- for i:= 1 to 10 do writeln(i);
+  a := 12+15;
 end.
 

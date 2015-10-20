@@ -2,6 +2,7 @@ package com.khubla.kpascal.interpreter.visitor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +12,9 @@ import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.interpreter.Context;
 import com.khubla.kpascal.interpreter.Invocable;
 import com.khubla.kpascal.interpreter.Procedure;
+import com.khubla.kpascal.interpreter.VariableInstance;
 import com.khubla.kpascal.rtl.RTLFunctions;
+import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
 
 /*
@@ -33,6 +36,7 @@ import com.khubla.kpascal.value.Value;
 public class ProgramVisitor extends PascalBaseVisitor<Void> {
    private final Context context;
    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+   private final Stack<Value> valueStack = new Stack<Value>();
 
    public ProgramVisitor(Context context) {
       this.context = context;
@@ -59,7 +63,24 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
    }
 
    @Override
+   public Void visitAssignmentStatement(PascalParser.AssignmentStatementContext ctx) {
+      final Void ret = visitChildren(ctx);
+      final String lvalName = ctx.getChild(0).getText();
+      final VariableInstance variableInstance = context.resolveVariableInstance(lvalName);
+      if (null != variableInstance) {
+         final Value rVal = valueStack.pop();
+         variableInstance.setValue(rVal);
+      }
+      return ret;
+   }
+
+   @Override
    public Void visitBlock(PascalParser.BlockContext ctx) {
+      return visitChildren(ctx);
+   }
+
+   @Override
+   public Void visitCompoundStatement(PascalParser.CompoundStatementContext ctx) {
       return visitChildren(ctx);
    }
 
@@ -120,6 +141,35 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
       } catch (final Exception e) {
          e.printStackTrace();
       }
+      return visitChildren(ctx);
+   }
+
+   @Override
+   public Void visitSimpleExpression(PascalParser.SimpleExpressionContext ctx) {
+      final Void ret = visitChildren(ctx);
+      final Value val1 = valueStack.pop();
+      final Value val2 = valueStack.pop();
+      if ((val1 instanceof SimpleValue) && (val2 instanceof SimpleValue)) {
+         final String operation = ctx.getChild(1).getText().toLowerCase();
+         if (operation == "+") {
+         } else if (operation == "-") {
+         } else if (operation == "or") {
+         }
+      }
+      return ret;
+   }
+
+   @Override
+   public Void visitUnsignedInteger(PascalParser.UnsignedIntegerContext ctx) {
+      final Value value = new SimpleValue(Integer.parseInt(ctx.getText()));
+      valueStack.push(value);
+      return visitChildren(ctx);
+   }
+
+   @Override
+   public Void visitUnsignedReal(PascalParser.UnsignedRealContext ctx) {
+      final Value value = new SimpleValue(Double.parseDouble(ctx.getText()));
+      valueStack.push(value);
       return visitChildren(ctx);
    }
 }
