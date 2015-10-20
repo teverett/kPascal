@@ -183,7 +183,11 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
                   val = SimpleValue.mult(val, thisVal);
                } else if (operation.compareTo("/") == 0) {
                   val = SimpleValue.div(val, thisVal);
-               } else if (operation.compareTo("add") == 0) {
+               } else if (operation.compareTo("div") == 0) {
+                  val = SimpleValue.div(val, thisVal);
+               } else if (operation.compareTo("mod") == 0) {
+                  val = SimpleValue.mod(val, thisVal);
+               } else if (operation.compareTo("and") == 0) {
                }
             }
             valueStack.push(val);
