@@ -21,59 +21,6 @@ import com.khubla.kpascal.type.Type;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 public class SimpleValue implements Value {
-   private final SimpleType simpleType;
-   private final String value;
-
-   /**
-    * ctor for boolean
-    */
-   public SimpleValue(Boolean value) {
-      simpleType = new SimpleType(SimpleType.Type.bool);
-      this.value = Boolean.toString(value);
-   }
-
-   /**
-    * ctor for char
-    */
-   public SimpleValue(char value) {
-      simpleType = new SimpleType(SimpleType.Type.character);
-      this.value = Character.toString(value);
-   }
-
-   /**
-    * ctor for double
-    */
-   public SimpleValue(Double value) {
-      simpleType = new SimpleType(SimpleType.Type.real);
-      this.value = Double.toString(value);
-   }
-
-   /**
-    * ctor for integer
-    */
-   public SimpleValue(Integer value) {
-      simpleType = new SimpleType(SimpleType.Type.integer);
-      this.value = Integer.toString(value);
-   }
-
-   public SimpleValue(SimpleType simpleType) {
-      this.simpleType = simpleType;
-      value = null;
-   }
-
-   public SimpleValue(SimpleType simpleType, String value) {
-      this.simpleType = simpleType;
-      this.value = value;
-   }
-
-   /**
-    * ctor for string
-    */
-   public SimpleValue(String value) {
-      simpleType = new SimpleType(SimpleType.Type.string);
-      this.value = value;
-   }
-
    public static SimpleValue add(SimpleValue v1, SimpleValue v2) throws InterpreterException {
       /*
        * incompatible v1
@@ -105,18 +52,6 @@ public class SimpleValue implements Value {
       }
    }
 
-   public Boolean asBoolean() throws NumberFormatException {
-      return Boolean.valueOf(value);
-   }
-
-   public Float asFloat() throws NumberFormatException {
-      return Float.parseFloat(value);
-   }
-
-   public Integer asInteger() throws NumberFormatException {
-      return Integer.parseInt(value);
-   }
-
    public static SimpleValue div(SimpleValue v1, SimpleValue v2) throws InterpreterException {
       /*
        * incompatible v1
@@ -146,19 +81,6 @@ public class SimpleValue implements Value {
          final int i = v1.asInteger() / v2.asInteger();
          return new SimpleValue(i);
       }
-   }
-
-   public SimpleType getSimpleType() {
-      return simpleType;
-   }
-
-   @Override
-   public Type getType() {
-      return simpleType;
-   }
-
-   public String getValue() {
-      return value;
    }
 
    public static SimpleValue mult(SimpleValue v1, SimpleValue v2) throws InterpreterException {
@@ -221,5 +143,83 @@ public class SimpleValue implements Value {
          final int i = v1.asInteger() - v2.asInteger();
          return new SimpleValue(i);
       }
+   }
+
+   private final SimpleType simpleType;
+   private final String value;
+
+   /**
+    * ctor for boolean
+    */
+   public SimpleValue(Boolean value) {
+      simpleType = new SimpleType(SimpleType.Type.bool);
+      this.value = Boolean.toString(value);
+   }
+
+   /**
+    * ctor for char
+    */
+   public SimpleValue(char value) {
+      simpleType = new SimpleType(SimpleType.Type.character);
+      this.value = Character.toString(value);
+   }
+
+   /**
+    * ctor for double
+    */
+   public SimpleValue(Double value) {
+      simpleType = new SimpleType(SimpleType.Type.real);
+      this.value = Double.toString(value);
+   }
+
+   /**
+    * ctor for integer
+    */
+   public SimpleValue(Integer value) {
+      simpleType = new SimpleType(SimpleType.Type.integer);
+      this.value = Integer.toString(value);
+   }
+
+   public SimpleValue(SimpleType simpleType) {
+      this.simpleType = simpleType;
+      value = null;
+   }
+
+   public SimpleValue(SimpleType simpleType, String value) {
+      this.simpleType = simpleType;
+      this.value = value;
+   }
+
+   /**
+    * ctor for string
+    */
+   public SimpleValue(String value) {
+      simpleType = new SimpleType(SimpleType.Type.string);
+      this.value = value;
+   }
+
+   public Boolean asBoolean() throws NumberFormatException {
+      return Boolean.valueOf(value);
+   }
+
+   public Float asFloat() throws NumberFormatException {
+      return Float.parseFloat(value);
+   }
+
+   public Integer asInteger() throws NumberFormatException {
+      return Integer.parseInt(value);
+   }
+
+   public SimpleType getSimpleType() {
+      return simpleType;
+   }
+
+   @Override
+   public Type getType() {
+      return simpleType;
+   }
+
+   public String getValue() {
+      return value;
    }
 }

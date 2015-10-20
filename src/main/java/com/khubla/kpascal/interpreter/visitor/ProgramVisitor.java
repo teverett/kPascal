@@ -36,7 +36,7 @@ import com.khubla.kpascal.value.Value;
 public class ProgramVisitor extends PascalBaseVisitor<Void> {
    private final Context context;
    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-   private final Stack<Value> valueStack = new Stack<Value>();
+   private final Stack<SimpleValue> valueStack = new Stack<SimpleValue>();
 
    public ProgramVisitor(Context context) {
       this.context = context;
@@ -148,34 +148,62 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
    public Void visitSimpleExpression(PascalParser.SimpleExpressionContext ctx) {
       final Void ret = visitChildren(ctx);
       try {
-         final Value val1 = valueStack.pop();
-         final Value val2 = valueStack.pop();
-         if ((val1 instanceof SimpleValue) && (val2 instanceof SimpleValue)) {
-            final String operation = ctx.getChild(1).getText().toLowerCase();
-            if (operation.compareTo("+") == 0) {
-               SimpleValue result = SimpleValue.add((SimpleValue) val1, (SimpleValue) val2);
-               this.valueStack.push(result);
-            } else if (operation.compareTo("-") == 0) {
-               SimpleValue result = SimpleValue.subtract((SimpleValue) val1, (SimpleValue) val2);
-               this.valueStack.push(result);
-            } else if (operation.compareTo("or") == 0) {
+         final int numberOperations = (ctx.getChildCount() - 1) / 2;
+         if (numberOperations > 0) {
+            SimpleValue val = valueStack.pop();
+            for (int i = 0; i < numberOperations; i++) {
+               final SimpleValue thisVal = valueStack.pop();
+               final String operation = ctx.getChild(1).getText().toLowerCase();
+               if (operation.compareTo("+") == 0) {
+                  val = SimpleValue.add(val, thisVal);
+               } else if (operation.compareTo("-") == 0) {
+                  val = SimpleValue.subtract(val, thisVal);
+               } else if (operation.compareTo("or") == 0) {
+               }
             }
+            valueStack.push(val);
          }
-      } catch (Exception e) {
+      } catch (final Exception e) {
+         e.printStackTrace();
+      }
+      return ret;
+   }
+
+   @Override
+   public Void visitTerm(PascalParser.TermContext ctx) {
+      final Void ret = visitChildren(ctx);
+      try {
+         final int numberOperations = (ctx.getChildCount() - 1) / 2;
+         if (numberOperations > 0) {
+            SimpleValue val = valueStack.pop();
+            for (int i = 0; i < numberOperations; i++) {
+               final SimpleValue thisVal = valueStack.pop();
+               final String operation = ctx.getChild(1).getText().toLowerCase();
+               if (operation.compareTo("*") == 0) {
+                  val = SimpleValue.mult(val, thisVal);
+               } else if (operation.compareTo("/") == 0) {
+                  val = SimpleValue.div(val, thisVal);
+               } else if (operation.compareTo("add") == 0) {
+               }
+            }
+            valueStack.push(val);
+         }
+      } catch (final Exception e) {
+         e.printStackTrace();
       }
       return ret;
    }
 
    @Override
    public Void visitUnsignedInteger(PascalParser.UnsignedIntegerContext ctx) {
-      final Value value = new SimpleValue(Integer.parseInt(ctx.getText()));
+      final SimpleValue value = new SimpleValue(Integer.parseInt(ctx.getText()));
       valueStack.push(value);
       return visitChildren(ctx);
    }
 
    @Override
    public Void visitUnsignedReal(PascalParser.UnsignedRealContext ctx) {
-      final Value value = new SimpleValue(Double.parseDouble(ctx.getText()));
+      final SimpleValue value = new SimpleValue(Double.parseDouble(ctx.getText()));
       valueStack.push(value);
       return visitChildren(ctx);
    }
