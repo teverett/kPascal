@@ -52,6 +52,15 @@ public class SimpleValue implements Value {
       }
    }
 
+   public static SimpleValue and(SimpleValue v1, SimpleValue v2) throws InterpreterException {
+      if ((v1.getSimpleType().getType() == SimpleType.Type.bool) && (v2.getSimpleType().getType() == SimpleType.Type.bool)) {
+         final boolean b = v1.asBoolean() && v2.asBoolean();
+         return new SimpleValue(b);
+      } else {
+         throw new InterpreterException("Incompatible type '" + v1.value + "," + v2.value + "'");
+      }
+   }
+
    public static SimpleValue div(SimpleValue v1, SimpleValue v2) throws InterpreterException {
       /*
        * incompatible v1
@@ -142,6 +151,15 @@ public class SimpleValue implements Value {
           */
          final int i = v1.asInteger() * v2.asInteger();
          return new SimpleValue(i);
+      }
+   }
+
+   public static SimpleValue or(SimpleValue v1, SimpleValue v2) throws InterpreterException {
+      if ((v1.getSimpleType().getType() == SimpleType.Type.bool) && (v2.getSimpleType().getType() == SimpleType.Type.bool)) {
+         final boolean b = v1.asBoolean() || v2.asBoolean();
+         return new SimpleValue(b);
+      } else {
+         throw new InterpreterException("Incompatible type '" + v1.value + "," + v2.value + "'");
       }
    }
 

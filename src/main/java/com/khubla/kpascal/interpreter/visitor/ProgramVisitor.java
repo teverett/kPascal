@@ -159,6 +159,7 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
                } else if (operation.compareTo("-") == 0) {
                   val = SimpleValue.subtract(val, thisVal);
                } else if (operation.compareTo("or") == 0) {
+                  val = SimpleValue.or(val, thisVal);
                }
             }
             valueStack.push(val);
@@ -188,6 +189,7 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
                } else if (operation.compareTo("mod") == 0) {
                   val = SimpleValue.mod(val, thisVal);
                } else if (operation.compareTo("and") == 0) {
+                  val = SimpleValue.and(val, thisVal);
                }
             }
             valueStack.push(val);
