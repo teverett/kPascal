@@ -74,7 +74,7 @@ public class SimpleValue implements Value {
       this.value = value;
    }
 
-   public SimpleValue add(SimpleValue v1, SimpleValue v2) throws InterpreterException {
+   public static SimpleValue add(SimpleValue v1, SimpleValue v2) throws InterpreterException {
       /*
        * incompatible v1
        */
@@ -117,7 +117,7 @@ public class SimpleValue implements Value {
       return Integer.parseInt(value);
    }
 
-   public SimpleValue div(SimpleValue v1, SimpleValue v2) throws InterpreterException {
+   public static SimpleValue div(SimpleValue v1, SimpleValue v2) throws InterpreterException {
       /*
        * incompatible v1
        */
@@ -161,7 +161,7 @@ public class SimpleValue implements Value {
       return value;
    }
 
-   public SimpleValue mult(SimpleValue v1, SimpleValue v2) throws InterpreterException {
+   public static SimpleValue mult(SimpleValue v1, SimpleValue v2) throws InterpreterException {
       /*
        * incompatible v1
        */
@@ -192,7 +192,7 @@ public class SimpleValue implements Value {
       }
    }
 
-   public SimpleValue subtract(SimpleValue v1, SimpleValue v2) throws InterpreterException {
+   public static SimpleValue subtract(SimpleValue v1, SimpleValue v2) throws InterpreterException {
       /*
        * incompatible v1
        */

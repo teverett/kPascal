@@ -147,14 +147,21 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
    @Override
    public Void visitSimpleExpression(PascalParser.SimpleExpressionContext ctx) {
       final Void ret = visitChildren(ctx);
-      final Value val1 = valueStack.pop();
-      final Value val2 = valueStack.pop();
-      if ((val1 instanceof SimpleValue) && (val2 instanceof SimpleValue)) {
-         final String operation = ctx.getChild(1).getText().toLowerCase();
-         if (operation == "+") {
-         } else if (operation == "-") {
-         } else if (operation == "or") {
+      try {
+         final Value val1 = valueStack.pop();
+         final Value val2 = valueStack.pop();
+         if ((val1 instanceof SimpleValue) && (val2 instanceof SimpleValue)) {
+            final String operation = ctx.getChild(1).getText().toLowerCase();
+            if (operation.compareTo("+") == 0) {
+               SimpleValue result = SimpleValue.add((SimpleValue) val1, (SimpleValue) val2);
+               this.valueStack.push(result);
+            } else if (operation.compareTo("-") == 0) {
+               SimpleValue result = SimpleValue.subtract((SimpleValue) val1, (SimpleValue) val2);
+               this.valueStack.push(result);
+            } else if (operation.compareTo("or") == 0) {
+            }
          }
+      } catch (Exception e) {
       }
       return ret;
    }
