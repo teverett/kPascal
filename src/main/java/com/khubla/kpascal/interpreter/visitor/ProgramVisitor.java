@@ -70,6 +70,8 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
       if (null != variableInstance) {
          final Value rVal = valueStack.pop();
          variableInstance.setValue(rVal);
+      } else {
+         throw new RuntimeException("Unable to resolve variable '" + lvalName + "'");
       }
       return ret;
    }
@@ -211,6 +213,19 @@ public class ProgramVisitor extends PascalBaseVisitor<Void> {
    public Void visitUnsignedReal(PascalParser.UnsignedRealContext ctx) {
       final SimpleValue value = new SimpleValue(Double.parseDouble(ctx.getText()));
       valueStack.push(value);
+      return visitChildren(ctx);
+   }
+
+   @Override
+   public Void visitVariable(PascalParser.VariableContext ctx) {
+      try {
+         String v = ctx.getChild(0).getText();
+         SimpleValue simpleValue = (SimpleValue) this.context.resolveStringToValue(v);
+         this.valueStack.push(simpleValue);
+         return visitChildren(ctx);
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
       return visitChildren(ctx);
    }
 }

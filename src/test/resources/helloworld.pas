@@ -1,10 +1,10 @@
 
 program HelloWorld;   
 var   
- a: integer;
+ a,b: integer;
 begin 
-
-  a := 12+15+7*2;
+  b :=2;
+  a := 12+15+7*b;
   writeln(a);
 end.
 
