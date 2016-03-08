@@ -1,13 +1,5 @@
 package com.khubla.kpascal.interpreter;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.khubla.kpascal.antlr.PascalParser;
-import com.khubla.kpascal.exception.InterpreterException;
-import com.khubla.kpascal.type.Type;
-import com.khubla.kpascal.value.Value;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -24,6 +16,14 @@ import com.khubla.kpascal.value.Value;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import java.util.ArrayList;
+import java.util.List;
+
+import com.khubla.kpascal.antlr.PascalParser;
+import com.khubla.kpascal.exception.InterpreterException;
+import com.khubla.kpascal.type.Type;
+import com.khubla.kpascal.value.Value;
+
 /**
  * A procedure is implemented as, simply, a reference to a parse tree. When the procedure is invoked, the parse tree is parsed. There is a specific difference in that a procedure has its own context
  * object
@@ -31,7 +31,7 @@ import com.khubla.kpascal.value.Value;
  * @author tom
  */
 public class Procedure implements Invocable {
-   private final PascalParser.BlockContext procedureBlockContext;
+   private final Block block;
    private final List<ProcedureArgument> arguments = new ArrayList<ProcedureArgument>();
    private final String name;
    /**
@@ -39,8 +39,8 @@ public class Procedure implements Invocable {
     */
    private final Type returnType;
 
-   public Procedure(String name, PascalParser.BlockContext procedureBlockContext, Type returnType) {
-      this.procedureBlockContext = procedureBlockContext;
+   public Procedure(String name, PascalParser.BlockContext blockContext, Type returnType) {
+      block = new Block(blockContext);
       this.name = name;
       this.returnType = returnType;
    }
@@ -53,12 +53,12 @@ public class Procedure implements Invocable {
       return arguments;
    }
 
-   public String getName() {
-      return name;
+   public Block getBlock() {
+      return block;
    }
 
-   public PascalParser.BlockContext getProcedureBlockContext() {
-      return procedureBlockContext;
+   public String getName() {
+      return name;
    }
 
    public Type getReturnType() {

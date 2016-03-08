@@ -1,11 +1,5 @@
 package com.khubla.kpascal.value;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.khubla.kpascal.type.ArrayType;
-import com.khubla.kpascal.type.Type;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -22,6 +16,12 @@ import com.khubla.kpascal.type.Type;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import java.util.ArrayList;
+import java.util.List;
+
+import com.khubla.kpascal.type.ArrayType;
+import com.khubla.kpascal.type.Type;
+
 public class ArrayValue implements Value {
    private final List<Value> values = new ArrayList<Value>();
    private final ArrayType arrayType;

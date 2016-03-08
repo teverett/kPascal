@@ -1,17 +1,5 @@
 package com.khubla.kpascal.interpreter.visitor;
 
-import com.khubla.kpascal.antlr.PascalBaseVisitor;
-import com.khubla.kpascal.antlr.PascalParser;
-import com.khubla.kpascal.interpreter.Context;
-import com.khubla.kpascal.type.ArrayType;
-import com.khubla.kpascal.type.FileType;
-import com.khubla.kpascal.type.PointerType;
-import com.khubla.kpascal.type.RecordType;
-import com.khubla.kpascal.type.SetType;
-import com.khubla.kpascal.type.Type;
-import com.khubla.kpascal.value.SimpleValue;
-import com.khubla.kpascal.value.Value;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -28,6 +16,18 @@ import com.khubla.kpascal.value.Value;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import com.khubla.kpascal.antlr.PascalBaseVisitor;
+import com.khubla.kpascal.antlr.PascalParser;
+import com.khubla.kpascal.interpreter.Context;
+import com.khubla.kpascal.type.ArrayType;
+import com.khubla.kpascal.type.FileType;
+import com.khubla.kpascal.type.PointerType;
+import com.khubla.kpascal.type.RecordType;
+import com.khubla.kpascal.type.SetType;
+import com.khubla.kpascal.type.Type;
+import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.Value;
+
 public class TypeVisitor extends PascalBaseVisitor<Type> {
    private final Context context;
    private Type type = null;

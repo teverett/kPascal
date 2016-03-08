@@ -1,10 +1,5 @@
 package com.khubla.kpascal.rtl;
 
-import java.util.Hashtable;
-
-import com.khubla.kpascal.exception.InterpreterException;
-import com.khubla.kpascal.interpreter.Invocable;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -21,6 +16,11 @@ import com.khubla.kpascal.interpreter.Invocable;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import java.util.Hashtable;
+
+import com.khubla.kpascal.exception.InterpreterException;
+import com.khubla.kpascal.interpreter.Invocable;
+
 public class RTLFunctions {
    /**
     * instance

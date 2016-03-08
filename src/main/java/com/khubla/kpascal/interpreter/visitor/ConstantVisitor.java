@@ -1,14 +1,5 @@
 package com.khubla.kpascal.interpreter.visitor;
 
-import org.antlr.v4.runtime.ParserRuleContext;
-
-import com.khubla.kpascal.antlr.PascalBaseVisitor;
-import com.khubla.kpascal.antlr.PascalParser;
-import com.khubla.kpascal.interpreter.Context;
-import com.khubla.kpascal.interpreter.VariableInstance;
-import com.khubla.kpascal.type.SimpleType;
-import com.khubla.kpascal.value.SimpleValue;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -25,6 +16,15 @@ import com.khubla.kpascal.value.SimpleValue;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import org.antlr.v4.runtime.ParserRuleContext;
+
+import com.khubla.kpascal.antlr.PascalBaseVisitor;
+import com.khubla.kpascal.antlr.PascalParser;
+import com.khubla.kpascal.interpreter.Context;
+import com.khubla.kpascal.interpreter.VariableInstance;
+import com.khubla.kpascal.type.SimpleType;
+import com.khubla.kpascal.value.SimpleValue;
+
 public class ConstantVisitor extends PascalBaseVisitor<Void> {
    private final Context context;
 

@@ -1,13 +1,5 @@
 package com.khubla.kpascal.rtl;
 
-import java.io.PrintStream;
-import java.util.List;
-
-import com.khubla.kpascal.exception.InterpreterException;
-import com.khubla.kpascal.interpreter.Context;
-import com.khubla.kpascal.value.SimpleValue;
-import com.khubla.kpascal.value.Value;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -24,13 +16,21 @@ import com.khubla.kpascal.value.Value;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import java.io.PrintStream;
+import java.util.List;
+
+import com.khubla.kpascal.exception.InterpreterException;
+import com.khubla.kpascal.interpreter.Context;
+import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.Value;
+
 public class WriteFunction extends BaseRTLFunction {
    @Override
    public Value invoke(Context context, List<Value> argumentValues) throws InterpreterException {
       if (null != argumentValues) {
          for (final Value value : argumentValues) {
             if (value instanceof SimpleValue) {
-               new PrintStream(context.getStdOut()).print(((SimpleValue) value).getValue());
+               new PrintStream(System.out).print(((SimpleValue) value).getValue());
             }
          }
       }

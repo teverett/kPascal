@@ -23,15 +23,11 @@ import java.io.Reader;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.RuleContext;
 
 import com.khubla.kpascal.antlr.PascalLexer;
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.antlr.PascalParser.ProgramContext;
-import com.khubla.kpascal.interpreter.visitor.ConstantVisitor;
-import com.khubla.kpascal.interpreter.visitor.ProcedureVisitor;
-import com.khubla.kpascal.interpreter.visitor.ProgramVisitor;
-import com.khubla.kpascal.interpreter.visitor.TypeVisitor;
-import com.khubla.kpascal.interpreter.visitor.VariableVisitor;
 
 public class PascalInterpreter {
    /**
@@ -39,9 +35,9 @@ public class PascalInterpreter {
     */
    private final InputStream pascalInputStream;
    /**
-    * context
+    * root block
     */
-   private final Context context;
+   private Block rootBlock = null;
 
    /**
     * ctor
@@ -51,22 +47,14 @@ public class PascalInterpreter {
        * pascal input stream
        */
       this.pascalInputStream = pascalInputStream;
-      /*
-       * context
-       */
-      context = new Context(stdIn, stdOut);
-      /*
-       * push the program context
-       */
-      context.getScopeStack().push(new Scope());
-   }
-
-   public Context getContext() {
-      return context;
    }
 
    public InputStream getPascalInputStream() {
       return pascalInputStream;
+   }
+
+   public Block getRootBlock() {
+      return rootBlock;
    }
 
    /**
@@ -95,31 +83,20 @@ public class PascalInterpreter {
           */
          final ProgramContext programContext = parse(pascalInputStream);
          /*
-          * constants
+          * find root block
           */
-         final ConstantVisitor constantVisitor = new ConstantVisitor(context);
-         constantVisitor.visit(programContext);
-         /*
-          * types
-          */
-         final TypeVisitor typeVisitor = new TypeVisitor(context);
-         typeVisitor.visit(programContext);
-         getContext().getCurrentScope().getTypes().resolveComponentTypes();
-         /*
-          * variables
-          */
-         final VariableVisitor variableVisitor = new VariableVisitor(context);
-         variableVisitor.visit(programContext);
-         /*
-          * procedures
-          */
-         final ProcedureVisitor procedureVisitor = new ProcedureVisitor(context);
-         procedureVisitor.visit(programContext);
-         /*
-          * program
-          */
-         final ProgramVisitor programVisitor = new ProgramVisitor(context);
-         programVisitor.visit(programContext);
+         PascalParser.BlockContext rootBlockContext = null;
+         for (int i = 0; i < programContext.getChildCount(); i++) {
+            final RuleContext ruleContext = (RuleContext) programContext.getChild(i);
+            if (ruleContext instanceof PascalParser.BlockContext) {
+               rootBlockContext = (PascalParser.BlockContext) ruleContext;
+               break;
+            }
+         }
+         if (null != rootBlockContext) {
+            rootBlock = new Block(rootBlockContext);
+            rootBlock.run();
+         }
       } catch (final Exception e) {
          throw new Exception("Exception in run", e);
       }

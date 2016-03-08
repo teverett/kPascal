@@ -1,15 +1,5 @@
 package com.khubla.kpascal.interpreter.visitor;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.khubla.kpascal.antlr.PascalBaseVisitor;
-import com.khubla.kpascal.antlr.PascalParser;
-import com.khubla.kpascal.interpreter.Context;
-import com.khubla.kpascal.interpreter.VariableInstance;
-import com.khubla.kpascal.type.Type;
-import com.khubla.kpascal.value.Value;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -26,6 +16,16 @@ import com.khubla.kpascal.value.Value;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.khubla.kpascal.antlr.PascalBaseVisitor;
+import com.khubla.kpascal.antlr.PascalParser;
+import com.khubla.kpascal.interpreter.Context;
+import com.khubla.kpascal.interpreter.VariableInstance;
+import com.khubla.kpascal.type.Type;
+import com.khubla.kpascal.value.Value;
+
 public class VariableVisitor extends PascalBaseVisitor<Void> {
    private final Logger logger = LoggerFactory.getLogger(this.getClass());
    private final Context context;

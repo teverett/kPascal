@@ -1,7 +1,5 @@
 package com.khubla.kpascal.interpreter;
 
-import com.khubla.kpascal.type.Type;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -18,6 +16,8 @@ import com.khubla.kpascal.type.Type;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import com.khubla.kpascal.type.Type;
+
 public class ProcedureArgument {
    private final boolean var;
    private final String name;

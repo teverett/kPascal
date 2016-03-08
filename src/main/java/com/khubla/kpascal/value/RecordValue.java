@@ -1,10 +1,5 @@
 package com.khubla.kpascal.value;
 
-import java.util.Hashtable;
-
-import com.khubla.kpascal.type.RecordType;
-import com.khubla.kpascal.type.Type;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -21,6 +16,11 @@ import com.khubla.kpascal.type.Type;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import java.util.Hashtable;
+
+import com.khubla.kpascal.type.RecordType;
+import com.khubla.kpascal.type.Type;
+
 public class RecordValue implements Value {
    private final RecordType recordType;
    private final Hashtable<String, Value> fieldValues = new Hashtable<String, Value>();

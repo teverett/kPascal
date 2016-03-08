@@ -1,11 +1,5 @@
 package com.khubla.kpascal;
 
-import java.io.InputStream;
-
-import org.testng.Assert;
-
-import com.khubla.kpascal.interpreter.PascalInterpreter;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -22,13 +16,19 @@ import com.khubla.kpascal.interpreter.PascalInterpreter;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import java.io.InputStream;
+
+import org.testng.Assert;
+
+import com.khubla.kpascal.interpreter.PascalInterpreter;
+
 public abstract class BasicPascalTest {
    protected void testPascalProgram(String pascalProgramPath) {
       try {
          final InputStream is = TestAdd.class.getResourceAsStream(pascalProgramPath);
          final PascalInterpreter pascalInterpreter = new PascalInterpreter(is, System.in, System.out);
          pascalInterpreter.run();
-         pascalInterpreter.getContext().getCurrentScope().reportVariables();
+         pascalInterpreter.getRootBlock().getContext().getCurrentScope().reportVariables();
       } catch (final Exception e) {
          e.printStackTrace();
          Assert.fail();

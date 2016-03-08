@@ -1,12 +1,5 @@
 package com.khubla.kpascal.type;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.khubla.kpascal.value.ArrayValue;
-import com.khubla.kpascal.value.SimpleValue;
-import com.khubla.kpascal.value.Value;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -23,6 +16,13 @@ import com.khubla.kpascal.value.Value;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import java.util.ArrayList;
+import java.util.List;
+
+import com.khubla.kpascal.value.ArrayValue;
+import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.Value;
+
 public class ArrayType implements Type {
    public static class Range {
       public SimpleValue lowerRange;

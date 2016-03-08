@@ -1,7 +1,5 @@
 package com.khubla.kpascal.rtl;
 
-import com.khubla.kpascal.interpreter.Invocable;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -18,5 +16,7 @@ import com.khubla.kpascal.interpreter.Invocable;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import com.khubla.kpascal.interpreter.Invocable;
+
 public abstract class BaseRTLFunction implements Invocable {
 }

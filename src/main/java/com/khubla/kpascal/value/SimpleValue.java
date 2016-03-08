@@ -1,9 +1,5 @@
 package com.khubla.kpascal.value;
 
-import com.khubla.kpascal.exception.InterpreterException;
-import com.khubla.kpascal.type.SimpleType;
-import com.khubla.kpascal.type.Type;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -20,6 +16,10 @@ import com.khubla.kpascal.type.Type;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import com.khubla.kpascal.exception.InterpreterException;
+import com.khubla.kpascal.type.SimpleType;
+import com.khubla.kpascal.type.Type;
+
 public class SimpleValue implements Value {
    public static SimpleValue add(SimpleValue v1, SimpleValue v2) throws InterpreterException {
       /*

@@ -1,8 +1,5 @@
 package com.khubla.kpascal.value;
 
-import com.khubla.kpascal.type.SetType;
-import com.khubla.kpascal.type.Type;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -19,6 +16,9 @@ import com.khubla.kpascal.type.Type;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import com.khubla.kpascal.type.SetType;
+import com.khubla.kpascal.type.Type;
+
 public class SetValue implements Value {
    private final SetType setType;
 

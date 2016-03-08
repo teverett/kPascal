@@ -1,7 +1,5 @@
 package com.khubla.kpascal;
 
-import org.testng.annotations.Test;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -18,6 +16,8 @@ import org.testng.annotations.Test;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import org.testng.annotations.Test;
+
 public class TestHelloWorld extends BasicPascalTest {
    @Test(enabled = true)
    public void testAdd() {

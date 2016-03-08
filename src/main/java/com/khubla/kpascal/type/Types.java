@@ -1,11 +1,5 @@
 package com.khubla.kpascal.type;
 
-import java.util.Enumeration;
-import java.util.Hashtable;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -22,6 +16,12 @@ import org.slf4j.LoggerFactory;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import java.util.Enumeration;
+import java.util.Hashtable;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Hashtable of all known types
  *
