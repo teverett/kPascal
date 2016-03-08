@@ -1,15 +1,5 @@
 package com.khubla.kpascal.interpreter;
 
-import org.antlr.v4.runtime.RuleContext;
-
-import com.khubla.kpascal.antlr.PascalParser;
-import com.khubla.kpascal.antlr.PascalParser.BlockContext;
-import com.khubla.kpascal.interpreter.visitor.CompoundStatementVisitor;
-import com.khubla.kpascal.interpreter.visitor.ConstantVisitor;
-import com.khubla.kpascal.interpreter.visitor.ProcedureVisitor;
-import com.khubla.kpascal.interpreter.visitor.TypeVisitor;
-import com.khubla.kpascal.interpreter.visitor.VariableVisitor;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -26,6 +16,16 @@ import com.khubla.kpascal.interpreter.visitor.VariableVisitor;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+import org.antlr.v4.runtime.RuleContext;
+
+import com.khubla.kpascal.antlr.PascalParser;
+import com.khubla.kpascal.antlr.PascalParser.BlockContext;
+import com.khubla.kpascal.interpreter.visitor.CompoundStatementVisitor;
+import com.khubla.kpascal.interpreter.visitor.ConstantVisitor;
+import com.khubla.kpascal.interpreter.visitor.ProcedureVisitor;
+import com.khubla.kpascal.interpreter.visitor.TypeVisitor;
+import com.khubla.kpascal.interpreter.visitor.VariableVisitor;
+
 public class Block {
    /**
     * block context
