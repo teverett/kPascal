@@ -26,6 +26,11 @@ public class RecordType implements Type {
    private final Hashtable<String, String> fieldTypeNames = new Hashtable<String, String>();
 
    @Override
+   public boolean builtIn() {
+      return false;
+   }
+
+   @Override
    public Value createValue() {
       return new RecordValue(this);
    }
@@ -36,10 +41,5 @@ public class RecordType implements Type {
 
    public Hashtable<String, String> getFieldTypeNames() {
       return fieldTypeNames;
-   }
-
-   @Override
-   public boolean builtIn() {
-      return false;
    }
 }

@@ -63,12 +63,8 @@ public class Types {
       return types.get(name.toLowerCase());
    }
 
-   public int size() {
-      return this.types.size();
-   }
-
    public Set<String> keys() {
-      return this.types.keySet();
+      return types.keySet();
    }
 
    public void resolveComponentTypes() {
@@ -106,5 +102,9 @@ public class Types {
             }
          }
       }
+   }
+
+   public int size() {
+      return types.size();
    }
 }

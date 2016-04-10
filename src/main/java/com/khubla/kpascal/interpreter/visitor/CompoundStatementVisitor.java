@@ -34,10 +34,22 @@ import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
 
 public class CompoundStatementVisitor extends PascalBaseVisitor<Void> {
+   /**
+    * the context
+    */
    private final Context context;
+   /**
+    * logger
+    */
    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+   /**
+    * value stack
+    */
    private final Stack<SimpleValue> valueStack = new Stack<SimpleValue>();
 
+   /**
+    * ctor
+    */
    public CompoundStatementVisitor(Context context) {
       this.context = context;
    }
@@ -220,6 +232,7 @@ public class CompoundStatementVisitor extends PascalBaseVisitor<Void> {
    public Void visitVariable(PascalParser.VariableContext ctx) {
       try {
          final String v = ctx.getChild(0).getText();
+         context.resolveStringToValue(v);
          final SimpleValue simpleValue = (SimpleValue) context.resolveStringToValue(v);
          valueStack.push(simpleValue);
          return visitChildren(ctx);

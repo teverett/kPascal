@@ -34,6 +34,11 @@ public class ArrayType implements Type {
    private String componentTypeName;
 
    @Override
+   public boolean builtIn() {
+      return false;
+   }
+
+   @Override
    public Value createValue() {
       return new ArrayValue(this);
    }
@@ -60,10 +65,5 @@ public class ArrayType implements Type {
 
    public void setRanges(List<Range> ranges) {
       this.ranges = ranges;
-   }
-
-   @Override
-   public boolean builtIn() {
-      return false;
    }
 }

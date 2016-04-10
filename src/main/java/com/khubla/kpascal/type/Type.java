@@ -19,7 +19,7 @@ package com.khubla.kpascal.type;
 import com.khubla.kpascal.value.Value;
 
 public interface Type {
-   Value createValue();
-
    boolean builtIn();
+
+   Value createValue();
 }

@@ -24,6 +24,11 @@ public class PointerType implements Type {
    private String componentTypeName;
 
    @Override
+   public boolean builtIn() {
+      return false;
+   }
+
+   @Override
    public Value createValue() {
       return new PointerValue(this);
    }
@@ -42,10 +47,5 @@ public class PointerType implements Type {
 
    public void setComponentTypeName(String componentTypeName) {
       this.componentTypeName = componentTypeName;
-   }
-
-   @Override
-   public boolean builtIn() {
-      return false;
    }
 }

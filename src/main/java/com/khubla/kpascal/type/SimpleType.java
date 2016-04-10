@@ -31,6 +31,11 @@ public class SimpleType implements Type {
    }
 
    @Override
+   public boolean builtIn() {
+      return true;
+   }
+
+   @Override
    public Value createValue() {
       return new SimpleValue(this);
    }
@@ -41,10 +46,5 @@ public class SimpleType implements Type {
 
    public void setType(Type type) {
       this.type = type;
-   }
-
-   @Override
-   public boolean builtIn() {
-      return true;
    }
 }

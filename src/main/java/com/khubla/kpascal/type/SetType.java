@@ -21,12 +21,12 @@ import com.khubla.kpascal.value.Value;
 
 public class SetType implements Type {
    @Override
-   public Value createValue() {
-      return new SetValue(this);
+   public boolean builtIn() {
+      return false;
    }
 
    @Override
-   public boolean builtIn() {
-      return false;
+   public Value createValue() {
+      return new SetValue(this);
    }
 }

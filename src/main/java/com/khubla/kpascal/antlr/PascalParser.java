@@ -4661,7 +4661,6 @@ public class PascalParser extends Parser {
    static {
       RuntimeMetaData.checkVersion("4.5.1", RuntimeMetaData.VERSION);
    }
-
    protected static final DFA[] _decisionToDFA;
    protected static final PredictionContextCache _sharedContextCache = new PredictionContextCache();
    public static final int AND = 1, ARRAY = 2, BEGIN = 3, BOOLEAN = 4, CASE = 5, CHAR = 6, CHR = 7, CONST = 8, DIV = 9, DO = 10, DOWNTO = 11, ELSE = 12, END = 13, FILE = 14, FOR = 15, FUNCTION = 16,
@@ -4704,7 +4703,6 @@ public class PascalParser extends Parser {
     */
    @Deprecated
    public static final String[] tokenNames;
-
    static {
       tokenNames = new String[_SYMBOLIC_NAMES.length];
       for (int i = 0; i < tokenNames.length; i++) {
@@ -4717,7 +4715,6 @@ public class PascalParser extends Parser {
          }
       }
    }
-
    public static final String _serializedATN = "\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3O\u0312\4\2\t\2\4" + "\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"
          + "\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22" + "\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"
          + "\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36\4\37\t\37\4 \t \4!" + "\t!\4\"\t\"\4#\t#\4$\t$\4%\t%\4&\t&\4\'\t\'\4(\t(\4)\t)\4*\t*\4+\t+\4"
@@ -4857,7 +4854,6 @@ public class PascalParser extends Parser {
          + "\u013e\u0144\u0150\u0155\u015b\u0161\u0173\u017a\u0189\u018c\u0193\u01a1" + "\u01a3\u01ab\u01bd\u01c8\u01d6\u01db\u01e6\u01f2\u01fd\u0205\u020b\u0219"
          + "\u021d\u0223\u022c\u0234\u023f\u0247\u0249\u0251\u0259\u0261\u0265\u0273" + "\u0279\u0285\u0290\u0297\u029b\u02a0\u02a7\u02b6\u02c1\u02c6\u02ce\u02d8" + "\u02de\u02e9\u030e";
    public static final ATN _ATN = new ATNDeserializer().deserialize(_serializedATN.toCharArray());
-
    static {
       _decisionToDFA = new DFA[_ATN.getNumberOfDecisions()];
       for (int i = 0; i < _ATN.getNumberOfDecisions(); i++) {

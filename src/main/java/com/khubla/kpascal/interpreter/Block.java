@@ -90,6 +90,60 @@ public class Block {
       return context;
    }
 
+   private void reportBlock() {
+      /**
+       * constants
+       */
+      if (context.getConstants().size() > 0) {
+         logger.info("Constants");
+         final Enumeration<String> e = context.getConstants().keys();
+         while (e.hasMoreElements()) {
+            logger.info(e.nextElement());
+         }
+      }
+      /**
+       * types
+       */
+      if (context.getProcedures().size() > 0) {
+         logger.info("Procedures");
+         final Enumeration<String> e = context.getProcedures().keys();
+         while (e.hasMoreElements()) {
+            logger.info(e.nextElement());
+         }
+      }
+      /**
+       * scope stack
+       */
+      if (context.getScopeStack().size() > 0) {
+         for (int i = 0; i < context.getScopeStack().size(); i++) {
+            final Scope scope = context.getScopeStack().get(i);
+            /**
+             * types
+             */
+            if (scope.getTypes().size() > 0) {
+               logger.info("Scope '" + i + "' Types");
+               final Set<String> typenames = scope.getTypes().keys();
+               for (final String typename : typenames) {
+                  final Type type = scope.getTypes().find(typename);
+                  if (false == type.builtIn()) {
+                     logger.info(typename);
+                  }
+               }
+            }
+            /**
+             * variables
+             */
+            if (scope.getVariables().size() > 0) {
+               logger.info("Scope '" + i + "' Variables");
+               final Enumeration<String> e = scope.getVariables().keys();
+               while (e.hasMoreElements()) {
+                  logger.info(e.nextElement());
+               }
+            }
+         }
+      }
+   }
+
    /**
     * run the compound statement in the block
     */
@@ -108,60 +162,6 @@ public class Block {
          logger.info("Running compound statment: '" + compoundStatementContext.getText() + "'");
          final CompoundStatementVisitor compoundStatementVisitor = new CompoundStatementVisitor(context);
          compoundStatementVisitor.visit(compoundStatementContext);
-      }
-   }
-
-   private void reportBlock() {
-      /**
-       * constants
-       */
-      if (this.context.getConstants().size() > 0) {
-         logger.info("Constants");
-         Enumeration<String> e = this.context.getConstants().keys();
-         while (e.hasMoreElements()) {
-            logger.info(e.nextElement());
-         }
-      }
-      /**
-       * types
-       */
-      if (this.context.getProcedures().size() > 0) {
-         logger.info("Procedures");
-         Enumeration<String> e = this.context.getProcedures().keys();
-         while (e.hasMoreElements()) {
-            logger.info(e.nextElement());
-         }
-      }
-      /**
-       * scope stack
-       */
-      if (this.context.getScopeStack().size() > 0) {
-         for (int i = 0; i < this.context.getScopeStack().size(); i++) {
-            Scope scope = this.context.getScopeStack().get(i);
-            /**
-             * types
-             */
-            if (scope.getTypes().size() > 0) {
-               logger.info("Scope '" + i + "' Types");
-               Set<String> typenames = scope.getTypes().keys();
-               for (String typename : typenames) {
-                  Type type = scope.getTypes().find(typename);
-                  if (false == type.builtIn()) {
-                     logger.info(typename);
-                  }
-               }
-            }
-            /**
-             * variables
-             */
-            if (scope.getVariables().size() > 0) {
-               logger.info("Scope '" + i + "' Variables");
-               Enumeration<String> e = scope.getVariables().keys();
-               while (e.hasMoreElements()) {
-                  logger.info(e.nextElement());
-               }
-            }
-         }
       }
    }
 }
