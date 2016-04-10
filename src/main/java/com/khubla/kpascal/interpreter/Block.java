@@ -1,5 +1,8 @@
 package com.khubla.kpascal.interpreter;
 
+import java.util.Enumeration;
+import java.util.Set;
+
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -17,6 +20,8 @@ package com.khubla.kpascal.interpreter;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 import org.antlr.v4.runtime.RuleContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.antlr.PascalParser.BlockContext;
@@ -25,8 +30,13 @@ import com.khubla.kpascal.interpreter.visitor.ConstantVisitor;
 import com.khubla.kpascal.interpreter.visitor.ProcedureVisitor;
 import com.khubla.kpascal.interpreter.visitor.TypeVisitor;
 import com.khubla.kpascal.interpreter.visitor.VariableVisitor;
+import com.khubla.kpascal.type.Type;
 
 public class Block {
+   /**
+    * logger
+    */
+   private final Logger logger = LoggerFactory.getLogger(this.getClass());
    /**
     * block context
     */
@@ -81,9 +91,11 @@ public class Block {
    }
 
    /**
-    * run the compound statement
+    * run the compound statement in the block
     */
    public void run() {
+      logger.info("Running block: '" + blockContext.getText() + "'");
+      reportBlock();
       PascalParser.CompoundStatementContext compoundStatementContext = null;
       for (int i = 0; i < blockContext.getChildCount(); i++) {
          final RuleContext ruleContext = (RuleContext) blockContext.getChild(i);
@@ -93,8 +105,63 @@ public class Block {
          }
       }
       if (null != compoundStatementContext) {
+         logger.info("Running compound statment: '" + compoundStatementContext.getText() + "'");
          final CompoundStatementVisitor compoundStatementVisitor = new CompoundStatementVisitor(context);
          compoundStatementVisitor.visit(compoundStatementContext);
+      }
+   }
+
+   private void reportBlock() {
+      /**
+       * constants
+       */
+      if (this.context.getConstants().size() > 0) {
+         logger.info("Constants");
+         Enumeration<String> e = this.context.getConstants().keys();
+         while (e.hasMoreElements()) {
+            logger.info(e.nextElement());
+         }
+      }
+      /**
+       * types
+       */
+      if (this.context.getProcedures().size() > 0) {
+         logger.info("Procedures");
+         Enumeration<String> e = this.context.getProcedures().keys();
+         while (e.hasMoreElements()) {
+            logger.info(e.nextElement());
+         }
+      }
+      /**
+       * scope stack
+       */
+      if (this.context.getScopeStack().size() > 0) {
+         for (int i = 0; i < this.context.getScopeStack().size(); i++) {
+            Scope scope = this.context.getScopeStack().get(i);
+            /**
+             * types
+             */
+            if (scope.getTypes().size() > 0) {
+               logger.info("Scope '" + i + "' Types");
+               Set<String> typenames = scope.getTypes().keys();
+               for (String typename : typenames) {
+                  Type type = scope.getTypes().find(typename);
+                  if (false == type.builtIn()) {
+                     logger.info(typename);
+                  }
+               }
+            }
+            /**
+             * variables
+             */
+            if (scope.getVariables().size() > 0) {
+               logger.info("Scope '" + i + "' Variables");
+               Enumeration<String> e = scope.getVariables().keys();
+               while (e.hasMoreElements()) {
+                  logger.info(e.nextElement());
+               }
+            }
+         }
       }
    }
 }

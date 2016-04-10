@@ -61,4 +61,9 @@ public class ArrayType implements Type {
    public void setRanges(List<Range> ranges) {
       this.ranges = ranges;
    }
+
+   @Override
+   public boolean builtIn() {
+      return false;
+   }
 }

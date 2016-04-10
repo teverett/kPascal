@@ -37,4 +37,9 @@ public class RecordType implements Type {
    public Hashtable<String, String> getFieldTypeNames() {
       return fieldTypeNames;
    }
+
+   @Override
+   public boolean builtIn() {
+      return false;
+   }
 }

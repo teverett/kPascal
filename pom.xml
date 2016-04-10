@@ -57,7 +57,6 @@
 				<artifactId>antlr4-maven-plugin</artifactId>
 				<version>${antlr.version}</version>
 				<configuration>
-					<grammars>pascal.g4</grammars>
 					<visitor>true</visitor>
 					<outputDirectory>src/main/java</outputDirectory>
 				</configuration>

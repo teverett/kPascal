@@ -24,4 +24,9 @@ public class FileType implements Type {
    public Value createValue() {
       return new FileValue(this);
    }
+
+   @Override
+   public boolean builtIn() {
+      return false;
+   }
 }

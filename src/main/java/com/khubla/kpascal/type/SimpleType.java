@@ -42,4 +42,9 @@ public class SimpleType implements Type {
    public void setType(Type type) {
       this.type = type;
    }
+
+   @Override
+   public boolean builtIn() {
+      return true;
+   }
 }

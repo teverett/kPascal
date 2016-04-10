@@ -18,6 +18,7 @@ package com.khubla.kpascal.type;
 */
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +29,13 @@ import org.slf4j.LoggerFactory;
  * @author tom
  */
 public class Types {
+   /**
+    * logger
+    */
    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+   /**
+    * types
+    */
    private final Hashtable<String, Type> types = new Hashtable<String, Type>();
 
    /**
@@ -54,6 +61,14 @@ public class Types {
 
    public Type find(String name) {
       return types.get(name.toLowerCase());
+   }
+
+   public int size() {
+      return this.types.size();
+   }
+
+   public Set<String> keys() {
+      return this.types.keySet();
    }
 
    public void resolveComponentTypes() {

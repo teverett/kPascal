@@ -24,4 +24,9 @@ public class SetType implements Type {
    public Value createValue() {
       return new SetValue(this);
    }
+
+   @Override
+   public boolean builtIn() {
+      return false;
+   }
 }

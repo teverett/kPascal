@@ -56,6 +56,10 @@ public class Scope {
       types.addType("string", new SimpleType(SimpleType.Type.string));
    }
 
+   public Hashtable<String, VariableInstance> getVariables() {
+      return variables;
+   }
+
    /**
     * copy ctor
     */
