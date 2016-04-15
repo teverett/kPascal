@@ -59,22 +59,6 @@ public class StatementVisitor extends PascalBaseVisitor<Void> {
       this.context = context;
    }
 
-   /**
-    * get a parameter list. return null if no arguments
-    */
-   private List<String> getArguments(PascalParser.ParameterListContext ctx) {
-      if ((null != ctx) && (ctx.getChildCount() > 0)) {
-         final List<String> ret = new ArrayList<String>();
-         for (int i = 0; i < ctx.getChildCount(); i += 2) {
-            final String parameter = ctx.getChild(i).getText();
-            ret.add(parameter);
-         }
-         return ret;
-      } else {
-         return null;
-      }
-   }
-
    public Context getContext() {
       return context;
    }
@@ -164,24 +148,27 @@ public class StatementVisitor extends PascalBaseVisitor<Void> {
 
    @Override
    public Void visitProcedureStatement(PascalParser.ProcedureStatementContext ctx) {
+      /*
+       * visit the children to put the arguments on the stack
+       */
+      final Void ret = visitChildren(ctx);
       try {
          /*
           * get the name
           */
          final String procedureName = ctx.getChild(0).getText();
          /*
-          * get the arguments, as strings
+          * argument count
           */
-         final PascalParser.ParameterListContext ctx2 = (PascalParser.ParameterListContext) ctx.getChild(2);
-         final List<String> argumentNames = getArguments(ctx2);
+         final int argCount = ctx.getChild(2).getChildCount() == 1 ? 1 : (ctx.getChild(2).getChildCount() - (1 / 2));
          /*
-          * convert the strings to values
+          * build argument list
           */
          List<Value> argumentValues = null;
-         if (null != argumentNames) {
+         if (argCount > 0) {
             argumentValues = new ArrayList<Value>();
-            for (final String argument : argumentNames) {
-               final Value v = context.resolveStringToValue(argument);
+            for (int i = 0; i < argCount; i++) {
+               final Value v = valueStack.pop();
                argumentValues.add(v);
             }
          }
@@ -211,7 +198,7 @@ public class StatementVisitor extends PascalBaseVisitor<Void> {
       } catch (final Exception e) {
          e.printStackTrace();
       }
-      return visitChildren(ctx);
+      return ret;
    }
 
    @Override
@@ -241,7 +228,15 @@ public class StatementVisitor extends PascalBaseVisitor<Void> {
    }
 
    @Override
+   public Void visitString(PascalParser.StringContext ctx) {
+      final SimpleValue value = new SimpleValue(ctx.getText());
+      valueStack.push(value);
+      return visitChildren(ctx);
+   }
+
+   @Override
    public Void visitTerm(PascalParser.TermContext ctx) {
+      // logger.info("visitTerm '" + ctx.getText() + "'");
       final Void ret = visitChildren(ctx);
       try {
          final int numberOperations = (ctx.getChildCount() - 1) / 2;
@@ -295,7 +290,7 @@ public class StatementVisitor extends PascalBaseVisitor<Void> {
          final String identifierName = ctx.getChild(0).getText();
          if (ctx.getChildCount() == 1) {
             final SimpleValue simpleValue = resolveIdentifierNameToSimpleValue(identifierName);
-            // System.out.println("SimpleValue '" + identifierName + "' has value '" + simpleValue.getValue() + "'");
+            logger.info("SimpleValue '" + identifierName + "' has value '" + simpleValue.getValue() + "'");
             valueStack.push(simpleValue);
             return ret;
          } else {
@@ -329,11 +324,11 @@ public class StatementVisitor extends PascalBaseVisitor<Void> {
                 * push the finally resolve array value
                 */
                final SimpleValue rr = (SimpleValue) currentValue;
-               // System.out.println("Array value '" + ctx.getText() + "' has value '" + rr.getValue() + "'");
+               logger.info("Array value '" + ctx.getText() + "' has value '" + rr.getValue() + "'");
                valueStack.push(rr);
                return ret;
             }
-            System.out.println(ctx.getChildCount());
+            // System.out.println(ctx.getChildCount());
          }
          return ret;
       } catch (final Exception e) {
