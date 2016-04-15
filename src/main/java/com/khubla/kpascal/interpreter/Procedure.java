@@ -31,8 +31,17 @@ import com.khubla.kpascal.value.Value;
  * @author tom
  */
 public class Procedure implements Invocable {
+   /**
+    * the block
+    */
    private final Block block;
+   /**
+    * arguments
+    */
    private final List<ProcedureArgument> arguments = new ArrayList<ProcedureArgument>();
+   /**
+    * procedure name
+    */
    private final String name;
    /**
     * if the returnType is null, this is a procedure. Otherwise, it's a function.

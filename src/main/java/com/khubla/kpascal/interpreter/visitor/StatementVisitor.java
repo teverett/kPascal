@@ -50,7 +50,7 @@ public class StatementVisitor extends PascalBaseVisitor<Void> {
    /**
     * value stack
     */
-   private final Stack<SimpleValue> valueStack = new Stack<SimpleValue>();
+   private final Stack<Value> valueStack = new Stack<Value>();
 
    /**
     * ctor
@@ -63,6 +63,15 @@ public class StatementVisitor extends PascalBaseVisitor<Void> {
       return context;
    }
 
+   private SimpleValue popSimpleValue() throws InterpreterException {
+      final Value v = valueStack.pop();
+      if (v instanceof SimpleValue) {
+         return (SimpleValue) v;
+      } else {
+         throw new InterpreterException("Invalid variable type");
+      }
+   }
+
    /**
     * resolve an identifer name to a simpleValue
     */
@@ -72,11 +81,16 @@ public class StatementVisitor extends PascalBaseVisitor<Void> {
 
    @Override
    public Void visitAssignmentStatement(PascalParser.AssignmentStatementContext ctx) {
-      final Void ret = visitChildren(ctx);
-      final SimpleValue rhs = valueStack.pop();
-      final SimpleValue lhs = valueStack.pop();
-      lhs.setValue(rhs);
-      return ret;
+      try {
+         final Void ret = visitChildren(ctx);
+         final SimpleValue rhs = popSimpleValue();
+         final SimpleValue lhs = popSimpleValue();
+         lhs.setValue(rhs);
+         return ret;
+      } catch (final Exception e) {
+         e.printStackTrace();
+         return null;
+      }
    }
 
    @Override
@@ -162,7 +176,8 @@ public class StatementVisitor extends PascalBaseVisitor<Void> {
           */
          int argCount = 0;
          if (ctx.getChildCount() > 3) {
-            argCount = ctx.getChild(2).getChildCount() == 1 ? 1 : (ctx.getChild(2).getChildCount() - (1 / 2));
+            final int c = ctx.getChild(2).getChildCount();
+            argCount = c == 1 ? 1 : (c + 1) / 2;
          }
          /*
           * build argument list
@@ -210,9 +225,9 @@ public class StatementVisitor extends PascalBaseVisitor<Void> {
       try {
          final int numberOperations = (ctx.getChildCount() - 1) / 2;
          if (numberOperations > 0) {
-            SimpleValue val = valueStack.pop();
+            SimpleValue val = popSimpleValue();
             for (int i = 0; i < numberOperations; i++) {
-               final SimpleValue thisVal = valueStack.pop();
+               final SimpleValue thisVal = popSimpleValue();
                final String operation = ctx.getChild(1).getText().toLowerCase();
                if (operation.compareTo("+") == 0) {
                   val = SimpleValue.add(val, thisVal);
@@ -244,9 +259,9 @@ public class StatementVisitor extends PascalBaseVisitor<Void> {
       try {
          final int numberOperations = (ctx.getChildCount() - 1) / 2;
          if (numberOperations > 0) {
-            SimpleValue val = valueStack.pop();
+            SimpleValue val = popSimpleValue();
             for (int i = 0; i < numberOperations; i++) {
-               final SimpleValue thisVal = valueStack.pop();
+               final SimpleValue thisVal = popSimpleValue();
                final String operation = ctx.getChild(1).getText().toLowerCase();
                if (operation.compareTo("*") == 0) {
                   val = SimpleValue.mult(val, thisVal);
@@ -292,9 +307,9 @@ public class StatementVisitor extends PascalBaseVisitor<Void> {
          final Void ret = visitChildren(ctx);
          final String identifierName = ctx.getChild(0).getText();
          if (ctx.getChildCount() == 1) {
-            final SimpleValue simpleValue = resolveIdentifierNameToSimpleValue(identifierName);
-            logger.info("SimpleValue '" + identifierName + "' has value '" + simpleValue.getValue() + "'");
-            valueStack.push(simpleValue);
+            final Value value = context.resolveStringToValue(identifierName);
+            // logger.info("Value '" + identifierName + "' has value '" + value.getValue() + "'");
+            valueStack.push(value);
             return ret;
          } else {
             /*
@@ -316,7 +331,7 @@ public class StatementVisitor extends PascalBaseVisitor<Void> {
                   /*
                    * pop the index
                    */
-                  final SimpleValue idx = valueStack.pop();
+                  final SimpleValue idx = popSimpleValue();
                   final int index = idx.asInteger();
                   /*
                    * get the indexed value
