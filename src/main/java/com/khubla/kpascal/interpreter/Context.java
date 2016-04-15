@@ -27,7 +27,7 @@ import com.khubla.kpascal.value.Value;
  * The context is the execution context for the entire program. It contains all global state
  * information about the program including the stack of execution scopes, all global constants and
  * every procedure
- * 
+ *
  * @author teverett
  */
 public class Context {
