@@ -26,8 +26,9 @@ import com.khubla.kpascal.type.Type;
 import com.khubla.kpascal.value.Value;
 
 /**
- * A procedure is implemented as, simply, a reference to a parse tree. When the procedure is invoked, the parse tree is parsed. There is a specific difference in that a procedure has its own context
- * object
+ * A procedure is implemented as, simply, a reference to a parse tree. When the procedure is
+ * invoked, the parse tree is parsed. There is a specific difference in that a procedure has its own
+ * context object
  *
  * @author tom
  */
@@ -87,6 +88,11 @@ public class Procedure implements Invocable {
          final Scope thisScope = context.getScopeStack().pushScope();
          for (int i = 0; i < parameters.size(); i++) {
             final String name = arguments.get(i).getName();
+            final Type parameterType = arguments.get(i).getType();
+            final Type variableType = parameters.get(i).getType();
+            if (parameterType.getClass() != variableType.getClass()) {
+               throw new InterpreterException("Type mismatch");
+            }
             final VariableInstance variableInstance = new VariableInstance(name, parameters.get(i), VariableDeclarationType.variable);
             thisScope.addVariable(name, variableInstance);
          }

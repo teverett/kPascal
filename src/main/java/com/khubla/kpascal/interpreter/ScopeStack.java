@@ -38,7 +38,7 @@ public class ScopeStack {
     * the current scope is the scope on the top of the stack
     */
    public Scope getCurrentScope() {
-      return scopeStack.get(0);
+      return scopeStack.get(scopeStack.size() - 1);
    }
 
    public void popScope() {

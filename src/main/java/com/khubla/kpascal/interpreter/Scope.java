@@ -59,15 +59,15 @@ public class Scope {
    /**
     * copy ctor
     */
-   public Scope(Scope ctx) {
+   public Scope(Scope scope) {
       /*
        * copy variables
        */
-      ctx.variables.putAll(variables);
+      scope.variables.putAll(variables);
       /*
        * copy types
        */
-      types = new Types(ctx.types);
+      types = new Types(scope.types);
    }
 
    public void addVariable(String name, VariableInstance variableInstance) {

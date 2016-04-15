@@ -302,7 +302,8 @@ public class StatementVisitor extends PascalBaseVisitor<Void> {
       try {
          logger.info("visitVariable '" + ctx.getText() + "'");
          /*
-          * visit children first so that if there is an index ie "a[i]", that i can be put on the stack before we try to resolve a[i] to a temp
+          * visit children first so that if there is an index ie "a[i]", that i can be put on the
+          * stack before we try to resolve a[i] to a temp
           */
          final Void ret = visitChildren(ctx);
          final String identifierName = ctx.getChild(0).getText();

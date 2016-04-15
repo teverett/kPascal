@@ -4,15 +4,18 @@ package com.khubla.kpascal.antlr;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
- * This class provides an empty implementation of {@link PascalVisitor}, which can be extended to create a visitor which only needs to handle a subset of the available methods.
+ * This class provides an empty implementation of {@link PascalVisitor}, which can be extended to
+ * create a visitor which only needs to handle a subset of the available methods.
  *
- * @param <T> The return type of the visit operation. Use {@link Void} for operations with no return type.
+ * @param <T> The return type of the visit operation. Use {@link Void} for operations with no return
+ *        type.
  */
 public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements PascalVisitor<T> {
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -23,7 +26,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -34,7 +38,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -45,7 +50,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -56,7 +62,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -67,7 +74,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -78,7 +86,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -89,7 +98,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -100,7 +110,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -111,7 +122,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -122,7 +134,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -133,7 +146,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -144,7 +158,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -155,7 +170,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -166,7 +182,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -177,7 +194,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -188,7 +206,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -199,7 +218,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -210,7 +230,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -221,7 +242,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -232,7 +254,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -243,7 +266,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -254,7 +278,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -265,7 +290,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -276,7 +302,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -287,7 +314,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -298,7 +326,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -309,7 +338,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -320,7 +350,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -331,7 +362,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -342,7 +374,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -353,7 +386,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -364,7 +398,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -375,7 +410,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -386,7 +422,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -397,7 +434,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -408,7 +446,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -419,7 +458,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -430,7 +470,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -441,7 +482,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -452,7 +494,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -463,7 +506,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -474,7 +518,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -485,7 +530,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -496,7 +542,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -507,7 +554,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -518,7 +566,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -529,7 +578,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -540,7 +590,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -551,7 +602,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -562,7 +614,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -573,7 +626,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -584,7 +638,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -595,7 +650,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -606,7 +662,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -617,7 +674,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -628,7 +686,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -639,7 +698,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -650,7 +710,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -661,7 +722,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -672,7 +734,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -683,7 +746,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -694,7 +758,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -705,7 +770,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -716,7 +782,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -727,7 +794,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -738,7 +806,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -749,7 +818,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -760,7 +830,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -771,7 +842,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -782,7 +854,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -793,7 +866,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -804,7 +878,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -815,7 +890,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -826,7 +902,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -837,7 +914,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -848,7 +926,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -859,7 +938,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -870,7 +950,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -881,7 +962,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -892,7 +974,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -903,7 +986,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -914,7 +998,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -925,7 +1010,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -936,7 +1022,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -947,7 +1034,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -958,7 +1046,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -969,7 +1058,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -980,7 +1070,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -991,7 +1082,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -1002,7 +1094,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
@@ -1013,7 +1106,8 @@ public class PascalBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
    /**
     * {@inheritDoc}
     * <p>
-    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}.
+    * The default implementation returns the result of calling {@link #visitChildren} on {@code ctx}
+    * .
     * </p>
     */
    @Override
