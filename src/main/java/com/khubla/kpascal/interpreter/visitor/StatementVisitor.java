@@ -121,7 +121,7 @@ public class StatementVisitor extends PascalBaseVisitor<Void> {
           */
          final String indexVariableIdentifier = ctx.getChild(1).getText();
          final VariableInstance variableInstance = new VariableInstance(indexVariableIdentifier, initValueVariableValue, VariableDeclarationType.variable);
-         context.getCurrentScope().addVariable(indexVariableIdentifier, variableInstance);
+         context.getScopeStack().getCurrentScope().addVariable(indexVariableIdentifier, variableInstance);
          /*
           * get the contained statement
           */

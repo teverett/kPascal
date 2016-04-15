@@ -69,7 +69,7 @@ public class TypeVisitor extends PascalBaseVisitor<Type> {
    @Override
    public Type visitArrayType(PascalParser.ArrayTypeContext ctx) {
       type = new ArrayType();
-      context.getCurrentScope().getTypes().addType(typeName, type);
+      context.getScopeStack().getCurrentScope().getTypes().addType(typeName, type);
       return visitChildren(ctx);
    }
 
@@ -88,7 +88,7 @@ public class TypeVisitor extends PascalBaseVisitor<Type> {
    @Override
    public Type visitFileType(PascalParser.FileTypeContext ctx) {
       type = new FileType();
-      context.getCurrentScope().getTypes().addType(typeName, type);
+      context.getScopeStack().getCurrentScope().getTypes().addType(typeName, type);
       return visitChildren(ctx);
    }
 
@@ -97,7 +97,7 @@ public class TypeVisitor extends PascalBaseVisitor<Type> {
       final PointerType pointerType = new PointerType();
       pointerType.setComponentTypeName(ctx.getChild(1).getText());
       type = pointerType;
-      context.getCurrentScope().getTypes().addType(typeName, type);
+      context.getScopeStack().getCurrentScope().getTypes().addType(typeName, type);
       return visitChildren(ctx);
    }
 
@@ -115,14 +115,14 @@ public class TypeVisitor extends PascalBaseVisitor<Type> {
    @Override
    public Type visitRecordType(PascalParser.RecordTypeContext ctx) {
       type = new RecordType();
-      context.getCurrentScope().getTypes().addType(typeName, type);
+      context.getScopeStack().getCurrentScope().getTypes().addType(typeName, type);
       return visitChildren(ctx);
    }
 
    @Override
    public Type visitSetType(PascalParser.SetTypeContext ctx) {
       type = new SetType();
-      context.getCurrentScope().getTypes().addType(typeName, type);
+      context.getScopeStack().getCurrentScope().getTypes().addType(typeName, type);
       return visitChildren(ctx);
    }
 

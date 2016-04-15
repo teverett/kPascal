@@ -21,6 +21,7 @@ import java.util.List;
 
 import com.khubla.kpascal.antlr.PascalParser;
 import com.khubla.kpascal.exception.InterpreterException;
+import com.khubla.kpascal.interpreter.VariableInstance.VariableDeclarationType;
 import com.khubla.kpascal.type.Type;
 import com.khubla.kpascal.value.Value;
 
@@ -48,6 +49,9 @@ public class Procedure implements Invocable {
     */
    private final Type returnType;
 
+   /**
+    * ctor
+    */
    public Procedure(String name, PascalParser.BlockContext blockContext, Type returnType) {
       block = new Block(blockContext);
       this.name = name;
@@ -76,6 +80,25 @@ public class Procedure implements Invocable {
 
    @Override
    public Value invoke(Context context, List<Value> parameters) throws InterpreterException {
-      return null;
+      /*
+       * check params
+       */
+      if (parameters.size() == arguments.size()) {
+         final Scope thisScope = context.getScopeStack().pushScope();
+         for (int i = 0; i < parameters.size(); i++) {
+            final String name = arguments.get(i).getName();
+            final VariableInstance variableInstance = new VariableInstance(name, parameters.get(i), VariableDeclarationType.variable);
+            thisScope.addVariable(name, variableInstance);
+         }
+         block.setContext(context);
+         block.run();
+         context.getScopeStack().popScope();
+         /**
+          * TODO. we need a return value....
+          */
+         return null;
+      } else {
+         throw new InterpreterException("Parameter count mismatch");
+      }
    }
 }

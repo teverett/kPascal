@@ -17,7 +17,6 @@ package com.khubla.kpascal.interpreter;
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 import java.util.Hashtable;
-import java.util.Stack;
 
 import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.type.SimpleType;
@@ -30,9 +29,9 @@ public class Context {
     */
    private final Hashtable<String, Procedure> procedures = new Hashtable<String, Procedure>();
    /**
-    * stack of execution contexts
+    * scope stack
     */
-   private final Stack<Scope> scopeStack = new Stack<Scope>();
+   private final ScopeStack scopeStack = new ScopeStack();
    /**
     * constants
     */
@@ -48,18 +47,11 @@ public class Context {
       return constants;
    }
 
-   /**
-    * the current scope is the scope on the top of the stack
-    */
-   public Scope getCurrentScope() {
-      return getScopeStack().get(0);
-   }
-
    public Hashtable<String, Procedure> getProcedures() {
       return procedures;
    }
 
-   public Stack<Scope> getScopeStack() {
+   public ScopeStack getScopeStack() {
       return scopeStack;
    }
 
@@ -85,8 +77,8 @@ public class Context {
       /*
        * is variable?
        */
-      if (null != getCurrentScope().findVariable(v)) {
-         return getCurrentScope().findVariable(v).getValue();
+      if (null != getScopeStack().getCurrentScope().findVariable(v)) {
+         return getScopeStack().getCurrentScope().findVariable(v).getValue();
       }
       /*
        * is integer?
@@ -122,7 +114,8 @@ public class Context {
     * given a name, walk the scope stack, looking for a matching variable
     */
    public VariableInstance resolveVariableInstance(String name) {
-      for (final Scope scope : scopeStack) {
+      for (int i = 0; i < scopeStack.size(); i++) {
+         final Scope scope = scopeStack.get(i);
          final VariableInstance variableInstance = scope.findVariable(name);
          if (null != variableInstance) {
             return variableInstance;

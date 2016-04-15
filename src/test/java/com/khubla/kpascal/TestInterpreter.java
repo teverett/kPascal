@@ -35,7 +35,7 @@ public class TestInterpreter {
          final InputStream is = new FileInputStream(name);
          final PascalInterpreter pascalInterpreter = new PascalInterpreter(is, System.in, System.out);
          pascalInterpreter.run();
-         pascalInterpreter.getRootBlock().getContext().getCurrentScope().reportVariables();
+         pascalInterpreter.getRootBlock().getContext().getScopeStack().getCurrentScope().reportVariables();
       } catch (final Exception e) {
          e.printStackTrace();
          Assert.fail();

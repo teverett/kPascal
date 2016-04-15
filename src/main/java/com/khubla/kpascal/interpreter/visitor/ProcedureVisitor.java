@@ -57,7 +57,7 @@ public class ProcedureVisitor extends PascalBaseVisitor<Void> {
          parameterNames = ctx.getChild(0).getChild(0).getText();
       }
       final String[] parameterNamesArray = parameterNames.split(",");
-      final Type type = context.getCurrentScope().getTypes().find(typeName);
+      final Type type = context.getScopeStack().getCurrentScope().getTypes().find(typeName);
       if (null != type) {
          for (final String parameterName : parameterNamesArray) {
             final ProcedureArgument procedureArgument = new ProcedureArgument(parameterName, type, var);
@@ -74,7 +74,7 @@ public class ProcedureVisitor extends PascalBaseVisitor<Void> {
       final String name = ctx.getChild(1).getText();
       final PascalParser.BlockContext blockContext = (PascalParser.BlockContext) ctx.getChild(ctx.getChildCount() - 1);
       final String resultTypeString = ctx.getChild(ctx.getChildCount() - 3).getText();
-      final Type type = context.getCurrentScope().getTypes().find(resultTypeString);
+      final Type type = context.getScopeStack().getCurrentScope().getTypes().find(resultTypeString);
       procedure = new Procedure(name, blockContext, type);
       context.getProcedures().put(name, procedure);
       return visitChildren(ctx);

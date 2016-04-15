@@ -1,4 +1,6 @@
-package com.khubla.kpascal;
+package com.khubla.kpascal.interpreter;
+
+import java.util.Stack;
 
 /*
 * kPascal Copyright 2015, khubla.com
@@ -16,22 +18,40 @@ package com.khubla.kpascal;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-import java.io.InputStream;
+public class ScopeStack {
+   /**
+    * stack of execution contexts
+    */
+   private final Stack<Scope> scopeStack = new Stack<Scope>();
 
-import org.testng.Assert;
+   /**
+    * ctor
+    */
+   public ScopeStack() {
+   }
 
-import com.khubla.kpascal.interpreter.PascalInterpreter;
+   public Scope get(int i) {
+      return scopeStack.get(i);
+   }
 
-public abstract class BasicPascalTest {
-   protected void testPascalProgram(String pascalProgramPath) {
-      try {
-         final InputStream is = TestAdd.class.getResourceAsStream(pascalProgramPath);
-         final PascalInterpreter pascalInterpreter = new PascalInterpreter(is, System.in, System.out);
-         pascalInterpreter.run();
-         pascalInterpreter.getRootBlock().getContext().getScopeStack().getCurrentScope().reportVariables();
-      } catch (final Exception e) {
-         e.printStackTrace();
-         Assert.fail();
-      }
+   /**
+    * the current scope is the scope on the top of the stack
+    */
+   public Scope getCurrentScope() {
+      return scopeStack.get(0);
+   }
+
+   public void popScope() {
+      scopeStack.pop();
+   }
+
+   public Scope pushScope() {
+      final Scope scope = new Scope();
+      scopeStack.push(scope);
+      return scope;
+   }
+
+   public int size() {
+      return scopeStack.size();
    }
 }

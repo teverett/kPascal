@@ -44,12 +44,15 @@ public class Block {
    /**
     * context
     */
-   private final Context context;
+   private Context context;
 
    /**
     * ctor
     */
    public Block(PascalParser.BlockContext blockContext) {
+      /*
+       * set the blockContext
+       */
       this.blockContext = blockContext;
       /*
        * context
@@ -58,28 +61,7 @@ public class Block {
       /*
        * push the program context
        */
-      context.getScopeStack().push(new Scope());
-      /*
-       * constants. constants must be evaluated before types, b/c types can be defined using constants
-       */
-      final ConstantVisitor constantVisitor = new ConstantVisitor(context);
-      constantVisitor.visit(blockContext);
-      /*
-       * types
-       */
-      final TypeVisitor typeVisitor = new TypeVisitor(context);
-      typeVisitor.visit(blockContext);
-      getContext().getCurrentScope().getTypes().resolveComponentTypes();
-      /*
-       * variables
-       */
-      final VariableVisitor variableVisitor = new VariableVisitor(context);
-      variableVisitor.visit(blockContext);
-      /*
-       * procedures
-       */
-      final ProcedureVisitor procedureVisitor = new ProcedureVisitor(context);
-      procedureVisitor.visit(blockContext);
+      // context.getScopeStack().push(new Scope());
    }
 
    public BlockContext getBlockContext() {
@@ -149,7 +131,38 @@ public class Block {
     */
    public void run() {
       logger.info("Running block: '" + blockContext.getText() + "'");
+      /*
+       * add a scope
+       */
+      context.getScopeStack().pushScope();
+      /*
+       * constants. constants must be evaluated before types, b/c types can be defined using constants
+       */
+      final ConstantVisitor constantVisitor = new ConstantVisitor(context);
+      constantVisitor.visit(blockContext);
+      /*
+       * types
+       */
+      final TypeVisitor typeVisitor = new TypeVisitor(context);
+      typeVisitor.visit(blockContext);
+      getContext().getScopeStack().getCurrentScope().getTypes().resolveComponentTypes();
+      /*
+       * variables
+       */
+      final VariableVisitor variableVisitor = new VariableVisitor(context);
+      variableVisitor.visit(blockContext);
+      /*
+       * procedures
+       */
+      final ProcedureVisitor procedureVisitor = new ProcedureVisitor(context);
+      procedureVisitor.visit(blockContext);
+      /*
+       * report the block
+       */
       reportBlock();
+      /*
+       * find the compound statement
+       */
       PascalParser.CompoundStatementContext compoundStatementContext = null;
       for (int i = 0; i < blockContext.getChildCount(); i++) {
          final RuleContext ruleContext = (RuleContext) blockContext.getChild(i);
@@ -163,5 +176,13 @@ public class Block {
          final CompoundStatementVisitor compoundStatementVisitor = new CompoundStatementVisitor(context);
          compoundStatementVisitor.visit(compoundStatementContext);
       }
+      /*
+       * we're done
+       */
+      context.getScopeStack().popScope();
+   }
+
+   public void setContext(Context context) {
+      this.context = context;
    }
 }
