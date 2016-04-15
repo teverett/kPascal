@@ -60,7 +60,7 @@ public class Block {
        */
       context.getScopeStack().push(new Scope());
       /*
-       * constants
+       * constants. constants must be evaluated before types, b/c types can be defined using constants
        */
       final ConstantVisitor constantVisitor = new ConstantVisitor(context);
       constantVisitor.visit(blockContext);

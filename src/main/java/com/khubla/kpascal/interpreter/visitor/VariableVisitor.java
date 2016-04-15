@@ -38,6 +38,9 @@ public class VariableVisitor extends PascalBaseVisitor<Void> {
       return context;
    }
 
+   // TODO, for array types, what we need here is to loop over every index.
+   // So, if we have x[1][3] we need to loop over each index, so that values of the first index are arrays and
+   // the values of the second index are whatever the array type is
    @Override
    public Void visitVariableDeclaration(PascalParser.VariableDeclarationContext ctx) {
       final String instanceNames = ctx.getChild(0).getText();

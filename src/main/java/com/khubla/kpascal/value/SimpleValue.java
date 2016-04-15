@@ -194,8 +194,8 @@ public class SimpleValue implements Value {
       }
    }
 
-   private final SimpleType simpleType;
-   private final String value;
+   private SimpleType simpleType;
+   private String value;
 
    /**
     * ctor for boolean
@@ -270,5 +270,10 @@ public class SimpleValue implements Value {
 
    public String getValue() {
       return value;
+   }
+
+   public void setValue(SimpleValue simpleValue) {
+      simpleType = simpleValue.simpleType;
+      value = simpleValue.value;
    }
 }

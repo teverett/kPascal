@@ -141,7 +141,7 @@ public class TypeVisitor extends PascalBaseVisitor<Type> {
             }
             v = context.resolveStringToValue(upperRange);
             if (v instanceof SimpleValue) {
-               range.lowerRange = (SimpleValue) v;
+               range.upperRange = (SimpleValue) v;
             }
          }
       } catch (final Exception e) {

@@ -25,11 +25,14 @@ import org.slf4j.LoggerFactory;
 
 import com.khubla.kpascal.antlr.PascalBaseVisitor;
 import com.khubla.kpascal.antlr.PascalParser;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.interpreter.Context;
 import com.khubla.kpascal.interpreter.Invocable;
 import com.khubla.kpascal.interpreter.Procedure;
 import com.khubla.kpascal.interpreter.VariableInstance;
+import com.khubla.kpascal.interpreter.VariableInstance.VariableDeclarationType;
 import com.khubla.kpascal.rtl.RTLFunctions;
+import com.khubla.kpascal.value.ArrayValue;
 import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
 
@@ -74,17 +77,23 @@ public class CompoundStatementVisitor extends PascalBaseVisitor<Void> {
       return context;
    }
 
+   /**
+    * resolve an identifer name to a simpleValue
+    */
+   private SimpleValue resolveIdentifierNameToSimpleValue(String identifierName) throws InterpreterException {
+      return (SimpleValue) context.resolveStringToValue(identifierName);
+   }
+
+   /**
+    * TODO, this is grabbing the child of the ctx and getting the name. So this can end up grabbing an indexed variable like a[i]. That can't be resolved. what should be happening is that a[i] is
+    * resolved to a temp, and pushed to the stack. rather than getting child(0) the lvalue should be popped off the stack
+    */
    @Override
    public Void visitAssignmentStatement(PascalParser.AssignmentStatementContext ctx) {
       final Void ret = visitChildren(ctx);
-      final String lvalName = ctx.getChild(0).getText();
-      final VariableInstance variableInstance = context.resolveVariableInstance(lvalName);
-      if (null != variableInstance) {
-         final Value rVal = valueStack.pop();
-         variableInstance.setValue(rVal);
-      } else {
-         throw new RuntimeException("Unable to resolve variable '" + lvalName + "'");
-      }
+      final SimpleValue rhs = valueStack.pop();
+      final SimpleValue lhs = valueStack.pop();
+      lhs.setValue(rhs);
       return ret;
    }
 
@@ -100,10 +109,26 @@ public class CompoundStatementVisitor extends PascalBaseVisitor<Void> {
 
    @Override
    public Void visitForStatement(PascalParser.ForStatementContext ctx) {
-      ctx.getChild(1).getText();
-      ctx.getChild(3).getChild(0).getText();
-      ctx.getChild(3).getChild(2).getText();
-      return visitChildren(ctx);
+      try {
+         /*
+          * get the loop init value
+          */
+         final String initVariableIdentifier = ctx.getChild(3).getChild(0).getText();
+         final SimpleValue initVariableValue = resolveIdentifierNameToSimpleValue(initVariableIdentifier);
+         /*
+          * get the index variable name and create an instance the local stack
+          */
+         final String indexVariableIdentifier = ctx.getChild(1).getText();
+         final VariableInstance variableInstance = new VariableInstance(indexVariableIdentifier, initVariableValue, VariableDeclarationType.variable);
+         context.getCurrentScope().addVariable(indexVariableIdentifier, variableInstance);
+         // String b = ctx.getChild(3).getChild(0).getText();
+         // String c = ctx.getChild(3).getChild(2).getText();
+         System.out.println("FOR loop on variable '" + indexVariableIdentifier + "' with start value of '" + initVariableValue.getValue() + "'");
+         return visitChildren(ctx);
+      } catch (final Exception e) {
+         e.printStackTrace();
+         return null;
+      }
    }
 
    @Override
@@ -231,14 +256,58 @@ public class CompoundStatementVisitor extends PascalBaseVisitor<Void> {
    @Override
    public Void visitVariable(PascalParser.VariableContext ctx) {
       try {
-         final String v = ctx.getChild(0).getText();
-         context.resolveStringToValue(v);
-         final SimpleValue simpleValue = (SimpleValue) context.resolveStringToValue(v);
-         valueStack.push(simpleValue);
-         return visitChildren(ctx);
+         logger.info("visitVariable '" + ctx.getText() + "'");
+         /*
+          * visit children first so that if there is an index ie "a[i]", that i can be put on the stack before we try to resolve a[i] to a temp
+          */
+         final Void ret = visitChildren(ctx);
+         final String identifierName = ctx.getChild(0).getText();
+         if (ctx.getChildCount() == 1) {
+            final SimpleValue simpleValue = resolveIdentifierNameToSimpleValue(identifierName);
+            System.out.println("SimpleValue '" + identifierName + "' has value '" + simpleValue.getValue() + "'");
+            valueStack.push(simpleValue);
+            return ret;
+         } else {
+            /*
+             * indexed variable
+             */
+            final String ch1 = ctx.getChild(1).getText();
+            if (ch1.compareTo("[") == 0) {
+               /*
+                * get the variable we're going to index into
+                */
+               final ArrayValue arrayValue = (ArrayValue) context.resolveStringToValue(identifierName);
+               /*
+                * walk indices
+                */
+               final int indexTokens = ctx.getChildCount() - 3;
+               final int indexCount = indexTokens == 1 ? 1 : (indexTokens - 1) / 2;
+               Value currentValue = arrayValue;
+               for (int i = 0; i < indexCount; i++) {
+                  /*
+                   * pop the index
+                   */
+                  final SimpleValue idx = valueStack.pop();
+                  final int index = idx.asInteger();
+                  /*
+                   * get the indexed value
+                   */
+                  currentValue = arrayValue.getValue(index);
+               }
+               /*
+                * push the finally resolve array value
+                */
+               final SimpleValue rr = (SimpleValue) currentValue;
+               System.out.println("Array value '" + ctx.getText() + "' has value '" + rr.getValue() + "'");
+               valueStack.push(rr);
+               return ret;
+            }
+            System.out.println(ctx.getChildCount());
+         }
+         return ret;
       } catch (final Exception e) {
          e.printStackTrace();
+         return null;
       }
-      return visitChildren(ctx);
    }
 }
