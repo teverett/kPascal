@@ -92,6 +92,38 @@ public class SimpleValue implements Value {
       }
    }
 
+   public static boolean equals(SimpleValue v1, SimpleValue v2) throws InterpreterException {
+      /*
+       * resulting type
+       */
+      if ((v1.getSimpleType().getType() == SimpleType.Type.real) || ((v2.getSimpleType().getType() == SimpleType.Type.real))) {
+         /*
+          * real
+          */
+         return v1.asFloat() == v2.asFloat();
+      } else if ((v1.getSimpleType().getType() == SimpleType.Type.string) || ((v2.getSimpleType().getType() == SimpleType.Type.string))) {
+         /*
+          * string
+          */
+         return (v1.asString().compareTo(v2.asString()) == 0);
+      } else if ((v1.getSimpleType().getType() == SimpleType.Type.bool) || ((v2.getSimpleType().getType() == SimpleType.Type.bool))) {
+         /*
+          * real
+          */
+         return v1.asBoolean() == v2.asBoolean();
+      } else if ((v1.getSimpleType().getType() == SimpleType.Type.character) || ((v2.getSimpleType().getType() == SimpleType.Type.character))) {
+         /*
+          * real
+          */
+         return v1.asCharacter() == v2.asCharacter();
+      } else {
+         /*
+          * int
+          */
+         return v1.asInteger() == v2.asInteger();
+      }
+   }
+
    public static SimpleValue mod(SimpleValue v1, SimpleValue v2) throws InterpreterException {
       /*
        * incompatible v1
@@ -251,12 +283,26 @@ public class SimpleValue implements Value {
       return Boolean.valueOf(value);
    }
 
+   /**
+    * not implemented
+    *
+    * @return
+    * @throws NumberFormatException
+    */
+   public Integer asCharacter() throws NumberFormatException {
+      throw new NumberFormatException();
+   }
+
    public Float asFloat() throws NumberFormatException {
       return Float.parseFloat(value);
    }
 
    public Integer asInteger() throws NumberFormatException {
       return Integer.parseInt(value);
+   }
+
+   public String asString() throws NumberFormatException {
+      return value;
    }
 
    public SimpleType getSimpleType() {
