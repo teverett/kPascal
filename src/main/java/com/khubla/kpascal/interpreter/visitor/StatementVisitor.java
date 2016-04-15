@@ -160,7 +160,10 @@ public class StatementVisitor extends PascalBaseVisitor<Void> {
          /*
           * argument count
           */
-         final int argCount = ctx.getChild(2).getChildCount() == 1 ? 1 : (ctx.getChild(2).getChildCount() - (1 / 2));
+         int argCount = 0;
+         if (ctx.getChildCount() > 3) {
+            argCount = ctx.getChild(2).getChildCount() == 1 ? 1 : (ctx.getChild(2).getChildCount() - (1 / 2));
+         }
          /*
           * build argument list
           */
