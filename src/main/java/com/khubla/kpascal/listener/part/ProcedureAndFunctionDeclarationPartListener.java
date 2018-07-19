@@ -18,6 +18,7 @@ package com.khubla.kpascal.listener.part;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.listener.ProcedureOrFunctionDeclarationListener;
 import com.khubla.pascal.pascalParser;
 
 public class ProcedureAndFunctionDeclarationPartListener extends AbstractkPascalListener {
@@ -27,6 +28,10 @@ public class ProcedureAndFunctionDeclarationPartListener extends AbstractkPascal
 
    @Override
    public void enterProcedureAndFunctionDeclarationPart(pascalParser.ProcedureAndFunctionDeclarationPartContext ctx) {
+      if (null != ctx.procedureOrFunctionDeclaration()) {
+         final ProcedureOrFunctionDeclarationListener procedureOrFunctionDeclarationListener = new ProcedureOrFunctionDeclarationListener(getExecutionContext());
+         procedureOrFunctionDeclarationListener.enterProcedureOrFunctionDeclaration(ctx.procedureOrFunctionDeclaration());
+      }
    }
 
    @Override
