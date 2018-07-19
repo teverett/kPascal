@@ -14,9 +14,12 @@
  *    You should have received a copy of the GNU General Public License
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.khubla.kpascal.listener;
+package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.listener.ExpressionListener;
+import com.khubla.kpascal.listener.VariableListener;
 import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;

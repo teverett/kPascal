@@ -23,6 +23,7 @@ import com.khubla.kpascal.listener.part.ProcedureAndFunctionDeclarationPartListe
 import com.khubla.kpascal.listener.part.TypeDefinitionPartListener;
 import com.khubla.kpascal.listener.part.UsesUnitsPartListener;
 import com.khubla.kpascal.listener.part.VariableDeclarationPartListener;
+import com.khubla.kpascal.listener.statement.CompoundStatementListener;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.ConstantDefinitionPartContext;
 import com.khubla.pascal.pascalParser.LabelDeclarationPartContext;

@@ -14,25 +14,23 @@
  *    You should have received a copy of the GNU General Public License
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.khubla.kpascal.listener;
+package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.listener.AbstractkPascalListener;
 import com.khubla.pascal.pascalParser;
 
-public class CompoundStatementListener extends AbstractkPascalListener {
-   public CompoundStatementListener(ExecutionContext executionContext) {
+public class WithStatementListener extends AbstractkPascalListener {
+   public WithStatementListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
-   public void enterCompoundStatement(pascalParser.CompoundStatementContext ctx) {
-      if (null != ctx.statements()) {
-         final StatementsListener statementsListener = new StatementsListener(getExecutionContext());
-         statementsListener.enterStatements(ctx.statements());
-      }
+   public void enterWithStatement(pascalParser.WithStatementContext ctx) {
+      throw new RuntimeException("not implemented");
    }
 
    @Override
-   public void exitCompoundStatement(pascalParser.CompoundStatementContext ctx) {
+   public void exitWithStatement(pascalParser.WithStatementContext ctx) {
    }
 }
