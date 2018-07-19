@@ -20,19 +20,12 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Set;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  * Hashtable of all known types
  *
  * @author tom
  */
 public class Types {
-   /**
-    * logger
-    */
-   private final Logger logger = LoggerFactory.getLogger(this.getClass());
    /**
     * types
     */
@@ -55,7 +48,7 @@ public class Types {
       if (null != name) {
          types.put(name.toLowerCase(), type);
       } else {
-         logger.debug("Nameless type");
+         // logger.debug("Nameless type");
       }
    }
 
@@ -76,7 +69,7 @@ public class Types {
                if (null != containedType) {
                   arrayType.setComponentType(containedType);
                } else {
-                  logger.info("Unable to find type '" + arrayType.getComponentTypeName() + "'");
+                  // logger.info("Unable to find type '" + arrayType.getComponentTypeName() + "'");
                }
             } else if (type instanceof PointerType) {
                final PointerType pointerType = (PointerType) type;
@@ -84,7 +77,7 @@ public class Types {
                if (null != containedType) {
                   pointerType.setComponentType(containedType);
                } else {
-                  logger.info("Unable to find type '" + pointerType.getComponentTypeName() + "'");
+                  // logger.info("Unable to find type '" + pointerType.getComponentTypeName() + "'");
                }
             } else if (type instanceof RecordType) {
                final RecordType recordType = (RecordType) type;
@@ -96,7 +89,7 @@ public class Types {
                   if (null != containedType) {
                      recordType.getFields().put(id, containedType);
                   } else {
-                     logger.info("Unable to find type '" + typeName + "'");
+                     // logger.info("Unable to find type '" + typeName + "'");
                   }
                }
             }

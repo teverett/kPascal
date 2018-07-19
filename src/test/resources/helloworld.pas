@@ -1,4 +1,3 @@
-
 program HelloWorld;   
 var   
  a,b: integer;
