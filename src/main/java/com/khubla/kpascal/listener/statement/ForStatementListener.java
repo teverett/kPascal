@@ -18,6 +18,8 @@ package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.listener.IdentifierListener;
+import com.khubla.kpascal.listener.StatementListener;
 import com.khubla.pascal.pascalParser;
 
 public class ForStatementListener extends AbstractkPascalListener {
@@ -27,7 +29,18 @@ public class ForStatementListener extends AbstractkPascalListener {
 
    @Override
    public void enterForStatement(pascalParser.ForStatementContext ctx) {
-      throw new RuntimeException("not implemented");
+      if (null != ctx.identifier()) {
+         final IdentifierListener identifierListener = new IdentifierListener(getExecutionContext());
+         identifierListener.enterIdentifier(ctx.identifier());
+         if (null != ctx.forList()) {
+            final ForListListener forListListener = new ForListListener(getExecutionContext());
+            forListListener.enterForList(ctx.forList());
+            if (null != ctx.statement()) {
+               final StatementListener statementListener = new StatementListener(getExecutionContext());
+               statementListener.enterStatement(ctx.statement());
+            }
+         }
+      }
    }
 
    @Override
