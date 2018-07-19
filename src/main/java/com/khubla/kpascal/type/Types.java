@@ -65,7 +65,7 @@ public class Types {
          {
             if (type instanceof ArrayType) {
                final ArrayType arrayType = (ArrayType) type;
-               final Type containedType = find(arrayType.getComponentTypeName());
+               final Type containedType = arrayType.getComponentType();
                if (null != containedType) {
                   arrayType.setComponentType(containedType);
                } else {

@@ -87,8 +87,10 @@ public class ExecutionContext {
          if (null == value) {
             value = stackFrame.getConstant(name);
          }
-         return value;
+         if (null != value) {
+            return value;
+         }
       }
-      return null;
+      throw new RuntimeException("Unable to resolve '" + name + "'");
    }
 }

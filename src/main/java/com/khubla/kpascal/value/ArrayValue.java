@@ -31,8 +31,10 @@ public class ArrayValue implements Value {
 
    public ArrayValue(ArrayType arrayType) {
       this.arrayType = arrayType;
-      lbound = arrayType.ranges.get(0).lowerRange.asInteger();
-      ubound = arrayType.ranges.get(0).upperRange.asInteger();
+      lbound = 0;
+      ubound = 0;
+      // lbound = arrayType.indices.get(0).lowerRange.asInteger();
+      // ubound = arrayType.indices.get(0).upperRange.asInteger();
       size = (ubound - lbound) + 1;
       values = new Value[size];
       for (int i = 0; i < size; i++) {

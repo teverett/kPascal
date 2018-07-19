@@ -52,6 +52,15 @@ public class BlockListener extends AbstractkPascalListener {
          }
       }
       /*
+       * constants
+       */
+      if (null != ctx.constantDefinitionPart()) {
+         for (final ConstantDefinitionPartContext constantDefinitionPartContext : ctx.constantDefinitionPart()) {
+            final ConstantDefinitionPartListener constantDefinitionPartListener = new ConstantDefinitionPartListener(getExecutionContext());
+            constantDefinitionPartListener.enterConstantDefinitionPart(constantDefinitionPartContext);
+         }
+      }
+      /*
        * types
        */
       if (null != ctx.typeDefinitionPart()) {
@@ -67,15 +76,6 @@ public class BlockListener extends AbstractkPascalListener {
          for (final LabelDeclarationPartContext labelDeclarationPartContext : ctx.labelDeclarationPart()) {
             final LabelDeclarationPartListener labelDeclarationPartListener = new LabelDeclarationPartListener(getExecutionContext());
             labelDeclarationPartListener.enterLabelDeclarationPart(labelDeclarationPartContext);
-         }
-      }
-      /*
-       * constants
-       */
-      if (null != ctx.constantDefinitionPart()) {
-         for (final ConstantDefinitionPartContext constantDefinitionPartContext : ctx.constantDefinitionPart()) {
-            final ConstantDefinitionPartListener constantDefinitionPartListener = new ConstantDefinitionPartListener(getExecutionContext());
-            constantDefinitionPartListener.enterConstantDefinitionPart(constantDefinitionPartContext);
          }
       }
       /*

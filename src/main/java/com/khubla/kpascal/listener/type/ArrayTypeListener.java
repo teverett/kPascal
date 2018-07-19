@@ -20,6 +20,7 @@ import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
 import com.khubla.kpascal.listener.ComponentTypeListener;
 import com.khubla.kpascal.listener.TypeListListener;
+import com.khubla.kpascal.type.ArrayType;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
@@ -38,6 +39,10 @@ public class ArrayTypeListener extends AbstractkPascalListener {
          if (null != ctx.componentType()) {
             final ComponentTypeListener componentTypeListener = new ComponentTypeListener(getExecutionContext());
             componentTypeListener.enterComponentType(ctx.componentType());
+            /*
+             * type
+             */
+            type = new ArrayType(componentTypeListener.getType(), typeListListener.getTypelist());
          }
       }
    }

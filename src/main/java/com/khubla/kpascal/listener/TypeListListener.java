@@ -20,12 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.type.SimpleType;
+import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.IndexTypeContext;
 
 public class TypeListListener extends AbstractkPascalListener {
-   private List<SimpleType> typelist = new ArrayList<SimpleType>();
+   private List<Type> typelist = new ArrayList<Type>();
 
    public TypeListListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -46,11 +46,11 @@ public class TypeListListener extends AbstractkPascalListener {
    public void exitTypeList(pascalParser.TypeListContext ctx) {
    }
 
-   public List<SimpleType> getTypelist() {
+   public List<Type> getTypelist() {
       return typelist;
    }
 
-   public void setTypelist(List<SimpleType> typelist) {
+   public void setTypelist(List<Type> typelist) {
       this.typelist = typelist;
    }
 }

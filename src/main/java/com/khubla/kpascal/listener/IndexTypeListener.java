@@ -18,11 +18,11 @@ package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.type.SimpleTypeListener;
-import com.khubla.kpascal.type.SimpleType;
+import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
 public class IndexTypeListener extends AbstractkPascalListener {
-   private SimpleType type;
+   private Type type;
 
    public IndexTypeListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -37,20 +37,15 @@ public class IndexTypeListener extends AbstractkPascalListener {
       }
    }
 
-   /**
-    * {@inheritDoc}
-    *
-    * <p>The default implementation does nothing.</p>
-    */
    @Override
    public void exitIndexType(pascalParser.IndexTypeContext ctx) {
    }
 
-   public SimpleType getType() {
+   public Type getType() {
       return type;
    }
 
-   public void setType(SimpleType type) {
+   public void setType(Type type) {
       this.type = type;
    }
 }

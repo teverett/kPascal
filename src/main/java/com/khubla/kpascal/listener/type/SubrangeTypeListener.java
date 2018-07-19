@@ -18,11 +18,13 @@ package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
-import com.khubla.kpascal.type.SimpleType;
+import com.khubla.kpascal.listener.ConstantListener;
+import com.khubla.kpascal.type.SubrangeType;
+import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
 public class SubrangeTypeListener extends AbstractkPascalListener {
-   private SimpleType type = null;
+   private Type type = null;
 
    public SubrangeTypeListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -30,18 +32,29 @@ public class SubrangeTypeListener extends AbstractkPascalListener {
 
    @Override
    public void enterSubrangeType(pascalParser.SubrangeTypeContext ctx) {
-      throw new RuntimeException("Not Implemented");
+      if (null != ctx.constant(0)) {
+         final ConstantListener constantListener = new ConstantListener(getExecutionContext());
+         constantListener.enterConstant(ctx.constant(0));
+         if (null != ctx.constant(1)) {
+            final ConstantListener constantListener2 = new ConstantListener(getExecutionContext());
+            constantListener2.enterConstant(ctx.constant(1));
+            /*
+             * type
+             */
+            type = new SubrangeType(constantListener.getValue(), constantListener2.getValue());
+         }
+      }
    }
 
    @Override
    public void exitSubrangeType(pascalParser.SubrangeTypeContext ctx) {
    }
 
-   public SimpleType getType() {
+   public Type getType() {
       return type;
    }
 
-   public void setType(SimpleType type) {
+   public void setType(Type type) {
       this.type = type;
    }
 }
