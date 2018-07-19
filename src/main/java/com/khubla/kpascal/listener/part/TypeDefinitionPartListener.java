@@ -14,39 +14,30 @@
  *    You should have received a copy of the GNU General Public License
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.khubla.kpascal.listener.type;
+package com.khubla.kpascal.listener.part;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
-import com.khubla.kpascal.listener.UnpackedStructuredTypeListener;
-import com.khubla.kpascal.type.Type;
+import com.khubla.kpascal.listener.TypeDefinitionListener;
 import com.khubla.pascal.pascalParser;
+import com.khubla.pascal.pascalParser.TypeDefinitionContext;
 
-public class StructuredTypeListener extends AbstractkPascalListener {
-   private Type type = null;
-
-   public StructuredTypeListener(ExecutionContext executionContext) {
+public class TypeDefinitionPartListener extends AbstractkPascalListener {
+   public TypeDefinitionPartListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
-   public void enterStructuredType(pascalParser.StructuredTypeContext ctx) {
-      if (null != ctx.unpackedStructuredType()) {
-         UnpackedStructuredTypeListener unpackedStructuredTypeListener = new UnpackedStructuredTypeListener(this.getExecutionContext());
-         unpackedStructuredTypeListener.enterUnpackedStructuredType(ctx.unpackedStructuredType());
-         this.type = unpackedStructuredTypeListener.getType();
+   public void enterTypeDefinitionPart(pascalParser.TypeDefinitionPartContext ctx) {
+      if (null != ctx.typeDefinition()) {
+         for (final TypeDefinitionContext typeDefinitionContext : ctx.typeDefinition()) {
+            final TypeDefinitionListener typeDefinitionListener = new TypeDefinitionListener(getExecutionContext());
+            typeDefinitionListener.enterTypeDefinition(typeDefinitionContext);
+         }
       }
    }
 
    @Override
-   public void exitStructuredType(pascalParser.StructuredTypeContext ctx) {
-   }
-
-   public Type getType() {
-      return type;
-   }
-
-   public void setType(Type type) {
-      this.type = type;
+   public void exitTypeDefinitionPart(pascalParser.TypeDefinitionPartContext ctx) {
    }
 }

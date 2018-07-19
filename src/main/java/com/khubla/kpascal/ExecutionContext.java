@@ -77,15 +77,17 @@ public class ExecutionContext {
       return stackFrame;
    }
 
+   /**
+    * walk the stack, top to bottom trying to find the variable
+    */
    public Value resolveVariable(String name) {
-      /*
-       * walk the stack, top to bottom
-       */
       for (int i = 0; i < stack.size(); i++) {
          final StackFrame stackFrame = stack.get(i);
-         if (stackFrame.getVariables().containsKey(name)) {
-            return stackFrame.getVariables().get(name);
+         Value value = stackFrame.getVariable(name);
+         if (null == value) {
+            value = stackFrame.getConstant(name);
          }
+         return value;
       }
       return null;
    }

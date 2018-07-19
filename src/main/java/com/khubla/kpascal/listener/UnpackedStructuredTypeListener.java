@@ -17,30 +17,38 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
-public class ConstantDefinitionListener extends AbstractkPascalListener {
-   public ConstantDefinitionListener(ExecutionContext executionContext) {
+public class UnpackedStructuredTypeListener extends AbstractkPascalListener {
+   private Type type = null;
+
+   public Type getType() {
+      return type;
+   }
+
+   public void setType(Type type) {
+      this.type = type;
+   }
+
+   public UnpackedStructuredTypeListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
-   public void enterConstantDefinition(pascalParser.ConstantDefinitionContext ctx) {
-      if (null != ctx.identifier()) {
-         final IdentifierListener identifierListener = new IdentifierListener(getExecutionContext());
-         identifierListener.enterIdentifier(ctx.identifier());
-         if (null != ctx.constant()) {
-            final ConstantListener constantListener = new ConstantListener(getExecutionContext());
-            constantListener.enterConstant(ctx.constant());
-            /*
-             * declare
-             */
-            getExecutionContext().getCurrentStackframe().declareConstant(identifierListener.getIdentifier(), constantListener.getValue());
-         }
+   public void enterUnpackedStructuredType(pascalParser.UnpackedStructuredTypeContext ctx) {
+      if (null != ctx.arrayType()) {
+         throw new RuntimeException("not implemented");
+      } else if (null != ctx.recordType()) {
+         throw new RuntimeException("not implemented");
+      } else if (null != ctx.setType()) {
+         throw new RuntimeException("not implemented");
+      } else if (null != ctx.fileType()) {
+         throw new RuntimeException("not implemented");
       }
    }
 
    @Override
-   public void exitConstantDefinition(pascalParser.ConstantDefinitionContext ctx) {
+   public void exitUnpackedStructuredType(pascalParser.UnpackedStructuredTypeContext ctx) {
    }
 }

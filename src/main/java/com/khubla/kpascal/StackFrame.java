@@ -36,13 +36,21 @@ public class StackFrame {
     * functions and procedures
     */
    private final HashMap<String, FunctionOrProcedureDefinition> functionsAndProcedures = new HashMap<String, FunctionOrProcedureDefinition>();
+   /**
+    * named types
+    */
+   private final HashMap<String, TypeDefinition> types = new HashMap<String, TypeDefinition>();
 
-   public void decalareConstant(String name, Value value) {
+   public void declareConstant(String name, Value value) {
       constants.put(name, value);
    }
 
    public void declareFunctionOrProcedure(FunctionOrProcedureDefinition functionOrProcedureDefinition) {
       functionsAndProcedures.put(functionOrProcedureDefinition.getName(), functionOrProcedureDefinition);
+   }
+
+   public void declareType(TypeDefinition typeDefinition) {
+      types.put(typeDefinition.getName(), typeDefinition);
    }
 
    /**
@@ -56,15 +64,19 @@ public class StackFrame {
       return constants.get(name);
    }
 
+   public FunctionOrProcedureDefinition getFunctionOrProcedureDefinition(String name) {
+      return functionsAndProcedures.get(name);
+   }
+
+   public TypeDefinition getType(String name) {
+      return types.get(name);
+   }
+
    /**
     * get variable
     */
    public Value getVariable(String name) {
       return variables.get(name);
-   }
-
-   public HashMap<String, Value> getVariables() {
-      return variables;
    }
 
    public void setVariables(HashMap<String, Value> variables) {

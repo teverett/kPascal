@@ -17,30 +17,34 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.TypeDefinition;
 import com.khubla.pascal.pascalParser;
 
-public class ConstantDefinitionListener extends AbstractkPascalListener {
-   public ConstantDefinitionListener(ExecutionContext executionContext) {
+public class TypeDefinitionListener extends AbstractkPascalListener {
+   public TypeDefinitionListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
-   public void enterConstantDefinition(pascalParser.ConstantDefinitionContext ctx) {
+   public void enterTypeDefinition(pascalParser.TypeDefinitionContext ctx) {
       if (null != ctx.identifier()) {
          final IdentifierListener identifierListener = new IdentifierListener(getExecutionContext());
          identifierListener.enterIdentifier(ctx.identifier());
-         if (null != ctx.constant()) {
-            final ConstantListener constantListener = new ConstantListener(getExecutionContext());
-            constantListener.enterConstant(ctx.constant());
-            /*
-             * declare
-             */
-            getExecutionContext().getCurrentStackframe().declareConstant(identifierListener.getIdentifier(), constantListener.getValue());
+         TypeDefinition typeDefinition = null;
+         if (null != ctx.type()) {
+            final TypeListener typeListener = new TypeListener(getExecutionContext());
+            typeListener.enterType(ctx.type());
+            typeDefinition = new TypeDefinition(identifierListener.getIdentifier(), typeListener.getType());
+         } else if (null != ctx.functionType()) {
+            throw new RuntimeException("not implemented");
+         } else if (null != ctx.procedureType()) {
+            throw new RuntimeException("not implemented");
          }
+         getExecutionContext().getCurrentStackframe().declareType(typeDefinition);
       }
    }
 
    @Override
-   public void exitConstantDefinition(pascalParser.ConstantDefinitionContext ctx) {
+   public void exitTypeDefinition(pascalParser.TypeDefinitionContext ctx) {
    }
 }

@@ -20,12 +20,14 @@ import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.part.ConstantDefinitionPartListener;
 import com.khubla.kpascal.listener.part.LabelDeclarationPartListener;
 import com.khubla.kpascal.listener.part.ProcedureAndFunctionDeclarationPartListener;
+import com.khubla.kpascal.listener.part.TypeDefinitionPartListener;
 import com.khubla.kpascal.listener.part.UsesUnitsPartListener;
 import com.khubla.kpascal.listener.part.VariableDeclarationPartListener;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.ConstantDefinitionPartContext;
 import com.khubla.pascal.pascalParser.LabelDeclarationPartContext;
 import com.khubla.pascal.pascalParser.ProcedureAndFunctionDeclarationPartContext;
+import com.khubla.pascal.pascalParser.TypeDefinitionPartContext;
 import com.khubla.pascal.pascalParser.UsesUnitsPartContext;
 import com.khubla.pascal.pascalParser.VariableDeclarationPartContext;
 
@@ -47,6 +49,15 @@ public class BlockListener extends AbstractkPascalListener {
          for (final UsesUnitsPartContext usesUnitsPartContext : ctx.usesUnitsPart()) {
             final UsesUnitsPartListener usesUnitsPartListener = new UsesUnitsPartListener(getExecutionContext());
             usesUnitsPartListener.enterUsesUnitsPart(usesUnitsPartContext);
+         }
+      }
+      /*
+       * types
+       */
+      if (null != ctx.typeDefinitionPart()) {
+         for (final TypeDefinitionPartContext typeDefinitionPartContext : ctx.typeDefinitionPart()) {
+            final TypeDefinitionPartListener typeDefinitionPartListener = new TypeDefinitionPartListener(getExecutionContext());
+            typeDefinitionPartListener.enterTypeDefinitionPart(typeDefinitionPartContext);
          }
       }
       /*
