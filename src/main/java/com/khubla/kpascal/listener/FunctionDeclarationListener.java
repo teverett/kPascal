@@ -16,7 +16,11 @@
  */
 package com.khubla.kpascal.listener;
 
+import java.util.List;
+
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.FunctionOrProcedureDefinition;
+import com.khubla.kpascal.listener.ParameterGroupListener.ParameterGroup;
 import com.khubla.pascal.pascalParser;
 
 public class FunctionDeclarationListener extends AbstractkPascalListener {
@@ -35,9 +39,11 @@ public class FunctionDeclarationListener extends AbstractkPascalListener {
          /*
           * params
           */
+         List<ParameterGroup> parameterGroups = null;
          if (null != ctx.formalParameterList()) {
             final FormalParameterListListener formalParameterListListener = new FormalParameterListListener(getExecutionContext());
             formalParameterListListener.enterFormalParameterList(ctx.formalParameterList());
+            parameterGroups = formalParameterListListener.getParameterGroups();
          }
          /*
           * result
@@ -45,13 +51,12 @@ public class FunctionDeclarationListener extends AbstractkPascalListener {
          if (null != ctx.resultType()) {
             final ResultTypeListener resultTypeListener = new ResultTypeListener(getExecutionContext());
             resultTypeListener.enterResultType(ctx.resultType());
-         }
-         /*
-          * block
-          */
-         if (null != ctx.block()) {
-            // BlockListener blockListener = new BlockListener(this.getExecutionContext());
-            // don't execute it
+            /*
+             * declare
+             */
+            final FunctionOrProcedureDefinition functionOrProcedureDefinition = new FunctionOrProcedureDefinition(identifierListener.getIdentifier(), parameterGroups, ctx.block(),
+                  resultTypeListener.getTypeName());
+            getExecutionContext().getCurrentStackframe().declareFunctionOrProcedure(functionOrProcedureDefinition);
          }
       }
    }

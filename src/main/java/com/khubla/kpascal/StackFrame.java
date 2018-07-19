@@ -24,11 +24,25 @@ import com.khubla.kpascal.value.Value;
  * a stack frame, containing variables
  */
 public class StackFrame {
+   /**
+    * variables
+    */
    private HashMap<String, Value> variables = new HashMap<String, Value>();
+   /**
+    * constants
+    */
    private final HashMap<String, Value> constants = new HashMap<String, Value>();
+   /**
+    * functions and procedures
+    */
+   private final HashMap<String, FunctionOrProcedureDefinition> functionsAndProcedures = new HashMap<String, FunctionOrProcedureDefinition>();
 
    public void decalareConstant(String name, Value value) {
       constants.put(name, value);
+   }
+
+   public void declareFunctionOrProcedure(FunctionOrProcedureDefinition functionOrProcedureDefinition) {
+      functionsAndProcedures.put(functionOrProcedureDefinition.getName(), functionOrProcedureDefinition);
    }
 
    /**

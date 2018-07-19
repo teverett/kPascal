@@ -16,10 +16,44 @@
  */
 package com.khubla.kpascal.listener;
 
+import java.util.List;
+
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.pascal.pascalParser;
 
 public class ParameterGroupListener extends AbstractkPascalListener {
+   public class ParameterGroup {
+      private final String typename;
+      private final List<String> identifiers;
+      /*
+       * none, VAR, FUNCTION, PROCEDURE
+       */
+      private String type;
+
+      public ParameterGroup(String typename, List<String> identifiers) {
+         this.typename = typename;
+         this.identifiers = identifiers;
+      }
+
+      public List<String> getIdentifiers() {
+         return identifiers;
+      }
+
+      public String getType() {
+         return type;
+      }
+
+      public String getTypename() {
+         return typename;
+      }
+
+      public void setType(String type) {
+         this.type = type;
+      }
+   }
+
+   private ParameterGroup parameterGroup;
+
    public ParameterGroupListener(ExecutionContext executionContext) {
       super(executionContext);
    }
@@ -32,11 +66,22 @@ public class ParameterGroupListener extends AbstractkPascalListener {
          if (null != ctx.typeIdentifier()) {
             final TypeIdentifierListener typeIdentifierListener = new TypeIdentifierListener(getExecutionContext());
             typeIdentifierListener.enterTypeIdentifier(ctx.typeIdentifier());
+            parameterGroup = new ParameterGroup(typeIdentifierListener.getTypeName(), identifierListListener.getIdentifiers());
+         } else {
+            parameterGroup = new ParameterGroup(null, identifierListListener.getIdentifiers());
          }
       }
    }
 
    @Override
    public void exitParameterGroup(pascalParser.ParameterGroupContext ctx) {
+   }
+
+   public ParameterGroup getParameterGroup() {
+      return parameterGroup;
+   }
+
+   public void setParameterGroup(ParameterGroup parameterGroup) {
+      this.parameterGroup = parameterGroup;
    }
 }
