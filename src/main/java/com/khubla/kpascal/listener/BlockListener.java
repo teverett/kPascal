@@ -70,6 +70,15 @@ public class BlockListener extends AbstractkPascalListener {
          }
       }
       /*
+       * vars?
+       */
+      if (null != ctx.variableDeclarationPart()) {
+         for (final VariableDeclarationPartContext variableDeclarationPartContext : ctx.variableDeclarationPart()) {
+            final VariableDeclarationPartListener variableDeclarationPartListener = new VariableDeclarationPartListener(getExecutionContext());
+            variableDeclarationPartListener.enterVariableDeclarationPart(variableDeclarationPartContext);
+         }
+      }
+      /*
        * labels
        */
       if (null != ctx.labelDeclarationPart()) {
@@ -85,15 +94,6 @@ public class BlockListener extends AbstractkPascalListener {
          for (final ProcedureAndFunctionDeclarationPartContext procedureAndFunctionDeclarationPartContext : ctx.procedureAndFunctionDeclarationPart()) {
             final ProcedureAndFunctionDeclarationPartListener procedureAndFunctionDeclarationPartListener = new ProcedureAndFunctionDeclarationPartListener(getExecutionContext());
             procedureAndFunctionDeclarationPartListener.enterProcedureAndFunctionDeclarationPart(procedureAndFunctionDeclarationPartContext);
-         }
-      }
-      /*
-       * vars?
-       */
-      if (null != ctx.variableDeclarationPart()) {
-         for (final VariableDeclarationPartContext variableDeclarationPartContext : ctx.variableDeclarationPart()) {
-            final VariableDeclarationPartListener variableDeclarationPartListener = new VariableDeclarationPartListener(getExecutionContext());
-            variableDeclarationPartListener.enterVariableDeclarationPart(variableDeclarationPartContext);
          }
       }
       /*

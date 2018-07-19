@@ -20,6 +20,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Stack;
 
+import com.khubla.kpascal.type.Type;
 import com.khubla.kpascal.value.Value;
 
 /**
@@ -75,6 +76,34 @@ public class ExecutionContext {
       final StackFrame stackFrame = new StackFrame();
       stack.push(stackFrame);
       return stackFrame;
+   }
+
+   /**
+    * walk the stack, top to bottom trying to find the type
+    */
+   public FunctionOrProcedureDefinition resolveFunctionOrProcedure(String name) {
+      for (int i = 0; i < stack.size(); i++) {
+         final StackFrame stackFrame = stack.get(i);
+         final FunctionOrProcedureDefinition functionOrProcedureDefinition = stackFrame.getFunctionOrProcedureDefinition(name);
+         if (null != functionOrProcedureDefinition) {
+            return functionOrProcedureDefinition;
+         }
+      }
+      throw new RuntimeException("Unable to resolve '" + name + "'");
+   }
+
+   /**
+    * walk the stack, top to bottom trying to find the type
+    */
+   public Type resolveType(String name) {
+      for (int i = 0; i < stack.size(); i++) {
+         final StackFrame stackFrame = stack.get(i);
+         final TypeDefinition typeDefinition = stackFrame.getType(name);
+         if (null != typeDefinition) {
+            return typeDefinition.getType();
+         }
+      }
+      throw new RuntimeException("Unable to resolve '" + name + "'");
    }
 
    /**
