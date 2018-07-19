@@ -17,34 +17,40 @@
 package com.khubla.kpascal.listener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.type.SimpleType;
 import com.khubla.pascal.pascalParser;
-import com.khubla.pascal.pascalParser.IdentifierContext;
+import com.khubla.pascal.pascalParser.IndexTypeContext;
 
-public class IdentifierListListener extends AbstractkPascalListener {
-   private final ArrayList<String> identifiers = new ArrayList<String>();
+public class TypeListListener extends AbstractkPascalListener {
+   private List<SimpleType> typelist = new ArrayList<SimpleType>();
 
-   public IdentifierListListener(ExecutionContext executionContext) {
+   public TypeListListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
-   public void enterIdentifierList(pascalParser.IdentifierListContext ctx) {
-      if (null != ctx.identifier()) {
-         for (final IdentifierContext identifierContext : ctx.identifier()) {
-            final IdentifierListener identifierListener = new IdentifierListener(getExecutionContext());
-            identifierListener.enterIdentifier(identifierContext);
-            identifiers.add(identifierListener.getIdentifier());
+   public void enterTypeList(pascalParser.TypeListContext ctx) {
+      if (null != ctx.indexType()) {
+         for (final IndexTypeContext indexTypeContext : ctx.indexType()) {
+            final IndexTypeListener indexTypeListener = new IndexTypeListener(getExecutionContext());
+            indexTypeListener.enterIndexType(indexTypeContext);
+            typelist.add(indexTypeListener.getType());
          }
       }
    }
 
    @Override
-   public void exitIdentifierList(pascalParser.IdentifierListContext ctx) {
+   public void exitTypeList(pascalParser.TypeListContext ctx) {
    }
 
-   public ArrayList<String> getIdentifiers() {
-      return identifiers;
+   public List<SimpleType> getTypelist() {
+      return typelist;
+   }
+
+   public void setTypelist(List<SimpleType> typelist) {
+      this.typelist = typelist;
    }
 }

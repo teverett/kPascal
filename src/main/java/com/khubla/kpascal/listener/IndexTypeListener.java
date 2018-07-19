@@ -14,27 +14,36 @@
  *    You should have received a copy of the GNU General Public License
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.khubla.kpascal.listener.type;
+package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.listener.type.SimpleTypeListener;
 import com.khubla.kpascal.type.SimpleType;
 import com.khubla.pascal.pascalParser;
 
-public class ScalarTypeListener extends AbstractkPascalListener {
-   private SimpleType type = null;
+public class IndexTypeListener extends AbstractkPascalListener {
+   private SimpleType type;
 
-   public ScalarTypeListener(ExecutionContext executionContext) {
+   public IndexTypeListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
-   public void enterScalarType(pascalParser.ScalarTypeContext ctx) {
-      throw new RuntimeException("Not Implemented");
+   public void enterIndexType(pascalParser.IndexTypeContext ctx) {
+      if (null != ctx.simpleType()) {
+         final SimpleTypeListener simpleTypeListener = new SimpleTypeListener(getExecutionContext());
+         simpleTypeListener.enterSimpleType(ctx.simpleType());
+         type = simpleTypeListener.getType();
+      }
    }
 
+   /**
+    * {@inheritDoc}
+    *
+    * <p>The default implementation does nothing.</p>
+    */
    @Override
-   public void exitScalarType(pascalParser.ScalarTypeContext ctx) {
+   public void exitIndexType(pascalParser.IndexTypeContext ctx) {
    }
 
    public SimpleType getType() {

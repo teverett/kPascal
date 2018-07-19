@@ -17,19 +17,12 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.listener.type.ArrayTypeListener;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
 public class UnpackedStructuredTypeListener extends AbstractkPascalListener {
    private Type type = null;
-
-   public Type getType() {
-      return type;
-   }
-
-   public void setType(Type type) {
-      this.type = type;
-   }
 
    public UnpackedStructuredTypeListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -38,7 +31,9 @@ public class UnpackedStructuredTypeListener extends AbstractkPascalListener {
    @Override
    public void enterUnpackedStructuredType(pascalParser.UnpackedStructuredTypeContext ctx) {
       if (null != ctx.arrayType()) {
-         throw new RuntimeException("not implemented");
+         final ArrayTypeListener arrayTypeListener = new ArrayTypeListener(getExecutionContext());
+         arrayTypeListener.enterArrayType(ctx.arrayType());
+         type = arrayTypeListener.getType();
       } else if (null != ctx.recordType()) {
          throw new RuntimeException("not implemented");
       } else if (null != ctx.setType()) {
@@ -50,5 +45,13 @@ public class UnpackedStructuredTypeListener extends AbstractkPascalListener {
 
    @Override
    public void exitUnpackedStructuredType(pascalParser.UnpackedStructuredTypeContext ctx) {
+   }
+
+   public Type getType() {
+      return type;
+   }
+
+   public void setType(Type type) {
+      this.type = type;
    }
 }

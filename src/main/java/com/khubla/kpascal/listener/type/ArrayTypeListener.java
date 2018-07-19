@@ -18,30 +18,39 @@ package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
-import com.khubla.kpascal.type.SimpleType;
+import com.khubla.kpascal.listener.ComponentTypeListener;
+import com.khubla.kpascal.listener.TypeListListener;
+import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
-public class ScalarTypeListener extends AbstractkPascalListener {
-   private SimpleType type = null;
+public class ArrayTypeListener extends AbstractkPascalListener {
+   private Type type = null;
 
-   public ScalarTypeListener(ExecutionContext executionContext) {
+   public ArrayTypeListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
-   public void enterScalarType(pascalParser.ScalarTypeContext ctx) {
-      throw new RuntimeException("Not Implemented");
+   public void enterArrayType(pascalParser.ArrayTypeContext ctx) {
+      if (null != ctx.typeList()) {
+         final TypeListListener typeListListener = new TypeListListener(getExecutionContext());
+         typeListListener.enterTypeList(ctx.typeList());
+         if (null != ctx.componentType()) {
+            final ComponentTypeListener componentTypeListener = new ComponentTypeListener(getExecutionContext());
+            componentTypeListener.enterComponentType(ctx.componentType());
+         }
+      }
    }
 
    @Override
-   public void exitScalarType(pascalParser.ScalarTypeContext ctx) {
+   public void exitArrayType(pascalParser.ArrayTypeContext ctx) {
    }
 
-   public SimpleType getType() {
+   public Type getType() {
       return type;
    }
 
-   public void setType(SimpleType type) {
+   public void setType(Type type) {
       this.type = type;
    }
 }

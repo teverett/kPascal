@@ -32,9 +32,9 @@ public class StructuredTypeListener extends AbstractkPascalListener {
    @Override
    public void enterStructuredType(pascalParser.StructuredTypeContext ctx) {
       if (null != ctx.unpackedStructuredType()) {
-         UnpackedStructuredTypeListener unpackedStructuredTypeListener = new UnpackedStructuredTypeListener(this.getExecutionContext());
+         final UnpackedStructuredTypeListener unpackedStructuredTypeListener = new UnpackedStructuredTypeListener(getExecutionContext());
          unpackedStructuredTypeListener.enterUnpackedStructuredType(ctx.unpackedStructuredType());
-         this.type = unpackedStructuredTypeListener.getType();
+         type = unpackedStructuredTypeListener.getType();
       }
    }
 
