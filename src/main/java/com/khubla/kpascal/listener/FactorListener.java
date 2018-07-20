@@ -17,12 +17,11 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
 public class FactorListener extends AbstractkPascalListener {
-   private SimpleValue value;
+   private Value value;
 
    public FactorListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -39,12 +38,7 @@ public class FactorListener extends AbstractkPascalListener {
          /*
           * resolve the variable
           */
-         final Value v = variableListener.getValue();
-         if (v instanceof SimpleValue) {
-            value = (SimpleValue) v;
-         } else {
-            throw new RuntimeException("i've fallen and I can't get up");
-         }
+         value = variableListener.getValue();
       } else if (null != ctx.NOT()) {
          final FactorListener factorListener = new FactorListener(getExecutionContext());
          factorListener.enterFactor(ctx.factor());
@@ -74,19 +68,12 @@ public class FactorListener extends AbstractkPascalListener {
    @Override
    public void exitFactor(pascalParser.FactorContext ctx) {
    }
-   // protected Value resolveTerm(Term term) {
-   // if (term.getName() != null) {
-   // return executionContext.resolveVariable(term.getName());
-   // } else {
-   // return term.getValue();
-   // }
-   // }
 
-   public SimpleValue getValue() {
+   public Value getValue() {
       return value;
    }
 
-   public void setValue(SimpleValue value) {
+   public void setValue(Value value) {
       this.value = value;
    }
 }

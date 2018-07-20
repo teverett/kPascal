@@ -40,7 +40,7 @@ public class AssignmentStatementListener extends AbstractkPascalListener {
             final Value value = variableListener.getValue();
             if (value instanceof SimpleValue) {
                final SimpleValue sv = (SimpleValue) value;
-               sv.setValue(expressionListener.getValue());
+               sv.setValue((SimpleValue) expressionListener.getValue());
             }
          }
       }

@@ -18,10 +18,11 @@ package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
 public class SignedFactorListener extends AbstractkPascalListener {
-   private SimpleValue value;
+   private Value value;
 
    public SignedFactorListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -35,10 +36,14 @@ public class SignedFactorListener extends AbstractkPascalListener {
          value = factorListener.getValue();
       }
       if (null != ctx.MINUS()) {
-         try {
-            value = SimpleValue.mult(value, new SimpleValue(-1));
-         } catch (final Exception e) {
-            throw new RuntimeException(e);
+         if (value instanceof SimpleValue) {
+            try {
+               value = SimpleValue.mult((SimpleValue) value, new SimpleValue(-1));
+            } catch (final Exception e) {
+               throw new RuntimeException(e);
+            }
+         } else {
+            throw new RuntimeException("Expected SimpleValue");
          }
       }
    }
@@ -47,11 +52,11 @@ public class SignedFactorListener extends AbstractkPascalListener {
    public void exitSignedFactor(pascalParser.SignedFactorContext ctx) {
    }
 
-   public SimpleValue getValue() {
+   public Value getValue() {
       return value;
    }
 
-   public void setValue(SimpleValue value) {
+   public void setValue(Value value) {
       this.value = value;
    }
 }

@@ -19,10 +19,11 @@ package com.khubla.kpascal.listener;
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
 public class ExpressionListener extends AbstractkPascalListener {
-   private SimpleValue value;
+   private Value value;
 
    public ExpressionListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -35,77 +36,43 @@ public class ExpressionListener extends AbstractkPascalListener {
          simpleExpressionListener.enterSimpleExpression(ctx.simpleExpression());
          value = simpleExpressionListener.getValue();
          if (null != ctx.relationaloperator()) {
-            final RelationalOperatorListener relationalOperatorListener = new RelationalOperatorListener(getExecutionContext());
-            relationalOperatorListener.enterRelationaloperator(ctx.relationaloperator());
-            if (null != ctx.expression()) {
-               final ExpressionListener expressionListener = new ExpressionListener(getExecutionContext());
-               expressionListener.enterExpression(ctx.expression());
-               /*
-                * math
-                */
-               try {
-                  if (relationalOperatorListener.getOperator().compareTo("*") == 0) {
-                     value = SimpleValue.mult(value, expressionListener.value);
-                  } else if (relationalOperatorListener.getOperator().compareTo("/") == 0) {
-                     value = SimpleValue.div(value, expressionListener.value);
-                  } else {
-                     throw new RuntimeException("not implemented");
+            if (value instanceof SimpleValue) {
+               final RelationalOperatorListener relationalOperatorListener = new RelationalOperatorListener(getExecutionContext());
+               relationalOperatorListener.enterRelationaloperator(ctx.relationaloperator());
+               if (null != ctx.expression()) {
+                  final ExpressionListener expressionListener = new ExpressionListener(getExecutionContext());
+                  expressionListener.enterExpression(ctx.expression());
+                  /*
+                   * math
+                   */
+                  try {
+                     if (relationalOperatorListener.getOperator().compareTo("*") == 0) {
+                        value = SimpleValue.mult((SimpleValue) value, (SimpleValue) expressionListener.value);
+                     } else if (relationalOperatorListener.getOperator().compareTo("/") == 0) {
+                        value = SimpleValue.div((SimpleValue) value, (SimpleValue) expressionListener.value);
+                     } else {
+                        throw new RuntimeException("not implemented");
+                     }
+                  } catch (final InterpreterException e) {
+                     throw new RuntimeException(e);
                   }
-               } catch (final InterpreterException e) {
-                  throw new RuntimeException(e);
                }
+            } else {
+               throw new RuntimeException("Expected SimpleValue");
             }
          }
       }
-      /*
-       * get the term
-       */
-      // if (null != ctx.term()) {
-      // final TermListener termListener = new TermListener(getExecutionContext());
-      // termListener.enterTerm(ctx.term());
-      // term = termListener.getTerm();
-      // /*
-      // * iterate operands
-      // */
-      // for (int i = 0; i < ((ctx.children.size() - 1) / 2); i++) {
-      // /*
-      // * if term is a variable, resolve it
-      // */
-      // term = new Term(resolveTerm(term));
-      // final int idx = (i * 2) + 1;
-      // final String operand = ctx.getChild(idx).getText();
-      // final ExpressionListener expressionListener = new ExpressionListener(getExecutionContext());
-      // expressionListener.enterExpression((ExpressionContext) ctx.getChild(idx + 1));
-      // if (operand.compareTo("+") == 0) {
-      // term = new Term(new Variant(term.value.getAsDouble() + resolveTerm(expressionListener.getTerm()).getAsDouble()));
-      // } else if (operand.compareTo("-") == 0) {
-      // term = new Term(new Variant(term.value.getAsDouble() - resolveTerm(expressionListener.getTerm()).getAsDouble()));
-      // } else if (operand.compareTo("*") == 0) {
-      // term = new Term(new Variant(term.value.getAsDouble() * resolveTerm(expressionListener.getTerm()).getAsDouble()));
-      // } else if (operand.compareTo("/") == 0) {
-      // term = new Term(new Variant(term.value.getAsDouble() / resolveTerm(expressionListener.getTerm()).getAsDouble()));
-      // } else if (operand.compareTo("\\\\") == 0) {
-      // throw new RuntimeException("Not Implemented");
-      // } else if (operand.compareTo("#") == 0) {
-      // throw new RuntimeException("Not Implemented");
-      // } else if (operand.compareTo("**") == 0) {
-      // throw new RuntimeException("Not Implemented");
-      // } else {
-      // throw new RuntimeException("Unknown operation '" + operand + "'");
-      // }
-      // }
-      // }
    }
 
    @Override
    public void exitExpression(pascalParser.ExpressionContext ctx) {
    }
 
-   public SimpleValue getValue() {
+   public Value getValue() {
       return value;
    }
 
-   public void setValue(SimpleValue value) {
+   public void setValue(Value value) {
       this.value = value;
    }
 }

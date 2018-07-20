@@ -35,7 +35,7 @@ public class RuntimeFunctionFactory {
       if (null != runtimeFunction) {
          return runtimeFunction;
       } else {
-         throw new RuntimeException("Unknown function '" + name + "'");
+         return null;
       }
    }
 }
