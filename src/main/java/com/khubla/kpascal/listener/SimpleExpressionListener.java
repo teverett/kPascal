@@ -18,7 +18,6 @@ package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.InterpreterException;
-import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
@@ -36,29 +35,25 @@ public class SimpleExpressionListener extends AbstractkPascalListener {
          termListener.enterTerm(ctx.term());
          value = termListener.getValue();
          if (null != ctx.additiveoperator()) {
-            if (value instanceof SimpleValue) {
-               final AdditiveOperatorListener additiveOperatorListener = new AdditiveOperatorListener(getExecutionContext());
-               additiveOperatorListener.enterAdditiveoperator(ctx.additiveoperator());
-               if (null != ctx.simpleExpression()) {
-                  final SimpleExpressionListener simpleExpressionListener = new SimpleExpressionListener(getExecutionContext());
-                  simpleExpressionListener.enterSimpleExpression(ctx.simpleExpression());
-                  /*
-                   * math
-                   */
-                  try {
-                     if (additiveOperatorListener.getOperator().compareTo("+") == 0) {
-                        value = SimpleValue.add((SimpleValue) value, (SimpleValue) simpleExpressionListener.value);
-                     } else if (additiveOperatorListener.getOperator().compareTo("-") == 0) {
-                        value = SimpleValue.subtract((SimpleValue) value, (SimpleValue) simpleExpressionListener.value);
-                     } else {
-                        throw new RuntimeException("not implemented");
-                     }
-                  } catch (final InterpreterException e) {
-                     throw new RuntimeException(e);
+            final AdditiveOperatorListener additiveOperatorListener = new AdditiveOperatorListener(getExecutionContext());
+            additiveOperatorListener.enterAdditiveoperator(ctx.additiveoperator());
+            if (null != ctx.simpleExpression()) {
+               final SimpleExpressionListener simpleExpressionListener = new SimpleExpressionListener(getExecutionContext());
+               simpleExpressionListener.enterSimpleExpression(ctx.simpleExpression());
+               /*
+                * math
+                */
+               try {
+                  if (additiveOperatorListener.getOperator().compareTo("+") == 0) {
+                     value = value.add(simpleExpressionListener.value);
+                  } else if (additiveOperatorListener.getOperator().compareTo("-") == 0) {
+                     value = value.subtract(simpleExpressionListener.value);
+                  } else {
+                     throw new RuntimeException("not implemented");
                   }
+               } catch (final InterpreterException e) {
+                  throw new RuntimeException(e);
                }
-            } else {
-               throw new RuntimeException("Expected SimpleValue");
             }
          }
       }

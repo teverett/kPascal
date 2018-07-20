@@ -42,7 +42,7 @@ public class ConstantListener extends AbstractkPascalListener {
          value = unsignedNumberListener.getValue();
          if ((null != sign) && (sign.compareTo("-") == 0)) {
             try {
-               value = SimpleValue.mult(value, new SimpleValue(-1));
+               value = value.neg();
             } catch (final Exception e) {
                throw new RuntimeException(e);
             }

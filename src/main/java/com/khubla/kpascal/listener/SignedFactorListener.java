@@ -17,7 +17,6 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
@@ -36,14 +35,10 @@ public class SignedFactorListener extends AbstractkPascalListener {
          value = factorListener.getValue();
       }
       if (null != ctx.MINUS()) {
-         if (value instanceof SimpleValue) {
-            try {
-               value = SimpleValue.mult((SimpleValue) value, new SimpleValue(-1));
-            } catch (final Exception e) {
-               throw new RuntimeException(e);
-            }
-         } else {
-            throw new RuntimeException("Expected SimpleValue");
+         try {
+            value = value.neg();
+         } catch (final Exception e) {
+            throw new RuntimeException(e);
          }
       }
    }

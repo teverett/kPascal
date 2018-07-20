@@ -18,6 +18,7 @@ package com.khubla.kpascal.value;
 */
 import java.util.Hashtable;
 
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.type.RecordType;
 import com.khubla.kpascal.type.Type;
 
@@ -27,6 +28,16 @@ public class RecordValue implements Value {
 
    public RecordValue(RecordType recordType) {
       this.recordType = recordType;
+   }
+
+   @Override
+   public SimpleValue add(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
+   @Override
+   public SimpleValue div(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
    }
 
    public Hashtable<String, Value> getFieldValues() {
@@ -40,5 +51,20 @@ public class RecordValue implements Value {
    @Override
    public Type getType() {
       return recordType;
+   }
+
+   @Override
+   public SimpleValue mult(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
+   @Override
+   public SimpleValue neg() throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
+   @Override
+   public SimpleValue subtract(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
    }
 }

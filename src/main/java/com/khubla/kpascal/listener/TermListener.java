@@ -18,7 +18,6 @@ package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.InterpreterException;
-import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
@@ -36,29 +35,25 @@ public class TermListener extends AbstractkPascalListener {
          signedFactorListener.enterSignedFactor(ctx.signedFactor());
          value = signedFactorListener.getValue();
          if (null != ctx.multiplicativeoperator()) {
-            if (value instanceof SimpleValue) {
-               final MultiplicativeOperatorListener multiplicativeOperatorListener = new MultiplicativeOperatorListener(getExecutionContext());
-               multiplicativeOperatorListener.enterMultiplicativeoperator(ctx.multiplicativeoperator());
-               if (null != ctx.term()) {
-                  final TermListener termListener = new TermListener(getExecutionContext());
-                  termListener.enterTerm(ctx.term());
-                  /*
-                   * math
-                   */
-                  try {
-                     if (multiplicativeOperatorListener.getOperator().compareTo("*") == 0) {
-                        value = SimpleValue.mult((SimpleValue) value, (SimpleValue) termListener.value);
-                     } else if (multiplicativeOperatorListener.getOperator().compareTo("/") == 0) {
-                        value = SimpleValue.div((SimpleValue) value, (SimpleValue) termListener.value);
-                     } else {
-                        throw new RuntimeException("not implemented");
-                     }
-                  } catch (final InterpreterException e) {
-                     throw new RuntimeException(e);
+            final MultiplicativeOperatorListener multiplicativeOperatorListener = new MultiplicativeOperatorListener(getExecutionContext());
+            multiplicativeOperatorListener.enterMultiplicativeoperator(ctx.multiplicativeoperator());
+            if (null != ctx.term()) {
+               final TermListener termListener = new TermListener(getExecutionContext());
+               termListener.enterTerm(ctx.term());
+               /*
+                * math
+                */
+               try {
+                  if (multiplicativeOperatorListener.getOperator().compareTo("*") == 0) {
+                     value = value.mult(termListener.value);
+                  } else if (multiplicativeOperatorListener.getOperator().compareTo("/") == 0) {
+                     value = value.div(termListener.value);
+                  } else {
+                     throw new RuntimeException("not implemented");
                   }
+               } catch (final InterpreterException e) {
+                  throw new RuntimeException(e);
                }
-            } else {
-               throw new RuntimeException("Expected SimpleValue");
             }
          }
       }

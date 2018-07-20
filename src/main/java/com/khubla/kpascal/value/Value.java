@@ -1,5 +1,6 @@
 package com.khubla.kpascal.value;
 
+import com.khubla.kpascal.exception.InterpreterException;
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -19,5 +20,15 @@ package com.khubla.kpascal.value;
 import com.khubla.kpascal.type.Type;
 
 public interface Value {
+   SimpleValue add(Value v) throws InterpreterException;
+
+   SimpleValue div(Value v) throws InterpreterException;
+
    Type getType();
+
+   SimpleValue mult(Value v) throws InterpreterException;
+
+   SimpleValue neg() throws InterpreterException;
+
+   SimpleValue subtract(Value v) throws InterpreterException;
 }

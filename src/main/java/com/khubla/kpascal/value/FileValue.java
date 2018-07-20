@@ -1,5 +1,6 @@
 package com.khubla.kpascal.value;
 
+import com.khubla.kpascal.exception.InterpreterException;
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -26,6 +27,16 @@ public class FileValue implements Value {
       this.fileType = fileType;
    }
 
+   @Override
+   public SimpleValue add(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
+   @Override
+   public SimpleValue div(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
    public FileType getFileType() {
       return fileType;
    }
@@ -33,5 +44,20 @@ public class FileValue implements Value {
    @Override
    public Type getType() {
       return fileType;
+   }
+
+   @Override
+   public SimpleValue mult(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
+   @Override
+   public SimpleValue neg() throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
+   @Override
+   public SimpleValue subtract(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
    }
 }

@@ -50,7 +50,7 @@ public class ForStatementListener extends AbstractkPascalListener {
                    * increment
                    */
                   try {
-                     indexValue = SimpleValue.add(indexValue, new SimpleValue(1));
+                     indexValue = indexValue.add(new SimpleValue(1));
                   } catch (final Exception e) {
                      throw new RuntimeException(e);
                   }

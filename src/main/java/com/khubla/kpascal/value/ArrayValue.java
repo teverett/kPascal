@@ -40,6 +40,16 @@ public class ArrayValue implements Value {
       }
    }
 
+   @Override
+   public SimpleValue add(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
+   @Override
+   public SimpleValue div(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
    public ArrayType getArrayType() {
       return arrayType;
    }
@@ -57,11 +67,26 @@ public class ArrayValue implements Value {
       }
    }
 
+   @Override
+   public SimpleValue mult(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
+   @Override
+   public SimpleValue neg() throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
    public void setValue(int idx, Value value) throws InterpreterException {
       if ((idx >= lbound) && (idx <= ubound)) {
          values[idx - 1] = value;
       } else {
          throw new InterpreterException("Index '" + idx + "' out of range for array of size '" + size + "'");
       }
+   }
+
+   @Override
+   public SimpleValue subtract(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
    }
 }
