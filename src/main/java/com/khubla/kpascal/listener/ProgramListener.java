@@ -31,8 +31,19 @@ public class ProgramListener extends AbstractkPascalListener {
          programHeadingListener.enterProgramHeading(ctx.programHeading());
       }
       if (null != ctx.block()) {
+         /*
+          * new stack frame
+          */
+         getExecutionContext().pushStackframe();
+         /*
+          * run the block
+          */
          final BlockListener blockListener = new BlockListener(getExecutionContext());
          blockListener.enterBlock(ctx.block());
+         /*
+          * done
+          */
+         getExecutionContext().popStackframe();
       }
    }
 

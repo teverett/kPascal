@@ -82,8 +82,7 @@ public class ExecutionContext {
       } else {
          final FunctionOrProcedureDefinition functionOrProcedureDefinition = resolveFunctionOrProcedure(name);
          if (null != functionOrProcedureDefinition) {
-            // execute it
-            return null;
+            return functionOrProcedureDefinition.execute(this, values);
          } else {
             throw new RuntimeException("Unknown procedure '" + name + "'");
          }

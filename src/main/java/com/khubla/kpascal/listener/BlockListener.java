@@ -40,10 +40,6 @@ public class BlockListener extends AbstractkPascalListener {
    @Override
    public void enterBlock(pascalParser.BlockContext ctx) {
       /*
-       * new stack frame
-       */
-      getExecutionContext().pushStackframe();
-      /*
        * uses
        */
       if (null != ctx.usesUnitsPart()) {
@@ -108,9 +104,5 @@ public class BlockListener extends AbstractkPascalListener {
 
    @Override
    public void exitBlock(pascalParser.BlockContext ctx) {
-      /*
-       * done
-       */
-      getExecutionContext().popStackframe();
    }
 }

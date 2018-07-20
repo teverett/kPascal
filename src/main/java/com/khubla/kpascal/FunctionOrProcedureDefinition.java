@@ -18,7 +18,9 @@ package com.khubla.kpascal;
 
 import java.util.List;
 
+import com.khubla.kpascal.listener.BlockListener;
 import com.khubla.kpascal.listener.ParameterGroupListener.ParameterGroup;
+import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser.BlockContext;
 
 public class FunctionOrProcedureDefinition {
@@ -45,6 +47,32 @@ public class FunctionOrProcedureDefinition {
       this.parameterGroups = parameterGroups;
       this.resultType = resultType;
       this.blockContext = blockContext;
+   }
+
+   public Value execute(ExecutionContext executionContext, List<Value> args) {
+      /*
+       * new stack frame
+       */
+      final StackFrame stackFrame = executionContext.pushStackframe();
+      /*
+       * put the variables into scope
+       */
+      int i = 0;
+      for (final ParameterGroup parameterGroup : parameterGroups) {
+         for (final String identifier : parameterGroup.getIdentifiers()) {
+            stackFrame.declareVariable(identifier, args.get(i++));
+         }
+      }
+      /*
+       * run the block
+       */
+      final BlockListener blockListener = new BlockListener(executionContext);
+      blockListener.enterBlock(blockContext);
+      /*
+       * done
+       */
+      executionContext.popStackframe();
+      return null;
    }
 
    public BlockContext getBlockContext() {
