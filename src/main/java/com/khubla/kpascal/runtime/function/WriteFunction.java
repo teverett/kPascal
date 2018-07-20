@@ -14,45 +14,31 @@
  *    You should have received a copy of the GNU General Public License
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.khubla.kpascal.type;
+package com.khubla.kpascal.runtime.function;
 
 import java.util.List;
 
-import com.khubla.kpascal.value.ArrayValue;
+import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
 
-public class ArrayType implements Type {
-   public List<SubrangeType> indices;
-   private Type componentType;
-
-   public ArrayType(Type componentType, List<SubrangeType> indices) {
-      this.componentType = componentType;
-      this.indices = indices;
+public class WriteFunction extends AbstractRuntimeFunction {
+   public WriteFunction(ExecutionContext executionContext) {
+      super(executionContext);
    }
 
    @Override
-   public boolean builtIn() {
-      return false;
-   }
-
-   @Override
-   public Value createValue() {
-      return new ArrayValue(this);
-   }
-
-   public Type getComponentType() {
-      return componentType;
-   }
-
-   public List<SubrangeType> getIndices() {
-      return indices;
-   }
-
-   public void setComponentType(Type componentType) {
-      this.componentType = componentType;
-   }
-
-   public void setIndices(List<SubrangeType> indices) {
-      this.indices = indices;
+   public Value execute(List<Value> args) {
+      if (null != args) {
+         for (final Value value : args) {
+            if (value instanceof SimpleValue) {
+               final SimpleValue v = (SimpleValue) value;
+               getExecutionContext().getConsoleOut().print(v.asString());
+            } else {
+               throw new RuntimeException("Illegal value type");
+            }
+         }
+      }
+      return null;
    }
 }

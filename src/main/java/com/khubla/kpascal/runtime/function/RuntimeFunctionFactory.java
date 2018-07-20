@@ -16,13 +16,22 @@
  */
 package com.khubla.kpascal.runtime.function;
 
+import java.util.Hashtable;
+
 import com.khubla.kpascal.ExecutionContext;
 
 public class RuntimeFunctionFactory {
    private final ExecutionContext executionContext;
+   private final Hashtable<String, RuntimeFunction> functions = new Hashtable<String, RuntimeFunction>();
 
    public RuntimeFunctionFactory(ExecutionContext executionContext) {
       this.executionContext = executionContext;
+      addFunction("writeln", new WritelnFunction(executionContext));
+      addFunction("write", new WriteFunction(executionContext));
+   }
+
+   private void addFunction(String name, RuntimeFunction runtimeFunction) {
+      functions.put(name.toLowerCase(), runtimeFunction);
    }
 
    public ExecutionContext getExecutionContext() {
@@ -30,9 +39,11 @@ public class RuntimeFunctionFactory {
    }
 
    public RuntimeFunction getRuntimeFunction(String name) {
-      if (name.toLowerCase().compareTo("writeln") == 0) {
-         return new WritelnFunction(executionContext);
+      final RuntimeFunction runtimeFunction = functions.get(name.toLowerCase());
+      if (null != runtimeFunction) {
+         return runtimeFunction;
+      } else {
+         throw new RuntimeException("Unknown function '" + name + "'");
       }
-      throw new RuntimeException("Unknown function '" + name + "'");
    }
 }
