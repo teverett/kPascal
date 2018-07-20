@@ -16,14 +16,21 @@
 */
 package com.khubla.kpascal.listener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.value.ArrayValue;
+import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
+import com.khubla.pascal.pascalParser.ExpressionContext;
 
 public class VariableListener extends AbstractkPascalListener {
    /**
     * not sure that this is the right way.....
     */
-   private String variable;
+   private Value value;
 
    public VariableListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -31,13 +38,34 @@ public class VariableListener extends AbstractkPascalListener {
 
    @Override
    public void enterVariable(pascalParser.VariableContext ctx) {
-      /**
-       * TODO
-       */
       if (null != ctx.identifier()) {
+         final List<Value> indices = new ArrayList<Value>();
          final IdentifierListener identifierListener = new IdentifierListener(getExecutionContext());
          identifierListener.enterIdentifier(ctx.identifier(0));
-         variable = identifierListener.getIdentifier();
+         if (null != ctx.expression()) {
+            for (final ExpressionContext expressionContext : ctx.expression()) {
+               final ExpressionListener expressionListener = new ExpressionListener(getExecutionContext());
+               expressionListener.enterExpression(expressionContext);
+               indices.add(expressionListener.getValue());
+            }
+         }
+         final String variableName = identifierListener.getIdentifier();
+         value = getExecutionContext().resolveVariable(variableName);
+         if (indices.size() > 0) {
+            for (int i = 0; i < indices.size(); i++) {
+               if (value instanceof ArrayValue) {
+                  final ArrayValue av = (ArrayValue) value;
+                  final SimpleValue sv = (SimpleValue) indices.get(i);
+                  try {
+                     value = av.getValue(sv.asInteger());
+                  } catch (final Exception e) {
+                     throw new RuntimeException(e);
+                  }
+               } else {
+                  throw new RuntimeException("cannot index into non-array type");
+               }
+            }
+         }
       }
    }
 
@@ -45,11 +73,11 @@ public class VariableListener extends AbstractkPascalListener {
    public void exitVariable(pascalParser.VariableContext ctx) {
    }
 
-   public String getVariable() {
-      return variable;
+   public Value getValue() {
+      return value;
    }
 
-   public void setVariable(String variable) {
-      this.variable = variable;
+   public void setValue(Value value) {
+      this.value = value;
    }
 }

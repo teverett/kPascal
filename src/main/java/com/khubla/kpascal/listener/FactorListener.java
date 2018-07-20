@@ -39,7 +39,7 @@ public class FactorListener extends AbstractkPascalListener {
          /*
           * resolve the variable
           */
-         final Value v = getExecutionContext().resolveVariable(variableListener.getVariable());
+         final Value v = variableListener.getValue();
          if (v instanceof SimpleValue) {
             value = (SimpleValue) v;
          } else {

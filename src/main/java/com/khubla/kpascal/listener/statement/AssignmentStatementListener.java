@@ -37,14 +37,10 @@ public class AssignmentStatementListener extends AbstractkPascalListener {
          if (null != ctx.variable()) {
             final VariableListener variableListener = new VariableListener(getExecutionContext());
             variableListener.enterVariable(ctx.variable());
-            final Value value = getExecutionContext().getCurrentStackframe().getVariable(variableListener.getVariable());
-            if (null != value) {
-               if (value instanceof SimpleValue) {
-                  final SimpleValue sv = (SimpleValue) value;
-                  sv.setValue(expressionListener.getValue());
-               }
-            } else {
-               throw new RuntimeException("Undeclared variable '" + variableListener.getVariable() + "'");
+            final Value value = variableListener.getValue();
+            if (value instanceof SimpleValue) {
+               final SimpleValue sv = (SimpleValue) value;
+               sv.setValue(expressionListener.getValue());
             }
          }
       }
