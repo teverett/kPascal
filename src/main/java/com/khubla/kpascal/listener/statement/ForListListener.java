@@ -18,12 +18,13 @@ package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
 public class ForListListener extends AbstractkPascalListener {
-   private Value initialValue;
-   private Value finalValue;
+   private SimpleValue initialValue;
+   private SimpleValue finalValue;
 
    public ForListListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -34,12 +35,22 @@ public class ForListListener extends AbstractkPascalListener {
       if (null != ctx.initialValue()) {
          final InitialValueListener initialValueListener = new InitialValueListener(getExecutionContext());
          initialValueListener.enterInitialValue(ctx.initialValue());
-         initialValue = initialValueListener.getValue();
+         final Value v = initialValueListener.getValue();
+         if (v instanceof SimpleValue) {
+            initialValue = (SimpleValue) v;
+         } else {
+            throw new RuntimeException("must be simplevalue");
+         }
       }
       if (null != ctx.finalValue()) {
          final FinalValueListener finalValueListener = new FinalValueListener(getExecutionContext());
          finalValueListener.enterFinalValue(ctx.finalValue());
-         finalValue = finalValueListener.getValue();
+         final Value v = finalValueListener.getValue();
+         if (v instanceof SimpleValue) {
+            finalValue = (SimpleValue) v;
+         } else {
+            throw new RuntimeException("must be simplevalue");
+         }
       }
    }
 
@@ -47,19 +58,19 @@ public class ForListListener extends AbstractkPascalListener {
    public void exitForList(pascalParser.ForListContext ctx) {
    }
 
-   public Value getFinalValue() {
+   public SimpleValue getFinalValue() {
       return finalValue;
    }
 
-   public Value getInitialValue() {
+   public SimpleValue getInitialValue() {
       return initialValue;
    }
 
-   public void setFinalValue(Value finalValue) {
+   public void setFinalValue(SimpleValue finalValue) {
       this.finalValue = finalValue;
    }
 
-   public void setInitialValue(Value initialValue) {
+   public void setInitialValue(SimpleValue initialValue) {
       this.initialValue = initialValue;
    }
 }
