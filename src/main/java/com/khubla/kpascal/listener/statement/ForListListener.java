@@ -18,18 +18,48 @@ package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
 public class ForListListener extends AbstractkPascalListener {
+   private Value initialValue;
+   private Value finalValue;
+
    public ForListListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
    public void enterForList(pascalParser.ForListContext ctx) {
+      if (null != ctx.initialValue()) {
+         final InitialValueListener initialValueListener = new InitialValueListener(getExecutionContext());
+         initialValueListener.enterInitialValue(ctx.initialValue());
+         initialValue = initialValueListener.getValue();
+      }
+      if (null != ctx.finalValue()) {
+         final FinalValueListener finalValueListener = new FinalValueListener(getExecutionContext());
+         finalValueListener.enterFinalValue(ctx.finalValue());
+         finalValue = finalValueListener.getValue();
+      }
    }
 
    @Override
    public void exitForList(pascalParser.ForListContext ctx) {
+   }
+
+   public Value getFinalValue() {
+      return finalValue;
+   }
+
+   public Value getInitialValue() {
+      return initialValue;
+   }
+
+   public void setFinalValue(Value finalValue) {
+      this.finalValue = finalValue;
+   }
+
+   public void setInitialValue(Value initialValue) {
+      this.initialValue = initialValue;
    }
 }

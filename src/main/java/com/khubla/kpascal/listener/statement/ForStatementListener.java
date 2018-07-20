@@ -35,9 +35,15 @@ public class ForStatementListener extends AbstractkPascalListener {
          if (null != ctx.forList()) {
             final ForListListener forListListener = new ForListListener(getExecutionContext());
             forListListener.enterForList(ctx.forList());
-            if (null != ctx.statement()) {
-               final StatementListener statementListener = new StatementListener(getExecutionContext());
-               statementListener.enterStatement(ctx.statement());
+            /*
+             * set the initial value
+             */
+            getExecutionContext().getCurrentStackframe().declareVariable(identifierListener.getIdentifier(), forListListener.getInitialValue());
+            while (true) {
+               if (null != ctx.statement()) {
+                  final StatementListener statementListener = new StatementListener(getExecutionContext());
+                  statementListener.enterStatement(ctx.statement());
+               }
             }
          }
       }
