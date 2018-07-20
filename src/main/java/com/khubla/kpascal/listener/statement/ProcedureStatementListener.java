@@ -20,7 +20,6 @@ import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
 import com.khubla.kpascal.listener.IdentifierListener;
 import com.khubla.kpascal.listener.ParameterListListener;
-import com.khubla.kpascal.runtime.function.RuntimeFunction;
 import com.khubla.pascal.pascalParser;
 
 public class ProcedureStatementListener extends AbstractkPascalListener {
@@ -39,12 +38,7 @@ public class ProcedureStatementListener extends AbstractkPascalListener {
             /*
              * invoke
              */
-            final RuntimeFunction runtimeFunction = getRuntimeFunctionFactory().getRuntimeFunction(identifierListener.getIdentifier());
-            if (null != runtimeFunction) {
-               runtimeFunction.execute(parameterListListener.getValues());
-            } else {
-               throw new RuntimeException("Unknown procedure '" + identifierListener.getIdentifier() + "'");
-            }
+            getExecutionContext().invokeFunction(identifierListener.getIdentifier(), parameterListListener.getValues());
          }
       }
    }

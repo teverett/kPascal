@@ -18,24 +18,16 @@ package com.khubla.kpascal.runtime.function;
 
 import java.util.Hashtable;
 
-import com.khubla.kpascal.ExecutionContext;
-
 public class RuntimeFunctionFactory {
-   private final ExecutionContext executionContext;
    private final Hashtable<String, RuntimeFunction> functions = new Hashtable<String, RuntimeFunction>();
 
-   public RuntimeFunctionFactory(ExecutionContext executionContext) {
-      this.executionContext = executionContext;
-      addFunction("writeln", new WritelnFunction(executionContext));
-      addFunction("write", new WriteFunction(executionContext));
+   public RuntimeFunctionFactory() {
+      addFunction("writeln", new WritelnFunction());
+      addFunction("write", new WriteFunction());
    }
 
    private void addFunction(String name, RuntimeFunction runtimeFunction) {
       functions.put(name.toLowerCase(), runtimeFunction);
-   }
-
-   public ExecutionContext getExecutionContext() {
-      return executionContext;
    }
 
    public RuntimeFunction getRuntimeFunction(String name) {

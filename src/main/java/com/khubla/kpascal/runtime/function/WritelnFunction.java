@@ -23,17 +23,16 @@ import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
 
 public class WritelnFunction extends AbstractRuntimeFunction {
-   public WritelnFunction(ExecutionContext executionContext) {
-      super(executionContext);
+   public WritelnFunction() {
    }
 
    @Override
-   public Value execute(List<Value> args) {
+   public Value execute(ExecutionContext executionContext, List<Value> args) {
       if (null != args) {
          for (final Value value : args) {
             if (value instanceof SimpleValue) {
                final SimpleValue v = (SimpleValue) value;
-               getExecutionContext().getConsoleOut().println(v.asString());
+               executionContext.getConsoleOut().println(v.asString());
             } else {
                throw new RuntimeException("Illegal value type");
             }

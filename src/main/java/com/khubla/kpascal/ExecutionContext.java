@@ -18,8 +18,11 @@ package com.khubla.kpascal;
 
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.List;
 import java.util.Stack;
 
+import com.khubla.kpascal.runtime.function.RuntimeFunction;
+import com.khubla.kpascal.runtime.function.RuntimeFunctionFactory;
 import com.khubla.kpascal.type.Type;
 import com.khubla.kpascal.value.Value;
 
@@ -41,6 +44,10 @@ public class ExecutionContext {
     * stack
     */
    private final Stack<StackFrame> stack = new Stack<StackFrame>();
+   /**
+    * function factory
+    */
+   private final RuntimeFunctionFactory runtimeFunctionFactory = new RuntimeFunctionFactory();
 
    public ExecutionContext() {
       consoleOut = System.out;
@@ -68,6 +75,21 @@ public class ExecutionContext {
       return stack;
    }
 
+   public Value invokeFunction(String name, List<Value> values) {
+      final RuntimeFunction runtimeFunction = runtimeFunctionFactory.getRuntimeFunction(name);
+      if (null != runtimeFunction) {
+         return runtimeFunction.execute(this, values);
+      } else {
+         final FunctionOrProcedureDefinition functionOrProcedureDefinition = resolveFunctionOrProcedure(name);
+         if (null != functionOrProcedureDefinition) {
+            // execute it
+            return null;
+         } else {
+            throw new RuntimeException("Unknown procedure '" + name + "'");
+         }
+      }
+   }
+
    public StackFrame popStackframe() {
       return stack.pop();
    }
@@ -81,7 +103,7 @@ public class ExecutionContext {
    /**
     * walk the stack, top to bottom trying to find the type
     */
-   public FunctionOrProcedureDefinition resolveFunctionOrProcedure(String name) {
+   private FunctionOrProcedureDefinition resolveFunctionOrProcedure(String name) {
       for (int i = 0; i < stack.size(); i++) {
          final StackFrame stackFrame = stack.get(i);
          final FunctionOrProcedureDefinition functionOrProcedureDefinition = stackFrame.getFunctionOrProcedureDefinition(name);

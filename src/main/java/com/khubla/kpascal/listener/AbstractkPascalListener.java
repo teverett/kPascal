@@ -17,7 +17,6 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.runtime.function.RuntimeFunctionFactory;
 import com.khubla.pascal.pascalBaseListener;
 
 public abstract class AbstractkPascalListener extends pascalBaseListener {
@@ -25,21 +24,12 @@ public abstract class AbstractkPascalListener extends pascalBaseListener {
     * the execution context
     */
    private final ExecutionContext executionContext;
-   /**
-    * function factory
-    */
-   private final RuntimeFunctionFactory runtimeFunctionFactory;
 
    public AbstractkPascalListener(ExecutionContext executionContext) {
       this.executionContext = executionContext;
-      runtimeFunctionFactory = new RuntimeFunctionFactory(executionContext);
    }
 
    public ExecutionContext getExecutionContext() {
       return executionContext;
-   }
-
-   public RuntimeFunctionFactory getRuntimeFunctionFactory() {
-      return runtimeFunctionFactory;
    }
 }

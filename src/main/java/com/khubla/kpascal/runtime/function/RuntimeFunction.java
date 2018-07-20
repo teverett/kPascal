@@ -18,8 +18,9 @@ package com.khubla.kpascal.runtime.function;
 
 import java.util.List;
 
+import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.value.Value;
 
 public interface RuntimeFunction {
-   Value execute(List<Value> args);
+   Value execute(ExecutionContext executionContext, List<Value> args);
 }

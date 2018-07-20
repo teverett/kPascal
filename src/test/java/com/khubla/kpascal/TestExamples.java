@@ -32,6 +32,12 @@ public class TestExamples {
       return baos.toString();
    }
 
+   private void runProgramToConsole(String mumpsfile) throws Exception {
+      final InputStream inputStream = Main.class.getResourceAsStream(mumpsfile);
+      final Interpreter interpreter = new Interpreter(System.in, System.out);
+      interpreter.run(inputStream);
+   }
+
    @Test(enabled = true)
    public void testHelloWorld() {
       try {
@@ -45,6 +51,16 @@ public class TestExamples {
 
    @Test(enabled = true)
    public void testAdd() {
+      try {
+         runProgramToConsole("/add.pas");
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
+
+   @Test(enabled = true)
+   public void testAddConsole() {
       try {
          final String output = runProgram("/add.pas");
          Assert.assertTrue(output.compareTo("41\n") == 0);

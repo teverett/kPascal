@@ -16,16 +16,5 @@
  */
 package com.khubla.kpascal.runtime.function;
 
-import com.khubla.kpascal.ExecutionContext;
-
 public abstract class AbstractRuntimeFunction implements RuntimeFunction {
-   private final ExecutionContext executionContext;
-
-   public AbstractRuntimeFunction(ExecutionContext executionContext) {
-      this.executionContext = executionContext;
-   }
-
-   public ExecutionContext getExecutionContext() {
-      return executionContext;
-   }
 }
