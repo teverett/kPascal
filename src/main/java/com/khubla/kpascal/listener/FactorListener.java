@@ -17,6 +17,7 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
@@ -45,7 +46,7 @@ public class FactorListener extends AbstractkPascalListener {
          /*
           * do math to NOT the factor
           */
-         throw new RuntimeException("not implemented");
+         throw new NotImplementedException();
       } else if (null != ctx.unsignedConstant()) {
          /*
           * constant
@@ -61,7 +62,7 @@ public class FactorListener extends AbstractkPascalListener {
          expressionListener.enterExpression(ctx.expression());
          value = expressionListener.getValue();
       } else {
-         throw new RuntimeException("not implemented");
+         throw new NotImplementedException();
       }
    }
 

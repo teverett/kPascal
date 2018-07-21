@@ -17,6 +17,7 @@
 package com.khubla.kpascal.value;
 
 import com.khubla.kpascal.exception.InterpreterException;
+import com.khubla.kpascal.exception.InvalidOperationException;
 import com.khubla.kpascal.type.CharacterType;
 import com.khubla.kpascal.type.Type;
 
@@ -34,22 +35,22 @@ public class CharacterValue implements AtomicValue {
 
    @Override
    public Value add(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      throw new InvalidOperationException();
    }
 
    @Override
    public Value and(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      throw new InvalidOperationException();
    }
 
    @Override
    public Value div(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      throw new InvalidOperationException();
    }
 
    @Override
    public BooleanValue eq(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      throw new InvalidOperationException();
    }
 
    @Override
@@ -68,47 +69,47 @@ public class CharacterValue implements AtomicValue {
 
    @Override
    public BooleanValue gt(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      throw new InvalidOperationException();
    }
 
    @Override
    public BooleanValue gte(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      throw new InvalidOperationException();
    }
 
    @Override
    public BooleanValue lt(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      throw new InvalidOperationException();
    }
 
    @Override
    public BooleanValue lte(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      throw new InvalidOperationException();
    }
 
    @Override
    public Value mod(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      throw new InvalidOperationException();
    }
 
    @Override
    public Value mult(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      throw new InvalidOperationException();
    }
 
    @Override
    public Value neg() throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      throw new InvalidOperationException();
    }
 
    @Override
    public BooleanValue neq(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      throw new InvalidOperationException();
    }
 
    @Override
    public Value or(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      throw new InvalidOperationException();
    }
 
    @Override
@@ -116,7 +117,7 @@ public class CharacterValue implements AtomicValue {
       if (v instanceof CharacterValue) {
          value = ((CharacterValue) v).getValue();
       } else {
-         throw new InterpreterException("Invalid operation");
+         throw new InvalidOperationException();
       }
    }
 
@@ -131,6 +132,6 @@ public class CharacterValue implements AtomicValue {
 
    @Override
    public Value subtract(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      throw new InvalidOperationException();
    }
 }

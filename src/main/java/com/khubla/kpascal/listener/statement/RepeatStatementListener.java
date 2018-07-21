@@ -17,6 +17,7 @@
 package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
 import com.khubla.pascal.pascalParser;
 
@@ -27,7 +28,7 @@ public class RepeatStatementListener extends AbstractkPascalListener {
 
    @Override
    public void enterRepeatStatement(pascalParser.RepeatStatementContext ctx) {
-      throw new RuntimeException("not implemented");
+      throw new NotImplementedException();
    }
 
    @Override

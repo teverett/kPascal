@@ -17,6 +17,7 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.pascal.pascalParser;
 
 public class GotoStatementListener extends AbstractkPascalListener {
@@ -26,7 +27,7 @@ public class GotoStatementListener extends AbstractkPascalListener {
 
    @Override
    public void enterGotoStatement(pascalParser.GotoStatementContext ctx) {
-      throw new RuntimeException("not implemented");
+      throw new NotImplementedException();
    }
 
    @Override

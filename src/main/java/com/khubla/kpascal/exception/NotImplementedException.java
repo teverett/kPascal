@@ -16,18 +16,21 @@
 */
 package com.khubla.kpascal.exception;
 
-public class InterpreterException extends Exception {
+public class NotImplementedException extends RuntimeException {
    private static final long serialVersionUID = 1L;
 
-   public InterpreterException(Exception e) {
+   public NotImplementedException() {
+   }
+
+   public NotImplementedException(Exception e) {
       super(e);
    }
 
-   public InterpreterException(String e) {
+   public NotImplementedException(String e) {
       super(e);
    }
 
-   public InterpreterException(String s, Exception e) {
+   public NotImplementedException(String s, Exception e) {
       super(s, e);
    }
 }

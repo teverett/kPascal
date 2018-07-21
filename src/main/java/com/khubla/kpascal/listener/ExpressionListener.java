@@ -18,6 +18,7 @@ package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.InterpreterException;
+import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
@@ -61,9 +62,9 @@ public class ExpressionListener extends AbstractkPascalListener {
                   } else if (relationalOperatorListener.getOperator().compareTo(">=") == 0) {
                      value = value.gte(expressionListener.getValue());
                   } else if (relationalOperatorListener.getOperator().compareTo("in") == 0) {
-                     throw new RuntimeException("not implemented");
+                     throw new NotImplementedException();
                   } else {
-                     throw new RuntimeException("not implemented");
+                     throw new NotImplementedException();
                   }
                } catch (final InterpreterException e) {
                   throw new RuntimeException(e);

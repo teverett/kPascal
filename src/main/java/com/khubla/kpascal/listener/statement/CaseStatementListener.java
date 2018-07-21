@@ -17,6 +17,7 @@
 package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
 import com.khubla.pascal.pascalParser;
 
@@ -27,7 +28,7 @@ public class CaseStatementListener extends AbstractkPascalListener {
 
    @Override
    public void enterCaseStatement(pascalParser.CaseStatementContext ctx) {
-      throw new RuntimeException("not implemented");
+      throw new NotImplementedException();
    }
 
    @Override

@@ -18,6 +18,7 @@ package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.InterpreterException;
+import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
@@ -53,7 +54,7 @@ public class TermListener extends AbstractkPascalListener {
                   } else if (multiplicativeOperatorListener.getOperator().compareTo("and") == 0) {
                      value = value.and(termListener.value);
                   } else {
-                     throw new RuntimeException("not implemented");
+                     throw new NotImplementedException();
                   }
                } catch (final InterpreterException e) {
                   throw new RuntimeException(e);

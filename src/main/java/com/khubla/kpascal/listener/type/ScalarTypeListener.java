@@ -17,6 +17,7 @@
 package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
@@ -30,7 +31,7 @@ public class ScalarTypeListener extends AbstractkPascalListener {
 
    @Override
    public void enterScalarType(pascalParser.ScalarTypeContext ctx) {
-      throw new RuntimeException("Not Implemented");
+      throw new NotImplementedException();
    }
 
    @Override

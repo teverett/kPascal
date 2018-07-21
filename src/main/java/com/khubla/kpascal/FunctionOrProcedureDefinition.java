@@ -18,6 +18,7 @@ package com.khubla.kpascal;
 
 import java.util.List;
 
+import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.listener.BlockListener;
 import com.khubla.kpascal.listener.ParameterGroupListener.ParameterGroup;
 import com.khubla.kpascal.listener.ParameterGroupListener.ParameterType;
@@ -67,14 +68,14 @@ public class FunctionOrProcedureDefinition {
                 */
                stackFrame.declareVariable(identifier, args.get(i++));
             } else if (parameterGroup.getParameterType() == ParameterType.function) {
-               throw new RuntimeException("not implemented");
+               throw new NotImplementedException();
             } else if (parameterGroup.getParameterType() == ParameterType.procedure) {
-               throw new RuntimeException("not implemented");
+               throw new NotImplementedException();
             } else {
                /*
                 * put new variable into scope (deep copy)
                 */
-               throw new RuntimeException("not implemented");
+               throw new NotImplementedException();
             }
          }
       }

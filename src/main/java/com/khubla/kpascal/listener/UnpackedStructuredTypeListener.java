@@ -17,6 +17,7 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.listener.type.ArrayTypeListener;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
@@ -35,11 +36,11 @@ public class UnpackedStructuredTypeListener extends AbstractkPascalListener {
          arrayTypeListener.enterArrayType(ctx.arrayType());
          type = arrayTypeListener.getType();
       } else if (null != ctx.recordType()) {
-         throw new RuntimeException("not implemented");
+         throw new NotImplementedException();
       } else if (null != ctx.setType()) {
-         throw new RuntimeException("not implemented");
+         throw new NotImplementedException();
       } else if (null != ctx.fileType()) {
-         throw new RuntimeException("not implemented");
+         throw new NotImplementedException();
       }
    }
 

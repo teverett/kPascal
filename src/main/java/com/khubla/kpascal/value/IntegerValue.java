@@ -17,6 +17,7 @@
 package com.khubla.kpascal.value;
 
 import com.khubla.kpascal.exception.InterpreterException;
+import com.khubla.kpascal.exception.InvalidOperationException;
 import com.khubla.kpascal.type.IntegerType;
 import com.khubla.kpascal.type.Type;
 
@@ -41,13 +42,13 @@ public class IntegerValue implements AtomicValue {
       } else if (v instanceof RealValue) {
          return new RealValue(value + ((RealValue) v).getValue());
       } else {
-         throw new InterpreterException("Invalid operation");
+         throw new InvalidOperationException();
       }
    }
 
    @Override
    public Value and(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      throw new InvalidOperationException();
    }
 
    public void decrement() {
@@ -61,7 +62,7 @@ public class IntegerValue implements AtomicValue {
       } else if (v instanceof RealValue) {
          return new RealValue(value / ((RealValue) v).getValue());
       } else {
-         throw new InterpreterException("Invalid operation");
+         throw new InvalidOperationException();
       }
    }
 
@@ -72,7 +73,7 @@ public class IntegerValue implements AtomicValue {
       } else if (v instanceof RealValue) {
          return new BooleanValue(value == ((RealValue) v).getValue());
       } else {
-         throw new InterpreterException("Invalid operation");
+         throw new InvalidOperationException();
       }
    }
 
@@ -97,7 +98,7 @@ public class IntegerValue implements AtomicValue {
       } else if (v instanceof RealValue) {
          return new BooleanValue(value > ((RealValue) v).getValue());
       } else {
-         throw new InterpreterException("Invalid operation");
+         throw new InvalidOperationException();
       }
    }
 
@@ -108,7 +109,7 @@ public class IntegerValue implements AtomicValue {
       } else if (v instanceof RealValue) {
          return new BooleanValue(value >= ((RealValue) v).getValue());
       } else {
-         throw new InterpreterException("Invalid operation");
+         throw new InvalidOperationException();
       }
    }
 
@@ -123,7 +124,7 @@ public class IntegerValue implements AtomicValue {
       } else if (v instanceof RealValue) {
          return new BooleanValue(value < ((RealValue) v).getValue());
       } else {
-         throw new InterpreterException("Invalid operation");
+         throw new InvalidOperationException();
       }
    }
 
@@ -134,13 +135,13 @@ public class IntegerValue implements AtomicValue {
       } else if (v instanceof RealValue) {
          return new BooleanValue(value <= ((RealValue) v).getValue());
       } else {
-         throw new InterpreterException("Invalid operation");
+         throw new InvalidOperationException();
       }
    }
 
    @Override
    public Value mod(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      throw new InvalidOperationException();
    }
 
    @Override
@@ -150,7 +151,7 @@ public class IntegerValue implements AtomicValue {
       } else if (v instanceof RealValue) {
          return new RealValue(value * ((RealValue) v).getValue());
       } else {
-         throw new InterpreterException("Invalid operation");
+         throw new InvalidOperationException();
       }
    }
 
@@ -166,13 +167,13 @@ public class IntegerValue implements AtomicValue {
       } else if (v instanceof RealValue) {
          return new BooleanValue(value != ((RealValue) v).getValue());
       } else {
-         throw new InterpreterException("Invalid operation");
+         throw new InvalidOperationException();
       }
    }
 
    @Override
    public Value or(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      throw new InvalidOperationException();
    }
 
    @Override
@@ -180,7 +181,7 @@ public class IntegerValue implements AtomicValue {
       if (v instanceof IntegerValue) {
          value = ((IntegerValue) v).getValue();
       } else {
-         throw new InterpreterException("Invalid operation");
+         throw new InvalidOperationException();
       }
    }
 
@@ -200,7 +201,7 @@ public class IntegerValue implements AtomicValue {
       } else if (v instanceof RealValue) {
          return new RealValue(value - ((RealValue) v).getValue());
       } else {
-         throw new InterpreterException("Invalid operation");
+         throw new InvalidOperationException();
       }
    }
 }

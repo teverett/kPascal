@@ -18,6 +18,7 @@ package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.TypeDefinition;
+import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.pascal.pascalParser;
 
 public class TypeDefinitionListener extends AbstractkPascalListener {
@@ -36,9 +37,9 @@ public class TypeDefinitionListener extends AbstractkPascalListener {
             typeListener.enterType(ctx.type());
             typeDefinition = new TypeDefinition(identifierListener.getIdentifier(), typeListener.getType());
          } else if (null != ctx.functionType()) {
-            throw new RuntimeException("not implemented");
+            throw new NotImplementedException();
          } else if (null != ctx.procedureType()) {
-            throw new RuntimeException("not implemented");
+            throw new NotImplementedException();
          }
          getExecutionContext().getCurrentStackframe().declareType(typeDefinition);
       }

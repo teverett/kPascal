@@ -16,18 +16,21 @@
 */
 package com.khubla.kpascal.exception;
 
-public class InterpreterException extends Exception {
+public class InvalidOperationException extends RuntimeException {
    private static final long serialVersionUID = 1L;
 
-   public InterpreterException(Exception e) {
+   public InvalidOperationException() {
+   }
+
+   public InvalidOperationException(Exception e) {
       super(e);
    }
 
-   public InterpreterException(String e) {
+   public InvalidOperationException(String e) {
       super(e);
    }
 
-   public InterpreterException(String s, Exception e) {
+   public InvalidOperationException(String s, Exception e) {
       super(s, e);
    }
 }
