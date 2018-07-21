@@ -72,6 +72,11 @@ public class SetValue implements Value {
    }
 
    @Override
+   public BooleanValue in(Value v) {
+      throw new InvalidOperationException();
+   }
+
+   @Override
    public BooleanValue lt(Value v) {
       throw new InvalidOperationException();
    }

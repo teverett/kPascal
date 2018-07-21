@@ -81,6 +81,11 @@ public class BooleanValue implements AtomicValue {
       throw new InvalidOperationException();
    }
 
+   @Override
+   public BooleanValue in(Value v) {
+      throw new InvalidOperationException();
+   }
+
    public boolean isValue() {
       return value;
    }

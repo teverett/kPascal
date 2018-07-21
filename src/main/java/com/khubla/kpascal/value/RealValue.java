@@ -112,6 +112,11 @@ public class RealValue implements AtomicValue {
    }
 
    @Override
+   public BooleanValue in(Value v) {
+      throw new InvalidOperationException();
+   }
+
+   @Override
    public BooleanValue lt(Value v) {
       if (v instanceof IntegerValue) {
          return new BooleanValue(value < ((IntegerValue) v).getValue());

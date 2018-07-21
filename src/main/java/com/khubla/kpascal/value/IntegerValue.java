@@ -117,6 +117,11 @@ public class IntegerValue implements AtomicValue {
       throw new InvalidOperationException();
    }
 
+   @Override
+   public BooleanValue in(Value v) {
+      throw new InvalidOperationException();
+   }
+
    public void increment() {
       value = value + 1;
    }
