@@ -17,9 +17,9 @@
 package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.listener.IdentifierListListener;
+import com.khubla.kpascal.type.ScalarType;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
@@ -35,8 +35,8 @@ public class ScalarTypeListener extends AbstractPascalListener {
       if (null != ctx.identifierList()) {
          final IdentifierListListener identifierListListener = new IdentifierListListener(getExecutionContext());
          identifierListListener.enterIdentifierList(ctx.identifierList());
+         type = new ScalarType(identifierListListener.getIdentifiers());
       }
-      throw new NotImplementedException();
    }
 
    @Override

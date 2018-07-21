@@ -17,7 +17,6 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
@@ -33,7 +32,11 @@ public class SetListener extends AbstractPascalListener {
       if (null != ctx.elementList()) {
          final ElementListListener elementListListener = new ElementListListener(getExecutionContext());
          elementListListener.enterElementList(ctx.elementList());
-         throw new NotImplementedException();
+         /*
+          * make a type
+          */
+         // SetType setType = new SetType(elementListListener.getElementList());
+         value = null;
       }
    }
 

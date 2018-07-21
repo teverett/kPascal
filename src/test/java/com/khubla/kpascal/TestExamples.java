@@ -113,4 +113,24 @@ public class TestExamples {
          Assert.fail();
       }
    }
+
+   @Test(enabled = true)
+   public void testSet() {
+      try {
+         runProgramToConsole("/set.pas");
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
+
+   @Test(enabled = true)
+   public void testSet2() {
+      try {
+         runProgramToConsole("/set2.pas");
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
 }

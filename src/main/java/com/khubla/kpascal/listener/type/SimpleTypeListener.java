@@ -31,18 +31,30 @@ public class SimpleTypeListener extends AbstractPascalListener {
    @Override
    public void enterSimpleType(pascalParser.SimpleTypeContext ctx) {
       if (null != ctx.scalarType()) {
+         /*
+          * scalar
+          */
          final ScalarTypeListener scalarTypeListener = new ScalarTypeListener(getExecutionContext());
          scalarTypeListener.enterScalarType(ctx.scalarType());
          type = scalarTypeListener.getType();
       } else if (null != ctx.stringtype()) {
+         /*
+          * string
+          */
          final StringTypeListener stringTypeListener = new StringTypeListener(getExecutionContext());
          stringTypeListener.enterStringtype(ctx.stringtype());
          type = stringTypeListener.getType();
       } else if (null != ctx.subrangeType()) {
+         /*
+          * subrange
+          */
          final SubrangeTypeListener subrangeTypeListener = new SubrangeTypeListener(getExecutionContext());
          subrangeTypeListener.enterSubrangeType(ctx.subrangeType());
          type = subrangeTypeListener.getType();
       } else if (null != ctx.typeIdentifier()) {
+         /*
+          * type identifier
+          */
          final TypeIndentifierListener typeIndentifierListener = new TypeIndentifierListener(getExecutionContext());
          typeIndentifierListener.enterTypeIdentifier(ctx.typeIdentifier());
          type = typeIndentifierListener.getType();

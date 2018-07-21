@@ -18,21 +18,14 @@ package com.khubla.kpascal.type;
 
 import java.util.List;
 
-import com.khubla.kpascal.value.SetValue;
+import com.khubla.kpascal.value.ScalarValue;
 import com.khubla.kpascal.value.Value;
 
-public class SetType implements Type {
-   private final Type setType;
-   private final List<Value> values;
+public class ScalarType implements Type {
+   private final List<String> values;
 
-   public SetType(List<Value> values) {
-      setType = null;
+   public ScalarType(List<String> values) {
       this.values = values;
-   }
-
-   public SetType(Type setType) {
-      this.setType = setType;
-      values = null;
    }
 
    @Override
@@ -42,14 +35,10 @@ public class SetType implements Type {
 
    @Override
    public Value createValue() {
-      return new SetValue(this);
+      return new ScalarValue(this);
    }
 
-   public Type getSetType() {
-      return setType;
-   }
-
-   public List<Value> getValues() {
+   public List<String> getValues() {
       return values;
    }
 }
