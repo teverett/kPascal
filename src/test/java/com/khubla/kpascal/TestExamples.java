@@ -114,7 +114,7 @@ public class TestExamples {
       }
    }
 
-   @Test(enabled = true)
+   @Test(enabled = false)
    public void testSet() {
       try {
          runProgramToConsole("/set.pas");
@@ -124,10 +124,22 @@ public class TestExamples {
       }
    }
 
-   @Test(enabled = true)
+   @Test(enabled = false)
    public void testSet2() {
       try {
          runProgramToConsole("/set2.pas");
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
+
+   @Test(enabled = true)
+   public void testQuadratic() {
+      try {
+         final String output = runProgram("/quadratic.pas", "13\n13\n14\n");
+         Assert.assertTrue(output
+               .compareTo("'A = ''B = ''C = ''x1 = ('\n" + "-84.5\n" + "','\n" + "153.68067542797954\n" + "')'\n" + "'x2 = ('\n" + "-84.5\n" + "','\n" + "-153.68067542797954\n" + "')'\n" + "") == 0);
       } catch (final Exception e) {
          e.printStackTrace();
          Assert.fail();
