@@ -29,7 +29,19 @@ public class StringListener extends AbstractPascalListener {
 
    @Override
    public void enterString(pascalParser.StringContext ctx) {
-      value = new StringValue(ctx.getText());
+      String s = ctx.getText();
+      /*
+       * trim quotes
+       */
+      s = s.substring(1, s.length() - 1);
+      /*
+       * replace quote escapes
+       */
+      s = s.replaceAll("''", "'");
+      /*
+       * return
+       */
+      value = new StringValue(s);
    }
 
    @Override
