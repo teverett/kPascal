@@ -18,7 +18,6 @@ package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.InterpreterException;
-import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
@@ -49,12 +48,14 @@ public class TermListener extends AbstractPascalListener {
                      value = value.mult(termListener.value);
                   } else if (multiplicativeOperatorListener.getOperator().compareTo("/") == 0) {
                      value = value.div(termListener.value);
+                  } else if (multiplicativeOperatorListener.getOperator().compareTo("div") == 0) {
+                     value = value.idiv(termListener.value);
                   } else if (multiplicativeOperatorListener.getOperator().compareTo("mod") == 0) {
                      value = value.mod(termListener.value);
                   } else if (multiplicativeOperatorListener.getOperator().compareTo("and") == 0) {
                      value = value.and(termListener.value);
                   } else {
-                     throw new NotImplementedException();
+                     throw new InterpreterException("Unexpected " + multiplicativeOperatorListener.getOperator());
                   }
                } catch (final InterpreterException e) {
                   throw new RuntimeException(e);

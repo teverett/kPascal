@@ -33,6 +33,8 @@ public interface Value {
 
    BooleanValue gte(Value v);
 
+   Value idiv(Value v);
+
    BooleanValue lt(Value v);
 
    BooleanValue lte(Value v);

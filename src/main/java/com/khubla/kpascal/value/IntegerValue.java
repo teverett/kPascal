@@ -112,6 +112,11 @@ public class IntegerValue implements AtomicValue {
       }
    }
 
+   @Override
+   public Value idiv(Value v) {
+      throw new InvalidOperationException();
+   }
+
    public void increment() {
       value = value + 1;
    }

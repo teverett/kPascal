@@ -77,6 +77,11 @@ public class CharacterValue implements AtomicValue {
    }
 
    @Override
+   public Value idiv(Value v) {
+      throw new InvalidOperationException();
+   }
+
+   @Override
    public BooleanValue lt(Value v) {
       throw new InvalidOperationException();
    }
