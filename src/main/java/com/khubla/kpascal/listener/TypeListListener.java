@@ -24,7 +24,7 @@ import com.khubla.kpascal.type.SubrangeType;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.IndexTypeContext;
 
-public class TypeListListener extends AbstractkPascalListener {
+public class TypeListListener extends AbstractPascalListener {
    private List<SubrangeType> typelist = new ArrayList<SubrangeType>();
 
    public TypeListListener(ExecutionContext executionContext) {

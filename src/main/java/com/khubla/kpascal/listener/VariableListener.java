@@ -26,7 +26,7 @@ import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.ExpressionContext;
 
-public class VariableListener extends AbstractkPascalListener {
+public class VariableListener extends AbstractPascalListener {
    private Value value;
 
    public VariableListener(ExecutionContext executionContext) {

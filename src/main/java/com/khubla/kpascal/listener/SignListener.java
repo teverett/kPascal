@@ -19,7 +19,7 @@ package com.khubla.kpascal.listener;
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.pascal.pascalParser;
 
-public class SignListener extends AbstractkPascalListener {
+public class SignListener extends AbstractPascalListener {
    private String sign;
 
    public SignListener(ExecutionContext executionContext) {

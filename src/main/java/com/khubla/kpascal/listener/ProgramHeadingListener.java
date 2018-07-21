@@ -21,7 +21,7 @@ import java.util.List;
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.pascal.pascalParser;
 
-public class ProgramHeadingListener extends AbstractkPascalListener {
+public class ProgramHeadingListener extends AbstractPascalListener {
    private String programName = null;
    private List<String> identifiers = null;
 

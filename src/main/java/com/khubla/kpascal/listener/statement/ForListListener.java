@@ -17,12 +17,12 @@
 package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.value.IntegerValue;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
-public class ForListListener extends AbstractkPascalListener {
+public class ForListListener extends AbstractPascalListener {
    private IntegerValue initialValue;
    private IntegerValue finalValue;
 

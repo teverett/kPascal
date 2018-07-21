@@ -17,14 +17,14 @@
 package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.listener.ConstantListener;
 import com.khubla.kpascal.type.SubrangeType;
 import com.khubla.kpascal.type.Type;
 import com.khubla.kpascal.value.IntegerValue;
 import com.khubla.pascal.pascalParser;
 
-public class SubrangeTypeListener extends AbstractkPascalListener {
+public class SubrangeTypeListener extends AbstractPascalListener {
    private Type type = null;
 
    public SubrangeTypeListener(ExecutionContext executionContext) {

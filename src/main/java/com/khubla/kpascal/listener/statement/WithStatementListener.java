@@ -18,10 +18,10 @@ package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.NotImplementedException;
-import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.pascal.pascalParser;
 
-public class WithStatementListener extends AbstractkPascalListener {
+public class WithStatementListener extends AbstractPascalListener {
    public WithStatementListener(ExecutionContext executionContext) {
       super(executionContext);
    }

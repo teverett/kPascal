@@ -22,7 +22,7 @@ import com.khubla.kpascal.type.SubrangeType;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
-public class IndexTypeListener extends AbstractkPascalListener {
+public class IndexTypeListener extends AbstractPascalListener {
    private SubrangeType type;
 
    public IndexTypeListener(ExecutionContext executionContext) {

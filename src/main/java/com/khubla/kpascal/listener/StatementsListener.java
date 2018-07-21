@@ -20,7 +20,7 @@ import com.khubla.kpascal.ExecutionContext;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.StatementContext;
 
-public class StatementsListener extends AbstractkPascalListener {
+public class StatementsListener extends AbstractPascalListener {
    public StatementsListener(ExecutionContext executionContext) {
       super(executionContext);
    }

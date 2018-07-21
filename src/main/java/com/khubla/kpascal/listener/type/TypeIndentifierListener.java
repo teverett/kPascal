@@ -17,7 +17,7 @@
 package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.listener.IdentifierListener;
 import com.khubla.kpascal.type.BooleanType;
 import com.khubla.kpascal.type.CharacterType;
@@ -27,7 +27,7 @@ import com.khubla.kpascal.type.StringType;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
-public class TypeIndentifierListener extends AbstractkPascalListener {
+public class TypeIndentifierListener extends AbstractPascalListener {
    private Type type = null;
 
    public TypeIndentifierListener(ExecutionContext executionContext) {

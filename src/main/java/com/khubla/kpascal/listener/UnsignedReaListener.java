@@ -20,7 +20,7 @@ import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.value.RealValue;
 import com.khubla.pascal.pascalParser;
 
-public class UnsignedReaListener extends AbstractkPascalListener {
+public class UnsignedReaListener extends AbstractPascalListener {
    private RealValue value;
 
    public UnsignedReaListener(ExecutionContext executionContext) {

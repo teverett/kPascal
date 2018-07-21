@@ -20,7 +20,7 @@ import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
-public class SignedFactorListener extends AbstractkPascalListener {
+public class SignedFactorListener extends AbstractPascalListener {
    private Value value;
 
    public SignedFactorListener(ExecutionContext executionContext) {

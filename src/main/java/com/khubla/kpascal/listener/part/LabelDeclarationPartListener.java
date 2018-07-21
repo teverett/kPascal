@@ -20,13 +20,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.listener.LabelListener;
 import com.khubla.kpascal.value.IntegerValue;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.LabelContext;
 
-public class LabelDeclarationPartListener extends AbstractkPascalListener {
+public class LabelDeclarationPartListener extends AbstractPascalListener {
    private final List<IntegerValue> values = new ArrayList<IntegerValue>();
 
    public LabelDeclarationPartListener(ExecutionContext executionContext) {

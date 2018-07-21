@@ -21,7 +21,7 @@ import java.util.List;
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.pascal.pascalParser;
 
-public class ParameterGroupListener extends AbstractkPascalListener {
+public class ParameterGroupListener extends AbstractPascalListener {
    public class ParameterGroup {
       private final String typename;
       private final List<String> identifiers;

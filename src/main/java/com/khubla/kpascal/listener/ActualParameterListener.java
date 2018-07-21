@@ -20,7 +20,7 @@ import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
-public class ActualParameterListener extends AbstractkPascalListener {
+public class ActualParameterListener extends AbstractPascalListener {
    private Value value;
 
    public ActualParameterListener(ExecutionContext executionContext) {

@@ -24,7 +24,7 @@ import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.ActualParameterContext;
 
-public class ParameterListListener extends AbstractkPascalListener {
+public class ParameterListListener extends AbstractPascalListener {
    private List<Value> values = new ArrayList<Value>();
 
    public ParameterListListener(ExecutionContext executionContext) {

@@ -22,7 +22,7 @@ import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
-public class TermListener extends AbstractkPascalListener {
+public class TermListener extends AbstractPascalListener {
    private Value value;
 
    public TermListener(ExecutionContext executionContext) {

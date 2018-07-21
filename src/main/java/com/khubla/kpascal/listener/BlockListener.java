@@ -32,7 +32,7 @@ import com.khubla.pascal.pascalParser.TypeDefinitionPartContext;
 import com.khubla.pascal.pascalParser.UsesUnitsPartContext;
 import com.khubla.pascal.pascalParser.VariableDeclarationPartContext;
 
-public class BlockListener extends AbstractkPascalListener {
+public class BlockListener extends AbstractPascalListener {
    public BlockListener(ExecutionContext executionContext) {
       super(executionContext);
    }

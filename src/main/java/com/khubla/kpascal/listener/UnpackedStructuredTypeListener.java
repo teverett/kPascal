@@ -22,7 +22,7 @@ import com.khubla.kpascal.listener.type.ArrayTypeListener;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
-public class UnpackedStructuredTypeListener extends AbstractkPascalListener {
+public class UnpackedStructuredTypeListener extends AbstractPascalListener {
    private Type type = null;
 
    public UnpackedStructuredTypeListener(ExecutionContext executionContext) {

@@ -17,11 +17,11 @@
 package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
-public class SimpleTypeListener extends AbstractkPascalListener {
+public class SimpleTypeListener extends AbstractPascalListener {
    private Type type = null;
 
    public SimpleTypeListener(ExecutionContext executionContext) {

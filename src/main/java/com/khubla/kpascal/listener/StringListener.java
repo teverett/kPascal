@@ -20,7 +20,7 @@ import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.value.StringValue;
 import com.khubla.pascal.pascalParser;
 
-public class StringListener extends AbstractkPascalListener {
+public class StringListener extends AbstractPascalListener {
    private StringValue value;
 
    public StringListener(ExecutionContext executionContext) {

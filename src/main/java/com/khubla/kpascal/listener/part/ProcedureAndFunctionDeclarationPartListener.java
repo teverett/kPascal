@@ -17,11 +17,11 @@
 package com.khubla.kpascal.listener.part;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.listener.ProcedureOrFunctionDeclarationListener;
 import com.khubla.pascal.pascalParser;
 
-public class ProcedureAndFunctionDeclarationPartListener extends AbstractkPascalListener {
+public class ProcedureAndFunctionDeclarationPartListener extends AbstractPascalListener {
    public ProcedureAndFunctionDeclarationPartListener(ExecutionContext executionContext) {
       super(executionContext);
    }

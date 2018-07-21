@@ -17,12 +17,12 @@
 package com.khubla.kpascal.listener.part;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.listener.VariableDeclarationListener;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.VariableDeclarationContext;
 
-public class VariableDeclarationPartListener extends AbstractkPascalListener {
+public class VariableDeclarationPartListener extends AbstractPascalListener {
    public VariableDeclarationPartListener(ExecutionContext executionContext) {
       super(executionContext);
    }

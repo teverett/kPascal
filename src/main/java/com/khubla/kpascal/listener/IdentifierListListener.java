@@ -22,7 +22,7 @@ import com.khubla.kpascal.ExecutionContext;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.IdentifierContext;
 
-public class IdentifierListListener extends AbstractkPascalListener {
+public class IdentifierListListener extends AbstractPascalListener {
    private final ArrayList<String> identifiers = new ArrayList<String>();
 
    public IdentifierListListener(ExecutionContext executionContext) {

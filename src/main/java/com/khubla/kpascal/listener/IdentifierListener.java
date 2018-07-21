@@ -19,7 +19,7 @@ package com.khubla.kpascal.listener;
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.pascal.pascalParser;
 
-public class IdentifierListener extends AbstractkPascalListener {
+public class IdentifierListener extends AbstractPascalListener {
    private String identifier;
 
    public IdentifierListener(ExecutionContext executionContext) {

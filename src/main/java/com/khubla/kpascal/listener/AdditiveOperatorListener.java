@@ -19,7 +19,7 @@ package com.khubla.kpascal.listener;
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.pascal.pascalParser;
 
-public class AdditiveOperatorListener extends AbstractkPascalListener {
+public class AdditiveOperatorListener extends AbstractPascalListener {
    private String operator;
 
    public AdditiveOperatorListener(ExecutionContext executionContext) {

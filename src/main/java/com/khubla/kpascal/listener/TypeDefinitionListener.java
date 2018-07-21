@@ -21,7 +21,7 @@ import com.khubla.kpascal.TypeDefinition;
 import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.pascal.pascalParser;
 
-public class TypeDefinitionListener extends AbstractkPascalListener {
+public class TypeDefinitionListener extends AbstractPascalListener {
    public TypeDefinitionListener(ExecutionContext executionContext) {
       super(executionContext);
    }

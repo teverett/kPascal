@@ -20,7 +20,7 @@ import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
-public class ComponentTypeListener extends AbstractkPascalListener {
+public class ComponentTypeListener extends AbstractPascalListener {
    private Type type;
 
    public ComponentTypeListener(ExecutionContext executionContext) {

@@ -19,11 +19,11 @@ package com.khubla.kpascal.listener.part;
 import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.listener.IdentifierListListener;
 import com.khubla.pascal.pascalParser;
 
-public class UsesUnitsPartListener extends AbstractkPascalListener {
+public class UsesUnitsPartListener extends AbstractPascalListener {
    private List<String> units;
 
    public UsesUnitsPartListener(ExecutionContext executionContext) {

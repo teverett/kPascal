@@ -20,7 +20,7 @@ import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.value.IntegerValue;
 import com.khubla.pascal.pascalParser;
 
-public class ConstantChrListener extends AbstractkPascalListener {
+public class ConstantChrListener extends AbstractPascalListener {
    private IntegerValue value;
 
    public ConstantChrListener(ExecutionContext executionContext) {

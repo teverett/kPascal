@@ -20,7 +20,7 @@ import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.pascal.pascalParser;
 
-public class GotoStatementListener extends AbstractkPascalListener {
+public class GotoStatementListener extends AbstractPascalListener {
    public GotoStatementListener(ExecutionContext executionContext) {
       super(executionContext);
    }

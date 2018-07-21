@@ -18,11 +18,11 @@ package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.NotImplementedException;
-import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.type.StringType;
 import com.khubla.pascal.pascalParser;
 
-public class StringTypeListener extends AbstractkPascalListener {
+public class StringTypeListener extends AbstractPascalListener {
    private StringType type = null;
 
    public StringTypeListener(ExecutionContext executionContext) {

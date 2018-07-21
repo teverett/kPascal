@@ -24,7 +24,7 @@ import com.khubla.kpascal.listener.ParameterGroupListener.ParameterGroup;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.FormalParameterSectionContext;
 
-public class FormalParameterListListener extends AbstractkPascalListener {
+public class FormalParameterListListener extends AbstractPascalListener {
    private final List<ParameterGroup> parameterGroups = new ArrayList<ParameterGroup>();
 
    public FormalParameterListListener(ExecutionContext executionContext) {

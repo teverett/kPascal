@@ -21,7 +21,7 @@ import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
-public class ConstantListener extends AbstractkPascalListener {
+public class ConstantListener extends AbstractPascalListener {
    private Value value;
 
    public ConstantListener(ExecutionContext executionContext) {

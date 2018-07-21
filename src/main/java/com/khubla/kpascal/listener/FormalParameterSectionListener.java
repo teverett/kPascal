@@ -21,7 +21,7 @@ import com.khubla.kpascal.listener.ParameterGroupListener.ParameterGroup;
 import com.khubla.kpascal.listener.ParameterGroupListener.ParameterType;
 import com.khubla.pascal.pascalParser;
 
-public class FormalParameterSectionListener extends AbstractkPascalListener {
+public class FormalParameterSectionListener extends AbstractPascalListener {
    private ParameterGroup parameterGroup;
 
    public FormalParameterSectionListener(ExecutionContext executionContext) {

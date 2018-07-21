@@ -23,7 +23,7 @@ import com.khubla.kpascal.FunctionOrProcedureDefinition;
 import com.khubla.kpascal.listener.ParameterGroupListener.ParameterGroup;
 import com.khubla.pascal.pascalParser;
 
-public class ProcedureDeclarationListener extends AbstractkPascalListener {
+public class ProcedureDeclarationListener extends AbstractPascalListener {
    public ProcedureDeclarationListener(ExecutionContext executionContext) {
       super(executionContext);
    }

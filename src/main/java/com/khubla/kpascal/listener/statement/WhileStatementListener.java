@@ -17,7 +17,7 @@
 package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.listener.ExpressionListener;
 import com.khubla.kpascal.listener.StatementListener;
 import com.khubla.kpascal.value.BooleanValue;
@@ -25,7 +25,7 @@ import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.ExpressionContext;
 
-public class WhileStatementListener extends AbstractkPascalListener {
+public class WhileStatementListener extends AbstractPascalListener {
    public WhileStatementListener(ExecutionContext executionContext) {
       super(executionContext);
    }
