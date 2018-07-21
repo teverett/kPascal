@@ -18,7 +18,6 @@ package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.InterpreterException;
-import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
@@ -52,7 +51,7 @@ public class SimpleExpressionListener extends AbstractPascalListener {
                   } else if (additiveOperatorListener.getOperator().compareTo("or") == 0) {
                      value = value.or(simpleExpressionListener.value);
                   } else {
-                     throw new NotImplementedException();
+                     throw new InterpreterException("Unexpected " + additiveOperatorListener.getOperator());
                   }
                } catch (final InterpreterException e) {
                   throw new RuntimeException(e);
