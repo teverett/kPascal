@@ -25,6 +25,7 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.TokenStream;
 
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.listener.ProgramListener;
 import com.khubla.pascal.pascalLexer;
 import com.khubla.pascal.pascalParser;
@@ -68,7 +69,7 @@ public class Interpreter {
             programContext.enterRule(programListener);
          }
       } catch (final Exception e) {
-         throw new Exception("Exception in run", e);
+         throw new InterpreterException("Exception in run", e);
       }
    }
 }

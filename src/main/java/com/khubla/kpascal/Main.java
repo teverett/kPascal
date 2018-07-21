@@ -16,19 +16,53 @@
  */
 package com.khubla.kpascal;
 
-import java.io.InputStream;
+import java.io.FileInputStream;
+
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.HelpFormatter;
+import org.apache.commons.cli.Option;
+import org.apache.commons.cli.Options;
 
 /**
  * @author Tom Everett
  */
 class Main {
+   /**
+    * file option
+    */
+   private static final String FILE_OPTION = "file";
+
    public static void main(String[] args) {
       System.out.println("khubla.com kPascal");
+      /*
+       * options
+       */
+      final Options options = new Options();
+      Option oo = Option.builder().argName(FILE_OPTION).longOpt(FILE_OPTION).type(String.class).hasArg().required(true).desc("Pascal file").build();
+      options.addOption(oo);
+      /*
+       * parse
+       */
+      final CommandLineParser parser = new DefaultParser();
+      CommandLine cmd = null;
       try {
-         final InputStream inputStream = Main.class.getResourceAsStream("/hellworld.pas");
-         final Interpreter interpreter = new Interpreter();
-         interpreter.run(inputStream);
+         cmd = parser.parse(options, args);
       } catch (final Exception e) {
+         e.printStackTrace();
+         final HelpFormatter formatter = new HelpFormatter();
+         formatter.printHelp("posix", options);
+         System.exit(0);
+      }
+      try {
+         final String filename = cmd.getOptionValue(FILE_OPTION);
+         if (null != filename) {
+            FileInputStream fis = new FileInputStream(filename);
+            final Interpreter interpreter = new Interpreter();
+            interpreter.run(fis);
+         }
+      } catch (Exception e) {
          e.printStackTrace();
       }
    }
