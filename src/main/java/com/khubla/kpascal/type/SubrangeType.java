@@ -16,14 +16,14 @@
 */
 package com.khubla.kpascal.type;
 
-import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.IntegerValue;
 import com.khubla.kpascal.value.Value;
 
 public class SubrangeType implements Type {
-   public SimpleValue lowerRange;
-   public SimpleValue upperRange;
+   public IntegerValue lowerRange;
+   public IntegerValue upperRange;
 
-   public SubrangeType(SimpleValue lowerRange, SimpleValue upperRange) {
+   public SubrangeType(IntegerValue lowerRange, IntegerValue upperRange) {
       this.upperRange = upperRange;
       this.lowerRange = lowerRange;
    }

@@ -18,11 +18,11 @@ package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
-import com.khubla.kpascal.type.SimpleType;
+import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
 public class ScalarTypeListener extends AbstractkPascalListener {
-   private SimpleType type = null;
+   private Type type = null;
 
    public ScalarTypeListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -37,11 +37,11 @@ public class ScalarTypeListener extends AbstractkPascalListener {
    public void exitScalarType(pascalParser.ScalarTypeContext ctx) {
    }
 
-   public SimpleType getType() {
+   public Type getType() {
       return type;
    }
 
-   public void setType(SimpleType type) {
+   public void setType(Type type) {
       this.type = type;
    }
 }

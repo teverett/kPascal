@@ -18,11 +18,11 @@ package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
-import com.khubla.kpascal.type.SimpleType;
+import com.khubla.kpascal.type.StringType;
 import com.khubla.pascal.pascalParser;
 
 public class StringTypeListener extends AbstractkPascalListener {
-   private SimpleType type = null;
+   private StringType type = null;
 
    public StringTypeListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -37,11 +37,11 @@ public class StringTypeListener extends AbstractkPascalListener {
    public void exitStringtype(pascalParser.StringtypeContext ctx) {
    }
 
-   public SimpleType getType() {
+   public StringType getType() {
       return type;
    }
 
-   public void setType(SimpleType type) {
+   public void setType(StringType type) {
       this.type = type;
    }
 }

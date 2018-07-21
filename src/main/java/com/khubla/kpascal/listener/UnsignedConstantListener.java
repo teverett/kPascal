@@ -17,11 +17,11 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
 public class UnsignedConstantListener extends AbstractkPascalListener {
-   private SimpleValue value;
+   private Value value;
 
    public UnsignedConstantListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -50,11 +50,11 @@ public class UnsignedConstantListener extends AbstractkPascalListener {
    public void exitUnsignedConstant(pascalParser.UnsignedConstantContext ctx) {
    }
 
-   public SimpleValue getValue() {
+   public Value getValue() {
       return value;
    }
 
-   public void setValue(SimpleValue value) {
+   public void setValue(Value value) {
       this.value = value;
    }
 }

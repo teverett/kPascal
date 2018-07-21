@@ -20,7 +20,7 @@ import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
 import com.khubla.kpascal.listener.IdentifierListener;
 import com.khubla.kpascal.listener.StatementListener;
-import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.IntegerValue;
 import com.khubla.pascal.pascalParser;
 
 public class ForStatementListener extends AbstractkPascalListener {
@@ -39,7 +39,7 @@ public class ForStatementListener extends AbstractkPascalListener {
             /*
              * set the initial value
              */
-            SimpleValue indexValue = new SimpleValue(forListListener.getInitialValue().asInteger());
+            IntegerValue indexValue = new IntegerValue(forListListener.getInitialValue().getValue());
             getExecutionContext().getCurrentStackframe().declareVariable(identifierListener.getIdentifier(), indexValue);
             boolean loop = true;
             while (loop) {
@@ -50,14 +50,14 @@ public class ForStatementListener extends AbstractkPascalListener {
                    * increment
                    */
                   try {
-                     indexValue = indexValue.add(new SimpleValue(1));
+                     indexValue = (IntegerValue) indexValue.add(new IntegerValue(1));
                   } catch (final Exception e) {
                      throw new RuntimeException(e);
                   }
                   /*
                    * check
                    */
-                  loop = (indexValue.asInteger() < forListListener.getFinalValue().asInteger());
+                  loop = (indexValue.getValue() < forListListener.getFinalValue().getValue());
                }
             }
          }

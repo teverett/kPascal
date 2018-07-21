@@ -28,12 +28,12 @@ public class FileValue implements Value {
    }
 
    @Override
-   public SimpleValue add(Value v) throws InterpreterException {
+   public Value add(Value v) throws InterpreterException {
       throw new InterpreterException("Invalid operation");
    }
 
    @Override
-   public SimpleValue div(Value v) throws InterpreterException {
+   public Value div(Value v) throws InterpreterException {
       throw new InterpreterException("Invalid operation");
    }
 
@@ -47,17 +47,22 @@ public class FileValue implements Value {
    }
 
    @Override
-   public SimpleValue mult(Value v) throws InterpreterException {
+   public Value mult(Value v) throws InterpreterException {
       throw new InterpreterException("Invalid operation");
    }
 
    @Override
-   public SimpleValue neg() throws InterpreterException {
+   public Value neg() throws InterpreterException {
       throw new InterpreterException("Invalid operation");
    }
 
    @Override
-   public SimpleValue subtract(Value v) throws InterpreterException {
+   public void set(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
+   @Override
+   public Value subtract(Value v) throws InterpreterException {
       throw new InterpreterException("Invalid operation");
    }
 }

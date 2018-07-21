@@ -22,12 +22,12 @@ import java.util.List;
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
 import com.khubla.kpascal.listener.LabelListener;
-import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.IntegerValue;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.LabelContext;
 
 public class LabelDeclarationPartListener extends AbstractkPascalListener {
-   private final List<SimpleValue> values = new ArrayList<SimpleValue>();
+   private final List<IntegerValue> values = new ArrayList<IntegerValue>();
 
    public LabelDeclarationPartListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -48,7 +48,7 @@ public class LabelDeclarationPartListener extends AbstractkPascalListener {
    public void exitLabelDeclarationPart(pascalParser.LabelDeclarationPartContext ctx) {
    }
 
-   public List<SimpleValue> getValues() {
+   public List<IntegerValue> getValues() {
       return values;
    }
 }

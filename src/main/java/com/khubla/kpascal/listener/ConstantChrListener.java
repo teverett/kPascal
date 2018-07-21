@@ -17,11 +17,11 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.IntegerValue;
 import com.khubla.pascal.pascalParser;
 
 public class ConstantChrListener extends AbstractkPascalListener {
-   private SimpleValue value;
+   private IntegerValue value;
 
    public ConstantChrListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -40,11 +40,11 @@ public class ConstantChrListener extends AbstractkPascalListener {
    public void exitConstantChr(pascalParser.ConstantChrContext ctx) {
    }
 
-   public SimpleValue getValue() {
+   public IntegerValue getValue() {
       return value;
    }
 
-   public void setValue(SimpleValue value) {
+   public void setValue(IntegerValue value) {
       this.value = value;
    }
 }

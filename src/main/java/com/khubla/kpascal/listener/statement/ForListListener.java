@@ -18,13 +18,13 @@ package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
-import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.IntegerValue;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
 public class ForListListener extends AbstractkPascalListener {
-   private SimpleValue initialValue;
-   private SimpleValue finalValue;
+   private IntegerValue initialValue;
+   private IntegerValue finalValue;
 
    public ForListListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -36,20 +36,20 @@ public class ForListListener extends AbstractkPascalListener {
          final InitialValueListener initialValueListener = new InitialValueListener(getExecutionContext());
          initialValueListener.enterInitialValue(ctx.initialValue());
          final Value v = initialValueListener.getValue();
-         if (v instanceof SimpleValue) {
-            initialValue = (SimpleValue) v;
+         if (v instanceof IntegerValue) {
+            initialValue = (IntegerValue) v;
          } else {
-            throw new RuntimeException("must be simplevalue");
+            throw new RuntimeException("must be IntegerValue");
          }
       }
       if (null != ctx.finalValue()) {
          final FinalValueListener finalValueListener = new FinalValueListener(getExecutionContext());
          finalValueListener.enterFinalValue(ctx.finalValue());
          final Value v = finalValueListener.getValue();
-         if (v instanceof SimpleValue) {
-            finalValue = (SimpleValue) v;
+         if (v instanceof IntegerValue) {
+            finalValue = (IntegerValue) v;
          } else {
-            throw new RuntimeException("must be simplevalue");
+            throw new RuntimeException("must be IntegerValue");
          }
       }
    }
@@ -58,19 +58,19 @@ public class ForListListener extends AbstractkPascalListener {
    public void exitForList(pascalParser.ForListContext ctx) {
    }
 
-   public SimpleValue getFinalValue() {
+   public IntegerValue getFinalValue() {
       return finalValue;
    }
 
-   public SimpleValue getInitialValue() {
+   public IntegerValue getInitialValue() {
       return initialValue;
    }
 
-   public void setFinalValue(SimpleValue finalValue) {
+   public void setFinalValue(IntegerValue finalValue) {
       this.finalValue = finalValue;
    }
 
-   public void setInitialValue(SimpleValue initialValue) {
+   public void setInitialValue(IntegerValue initialValue) {
       this.initialValue = initialValue;
    }
 }

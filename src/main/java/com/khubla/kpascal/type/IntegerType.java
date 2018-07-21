@@ -14,33 +14,19 @@
  *    You should have received a copy of the GNU General Public License
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.khubla.kpascal.listener;
+package com.khubla.kpascal.type;
 
-import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.value.IntegerValue;
-import com.khubla.pascal.pascalParser;
+import com.khubla.kpascal.value.Value;
 
-public class UnsignedIntegerListener extends AbstractkPascalListener {
-   private IntegerValue value;
-
-   public UnsignedIntegerListener(ExecutionContext executionContext) {
-      super(executionContext);
+public class IntegerType implements Type {
+   @Override
+   public boolean builtIn() {
+      return true;
    }
 
    @Override
-   public void enterUnsignedInteger(pascalParser.UnsignedIntegerContext ctx) {
-      value = new IntegerValue(Integer.parseInt(ctx.getText()));
-   }
-
-   @Override
-   public void exitUnsignedInteger(pascalParser.UnsignedIntegerContext ctx) {
-   }
-
-   public IntegerValue getValue() {
-      return value;
-   }
-
-   public void setValue(IntegerValue value) {
-      this.value = value;
+   public Value createValue() {
+      return new IntegerValue();
    }
 }

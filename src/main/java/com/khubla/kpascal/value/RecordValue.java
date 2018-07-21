@@ -1,5 +1,3 @@
-package com.khubla.kpascal.value;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -16,6 +14,8 @@ package com.khubla.kpascal.value;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+package com.khubla.kpascal.value;
+
 import java.util.Hashtable;
 
 import com.khubla.kpascal.exception.InterpreterException;
@@ -31,12 +31,12 @@ public class RecordValue implements Value {
    }
 
    @Override
-   public SimpleValue add(Value v) throws InterpreterException {
+   public Value add(Value v) throws InterpreterException {
       throw new InterpreterException("Invalid operation");
    }
 
    @Override
-   public SimpleValue div(Value v) throws InterpreterException {
+   public Value div(Value v) throws InterpreterException {
       throw new InterpreterException("Invalid operation");
    }
 
@@ -54,17 +54,22 @@ public class RecordValue implements Value {
    }
 
    @Override
-   public SimpleValue mult(Value v) throws InterpreterException {
+   public Value mult(Value v) throws InterpreterException {
       throw new InterpreterException("Invalid operation");
    }
 
    @Override
-   public SimpleValue neg() throws InterpreterException {
+   public Value neg() throws InterpreterException {
       throw new InterpreterException("Invalid operation");
    }
 
    @Override
-   public SimpleValue subtract(Value v) throws InterpreterException {
+   public void set(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
+   @Override
+   public Value subtract(Value v) throws InterpreterException {
       throw new InterpreterException("Invalid operation");
    }
 }

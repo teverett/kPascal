@@ -17,11 +17,11 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.StringValue;
 import com.khubla.pascal.pascalParser;
 
 public class StringListener extends AbstractkPascalListener {
-   private SimpleValue value;
+   private StringValue value;
 
    public StringListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -29,18 +29,18 @@ public class StringListener extends AbstractkPascalListener {
 
    @Override
    public void enterString(pascalParser.StringContext ctx) {
-      value = new SimpleValue(ctx.getText());
+      value = new StringValue(ctx.getText());
    }
 
    @Override
    public void exitString(pascalParser.StringContext ctx) {
    }
 
-   public SimpleValue getValue() {
+   public StringValue getValue() {
       return value;
    }
 
-   public void setValue(SimpleValue value) {
+   public void setValue(StringValue value) {
       this.value = value;
    }
 }

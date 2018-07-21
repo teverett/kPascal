@@ -20,7 +20,6 @@ import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
 import com.khubla.kpascal.listener.ExpressionListener;
 import com.khubla.kpascal.listener.VariableListener;
-import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
@@ -38,9 +37,10 @@ public class AssignmentStatementListener extends AbstractkPascalListener {
             final VariableListener variableListener = new VariableListener(getExecutionContext());
             variableListener.enterVariable(ctx.variable());
             final Value value = variableListener.getValue();
-            if (value instanceof SimpleValue) {
-               final SimpleValue sv = (SimpleValue) value;
-               sv.setValue((SimpleValue) expressionListener.getValue());
+            try {
+               value.set(expressionListener.getValue());
+            } catch (final Exception e) {
+               throw new RuntimeException(e);
             }
          }
       }

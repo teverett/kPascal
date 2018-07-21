@@ -1,5 +1,3 @@
-package com.khubla.kpascal.type;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -16,35 +14,8 @@ package com.khubla.kpascal.type;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-import com.khubla.kpascal.value.SimpleValue;
-import com.khubla.kpascal.value.Value;
+package com.khubla.kpascal.value;
 
-public class SimpleType implements Type {
-   public enum Type {
-      real, string, integer, bool, character;
-   }
-
-   private Type type;
-
-   public SimpleType(Type type) {
-      this.type = type;
-   }
-
-   @Override
-   public boolean builtIn() {
-      return true;
-   }
-
-   @Override
-   public Value createValue() {
-      return new SimpleValue(this);
-   }
-
-   public Type getType() {
-      return type;
-   }
-
-   public void setType(Type type) {
-      this.type = type;
-   }
+public interface AtomicValue extends Value {
+   String getAsString();
 }

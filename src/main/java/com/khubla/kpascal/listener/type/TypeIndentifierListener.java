@@ -19,7 +19,11 @@ package com.khubla.kpascal.listener.type;
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
 import com.khubla.kpascal.listener.IdentifierListener;
-import com.khubla.kpascal.type.SimpleType;
+import com.khubla.kpascal.type.BooleanType;
+import com.khubla.kpascal.type.CharacterType;
+import com.khubla.kpascal.type.IntegerType;
+import com.khubla.kpascal.type.RealType;
+import com.khubla.kpascal.type.StringType;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
@@ -39,15 +43,15 @@ public class TypeIndentifierListener extends AbstractkPascalListener {
       } else {
          final String typename = ctx.getText();
          if (typename.toLowerCase().compareTo("char") == 0) {
-            type = new SimpleType(SimpleType.Type.character);
+            type = new CharacterType();
          } else if (typename.toLowerCase().compareTo("bool") == 0) {
-            type = new SimpleType(SimpleType.Type.bool);
+            type = new BooleanType();
          } else if (typename.toLowerCase().compareTo("integer") == 0) {
-            type = new SimpleType(SimpleType.Type.integer);
+            type = new IntegerType();
          } else if (typename.toLowerCase().compareTo("real") == 0) {
-            type = new SimpleType(SimpleType.Type.real);
+            type = new RealType();
          } else if (typename.toLowerCase().compareTo("string") == 0) {
-            type = new SimpleType(SimpleType.Type.string);
+            type = new StringType();
          }
       }
    }

@@ -17,15 +17,19 @@
 package com.khubla.kpascal.value;
 
 import com.khubla.kpascal.exception.InterpreterException;
-import com.khubla.kpascal.type.PointerType;
+import com.khubla.kpascal.type.StringType;
 import com.khubla.kpascal.type.Type;
 
-public class PointerValue implements Value {
-   private final PointerType pointerType;
-   private Value targetValue;
+public class StringValue implements AtomicValue {
+   private final StringType type = new StringType();
+   private String value;
 
-   public PointerValue(PointerType pointerType) {
-      this.pointerType = pointerType;
+   public StringValue() {
+      value = "";
+   }
+
+   public StringValue(String value) {
+      this.value = value;
    }
 
    @Override
@@ -38,17 +42,18 @@ public class PointerValue implements Value {
       throw new InterpreterException("Invalid operation");
    }
 
-   public PointerType getPointerType() {
-      return pointerType;
-   }
-
-   public Value getTargetValue() {
-      return targetValue;
+   @Override
+   public String getAsString() {
+      return value;
    }
 
    @Override
    public Type getType() {
-      return pointerType;
+      return type;
+   }
+
+   public String getValue() {
+      return value;
    }
 
    @Override
@@ -63,11 +68,15 @@ public class PointerValue implements Value {
 
    @Override
    public void set(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      if (v instanceof AtomicValue) {
+         value = ((AtomicValue) v).getAsString();
+      } else {
+         throw new InterpreterException("Invalid operation");
+      }
    }
 
-   public void setTargetValue(Value targetValue) {
-      this.targetValue = targetValue;
+   public void setValue(String value) {
+      this.value = value;
    }
 
    @Override

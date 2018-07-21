@@ -21,16 +21,14 @@ import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.value.ArrayValue;
-import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.IntegerValue;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.ExpressionContext;
 
 public class VariableListener extends AbstractkPascalListener {
-   /**
-    * not sure that this is the right way.....
-    */
    private Value value;
+   private String variableName;
 
    public VariableListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -49,15 +47,15 @@ public class VariableListener extends AbstractkPascalListener {
                indices.add(expressionListener.getValue());
             }
          }
-         final String variableName = identifierListener.getIdentifier();
+         variableName = identifierListener.getIdentifier();
          value = getExecutionContext().resolveVariable(variableName);
          if (indices.size() > 0) {
             for (int i = 0; i < indices.size(); i++) {
                if (value instanceof ArrayValue) {
                   final ArrayValue av = (ArrayValue) value;
-                  final SimpleValue sv = (SimpleValue) indices.get(i);
+                  final IntegerValue sv = (IntegerValue) indices.get(i);
                   try {
-                     value = av.getValue(sv.asInteger());
+                     value = av.getValue(sv.getValue());
                   } catch (final Exception e) {
                      throw new RuntimeException(e);
                   }
@@ -77,7 +75,15 @@ public class VariableListener extends AbstractkPascalListener {
       return value;
    }
 
+   public String getVariableName() {
+      return variableName;
+   }
+
    public void setValue(Value value) {
       this.value = value;
+   }
+
+   public void setVariableName(String variableName) {
+      this.variableName = variableName;
    }
 }

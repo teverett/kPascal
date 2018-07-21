@@ -17,11 +17,11 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.RealValue;
 import com.khubla.pascal.pascalParser;
 
 public class UnsignedReaListener extends AbstractkPascalListener {
-   private SimpleValue value;
+   private RealValue value;
 
    public UnsignedReaListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -29,18 +29,18 @@ public class UnsignedReaListener extends AbstractkPascalListener {
 
    @Override
    public void enterUnsignedReal(pascalParser.UnsignedRealContext ctx) {
-      value = new SimpleValue(Double.parseDouble(ctx.getText()));
+      value = new RealValue(Double.parseDouble(ctx.getText()));
    }
 
    @Override
    public void exitUnsignedReal(pascalParser.UnsignedRealContext ctx) {
    }
 
-   public SimpleValue getValue() {
+   public RealValue getValue() {
       return value;
    }
 
-   public void setValue(SimpleValue value) {
+   public void setValue(RealValue value) {
       this.value = value;
    }
 }

@@ -17,12 +17,11 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.value.SimpleValue;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
 public class ConstantListener extends AbstractkPascalListener {
-   private SimpleValue value;
+   private Value value;
 
    public ConstantListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -58,12 +57,7 @@ public class ConstantListener extends AbstractkPascalListener {
       } else if (null != ctx.identifier()) {
          final IdentifierListener identifierListener = new IdentifierListener(getExecutionContext());
          identifierListener.enterIdentifier(ctx.identifier());
-         final Value v = getExecutionContext().resolveVariable(identifierListener.getIdentifier());
-         if (v instanceof SimpleValue) {
-            value = (SimpleValue) v;
-         } else {
-            throw new RuntimeException("Invalid type for '" + identifierListener.getIdentifier() + "'");
-         }
+         value = getExecutionContext().resolveVariable(identifierListener.getIdentifier());
       } else {
          throw new RuntimeException("not implemented");
       }
@@ -73,11 +67,11 @@ public class ConstantListener extends AbstractkPascalListener {
    public void exitConstant(pascalParser.ConstantContext ctx) {
    }
 
-   public SimpleValue getValue() {
+   public Value getValue() {
       return value;
    }
 
-   public void setValue(SimpleValue value) {
+   public void setValue(Value value) {
       this.value = value;
    }
 }

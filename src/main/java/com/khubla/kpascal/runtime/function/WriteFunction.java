@@ -19,7 +19,7 @@ package com.khubla.kpascal.runtime.function;
 import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.value.SimpleValue;
+import com.khubla.kpascal.value.AtomicValue;
 import com.khubla.kpascal.value.Value;
 
 public class WriteFunction extends AbstractRuntimeFunction {
@@ -27,9 +27,9 @@ public class WriteFunction extends AbstractRuntimeFunction {
    public Value execute(ExecutionContext executionContext, List<Value> args) {
       if (null != args) {
          for (final Value value : args) {
-            if (value instanceof SimpleValue) {
-               final SimpleValue v = (SimpleValue) value;
-               executionContext.getConsoleOut().print(v.asString());
+            if (value instanceof AtomicValue) {
+               final AtomicValue v = (AtomicValue) value;
+               executionContext.getConsoleOut().print(v.getAsString());
             } else {
                throw new RuntimeException("Illegal value type");
             }

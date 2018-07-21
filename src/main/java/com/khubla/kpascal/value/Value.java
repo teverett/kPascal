@@ -1,6 +1,3 @@
-package com.khubla.kpascal.value;
-
-import com.khubla.kpascal.exception.InterpreterException;
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -17,18 +14,23 @@ import com.khubla.kpascal.exception.InterpreterException;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+package com.khubla.kpascal.value;
+
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.type.Type;
 
 public interface Value {
-   SimpleValue add(Value v) throws InterpreterException;
+   Value add(Value v) throws InterpreterException;
 
-   SimpleValue div(Value v) throws InterpreterException;
+   Value div(Value v) throws InterpreterException;
 
    Type getType();
 
-   SimpleValue mult(Value v) throws InterpreterException;
+   Value mult(Value v) throws InterpreterException;
 
-   SimpleValue neg() throws InterpreterException;
+   Value neg() throws InterpreterException;
 
-   SimpleValue subtract(Value v) throws InterpreterException;
+   void set(Value v) throws InterpreterException;
+
+   Value subtract(Value v) throws InterpreterException;
 }
