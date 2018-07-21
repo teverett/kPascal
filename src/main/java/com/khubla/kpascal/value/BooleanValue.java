@@ -39,7 +39,11 @@ public class BooleanValue implements AtomicValue {
 
    @Override
    public Value and(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      if (v instanceof BooleanValue) {
+         return new BooleanValue(value && ((BooleanValue) v).isValue());
+      } else {
+         throw new InterpreterException("Invalid operation");
+      }
    }
 
    @Override
@@ -108,7 +112,11 @@ public class BooleanValue implements AtomicValue {
 
    @Override
    public Value or(Value v) throws InterpreterException {
-      throw new InterpreterException("Invalid operation");
+      if (v instanceof BooleanValue) {
+         return new BooleanValue(value | ((BooleanValue) v).isValue());
+      } else {
+         throw new InterpreterException("Invalid operation");
+      }
    }
 
    @Override
