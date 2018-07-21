@@ -65,7 +65,7 @@ public class StackFrame {
    }
 
    public FunctionOrProcedureDefinition getFunctionOrProcedureDefinition(String name) {
-      return functionsAndProcedures.get(name);
+      return functionsAndProcedures.get(name.toLowerCase());
    }
 
    public TypeDefinition getType(String name) {

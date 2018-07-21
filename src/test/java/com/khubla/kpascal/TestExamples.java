@@ -82,4 +82,24 @@ public class TestExamples {
          Assert.fail();
       }
    }
+
+   @Test(enabled = false)
+   public void testNesting() {
+      try {
+         runProgramToConsole("/nesting.pas");
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
+
+   @Test(enabled = true)
+   public void testPassFail() {
+      try {
+         runProgramToConsole("/passfail.pas");
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
 }
