@@ -19,6 +19,7 @@ package com.khubla.kpascal.value;
 import java.util.Hashtable;
 
 import com.khubla.kpascal.exception.InvalidOperationException;
+import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.type.RecordType;
 import com.khubla.kpascal.type.Type;
 
@@ -38,6 +39,11 @@ public class RecordValue implements Value {
    @Override
    public Value and(Value v) {
       throw new InvalidOperationException();
+   }
+
+   @Override
+   public Value deepCopy() {
+      throw new NotImplementedException();
    }
 
    @Override

@@ -17,6 +17,7 @@
 package com.khubla.kpascal.value;
 
 import com.khubla.kpascal.exception.InvalidOperationException;
+import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.type.SetType;
 import com.khubla.kpascal.type.Type;
 
@@ -35,6 +36,11 @@ public class SetValue implements Value {
    @Override
    public Value and(Value v) {
       throw new InvalidOperationException();
+   }
+
+   @Override
+   public Value deepCopy() {
+      throw new NotImplementedException();
    }
 
    @Override

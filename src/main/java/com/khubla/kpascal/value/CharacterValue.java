@@ -43,6 +43,11 @@ public class CharacterValue implements AtomicValue {
    }
 
    @Override
+   public Value deepCopy() {
+      return new CharacterValue(value);
+   }
+
+   @Override
    public Value div(Value v) {
       throw new InvalidOperationException();
    }

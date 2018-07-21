@@ -49,6 +49,11 @@ public class RealValue implements AtomicValue {
    }
 
    @Override
+   public Value deepCopy() {
+      return new RealValue(value);
+   }
+
+   @Override
    public Value div(Value v) {
       if (v instanceof IntegerValue) {
          return new RealValue(value / ((IntegerValue) v).getValue());

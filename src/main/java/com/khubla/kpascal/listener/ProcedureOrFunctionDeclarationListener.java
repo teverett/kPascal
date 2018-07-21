@@ -30,7 +30,7 @@ public class ProcedureOrFunctionDeclarationListener extends AbstractPascalListen
          final ProcedureDeclarationListener procedureDeclarationListener = new ProcedureDeclarationListener(getExecutionContext());
          procedureDeclarationListener.enterProcedureDeclaration(ctx.procedureDeclaration());
       } else if (null != ctx.functionDeclaration()) {
-         FunctionDeclarationListener functionDeclarationListener = new FunctionDeclarationListener(this.getExecutionContext());
+         final FunctionDeclarationListener functionDeclarationListener = new FunctionDeclarationListener(getExecutionContext());
          functionDeclarationListener.enterFunctionDeclaration(ctx.functionDeclaration());
       }
    }

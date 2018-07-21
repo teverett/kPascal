@@ -55,6 +55,11 @@ public class IntegerValue implements AtomicValue {
    }
 
    @Override
+   public Value deepCopy() {
+      return new IntegerValue(value);
+   }
+
+   @Override
    public Value div(Value v) {
       if (v instanceof IntegerValue) {
          return new RealValue(value / ((IntegerValue) v).getValue());

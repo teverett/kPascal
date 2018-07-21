@@ -22,6 +22,7 @@ import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.listener.BlockListener;
 import com.khubla.kpascal.listener.ParameterGroupListener.Parameter;
 import com.khubla.kpascal.listener.ParameterGroupListener.ParameterType;
+import com.khubla.kpascal.type.Type;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser.BlockContext;
 
@@ -74,8 +75,15 @@ public class FunctionOrProcedureDefinition {
             /*
              * put new variable into scope (deep copy)
              */
-            throw new NotImplementedException();
+            stackFrame.declareVariable(parameter.getName(), args.get(i++).deepCopy());
          }
+      }
+      /*
+       * if there is a return type, then its a function, and we need to put a variable into scope, with the name of the function and type of the function return type
+       */
+      if (isFunction()) {
+         final Type t = executionContext.resolveType(resultType);
+         stackFrame.declareVariable(getName(), t.createValue());
       }
       /*
        * run the block
@@ -83,10 +91,20 @@ public class FunctionOrProcedureDefinition {
       final BlockListener blockListener = new BlockListener(executionContext);
       blockListener.enterBlock(blockContext);
       /*
+       * get the return value
+       */
+      Value ret = null;
+      if (isFunction()) {
+         ret = executionContext.resolveVariable(getName());
+      }
+      /*
        * done
        */
       executionContext.popStackframe();
-      return null;
+      /*
+       * return result of function invocation or null if it's a procedure
+       */
+      return ret;
    }
 
    public BlockContext getBlockContext() {
@@ -103,5 +121,9 @@ public class FunctionOrProcedureDefinition {
 
    public String getResultType() {
       return resultType;
+   }
+
+   public boolean isFunction() {
+      return null != getResultType();
    }
 }

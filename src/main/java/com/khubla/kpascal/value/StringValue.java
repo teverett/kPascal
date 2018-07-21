@@ -43,6 +43,11 @@ public class StringValue implements AtomicValue {
    }
 
    @Override
+   public Value deepCopy() {
+      return new StringValue(value);
+   }
+
+   @Override
    public Value div(Value v) {
       throw new InvalidOperationException();
    }

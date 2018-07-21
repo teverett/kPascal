@@ -1,6 +1,7 @@
 package com.khubla.kpascal.value;
 
 import com.khubla.kpascal.exception.InvalidOperationException;
+import com.khubla.kpascal.exception.NotImplementedException;
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -35,6 +36,11 @@ public class FileValue implements Value {
    @Override
    public Value and(Value v) {
       throw new InvalidOperationException();
+   }
+
+   @Override
+   public Value deepCopy() {
+      throw new NotImplementedException();
    }
 
    @Override

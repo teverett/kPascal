@@ -75,7 +75,8 @@ public class TestExamples {
    @Test(enabled = true)
    public void testFact() {
       try {
-         runProgramToConsole("/fact.pas");
+         final String output = runProgram("/fact.pas", "");
+         Assert.assertTrue(output.compareTo("'Factorial of '\n" + "5\n" + "' is '\n" + "120\n") == 0);
       } catch (final Exception e) {
          e.printStackTrace();
          Assert.fail();

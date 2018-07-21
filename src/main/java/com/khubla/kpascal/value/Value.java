@@ -23,6 +23,8 @@ public interface Value {
 
    Value and(Value v);
 
+   Value deepCopy();
+
    Value div(Value v);
 
    BooleanValue eq(Value v);

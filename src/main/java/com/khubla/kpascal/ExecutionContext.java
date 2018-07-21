@@ -26,6 +26,11 @@ import java.util.Stack;
 import com.khubla.kpascal.listener.ExpressionListener;
 import com.khubla.kpascal.runtime.function.RuntimeFunction;
 import com.khubla.kpascal.runtime.function.RuntimeFunctionFactory;
+import com.khubla.kpascal.type.BooleanType;
+import com.khubla.kpascal.type.CharacterType;
+import com.khubla.kpascal.type.IntegerType;
+import com.khubla.kpascal.type.RealType;
+import com.khubla.kpascal.type.StringType;
 import com.khubla.kpascal.type.Type;
 import com.khubla.kpascal.value.BooleanValue;
 import com.khubla.kpascal.value.Value;
@@ -104,6 +109,24 @@ public class ExecutionContext {
       return stackFrame;
    }
 
+   private Type resolveBuiltinType(String name) {
+      if (name.compareTo("integer") == 0) {
+         return new IntegerType();
+      } else if (name.compareTo("real") == 0) {
+         return new RealType();
+      }
+      if (name.compareTo("string") == 0) {
+         return new StringType();
+      }
+      if (name.compareTo("boolean") == 0) {
+         return new BooleanType();
+      }
+      if (name.compareTo("character") == 0) {
+         return new CharacterType();
+      }
+      return null;
+   }
+
    /**
     * walk the stack, top to bottom trying to find the type
     */
@@ -122,11 +145,16 @@ public class ExecutionContext {
     * walk the stack, top to bottom trying to find the type
     */
    public Type resolveType(String name) {
-      for (int i = 0; i < stack.size(); i++) {
-         final StackFrame stackFrame = stack.get(i);
-         final TypeDefinition typeDefinition = stackFrame.getType(name);
-         if (null != typeDefinition) {
-            return typeDefinition.getType();
+      final Type t = resolveBuiltinType(name);
+      if (null != t) {
+         return t;
+      } else {
+         for (int i = 0; i < stack.size(); i++) {
+            final StackFrame stackFrame = stack.get(i);
+            final TypeDefinition typeDefinition = stackFrame.getType(name);
+            if (null != typeDefinition) {
+               return typeDefinition.getType();
+            }
          }
       }
       throw new RuntimeException("Unable to resolve '" + name + "'");

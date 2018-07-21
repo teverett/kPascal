@@ -47,6 +47,11 @@ public class BooleanValue implements AtomicValue {
    }
 
    @Override
+   public Value deepCopy() {
+      return new BooleanValue(value);
+   }
+
+   @Override
    public Value div(Value v) {
       throw new InvalidOperationException();
    }
