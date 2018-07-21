@@ -21,6 +21,10 @@ import java.util.Hashtable;
 import com.khubla.kpascal.runtime.function.io.ReadFunction;
 import com.khubla.kpascal.runtime.function.io.WriteFunction;
 import com.khubla.kpascal.runtime.function.io.WritelnFunction;
+import com.khubla.kpascal.runtime.function.math.AbsFunction;
+import com.khubla.kpascal.runtime.function.math.ArcCosFunction;
+import com.khubla.kpascal.runtime.function.math.ArcSinFunction;
+import com.khubla.kpascal.runtime.function.math.ArcTanFunction;
 import com.khubla.kpascal.runtime.function.math.CosFunction;
 import com.khubla.kpascal.runtime.function.math.SinFunction;
 import com.khubla.kpascal.runtime.function.math.TanFunction;
@@ -41,6 +45,10 @@ public class RuntimeFunctionFactory {
       addFunction("sin", new SinFunction());
       addFunction("cos", new CosFunction());
       addFunction("tan", new TanFunction());
+      addFunction("arcsin", new ArcSinFunction());
+      addFunction("arccos", new ArcCosFunction());
+      addFunction("arctan", new ArcTanFunction());
+      addFunction("abs", new AbsFunction());
    }
 
    private void addFunction(String name, RuntimeFunction runtimeFunction) {
