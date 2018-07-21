@@ -28,7 +28,7 @@ public class GotoStatementListener extends AbstractPascalListener {
    @Override
    public void enterGotoStatement(pascalParser.GotoStatementContext ctx) {
       if (null != ctx.label()) {
-         LabelListener labelListener = new LabelListener(this.getExecutionContext());
+         final LabelListener labelListener = new LabelListener(getExecutionContext());
          labelListener.enterLabel(ctx.label());
          throw new NotImplementedException();
       }

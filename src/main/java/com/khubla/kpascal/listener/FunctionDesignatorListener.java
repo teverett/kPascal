@@ -17,7 +17,6 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
@@ -30,7 +29,24 @@ public class FunctionDesignatorListener extends AbstractPascalListener {
 
    @Override
    public void enterFunctionDesignator(pascalParser.FunctionDesignatorContext ctx) {
-      throw new NotImplementedException();
+      if (null != ctx.identifier()) {
+         /*
+          * function name
+          */
+         final IdentifierListener identifierListener = new IdentifierListener(getExecutionContext());
+         identifierListener.enterIdentifier(ctx.identifier());
+         /*
+          * parameters
+          */
+         if (null != ctx.parameterList()) {
+            final ParameterListListener parameterListListener = new ParameterListListener(getExecutionContext());
+            parameterListListener.enterParameterList(ctx.parameterList());
+            /*
+             * invoke
+             */
+            value = getExecutionContext().invokeFunction(identifierListener.getIdentifier(), parameterListListener.getValues());
+         }
+      }
    }
 
    @Override

@@ -71,4 +71,14 @@ public class TestExamples {
          Assert.fail();
       }
    }
+
+   @Test(enabled = true)
+   public void testFact() {
+      try {
+         runProgramToConsole("/fact.pas");
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
 }
