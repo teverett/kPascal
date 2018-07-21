@@ -27,6 +27,8 @@ import com.khubla.kpascal.runtime.function.math.ArcSinFunction;
 import com.khubla.kpascal.runtime.function.math.ArcTanFunction;
 import com.khubla.kpascal.runtime.function.math.CosFunction;
 import com.khubla.kpascal.runtime.function.math.SinFunction;
+import com.khubla.kpascal.runtime.function.math.SqrFunction;
+import com.khubla.kpascal.runtime.function.math.SqrtFunction;
 import com.khubla.kpascal.runtime.function.math.TanFunction;
 
 public class RuntimeFunctionFactory {
@@ -49,6 +51,8 @@ public class RuntimeFunctionFactory {
       addFunction("arccos", new ArcCosFunction());
       addFunction("arctan", new ArcTanFunction());
       addFunction("abs", new AbsFunction());
+      addFunction("sqr", new SqrFunction());
+      addFunction("sqrt", new SqrtFunction());
    }
 
    private void addFunction(String name, RuntimeFunction runtimeFunction) {
