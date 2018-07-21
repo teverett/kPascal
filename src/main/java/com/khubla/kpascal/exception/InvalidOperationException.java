@@ -16,7 +16,7 @@
 */
 package com.khubla.kpascal.exception;
 
-public class InvalidOperationException extends RuntimeException {
+public class InvalidOperationException extends PascalException {
    private static final long serialVersionUID = 1L;
 
    public InvalidOperationException() {

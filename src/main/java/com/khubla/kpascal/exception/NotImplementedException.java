@@ -16,7 +16,7 @@
 */
 package com.khubla.kpascal.exception;
 
-public class NotImplementedException extends RuntimeException {
+public class NotImplementedException extends PascalException {
    private static final long serialVersionUID = 1L;
 
    public NotImplementedException() {

@@ -16,7 +16,7 @@
 */
 package com.khubla.kpascal.exception;
 
-public class InterpreterException extends RuntimeException {
+public class InterpreterException extends PascalException {
    private static final long serialVersionUID = 1L;
 
    public InterpreterException(Exception e) {
