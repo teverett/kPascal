@@ -104,7 +104,7 @@ public class TestExamples {
       }
    }
 
-   @Test(enabled = false)
+   @Test(enabled = true)
    public void testPointer() {
       try {
          runProgramToConsole("/pointer.pas");

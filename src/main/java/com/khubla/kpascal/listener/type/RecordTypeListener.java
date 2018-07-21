@@ -17,9 +17,9 @@
 package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.listener.FieldListListener;
+import com.khubla.kpascal.type.RecordType;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
@@ -35,8 +35,8 @@ public class RecordTypeListener extends AbstractPascalListener {
       if (null != ctx.fieldList()) {
          final FieldListListener fieldListListener = new FieldListListener(getExecutionContext());
          fieldListListener.enterFieldList(ctx.fieldList());
+         type = new RecordType(fieldListListener.getFields());
       }
-      throw new NotImplementedException();
    }
 
    @Override

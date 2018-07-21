@@ -16,12 +16,17 @@
  */
 package com.khubla.kpascal.listener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.exception.NotImplementedException;
+import com.khubla.kpascal.type.RecordType.Field;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.RecordSectionContext;
 
 public class FixedPartListener extends AbstractPascalListener {
+   private final List<Field> fields = new ArrayList<Field>();
+
    public FixedPartListener(ExecutionContext executionContext) {
       super(executionContext);
    }
@@ -32,12 +37,16 @@ public class FixedPartListener extends AbstractPascalListener {
          for (final RecordSectionContext recordSectionContext : ctx.recordSection()) {
             final RecordSectionListener recordSectionListener = new RecordSectionListener(getExecutionContext());
             recordSectionListener.enterRecordSection(recordSectionContext);
+            fields.addAll(recordSectionListener.getFields());
          }
       }
-      throw new NotImplementedException();
    }
 
    @Override
    public void exitFixedPart(pascalParser.FixedPartContext ctx) {
+   }
+
+   public List<Field> getFields() {
+      return fields;
    }
 }

@@ -1,29 +1,34 @@
 package com.khubla.kpascal.type;
 
-/*
-* kPascal Copyright 2015, khubla.com
-*
-*   This program is free software: you can redistribute it and/or modify
-*   it under the terms of the GNU General Public License as published by
-*   the Free Software Foundation, either version 3 of the License, or
-*   (at your option) any later version.
-*
-*    This program is distributed in the hope that it will be useful,
-*    but WITHOUT ANY WARRANTY; without even the implied warranty of
-*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*    GNU General Public License for more details.
-*
-*    You should have received a copy of the GNU General Public License
-*    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-import java.util.Hashtable;
+import java.util.List;
 
 import com.khubla.kpascal.value.RecordValue;
 import com.khubla.kpascal.value.Value;
 
 public class RecordType implements Type {
-   private final Hashtable<String, Type> fields = new Hashtable<String, Type>();
-   private final Hashtable<String, String> fieldTypeNames = new Hashtable<String, String>();
+   public static class Field {
+      private final Type type;
+      private final String name;
+
+      public Field(String name, Type type) {
+         this.name = name;
+         this.type = type;
+      }
+
+      public String getName() {
+         return name;
+      }
+
+      public Type getType() {
+         return type;
+      }
+   }
+
+   private final List<Field> fields;
+
+   public RecordType(List<Field> fields) {
+      this.fields = fields;
+   }
 
    @Override
    public boolean builtIn() {
@@ -35,11 +40,7 @@ public class RecordType implements Type {
       return new RecordValue(this);
    }
 
-   public Hashtable<String, Type> getFields() {
+   public List<Field> getFields() {
       return fields;
-   }
-
-   public Hashtable<String, String> getFieldTypeNames() {
-      return fieldTypeNames;
    }
 }

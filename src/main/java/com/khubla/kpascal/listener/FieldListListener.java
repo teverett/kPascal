@@ -16,29 +16,43 @@
  */
 package com.khubla.kpascal.listener;
 
+import java.util.List;
+
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.NotImplementedException;
+import com.khubla.kpascal.type.RecordType.Field;
 import com.khubla.pascal.pascalParser;
 
 public class FieldListListener extends AbstractPascalListener {
+   private List<Field> fields;
+
    public FieldListListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
    public void enterFieldList(pascalParser.FieldListContext ctx) {
-      if (null != ctx.variantPart()) {
-         final VariantPartListener variantPartListener = new VariantPartListener(getExecutionContext());
-         variantPartListener.enterVariantPart(ctx.variantPart());
-         if (null != ctx.fixedPart()) {
-            final FixedPartListener fixedPartListener = new FixedPartListener(getExecutionContext());
-            fixedPartListener.enterFixedPart(ctx.fixedPart());
+      if (null != ctx.fixedPart()) {
+         final FixedPartListener fixedPartListener = new FixedPartListener(getExecutionContext());
+         fixedPartListener.enterFixedPart(ctx.fixedPart());
+         fields = fixedPartListener.getFields();
+         if (null != ctx.variantPart()) {
+            final VariantPartListener variantPartListener = new VariantPartListener(getExecutionContext());
+            variantPartListener.enterVariantPart(ctx.variantPart());
+            throw new NotImplementedException();
          }
       }
-      throw new NotImplementedException();
    }
 
    @Override
    public void exitFieldList(pascalParser.FieldListContext ctx) {
+   }
+
+   public List<Field> getFields() {
+      return fields;
+   }
+
+   public void setFields(List<Field> fields) {
+      this.fields = fields;
    }
 }

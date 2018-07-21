@@ -16,11 +16,17 @@
  */
 package com.khubla.kpascal.listener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.exception.NotImplementedException;
+import com.khubla.kpascal.type.RecordType;
+import com.khubla.kpascal.type.RecordType.Field;
 import com.khubla.pascal.pascalParser;
 
 public class RecordSectionListener extends AbstractPascalListener {
+   private final List<Field> fields = new ArrayList<Field>();
+
    public RecordSectionListener(ExecutionContext executionContext) {
       super(executionContext);
    }
@@ -33,12 +39,22 @@ public class RecordSectionListener extends AbstractPascalListener {
          if (null != ctx.type()) {
             final TypeListener typeListener = new TypeListener(getExecutionContext());
             typeListener.enterType(ctx.type());
+            /*
+             * create fields
+             */
+            for (final String name : identifierListListener.getIdentifiers()) {
+               final Field field = new RecordType.Field(name, typeListener.getType());
+               fields.add(field);
+            }
          }
-         throw new NotImplementedException();
       }
    }
 
    @Override
    public void exitRecordSection(pascalParser.RecordSectionContext ctx) {
+   }
+
+   public List<Field> getFields() {
+      return fields;
    }
 }
