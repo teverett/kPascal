@@ -17,6 +17,7 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
@@ -42,8 +43,10 @@ public class UnsignedConstantListener extends AbstractPascalListener {
          final ConstantChrListener constantChrListener = new ConstantChrListener(getExecutionContext());
          constantChrListener.enterConstantChr(ctx.constantChr());
          value = constantChrListener.getValue();
-      } else {
+      } else if (null != ctx.NIL()) {
          throw new NotImplementedException();
+      } else {
+         throw new InterpreterException("Unexpected " + ctx.getText());
       }
    }
 
