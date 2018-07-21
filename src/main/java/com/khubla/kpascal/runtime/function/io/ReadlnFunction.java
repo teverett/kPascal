@@ -27,16 +27,17 @@ public class ReadlnFunction extends AbstractRuntimeFunction {
    @Override
    public Value execute(ExecutionContext executionContext, List<Value> args) {
       if (null != args) {
-         final Value v = args.get(0);
-         if (v instanceof AtomicValue) {
-            try {
-               final String s = executionContext.getConsoleInput().readLine();
-               ((AtomicValue) v).setFromString(s);
-            } catch (final Exception e) {
-               throw new RuntimeException(e);
+         for (final Value v : args) {
+            if (v instanceof AtomicValue) {
+               try {
+                  final String s = executionContext.getConsoleInput().readLine();
+                  ((AtomicValue) v).setFromString(s);
+               } catch (final Exception e) {
+                  throw new RuntimeException(e);
+               }
+            } else {
+               throw new RuntimeException("Expected atomic value");
             }
-         } else {
-            throw new RuntimeException("Expected atomic value");
          }
       }
       return null;

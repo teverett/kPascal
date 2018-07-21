@@ -54,7 +54,15 @@ public class CharacterValue implements AtomicValue {
 
    @Override
    public BooleanValue eq(Value v) {
-      throw new InvalidOperationException();
+      if (v instanceof CharacterValue) {
+         if (value == ((CharacterValue) v).value) {
+            return new BooleanValue(true);
+         } else {
+            return new BooleanValue(false);
+         }
+      } else {
+         throw new InvalidOperationException();
+      }
    }
 
    @Override
@@ -118,7 +126,15 @@ public class CharacterValue implements AtomicValue {
 
    @Override
    public BooleanValue neq(Value v) {
-      throw new InvalidOperationException();
+      if (v instanceof CharacterValue) {
+         if (value != ((CharacterValue) v).value) {
+            return new BooleanValue(true);
+         } else {
+            return new BooleanValue(false);
+         }
+      } else {
+         throw new InvalidOperationException();
+      }
    }
 
    @Override

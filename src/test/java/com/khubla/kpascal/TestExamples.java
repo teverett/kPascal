@@ -145,4 +145,14 @@ public class TestExamples {
          Assert.fail();
       }
    }
+
+   @Test(enabled = true)
+   public void testCalc() {
+      try {
+         runProgramToConsole("/calc.pas");
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
 }
