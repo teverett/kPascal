@@ -19,6 +19,7 @@ package com.khubla.kpascal.listener;
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.pascal.pascalParser;
+import com.khubla.pascal.pascalParser.VariantContext;
 
 public class VariantPartListener extends AbstractPascalListener {
    public VariantPartListener(ExecutionContext executionContext) {
@@ -27,6 +28,16 @@ public class VariantPartListener extends AbstractPascalListener {
 
    @Override
    public void enterVariantPart(pascalParser.VariantPartContext ctx) {
+      if (null != ctx.tag()) {
+         final TagListener tagListener = new TagListener(getExecutionContext());
+         tagListener.enterTag(ctx.tag());
+         if (null != ctx.variant()) {
+            for (final VariantContext variantContext : ctx.variant()) {
+               final VariantListener variantListener = new VariantListener(getExecutionContext());
+               variantListener.enterVariant(variantContext);
+            }
+         }
+      }
       throw new NotImplementedException();
    }
 

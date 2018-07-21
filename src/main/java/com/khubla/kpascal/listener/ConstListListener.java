@@ -16,28 +16,37 @@
  */
 package com.khubla.kpascal.listener;
 
-import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.exception.NotImplementedException;
-import com.khubla.pascal.pascalParser;
-import com.khubla.pascal.pascalParser.RecordSectionContext;
+import java.util.ArrayList;
+import java.util.List;
 
-public class FixedPartListener extends AbstractPascalListener {
-   public FixedPartListener(ExecutionContext executionContext) {
+import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.value.Value;
+import com.khubla.pascal.pascalParser;
+import com.khubla.pascal.pascalParser.ConstantContext;
+
+public class ConstListListener extends AbstractPascalListener {
+   private final List<Value> constants = new ArrayList<Value>();
+
+   public ConstListListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
-   public void enterFixedPart(pascalParser.FixedPartContext ctx) {
-      if (null != ctx.recordSection()) {
-         for (final RecordSectionContext recordSectionContext : ctx.recordSection()) {
-            final RecordSectionListener recordSectionListener = new RecordSectionListener(getExecutionContext());
-            recordSectionListener.enterRecordSection(recordSectionContext);
+   public void enterConstList(pascalParser.ConstListContext ctx) {
+      if (null != ctx.constant()) {
+         for (final ConstantContext constantContext : ctx.constant()) {
+            final ConstantListener constantListener = new ConstantListener(getExecutionContext());
+            constantListener.enterConstant(constantContext);
+            constants.add(constantListener.getValue());
          }
       }
-      throw new NotImplementedException();
    }
 
    @Override
-   public void exitFixedPart(pascalParser.FixedPartContext ctx) {
+   public void exitConstList(pascalParser.ConstListContext ctx) {
+   }
+
+   public List<Value> getConstants() {
+      return constants;
    }
 }

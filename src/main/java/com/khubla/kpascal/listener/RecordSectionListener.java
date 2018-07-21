@@ -27,7 +27,15 @@ public class RecordSectionListener extends AbstractPascalListener {
 
    @Override
    public void enterRecordSection(pascalParser.RecordSectionContext ctx) {
-      throw new NotImplementedException();
+      if (null != ctx.identifierList()) {
+         final IdentifierListListener identifierListListener = new IdentifierListListener(getExecutionContext());
+         identifierListListener.enterIdentifierList(ctx.identifierList());
+         if (null != ctx.type()) {
+            final TypeListener typeListener = new TypeListener(getExecutionContext());
+            typeListener.enterType(ctx.type());
+         }
+         throw new NotImplementedException();
+      }
    }
 
    @Override

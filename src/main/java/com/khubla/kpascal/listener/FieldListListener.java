@@ -27,6 +27,14 @@ public class FieldListListener extends AbstractPascalListener {
 
    @Override
    public void enterFieldList(pascalParser.FieldListContext ctx) {
+      if (null != ctx.variantPart()) {
+         final VariantPartListener variantPartListener = new VariantPartListener(getExecutionContext());
+         variantPartListener.enterVariantPart(ctx.variantPart());
+         if (null != ctx.fixedPart()) {
+            final FixedPartListener fixedPartListener = new FixedPartListener(getExecutionContext());
+            fixedPartListener.enterFixedPart(ctx.fixedPart());
+         }
+      }
       throw new NotImplementedException();
    }
 

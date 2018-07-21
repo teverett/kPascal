@@ -103,4 +103,14 @@ public class TestExamples {
          Assert.fail();
       }
    }
+
+   @Test(enabled = false)
+   public void testPointer() {
+      try {
+         runProgramToConsole("/pointer.pas");
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
 }
