@@ -111,6 +111,11 @@ public class BooleanValue implements AtomicValue {
    }
 
    @Override
+   public Value not(Value v) {
+      return new BooleanValue(!value);
+   }
+
+   @Override
    public Value or(Value v) {
       if (v instanceof BooleanValue) {
          return new BooleanValue(value | ((BooleanValue) v).isValue());

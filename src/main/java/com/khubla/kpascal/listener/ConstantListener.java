@@ -17,7 +17,7 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.exception.NotImplementedException;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
@@ -60,7 +60,7 @@ public class ConstantListener extends AbstractPascalListener {
          identifierListener.enterIdentifier(ctx.identifier());
          value = getExecutionContext().resolveVariable(identifierListener.getIdentifier());
       } else {
-         throw new NotImplementedException();
+         throw new InterpreterException("Unexpected " + ctx.getText());
       }
    }
 

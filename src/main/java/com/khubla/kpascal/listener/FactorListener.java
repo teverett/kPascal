@@ -43,10 +43,7 @@ public class FactorListener extends AbstractPascalListener {
       } else if (null != ctx.NOT()) {
          final FactorListener factorListener = new FactorListener(getExecutionContext());
          factorListener.enterFactor(ctx.factor());
-         /*
-          * do math to NOT the factor
-          */
-         throw new NotImplementedException();
+         value = factorListener.getValue();
       } else if (null != ctx.unsignedConstant()) {
          /*
           * constant

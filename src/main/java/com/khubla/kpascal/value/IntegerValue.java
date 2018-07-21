@@ -171,6 +171,11 @@ public class IntegerValue implements AtomicValue {
    }
 
    @Override
+   public Value not(Value v) {
+      throw new InvalidOperationException();
+   }
+
+   @Override
    public Value or(Value v) {
       throw new InvalidOperationException();
    }

@@ -45,6 +45,8 @@ public interface Value {
 
    BooleanValue neq(Value v);
 
+   Value not(Value v);
+
    Value or(Value v);
 
    void set(Value v);
