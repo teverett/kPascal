@@ -28,7 +28,6 @@ import com.khubla.pascal.pascalParser.ExpressionContext;
 
 public class VariableListener extends AbstractkPascalListener {
    private Value value;
-   private String variableName;
 
    public VariableListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -47,7 +46,7 @@ public class VariableListener extends AbstractkPascalListener {
                indices.add(expressionListener.getValue());
             }
          }
-         variableName = identifierListener.getIdentifier();
+         final String variableName = identifierListener.getIdentifier();
          value = getExecutionContext().resolveVariable(variableName);
          if (indices.size() > 0) {
             for (int i = 0; i < indices.size(); i++) {
@@ -75,15 +74,7 @@ public class VariableListener extends AbstractkPascalListener {
       return value;
    }
 
-   public String getVariableName() {
-      return variableName;
-   }
-
    public void setValue(Value value) {
       this.value = value;
-   }
-
-   public void setVariableName(String variableName) {
-      this.variableName = variableName;
    }
 }

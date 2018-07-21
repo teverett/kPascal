@@ -65,16 +65,13 @@ public class FunctionOrProcedureDefinition {
                /*
                 * put the existing variable into scope (shallow copy)
                 */
-               throw new RuntimeException("not implemented");
+               stackFrame.declareVariable(identifier, args.get(i++));
             } else if (parameterGroup.getParameterType() == ParameterType.function) {
                throw new RuntimeException("not implemented");
             } else if (parameterGroup.getParameterType() == ParameterType.procedure) {
                throw new RuntimeException("not implemented");
             } else {
-               /*
-                * declare new variable and set the value (deep copy)
-                */
-               stackFrame.declareVariable(identifier, args.get(i++));
+               throw new RuntimeException("not implemented");
             }
          }
       }
