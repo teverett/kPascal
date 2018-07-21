@@ -45,7 +45,7 @@ public class Interpreter {
    }
 
    /**
-    * parse MUMPS program from inputstream
+    * parse Pascal program from inputstream
     */
    private ProgramContext parse(InputStream inputStream) throws IOException {
       final Lexer lexer = new pascalLexer(CharStreams.fromStream(inputStream));
