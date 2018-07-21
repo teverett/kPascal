@@ -60,11 +60,10 @@ public class TestExamples {
       }
    }
 
-   @Test(enabled = false)
-   public void testAddConsole() {
+   @Test(enabled = true)
+   public void testIfConsole() {
       try {
-         final String output = runProgram("/add.pas");
-         Assert.assertTrue(output.compareTo("41\n") == 0);
+         runProgramToConsole("/if.pas");
       } catch (final Exception e) {
          e.printStackTrace();
          Assert.fail();

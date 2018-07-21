@@ -75,6 +75,11 @@ public class CharacterValue implements AtomicValue {
       }
    }
 
+   @Override
+   public void setFromString(String s) {
+      value = s.charAt(0);
+   }
+
    public void setValue(char value) {
       this.value = value;
    }

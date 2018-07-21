@@ -103,6 +103,11 @@ public class IntegerValue implements AtomicValue {
       }
    }
 
+   @Override
+   public void setFromString(String s) {
+      value = Integer.parseInt(s);
+   }
+
    public void setValue(int value) {
       this.value = value;
    }

@@ -16,27 +16,28 @@
  */
 package com.khubla.kpascal.runtime.function;
 
-import java.util.Hashtable;
+import java.util.List;
 
-public class RuntimeFunctionFactory {
-   private final Hashtable<String, RuntimeFunction> functions = new Hashtable<String, RuntimeFunction>();
+import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.value.AtomicValue;
+import com.khubla.kpascal.value.Value;
 
-   public RuntimeFunctionFactory() {
-      addFunction("writeln", new WritelnFunction());
-      addFunction("write", new WriteFunction());
-      addFunction("read", new ReadFunction());
-   }
-
-   private void addFunction(String name, RuntimeFunction runtimeFunction) {
-      functions.put(name.toLowerCase(), runtimeFunction);
-   }
-
-   public RuntimeFunction getRuntimeFunction(String name) {
-      final RuntimeFunction runtimeFunction = functions.get(name.toLowerCase());
-      if (null != runtimeFunction) {
-         return runtimeFunction;
-      } else {
-         return null;
+public class ReadFunction extends AbstractRuntimeFunction {
+   @Override
+   public Value execute(ExecutionContext executionContext, List<Value> args) {
+      if (null != args) {
+         final Value v = args.get(0);
+         if (v instanceof AtomicValue) {
+            try {
+               final String s = executionContext.getConsoleInput().readLine();
+               ((AtomicValue) v).setFromString(s);
+            } catch (final Exception e) {
+               throw new RuntimeException(e);
+            }
+         } else {
+            throw new RuntimeException("Expected atomic value");
+         }
       }
+      return null;
    }
 }

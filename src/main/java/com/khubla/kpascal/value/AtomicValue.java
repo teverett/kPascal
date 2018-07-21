@@ -18,4 +18,6 @@ package com.khubla.kpascal.value;
 
 public interface AtomicValue extends Value {
    String getAsString();
+
+   void setFromString(String s);
 }

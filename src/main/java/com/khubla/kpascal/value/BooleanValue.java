@@ -75,6 +75,11 @@ public class BooleanValue implements AtomicValue {
       }
    }
 
+   @Override
+   public void setFromString(String s) {
+      value = Boolean.parseBoolean(s);
+   }
+
    public void setValue(boolean value) {
       this.value = value;
    }

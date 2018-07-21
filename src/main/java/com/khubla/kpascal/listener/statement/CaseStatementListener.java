@@ -20,23 +20,17 @@ import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
 import com.khubla.pascal.pascalParser;
 
-public class ConditionalStatementListener extends AbstractkPascalListener {
-   public ConditionalStatementListener(ExecutionContext executionContext) {
+public class CaseStatementListener extends AbstractkPascalListener {
+   public CaseStatementListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
-   public void enterConditionalStatement(pascalParser.ConditionalStatementContext ctx) {
-      if (null != ctx.ifStatement()) {
-         final IfStatementListener ifStatementListener = new IfStatementListener(getExecutionContext());
-         ifStatementListener.enterIfStatement(ctx.ifStatement());
-      } else if (null != ctx.caseStatement()) {
-         final CaseStatementListener caseStatementListener = new CaseStatementListener(getExecutionContext());
-         caseStatementListener.enterCaseStatement(ctx.caseStatement());
-      }
+   public void enterCaseStatement(pascalParser.CaseStatementContext ctx) {
+      throw new RuntimeException("not implemented");
    }
 
    @Override
-   public void exitConditionalStatement(pascalParser.ConditionalStatementContext ctx) {
+   public void exitCaseStatement(pascalParser.CaseStatementContext ctx) {
    }
 }

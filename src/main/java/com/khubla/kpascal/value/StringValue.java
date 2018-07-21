@@ -75,6 +75,11 @@ public class StringValue implements AtomicValue {
       }
    }
 
+   @Override
+   public void setFromString(String s) {
+      value = s;
+   }
+
    public void setValue(String value) {
       this.value = value;
    }
