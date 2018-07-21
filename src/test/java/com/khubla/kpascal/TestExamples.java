@@ -16,6 +16,7 @@
  */
 package com.khubla.kpascal;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -24,35 +25,24 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TestExamples {
-   private String runProgram(String mumpsfile) throws Exception {
+   public String runProgram(String mumpsfile, String input) throws Exception {
       final InputStream inputStream = Main.class.getResourceAsStream(mumpsfile);
       final ByteArrayOutputStream baos = new ByteArrayOutputStream();
-      final Interpreter interpreter = new Interpreter(System.in, new PrintStream(baos));
+      final Interpreter interpreter = new Interpreter(new ByteArrayInputStream(input.getBytes()), new PrintStream(baos));
       interpreter.run(inputStream);
       return baos.toString();
    }
 
-   private void runProgramToConsole(String mumpsfile) throws Exception {
+   public void runProgramToConsole(String mumpsfile) throws Exception {
       final InputStream inputStream = Main.class.getResourceAsStream(mumpsfile);
       final Interpreter interpreter = new Interpreter(System.in, System.out);
       interpreter.run(inputStream);
    }
 
    @Test(enabled = true)
-   public void testHelloWorld() {
-      try {
-         final String output = runProgram("/helloworld.pas");
-         Assert.assertTrue(output.compareTo("41\n") == 0);
-      } catch (final Exception e) {
-         e.printStackTrace();
-         Assert.fail();
-      }
-   }
-
-   @Test(enabled = true)
    public void testAdd() {
       try {
-         final String output = runProgram("/add.pas");
+         final String output = runProgram("/add.pas", "");
          Assert.assertTrue(output.compareTo("'The array before call to adder:'12345'The array after call to adder:'246810") == 0);
       } catch (final Exception e) {
          e.printStackTrace();
@@ -61,9 +51,21 @@ public class TestExamples {
    }
 
    @Test(enabled = true)
-   public void testIfConsole() {
+   public void testHelloWorld() {
       try {
-         runProgramToConsole("/if.pas");
+         final String output = runProgram("/helloworld.pas", "");
+         Assert.assertTrue(output.compareTo("41\n") == 0);
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
+
+   @Test(enabled = true)
+   public void testIf() {
+      try {
+         final String output = runProgram("/if.pas", "50\n");
+         Assert.assertTrue(output.compareTo("'Please enter an integer between 0 and 100'\n" + "'If this was a grade, you would receive a grade of:  ''F'") == 0);
       } catch (final Exception e) {
          e.printStackTrace();
          Assert.fail();
