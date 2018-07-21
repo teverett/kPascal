@@ -71,6 +71,9 @@ public class FunctionOrProcedureDefinition {
             } else if (parameterGroup.getParameterType() == ParameterType.procedure) {
                throw new RuntimeException("not implemented");
             } else {
+               /*
+                * put new variable into scope (deep copy)
+                */
                throw new RuntimeException("not implemented");
             }
          }
