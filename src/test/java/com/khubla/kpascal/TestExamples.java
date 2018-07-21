@@ -96,7 +96,8 @@ public class TestExamples {
    @Test(enabled = true)
    public void testPassFail() {
       try {
-         runProgramToConsole("/passfail.pas");
+         final String output = runProgram("/passfail.pas", "49\n100\n");
+         Assert.assertTrue(output.compareTo("'Please type the student''s actual mark: '\n" + "'Please type the total possible mark of the exam : '\n" + "'Fail'\n") == 0);
       } catch (final Exception e) {
          e.printStackTrace();
          Assert.fail();

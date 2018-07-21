@@ -62,7 +62,7 @@ public class IntegerValue implements AtomicValue {
    @Override
    public Value div(Value v) {
       if (v instanceof IntegerValue) {
-         return new RealValue(value / ((IntegerValue) v).getValue());
+         return new RealValue((double) value / ((IntegerValue) v).getValue());
       } else if (v instanceof RealValue) {
          return new RealValue(value / ((RealValue) v).getValue());
       } else {
