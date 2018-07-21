@@ -20,8 +20,11 @@ import com.khubla.kpascal.value.PointerValue;
 import com.khubla.kpascal.value.Value;
 
 public class PointerType implements Type {
-   private Type componentType;
-   private String componentTypeName;
+   private final String pointerType;
+
+   public PointerType(String pointerType) {
+      this.pointerType = pointerType;
+   }
 
    @Override
    public boolean builtIn() {
@@ -33,19 +36,7 @@ public class PointerType implements Type {
       return new PointerValue(this);
    }
 
-   public Type getComponentType() {
-      return componentType;
-   }
-
-   public String getComponentTypeName() {
-      return componentTypeName;
-   }
-
-   public void setComponentType(Type componentType) {
-      this.componentType = componentType;
-   }
-
-   public void setComponentTypeName(String componentTypeName) {
-      this.componentTypeName = componentTypeName;
+   public String getPointerType() {
+      return pointerType;
    }
 }
