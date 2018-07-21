@@ -79,6 +79,13 @@ public class StackFrame {
       return variables.get(name);
    }
 
+   /**
+    * remove variable
+    */
+   public void removeVariable(String name) {
+      variables.remove(name);
+   }
+
    public void setVariables(HashMap<String, Value> variables) {
       this.variables = variables;
    }

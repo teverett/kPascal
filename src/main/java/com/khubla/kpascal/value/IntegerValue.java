@@ -21,6 +21,8 @@ import com.khubla.kpascal.type.IntegerType;
 import com.khubla.kpascal.type.Type;
 
 public class IntegerValue implements AtomicValue {
+   public static final IntegerValue one = new IntegerValue(1);
+   public static final IntegerValue negativeone = new IntegerValue(1);
    private final IntegerType type = new IntegerType();
    private int value;
 
@@ -41,6 +43,10 @@ public class IntegerValue implements AtomicValue {
       } else {
          throw new InterpreterException("Invalid operation");
       }
+   }
+
+   public void decrement() {
+      value = value - 1;
    }
 
    @Override
@@ -66,6 +72,10 @@ public class IntegerValue implements AtomicValue {
 
    public int getValue() {
       return value;
+   }
+
+   public void increment() {
+      value = value + 1;
    }
 
    @Override

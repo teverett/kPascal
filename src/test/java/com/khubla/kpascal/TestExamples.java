@@ -52,14 +52,15 @@ public class TestExamples {
    @Test(enabled = true)
    public void testAdd() {
       try {
-         runProgramToConsole("/add.pas");
+         final String output = runProgram("/add.pas");
+         Assert.assertTrue(output.compareTo("'The array before call to adder:'12345'The array after call to adder:'246810") == 0);
       } catch (final Exception e) {
          e.printStackTrace();
          Assert.fail();
       }
    }
 
-   @Test(enabled = true)
+   @Test(enabled = false)
    public void testAddConsole() {
       try {
          final String output = runProgram("/add.pas");
