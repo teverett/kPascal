@@ -40,7 +40,7 @@ class Main {
        * options
        */
       final Options options = new Options();
-      Option oo = Option.builder().argName(FILE_OPTION).longOpt(FILE_OPTION).type(String.class).hasArg().required(true).desc("Pascal file").build();
+      final Option oo = Option.builder().argName(FILE_OPTION).longOpt(FILE_OPTION).type(String.class).hasArg().required(true).desc("Pascal file").build();
       options.addOption(oo);
       /*
        * parse
@@ -58,11 +58,11 @@ class Main {
       try {
          final String filename = cmd.getOptionValue(FILE_OPTION);
          if (null != filename) {
-            FileInputStream fis = new FileInputStream(filename);
+            final FileInputStream fis = new FileInputStream(filename);
             final Interpreter interpreter = new Interpreter();
             interpreter.run(fis);
          }
-      } catch (Exception e) {
+      } catch (final Exception e) {
          e.printStackTrace();
       }
    }

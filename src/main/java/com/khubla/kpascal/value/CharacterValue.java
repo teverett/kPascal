@@ -61,7 +61,7 @@ public class CharacterValue implements AtomicValue {
             return new BooleanValue(false);
          }
       } else if (v instanceof StringValue) {
-         StringValue sv = (StringValue) v;
+         final StringValue sv = (StringValue) v;
          if (sv.getValue().length() == 1) {
             if (value == sv.getAsString().charAt(0)) {
                return new BooleanValue(true);
@@ -144,7 +144,7 @@ public class CharacterValue implements AtomicValue {
             return new BooleanValue(false);
          }
       } else if (v instanceof StringValue) {
-         StringValue sv = (StringValue) v;
+         final StringValue sv = (StringValue) v;
          if (sv.getValue().length() == 1) {
             if (value != sv.getAsString().charAt(0)) {
                return new BooleanValue(true);
