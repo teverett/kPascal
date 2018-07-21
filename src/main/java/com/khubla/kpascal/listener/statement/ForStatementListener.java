@@ -39,7 +39,7 @@ public class ForStatementListener extends AbstractkPascalListener {
             /*
              * set the initial value
              */
-            IntegerValue indexValue = new IntegerValue(forListListener.getInitialValue().getValue());
+            final IntegerValue indexValue = new IntegerValue(forListListener.getInitialValue().getValue());
             getExecutionContext().getCurrentStackframe().declareVariable(identifierListener.getIdentifier(), indexValue);
             boolean loop = true;
             while (loop) {
@@ -50,7 +50,7 @@ public class ForStatementListener extends AbstractkPascalListener {
                    * increment
                    */
                   try {
-                     indexValue = (IntegerValue) indexValue.add(new IntegerValue(1));
+                     indexValue.set(indexValue.add(new IntegerValue(1)));
                   } catch (final Exception e) {
                      throw new RuntimeException(e);
                   }
