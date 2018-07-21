@@ -48,6 +48,8 @@ public class SimpleExpressionListener extends AbstractkPascalListener {
                      value = value.add(simpleExpressionListener.value);
                   } else if (additiveOperatorListener.getOperator().compareTo("-") == 0) {
                      value = value.subtract(simpleExpressionListener.value);
+                  } else if (additiveOperatorListener.getOperator().compareTo("or") == 0) {
+                     value = value.or(simpleExpressionListener.value);
                   } else {
                      throw new RuntimeException("not implemented");
                   }

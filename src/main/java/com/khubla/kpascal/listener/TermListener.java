@@ -48,6 +48,10 @@ public class TermListener extends AbstractkPascalListener {
                      value = value.mult(termListener.value);
                   } else if (multiplicativeOperatorListener.getOperator().compareTo("/") == 0) {
                      value = value.div(termListener.value);
+                  } else if (multiplicativeOperatorListener.getOperator().compareTo("mod") == 0) {
+                     value = value.mod(termListener.value);
+                  } else if (multiplicativeOperatorListener.getOperator().compareTo("and") == 0) {
+                     value = value.and(termListener.value);
                   } else {
                      throw new RuntimeException("not implemented");
                   }

@@ -22,13 +22,31 @@ import com.khubla.kpascal.type.Type;
 public interface Value {
    Value add(Value v) throws InterpreterException;
 
+   Value and(Value v) throws InterpreterException;
+
    Value div(Value v) throws InterpreterException;
 
+   BooleanValue eq(Value v) throws InterpreterException;
+
    Type getType();
+
+   BooleanValue gt(Value v) throws InterpreterException;
+
+   BooleanValue gte(Value v) throws InterpreterException;
+
+   BooleanValue lt(Value v) throws InterpreterException;
+
+   BooleanValue lte(Value v) throws InterpreterException;
+
+   Value mod(Value v) throws InterpreterException;
 
    Value mult(Value v) throws InterpreterException;
 
    Value neg() throws InterpreterException;
+
+   BooleanValue neq(Value v) throws InterpreterException;
+
+   Value or(Value v) throws InterpreterException;
 
    void set(Value v) throws InterpreterException;
 

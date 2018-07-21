@@ -38,7 +38,17 @@ public class BooleanValue implements AtomicValue {
    }
 
    @Override
+   public Value and(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
+   @Override
    public Value div(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
+   @Override
+   public BooleanValue eq(Value v) throws InterpreterException {
       throw new InterpreterException("Invalid operation");
    }
 
@@ -52,8 +62,33 @@ public class BooleanValue implements AtomicValue {
       return type;
    }
 
+   @Override
+   public BooleanValue gt(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
+   @Override
+   public BooleanValue gte(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
    public boolean isValue() {
       return value;
+   }
+
+   @Override
+   public BooleanValue lt(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
+   @Override
+   public BooleanValue lte(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
+   @Override
+   public Value mod(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
    }
 
    @Override
@@ -63,6 +98,16 @@ public class BooleanValue implements AtomicValue {
 
    @Override
    public Value neg() throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
+   @Override
+   public BooleanValue neq(Value v) throws InterpreterException {
+      throw new InterpreterException("Invalid operation");
+   }
+
+   @Override
+   public Value or(Value v) throws InterpreterException {
       throw new InterpreterException("Invalid operation");
    }
 
