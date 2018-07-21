@@ -14,30 +14,23 @@
  *    You should have received a copy of the GNU General Public License
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.khubla.kpascal.runtime.function;
+package com.khubla.kpascal.runtime.function.math;
 
 import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.value.AtomicValue;
+import com.khubla.kpascal.exception.InterpreterException;
+import com.khubla.kpascal.value.RealValue;
 import com.khubla.kpascal.value.Value;
 
-public class WritelnFunction extends AbstractRuntimeFunction {
-   public WritelnFunction() {
-   }
-
+public class TanFunction extends MathFunction {
    @Override
    public Value execute(ExecutionContext executionContext, List<Value> args) {
       if (null != args) {
-         for (final Value value : args) {
-            if (value instanceof AtomicValue) {
-               final AtomicValue v = (AtomicValue) value;
-               executionContext.getConsoleOut().println(v.getAsString());
-            } else {
-               throw new RuntimeException("Illegal value type");
-            }
-         }
+         final double d = getDouble(args.get(0));
+         return new RealValue(java.lang.Math.tan(d));
+      } else {
+         throw new InterpreterException("Invalid argument");
       }
-      return null;
    }
 }

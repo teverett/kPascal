@@ -14,30 +14,23 @@
  *    You should have received a copy of the GNU General Public License
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.khubla.kpascal.runtime.function;
+package com.khubla.kpascal.runtime.function.math;
 
 import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.value.AtomicValue;
+import com.khubla.kpascal.exception.InterpreterException;
+import com.khubla.kpascal.value.RealValue;
 import com.khubla.kpascal.value.Value;
 
-public class ReadFunction extends AbstractRuntimeFunction {
+public class SinFunction extends MathFunction {
    @Override
    public Value execute(ExecutionContext executionContext, List<Value> args) {
       if (null != args) {
-         final Value v = args.get(0);
-         if (v instanceof AtomicValue) {
-            try {
-               final String s = executionContext.getConsoleInput().readLine();
-               ((AtomicValue) v).setFromString(s);
-            } catch (final Exception e) {
-               throw new RuntimeException(e);
-            }
-         } else {
-            throw new RuntimeException("Expected atomic value");
-         }
+         final double d = getDouble(args.get(0));
+         return new RealValue(java.lang.Math.sin(d));
+      } else {
+         throw new InterpreterException("Invalid argument");
       }
-      return null;
    }
 }
