@@ -20,6 +20,17 @@ import com.khubla.kpascal.value.StringValue;
 import com.khubla.kpascal.value.Value;
 
 public class StringType implements Type {
+   public final int UNBOUNDED = -1;
+   private final int length;
+
+   public StringType() {
+      length = UNBOUNDED;
+   }
+
+   public StringType(int length) {
+      this.length = length;
+   }
+
    @Override
    public boolean builtIn() {
       return true;
@@ -28,5 +39,9 @@ public class StringType implements Type {
    @Override
    public Value createValue() {
       return new StringValue();
+   }
+
+   public int getLength() {
+      return length;
    }
 }

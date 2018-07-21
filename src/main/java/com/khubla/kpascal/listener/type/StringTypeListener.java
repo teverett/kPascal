@@ -17,9 +17,13 @@
 package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.exception.NotImplementedException;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.listener.AbstractPascalListener;
+import com.khubla.kpascal.listener.IdentifierListener;
+import com.khubla.kpascal.listener.UnsignedNumberListener;
 import com.khubla.kpascal.type.StringType;
+import com.khubla.kpascal.value.IntegerValue;
+import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
 public class StringTypeListener extends AbstractPascalListener {
@@ -31,7 +35,27 @@ public class StringTypeListener extends AbstractPascalListener {
 
    @Override
    public void enterStringtype(pascalParser.StringtypeContext ctx) {
-      throw new NotImplementedException();
+      if (null != ctx.identifier()) {
+         final IdentifierListener identifierListener = new IdentifierListener(getExecutionContext());
+         identifierListener.enterIdentifier(ctx.identifier());
+         final Value v = getExecutionContext().resolveVariable(identifierListener.getIdentifier());
+         if (v instanceof IntegerValue) {
+            final int len = ((IntegerValue) v).getValue();
+            type = new StringType(len);
+         } else {
+            throw new InterpreterException("Expected IntegerValue");
+         }
+      } else if (null != ctx.unsignedNumber()) {
+         final UnsignedNumberListener unsignedNumberListener = new UnsignedNumberListener(getExecutionContext());
+         unsignedNumberListener.enterUnsignedNumber(ctx.unsignedNumber());
+         final Value v = unsignedNumberListener.getValue();
+         if (v instanceof IntegerValue) {
+            final int len = ((IntegerValue) v).getValue();
+            type = new StringType(len);
+         } else {
+            throw new InterpreterException("Expected IntegerValue");
+         }
+      }
    }
 
    @Override
