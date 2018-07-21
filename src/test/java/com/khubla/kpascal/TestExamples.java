@@ -60,7 +60,7 @@ public class TestExamples {
       }
    }
 
-   @Test(enabled = true)
+   @Test(enabled = false)
    public void testIfConsole() {
       try {
          runProgramToConsole("/if.pas");

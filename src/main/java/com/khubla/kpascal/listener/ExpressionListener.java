@@ -18,6 +18,7 @@ package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.InterpreterException;
+import com.khubla.kpascal.value.AtomicValue;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
@@ -43,31 +44,37 @@ public class ExpressionListener extends AbstractkPascalListener {
                /*
                 * math
                 */
-               try {
-                  if (relationalOperatorListener.getOperator().compareTo("*") == 0) {
-                     value = value.mult(expressionListener.value);
-                  } else if (relationalOperatorListener.getOperator().compareTo("/") == 0) {
-                     value = value.div(expressionListener.value);
-                  } else if (relationalOperatorListener.getOperator().compareTo(">") == 0) {
-                     throw new RuntimeException("not implemented");
-                  } else if (relationalOperatorListener.getOperator().compareTo("<") == 0) {
-                     throw new RuntimeException("not implemented");
-                  } else if (relationalOperatorListener.getOperator().compareTo("<>") == 0) {
-                     throw new RuntimeException("not implemented");
-                  } else if (relationalOperatorListener.getOperator().compareTo("=") == 0) {
-                     throw new RuntimeException("not implemented");
-                  } else if (relationalOperatorListener.getOperator().compareTo("<=") == 0) {
-                     throw new RuntimeException("not implemented");
-                  } else if (relationalOperatorListener.getOperator().compareTo(">=") == 0) {
-                     throw new RuntimeException("not implemented");
-                  } else if (relationalOperatorListener.getOperator().compareTo("in") == 0) {
-                     throw new RuntimeException("not implemented");
-                  } else {
-                     throw new RuntimeException("not implemented");
+               if ((value instanceof AtomicValue) && (expressionListener.value instanceof AtomicValue)) {
+                  AtomicValue v1 = (AtomicValue) value;
+                  AtomicValue v2 = (AtomicValue) expressionListener.value;
+                  try {
+                     if (relationalOperatorListener.getOperator().compareTo("*") == 0) {
+                        v1 = (AtomicValue) v1.mult(v2);
+                     } else if (relationalOperatorListener.getOperator().compareTo("/") == 0) {
+                        v1 = (AtomicValue) v1.div(v2);
+                     } else if (relationalOperatorListener.getOperator().compareTo(">") == 0) {
+                        throw new RuntimeException("not implemented");
+                     } else if (relationalOperatorListener.getOperator().compareTo("<") == 0) {
+                        throw new RuntimeException("not implemented");
+                     } else if (relationalOperatorListener.getOperator().compareTo("<>") == 0) {
+                        throw new RuntimeException("not implemented");
+                     } else if (relationalOperatorListener.getOperator().compareTo("=") == 0) {
+                        throw new RuntimeException("not implemented");
+                     } else if (relationalOperatorListener.getOperator().compareTo("<=") == 0) {
+                        throw new RuntimeException("not implemented");
+                     } else if (relationalOperatorListener.getOperator().compareTo(">=") == 0) {
+                        throw new RuntimeException("not implemented");
+                     } else if (relationalOperatorListener.getOperator().compareTo("in") == 0) {
+                        throw new RuntimeException("not implemented");
+                     } else {
+                        throw new RuntimeException("not implemented");
+                     }
+                  } catch (final InterpreterException e) {
+                     throw new RuntimeException(e);
                   }
-               } catch (final InterpreterException e) {
-                  throw new RuntimeException(e);
                }
+            } else {
+               throw new RuntimeException("expected AtomicValue");
             }
          }
       }
