@@ -18,7 +18,12 @@ package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.listener.ExpressionListener;
+import com.khubla.kpascal.listener.StatementListener;
+import com.khubla.kpascal.value.BooleanValue;
+import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
+import com.khubla.pascal.pascalParser.ExpressionContext;
 
 public class WhileStatementListener extends AbstractkPascalListener {
    public WhileStatementListener(ExecutionContext executionContext) {
@@ -27,10 +32,30 @@ public class WhileStatementListener extends AbstractkPascalListener {
 
    @Override
    public void enterWhileStatement(pascalParser.WhileStatementContext ctx) {
-      throw new RuntimeException("not implemented");
+      if (null != ctx.statement()) {
+         if (null != ctx.expression()) {
+            boolean c = testExpression(ctx.expression());
+            while (true == c) {
+               final StatementListener statementListener = new StatementListener(getExecutionContext());
+               statementListener.enterStatement(ctx.statement());
+            }
+            c = testExpression(ctx.expression());
+         }
+      }
    }
 
    @Override
    public void exitWhileStatement(pascalParser.WhileStatementContext ctx) {
+   }
+
+   private boolean testExpression(ExpressionContext expressionContext) {
+      final ExpressionListener expressionListener = new ExpressionListener(getExecutionContext());
+      expressionListener.enterExpression(expressionContext);
+      final Value cond = expressionListener.getValue();
+      if (cond instanceof BooleanValue) {
+         return ((BooleanValue) cond).isValue();
+      } else {
+         throw new RuntimeException("Expected Boolean");
+      }
    }
 }

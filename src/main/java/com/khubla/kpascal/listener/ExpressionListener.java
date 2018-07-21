@@ -48,6 +48,20 @@ public class ExpressionListener extends AbstractkPascalListener {
                      value = value.mult(expressionListener.value);
                   } else if (relationalOperatorListener.getOperator().compareTo("/") == 0) {
                      value = value.div(expressionListener.value);
+                  } else if (relationalOperatorListener.getOperator().compareTo(">") == 0) {
+                     throw new RuntimeException("not implemented");
+                  } else if (relationalOperatorListener.getOperator().compareTo("<") == 0) {
+                     throw new RuntimeException("not implemented");
+                  } else if (relationalOperatorListener.getOperator().compareTo("<>") == 0) {
+                     throw new RuntimeException("not implemented");
+                  } else if (relationalOperatorListener.getOperator().compareTo("=") == 0) {
+                     throw new RuntimeException("not implemented");
+                  } else if (relationalOperatorListener.getOperator().compareTo("<=") == 0) {
+                     throw new RuntimeException("not implemented");
+                  } else if (relationalOperatorListener.getOperator().compareTo(">=") == 0) {
+                     throw new RuntimeException("not implemented");
+                  } else if (relationalOperatorListener.getOperator().compareTo("in") == 0) {
+                     throw new RuntimeException("not implemented");
                   } else {
                      throw new RuntimeException("not implemented");
                   }
