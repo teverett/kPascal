@@ -18,7 +18,6 @@ package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.TypeDefinition;
-import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.pascal.pascalParser;
 
 public class TypeDefinitionListener extends AbstractPascalListener {
@@ -33,14 +32,30 @@ public class TypeDefinitionListener extends AbstractPascalListener {
          identifierListener.enterIdentifier(ctx.identifier());
          TypeDefinition typeDefinition = null;
          if (null != ctx.type()) {
+            /*
+             * standard type
+             */
             final TypeListener typeListener = new TypeListener(getExecutionContext());
             typeListener.enterType(ctx.type());
             typeDefinition = new TypeDefinition(identifierListener.getIdentifier(), typeListener.getType());
          } else if (null != ctx.functionType()) {
-            throw new NotImplementedException();
+            /*
+             * function type
+             */
+            final FunctionTypeListener functionTypeListener = new FunctionTypeListener(getExecutionContext());
+            functionTypeListener.enterFunctionType(ctx.functionType());
+            typeDefinition = new TypeDefinition(identifierListener.getIdentifier(), functionTypeListener.getType());
          } else if (null != ctx.procedureType()) {
-            throw new NotImplementedException();
+            /*
+             * procedure type
+             */
+            final ProcedureTypeListener procedureTypeListener = new ProcedureTypeListener(getExecutionContext());
+            procedureTypeListener.enterProcedureType(ctx.procedureType());
+            typeDefinition = new TypeDefinition(identifierListener.getIdentifier(), procedureTypeListener.getType());
          }
+         /*
+          * declare the type
+          */
          getExecutionContext().getCurrentStackframe().declareType(typeDefinition);
       }
    }

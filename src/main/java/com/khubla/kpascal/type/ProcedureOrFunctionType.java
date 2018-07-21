@@ -16,10 +16,25 @@
 */
 package com.khubla.kpascal.type;
 
-import com.khubla.kpascal.value.FileValue;
+import java.util.List;
+
+import com.khubla.kpascal.listener.ParameterGroupListener.ParameterGroup;
 import com.khubla.kpascal.value.Value;
 
-public class FileType implements Type {
+public class ProcedureOrFunctionType implements Type {
+   private final List<ParameterGroup> parameterGroups;
+   private final String resultTypeName;
+
+   public ProcedureOrFunctionType(List<ParameterGroup> parameterGroups) {
+      this.parameterGroups = parameterGroups;
+      resultTypeName = null;
+   }
+
+   public ProcedureOrFunctionType(List<ParameterGroup> parameterGroups, String resultTypeName) {
+      this.parameterGroups = parameterGroups;
+      this.resultTypeName = resultTypeName;
+   }
+
    @Override
    public boolean builtIn() {
       return false;
@@ -27,6 +42,15 @@ public class FileType implements Type {
 
    @Override
    public Value createValue() {
-      return new FileValue(this);
+      // TODO Auto-generated method stub
+      return null;
+   }
+
+   public List<ParameterGroup> getParameterGroups() {
+      return parameterGroups;
+   }
+
+   public String getResultTypeName() {
+      return resultTypeName;
    }
 }
