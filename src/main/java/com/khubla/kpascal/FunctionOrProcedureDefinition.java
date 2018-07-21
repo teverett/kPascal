@@ -20,6 +20,7 @@ import java.util.List;
 
 import com.khubla.kpascal.listener.BlockListener;
 import com.khubla.kpascal.listener.ParameterGroupListener.ParameterGroup;
+import com.khubla.kpascal.listener.ParameterGroupListener.ParameterType;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser.BlockContext;
 
@@ -60,7 +61,21 @@ public class FunctionOrProcedureDefinition {
       int i = 0;
       for (final ParameterGroup parameterGroup : parameterGroups) {
          for (final String identifier : parameterGroup.getIdentifiers()) {
-            stackFrame.declareVariable(identifier, args.get(i++));
+            if (parameterGroup.getParameterType() == ParameterType.var) {
+               /*
+                * put the existing variable into scope (shallow copy)
+                */
+               throw new RuntimeException("not implemented");
+            } else if (parameterGroup.getParameterType() == ParameterType.function) {
+               throw new RuntimeException("not implemented");
+            } else if (parameterGroup.getParameterType() == ParameterType.procedure) {
+               throw new RuntimeException("not implemented");
+            } else {
+               /*
+                * declare new variable and set the value (deep copy)
+                */
+               stackFrame.declareVariable(identifier, args.get(i++));
+            }
          }
       }
       /*

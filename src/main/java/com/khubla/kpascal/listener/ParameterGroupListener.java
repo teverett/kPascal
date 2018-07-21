@@ -25,10 +25,7 @@ public class ParameterGroupListener extends AbstractkPascalListener {
    public class ParameterGroup {
       private final String typename;
       private final List<String> identifiers;
-      /*
-       * none, VAR, FUNCTION, PROCEDURE
-       */
-      private String type;
+      private ParameterType parameterType;
 
       public ParameterGroup(String typename, List<String> identifiers) {
          this.typename = typename;
@@ -39,17 +36,21 @@ public class ParameterGroupListener extends AbstractkPascalListener {
          return identifiers;
       }
 
-      public String getType() {
-         return type;
+      public ParameterType getParameterType() {
+         return parameterType;
       }
 
       public String getTypename() {
          return typename;
       }
 
-      public void setType(String type) {
-         this.type = type;
+      public void setParameterType(ParameterType parameterType) {
+         this.parameterType = parameterType;
       }
+   };
+
+   public enum ParameterType {
+      var, function, procedure
    }
 
    private ParameterGroup parameterGroup;

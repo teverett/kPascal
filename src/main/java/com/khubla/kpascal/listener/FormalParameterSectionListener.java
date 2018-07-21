@@ -18,6 +18,7 @@ package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.ParameterGroupListener.ParameterGroup;
+import com.khubla.kpascal.listener.ParameterGroupListener.ParameterType;
 import com.khubla.pascal.pascalParser;
 
 public class FormalParameterSectionListener extends AbstractkPascalListener {
@@ -35,11 +36,11 @@ public class FormalParameterSectionListener extends AbstractkPascalListener {
          parameterGroup = parameterGroupListener.getParameterGroup();
       }
       if (null != ctx.VAR()) {
-         parameterGroup.setType("var");
+         parameterGroup.setParameterType(ParameterType.var);
       } else if (null != ctx.PROCEDURE()) {
-         parameterGroup.setType("procedure");
+         parameterGroup.setParameterType(ParameterType.procedure);
       } else if (null != ctx.FUNCTION()) {
-         parameterGroup.setType("function");
+         parameterGroup.setParameterType(ParameterType.function);
       }
    }
 
