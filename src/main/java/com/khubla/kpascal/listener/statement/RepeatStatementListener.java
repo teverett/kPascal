@@ -17,8 +17,8 @@
 package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.listener.AbstractPascalListener;
+import com.khubla.kpascal.listener.StatementsListener;
 import com.khubla.pascal.pascalParser;
 
 public class RepeatStatementListener extends AbstractPascalListener {
@@ -28,7 +28,16 @@ public class RepeatStatementListener extends AbstractPascalListener {
 
    @Override
    public void enterRepeatStatement(pascalParser.RepeatStatementContext ctx) {
-      throw new NotImplementedException();
+      if (null != ctx.statements()) {
+         if (null != ctx.expression()) {
+            boolean c = getExecutionContext().testExpression(ctx.expression());
+            while (true == c) {
+               final StatementsListener statementsListener = new StatementsListener(getExecutionContext());
+               statementsListener.enterStatements(ctx.statements());
+            }
+            c = getExecutionContext().testExpression(ctx.expression());
+         }
+      }
    }
 
    @Override

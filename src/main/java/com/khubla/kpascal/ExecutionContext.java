@@ -23,10 +23,13 @@ import java.io.PrintStream;
 import java.util.List;
 import java.util.Stack;
 
+import com.khubla.kpascal.listener.ExpressionListener;
 import com.khubla.kpascal.runtime.function.RuntimeFunction;
 import com.khubla.kpascal.runtime.function.RuntimeFunctionFactory;
 import com.khubla.kpascal.type.Type;
+import com.khubla.kpascal.value.BooleanValue;
 import com.khubla.kpascal.value.Value;
+import com.khubla.pascal.pascalParser.ExpressionContext;
 
 /**
  * the execution context.
@@ -144,5 +147,19 @@ public class ExecutionContext {
          }
       }
       throw new RuntimeException("Unable to resolve '" + name + "'");
+   }
+
+   /**
+    * test an expression.  used in while loop, etc
+    */
+   public boolean testExpression(ExpressionContext expressionContext) {
+      final ExpressionListener expressionListener = new ExpressionListener(this);
+      expressionListener.enterExpression(expressionContext);
+      final Value cond = expressionListener.getValue();
+      if (cond instanceof BooleanValue) {
+         return ((BooleanValue) cond).isValue();
+      } else {
+         throw new RuntimeException("Expected Boolean");
+      }
    }
 }
