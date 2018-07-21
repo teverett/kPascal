@@ -20,6 +20,12 @@ import com.khubla.kpascal.value.SetValue;
 import com.khubla.kpascal.value.Value;
 
 public class SetType implements Type {
+   private final Type setType;
+
+   public SetType(Type setType) {
+      this.setType = setType;
+   }
+
    @Override
    public boolean builtIn() {
       return false;
@@ -28,5 +34,9 @@ public class SetType implements Type {
    @Override
    public Value createValue() {
       return new SetValue(this);
+   }
+
+   public Type getSetType() {
+      return setType;
    }
 }

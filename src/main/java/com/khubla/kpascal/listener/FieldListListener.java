@@ -14,39 +14,23 @@
  *    You should have received a copy of the GNU General Public License
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.khubla.kpascal.listener.type;
+package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.listener.AbstractPascalListener;
-import com.khubla.kpascal.type.SetType;
-import com.khubla.kpascal.type.Type;
+import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.pascal.pascalParser;
 
-public class SetTypeListener extends AbstractPascalListener {
-   private Type type;
-
-   public SetTypeListener(ExecutionContext executionContext) {
+public class FieldListListener extends AbstractPascalListener {
+   public FieldListListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
-   public void enterSetType(pascalParser.SetTypeContext ctx) {
-      if (null != ctx.baseType()) {
-         final BaseTypeListener baseTypeListener = new BaseTypeListener(getExecutionContext());
-         baseTypeListener.enterBaseType(ctx.baseType());
-         type = new SetType(baseTypeListener.getType());
-      }
+   public void enterFieldList(pascalParser.FieldListContext ctx) {
+      throw new NotImplementedException();
    }
 
    @Override
-   public void exitSetType(pascalParser.SetTypeContext ctx) {
-   }
-
-   public Type getType() {
-      return type;
-   }
-
-   public void setType(Type type) {
-      this.type = type;
+   public void exitFieldList(pascalParser.FieldListContext ctx) {
    }
 }

@@ -18,28 +18,27 @@ package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractPascalListener;
-import com.khubla.kpascal.type.SetType;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
-public class SetTypeListener extends AbstractPascalListener {
-   private Type type;
+public class BaseTypeListener extends AbstractPascalListener {
+   private Type type = null;
 
-   public SetTypeListener(ExecutionContext executionContext) {
+   public BaseTypeListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
-   public void enterSetType(pascalParser.SetTypeContext ctx) {
-      if (null != ctx.baseType()) {
-         final BaseTypeListener baseTypeListener = new BaseTypeListener(getExecutionContext());
-         baseTypeListener.enterBaseType(ctx.baseType());
-         type = new SetType(baseTypeListener.getType());
+   public void enterBaseType(pascalParser.BaseTypeContext ctx) {
+      if (null != ctx.simpleType()) {
+         final SimpleTypeListener simpleTypeListener = new SimpleTypeListener(getExecutionContext());
+         simpleTypeListener.enterSimpleType(ctx.simpleType());
+         type = simpleTypeListener.getType();
       }
    }
 
    @Override
-   public void exitSetType(pascalParser.SetTypeContext ctx) {
+   public void exitBaseType(pascalParser.BaseTypeContext ctx) {
    }
 
    public Type getType() {

@@ -17,8 +17,9 @@
 package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.listener.AbstractPascalListener;
+import com.khubla.kpascal.listener.TypeListener;
+import com.khubla.kpascal.type.FileType;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
@@ -31,7 +32,11 @@ public class FileTypeListener extends AbstractPascalListener {
 
    @Override
    public void enterFileType(pascalParser.FileTypeContext ctx) {
-      throw new NotImplementedException();
+      if (null != ctx.type()) {
+         final TypeListener typeListener = new TypeListener(getExecutionContext());
+         typeListener.enterType(ctx.type());
+         type = new FileType(typeListener.getType());
+      }
    }
 
    @Override

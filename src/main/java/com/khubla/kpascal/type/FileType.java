@@ -20,6 +20,12 @@ import com.khubla.kpascal.value.FileValue;
 import com.khubla.kpascal.value.Value;
 
 public class FileType implements Type {
+   private final Type fileType;
+
+   public FileType(Type fileType) {
+      this.fileType = fileType;
+   }
+
    @Override
    public boolean builtIn() {
       return false;
@@ -28,5 +34,9 @@ public class FileType implements Type {
    @Override
    public Value createValue() {
       return new FileValue(this);
+   }
+
+   public Type getFileType() {
+      return fileType;
    }
 }
