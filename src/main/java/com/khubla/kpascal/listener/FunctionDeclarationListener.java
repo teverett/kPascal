@@ -20,7 +20,7 @@ import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.FunctionOrProcedureDefinition;
-import com.khubla.kpascal.listener.ParameterGroupListener.ParameterGroup;
+import com.khubla.kpascal.listener.ParameterGroupListener.Parameter;
 import com.khubla.pascal.pascalParser;
 
 public class FunctionDeclarationListener extends AbstractPascalListener {
@@ -39,11 +39,11 @@ public class FunctionDeclarationListener extends AbstractPascalListener {
          /*
           * params
           */
-         List<ParameterGroup> parameterGroups = null;
+         List<Parameter> parameters = null;
          if (null != ctx.formalParameterList()) {
             final FormalParameterListListener formalParameterListListener = new FormalParameterListListener(getExecutionContext());
             formalParameterListListener.enterFormalParameterList(ctx.formalParameterList());
-            parameterGroups = formalParameterListListener.getParameterGroups();
+            parameters = formalParameterListListener.getParameters();
          }
          /*
           * result
@@ -54,7 +54,7 @@ public class FunctionDeclarationListener extends AbstractPascalListener {
             /*
              * declare
              */
-            final FunctionOrProcedureDefinition functionOrProcedureDefinition = new FunctionOrProcedureDefinition(identifierListener.getIdentifier(), parameterGroups, ctx.block(),
+            final FunctionOrProcedureDefinition functionOrProcedureDefinition = new FunctionOrProcedureDefinition(identifierListener.getIdentifier(), parameters, ctx.block(),
                   resultTypeListener.getTypeName());
             getExecutionContext().getCurrentStackframe().declareFunctionOrProcedure(functionOrProcedureDefinition);
          }

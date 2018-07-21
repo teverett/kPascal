@@ -33,7 +33,7 @@ public class ProcedureTypeListener extends AbstractPascalListener {
       if (null != ctx.formalParameterList()) {
          final FormalParameterListListener formalParameterListListener = new FormalParameterListListener(getExecutionContext());
          formalParameterListListener.enterFormalParameterList(ctx.formalParameterList());
-         type = new ProcedureOrFunctionType(formalParameterListListener.getParameterGroups());
+         type = new ProcedureOrFunctionType(formalParameterListListener.getParameters());
       }
    }
 

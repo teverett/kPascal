@@ -18,20 +18,20 @@ package com.khubla.kpascal.type;
 
 import java.util.List;
 
-import com.khubla.kpascal.listener.ParameterGroupListener.ParameterGroup;
+import com.khubla.kpascal.listener.ParameterGroupListener.Parameter;
 import com.khubla.kpascal.value.Value;
 
 public class ProcedureOrFunctionType implements Type {
-   private final List<ParameterGroup> parameterGroups;
+   private final List<Parameter> parameters;
    private final String resultTypeName;
 
-   public ProcedureOrFunctionType(List<ParameterGroup> parameterGroups) {
-      this.parameterGroups = parameterGroups;
+   public ProcedureOrFunctionType(List<Parameter> parameters) {
+      this.parameters = parameters;
       resultTypeName = null;
    }
 
-   public ProcedureOrFunctionType(List<ParameterGroup> parameterGroups, String resultTypeName) {
-      this.parameterGroups = parameterGroups;
+   public ProcedureOrFunctionType(List<Parameter> parameters, String resultTypeName) {
+      this.parameters = parameters;
       this.resultTypeName = resultTypeName;
    }
 
@@ -46,8 +46,8 @@ public class ProcedureOrFunctionType implements Type {
       return null;
    }
 
-   public List<ParameterGroup> getParameterGroups() {
-      return parameterGroups;
+   public List<Parameter> getParameters() {
+      return parameters;
    }
 
    public String getResultTypeName() {

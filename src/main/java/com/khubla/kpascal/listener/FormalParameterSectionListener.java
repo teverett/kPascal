@@ -16,13 +16,15 @@
  */
 package com.khubla.kpascal.listener;
 
+import java.util.List;
+
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.listener.ParameterGroupListener.ParameterGroup;
+import com.khubla.kpascal.listener.ParameterGroupListener.Parameter;
 import com.khubla.kpascal.listener.ParameterGroupListener.ParameterType;
 import com.khubla.pascal.pascalParser;
 
 public class FormalParameterSectionListener extends AbstractPascalListener {
-   private ParameterGroup parameterGroup;
+   private List<Parameter> parameters;
 
    public FormalParameterSectionListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -33,14 +35,20 @@ public class FormalParameterSectionListener extends AbstractPascalListener {
       if (null != ctx.parameterGroup()) {
          final ParameterGroupListener parameterGroupListener = new ParameterGroupListener(getExecutionContext());
          parameterGroupListener.enterParameterGroup(ctx.parameterGroup());
-         parameterGroup = parameterGroupListener.getParameterGroup();
+         parameters = parameterGroupListener.getParameters();
       }
       if (null != ctx.VAR()) {
-         parameterGroup.setParameterType(ParameterType.var);
+         for (final Parameter parameter : parameters) {
+            parameter.setParameterType(ParameterType.var);
+         }
       } else if (null != ctx.PROCEDURE()) {
-         parameterGroup.setParameterType(ParameterType.procedure);
+         for (final Parameter parameter : parameters) {
+            parameter.setParameterType(ParameterType.procedure);
+         }
       } else if (null != ctx.FUNCTION()) {
-         parameterGroup.setParameterType(ParameterType.function);
+         for (final Parameter parameter : parameters) {
+            parameter.setParameterType(ParameterType.function);
+         }
       }
    }
 
@@ -48,11 +56,11 @@ public class FormalParameterSectionListener extends AbstractPascalListener {
    public void exitFormalParameterSection(pascalParser.FormalParameterSectionContext ctx) {
    }
 
-   public ParameterGroup getParameterGroup() {
-      return parameterGroup;
+   public List<Parameter> getParameters() {
+      return parameters;
    }
 
-   public void setParameterGroup(ParameterGroup parameterGroup) {
-      this.parameterGroup = parameterGroup;
+   public void setParameters(List<Parameter> parameters) {
+      this.parameters = parameters;
    }
 }

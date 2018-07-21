@@ -20,12 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.listener.ParameterGroupListener.ParameterGroup;
+import com.khubla.kpascal.listener.ParameterGroupListener.Parameter;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.FormalParameterSectionContext;
 
 public class FormalParameterListListener extends AbstractPascalListener {
-   private final List<ParameterGroup> parameterGroups = new ArrayList<ParameterGroup>();
+   private final List<Parameter> parameters = new ArrayList<Parameter>();
 
    public FormalParameterListListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -37,7 +37,7 @@ public class FormalParameterListListener extends AbstractPascalListener {
          for (final FormalParameterSectionContext formalParameterSectionContext : ctx.formalParameterSection()) {
             final FormalParameterSectionListener formalParameterSectionListener = new FormalParameterSectionListener(getExecutionContext());
             formalParameterSectionListener.enterFormalParameterSection(formalParameterSectionContext);
-            parameterGroups.add(formalParameterSectionListener.getParameterGroup());
+            parameters.addAll(formalParameterSectionListener.getParameters());
          }
       }
    }
@@ -46,7 +46,7 @@ public class FormalParameterListListener extends AbstractPascalListener {
    public void exitFormalParameterList(pascalParser.FormalParameterListContext ctx) {
    }
 
-   public List<ParameterGroup> getParameterGroups() {
-      return parameterGroups;
+   public List<Parameter> getParameters() {
+      return parameters;
    }
 }

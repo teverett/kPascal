@@ -20,23 +20,23 @@ import java.util.List;
 
 import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.listener.BlockListener;
-import com.khubla.kpascal.listener.ParameterGroupListener.ParameterGroup;
+import com.khubla.kpascal.listener.ParameterGroupListener.Parameter;
 import com.khubla.kpascal.listener.ParameterGroupListener.ParameterType;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser.BlockContext;
 
 public class FunctionOrProcedureDefinition {
    private final String name;
-   private final List<ParameterGroup> parameterGroups;
+   private final List<Parameter> parameters;
    private final String resultType;
    private final BlockContext blockContext;
 
    /**
     * procedure
     */
-   public FunctionOrProcedureDefinition(String name, List<ParameterGroup> parameterGroups, BlockContext blockContext) {
+   public FunctionOrProcedureDefinition(String name, List<Parameter> parameters, BlockContext blockContext) {
       this.name = name;
-      this.parameterGroups = parameterGroups;
+      this.parameters = parameters;
       resultType = null;
       this.blockContext = blockContext;
    }
@@ -44,9 +44,9 @@ public class FunctionOrProcedureDefinition {
    /**
     * function
     */
-   public FunctionOrProcedureDefinition(String name, List<ParameterGroup> parameterGroups, BlockContext blockContext, String resultType) {
+   public FunctionOrProcedureDefinition(String name, List<Parameter> parameters, BlockContext blockContext, String resultType) {
       this.name = name;
-      this.parameterGroups = parameterGroups;
+      this.parameters = parameters;
       this.resultType = resultType;
       this.blockContext = blockContext;
    }
@@ -60,23 +60,21 @@ public class FunctionOrProcedureDefinition {
        * put the variables into scope
        */
       int i = 0;
-      for (final ParameterGroup parameterGroup : parameterGroups) {
-         for (final String identifier : parameterGroup.getIdentifiers()) {
-            if (parameterGroup.getParameterType() == ParameterType.var) {
-               /*
-                * put the existing variable into scope (shallow copy)
-                */
-               stackFrame.declareVariable(identifier, args.get(i++));
-            } else if (parameterGroup.getParameterType() == ParameterType.function) {
-               throw new NotImplementedException();
-            } else if (parameterGroup.getParameterType() == ParameterType.procedure) {
-               throw new NotImplementedException();
-            } else {
-               /*
-                * put new variable into scope (deep copy)
-                */
-               throw new NotImplementedException();
-            }
+      for (final Parameter parameter : parameters) {
+         if (parameter.getParameterType() == ParameterType.var) {
+            /*
+             * put the existing variable into scope (shallow copy)
+             */
+            stackFrame.declareVariable(parameter.getName(), args.get(i++));
+         } else if (parameter.getParameterType() == ParameterType.function) {
+            throw new NotImplementedException();
+         } else if (parameter.getParameterType() == ParameterType.procedure) {
+            throw new NotImplementedException();
+         } else {
+            /*
+             * put new variable into scope (deep copy)
+             */
+            throw new NotImplementedException();
          }
       }
       /*
@@ -99,8 +97,8 @@ public class FunctionOrProcedureDefinition {
       return name;
    }
 
-   public List<ParameterGroup> getParameterGroups() {
-      return parameterGroups;
+   public List<Parameter> getParameters() {
+      return parameters;
    }
 
    public String getResultType() {

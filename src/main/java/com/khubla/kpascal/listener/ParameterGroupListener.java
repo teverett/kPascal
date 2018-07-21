@@ -16,24 +16,26 @@
  */
 package com.khubla.kpascal.listener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.pascal.pascalParser;
 
 public class ParameterGroupListener extends AbstractPascalListener {
-   public class ParameterGroup {
+   public class Parameter {
       private final String typename;
-      private final List<String> identifiers;
+      private final String name;
       private ParameterType parameterType;
 
-      public ParameterGroup(String typename, List<String> identifiers) {
+      public Parameter(String name, String typename) {
          this.typename = typename;
-         this.identifiers = identifiers;
+         this.name = name;
+         parameterType = null;
       }
 
-      public List<String> getIdentifiers() {
-         return identifiers;
+      public String getName() {
+         return name;
       }
 
       public ParameterType getParameterType() {
@@ -47,13 +49,13 @@ public class ParameterGroupListener extends AbstractPascalListener {
       public void setParameterType(ParameterType parameterType) {
          this.parameterType = parameterType;
       }
-   };
+   }
 
    public enum ParameterType {
       var, function, procedure
    }
 
-   private ParameterGroup parameterGroup;
+   private final List<Parameter> parameters = new ArrayList<Parameter>();
 
    public ParameterGroupListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -67,9 +69,13 @@ public class ParameterGroupListener extends AbstractPascalListener {
          if (null != ctx.typeIdentifier()) {
             final TypeIdentifierListener typeIdentifierListener = new TypeIdentifierListener(getExecutionContext());
             typeIdentifierListener.enterTypeIdentifier(ctx.typeIdentifier());
-            parameterGroup = new ParameterGroup(typeIdentifierListener.getTypeName(), identifierListListener.getIdentifiers());
+            for (final String identifier : identifierListListener.getIdentifiers()) {
+               parameters.add(new Parameter(identifier, typeIdentifierListener.getTypeName()));
+            }
          } else {
-            parameterGroup = new ParameterGroup(null, identifierListListener.getIdentifiers());
+            for (final String identifier : identifierListListener.getIdentifiers()) {
+               parameters.add(new Parameter(identifier, null));
+            }
          }
       }
    }
@@ -78,11 +84,7 @@ public class ParameterGroupListener extends AbstractPascalListener {
    public void exitParameterGroup(pascalParser.ParameterGroupContext ctx) {
    }
 
-   public ParameterGroup getParameterGroup() {
-      return parameterGroup;
-   }
-
-   public void setParameterGroup(ParameterGroup parameterGroup) {
-      this.parameterGroup = parameterGroup;
+   public List<Parameter> getParameters() {
+      return parameters;
    }
 }
