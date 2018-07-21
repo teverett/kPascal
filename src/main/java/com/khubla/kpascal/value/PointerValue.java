@@ -112,7 +112,7 @@ public class PointerValue implements Value {
    }
 
    @Override
-   public Value not(Value v) {
+   public Value not() {
       throw new InvalidOperationException();
    }
 

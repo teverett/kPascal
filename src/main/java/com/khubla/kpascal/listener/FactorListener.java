@@ -17,7 +17,7 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.exception.NotImplementedException;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
@@ -58,8 +58,29 @@ public class FactorListener extends AbstractPascalListener {
          final ExpressionListener expressionListener = new ExpressionListener(getExecutionContext());
          expressionListener.enterExpression(ctx.expression());
          value = expressionListener.getValue();
+      } else if (null != ctx.factor()) {
+         /*
+          * NOT factor
+          */
+         final FactorListener factorListener = new FactorListener(getExecutionContext());
+         factorListener.enterFactor(ctx.factor());
+         value = factorListener.getValue().not();
+      } else if (null != ctx.set()) {
+         /*
+          * set
+          */
+         final SetListener setListener = new SetListener(getExecutionContext());
+         setListener.enterSet(ctx.set());
+         value = setListener.getValue();
+      } else if (null != ctx.functionDesignator()) {
+         /*
+          * functionDesignator
+          */
+         final FunctionDesignatorListener functionDesignatorListener = new FunctionDesignatorListener(getExecutionContext());
+         functionDesignatorListener.enterFunctionDesignator(ctx.functionDesignator());
+         value = functionDesignatorListener.getValue();
       } else {
-         throw new NotImplementedException();
+         throw new InterpreterException("Unexpected " + ctx.getText());
       }
    }
 

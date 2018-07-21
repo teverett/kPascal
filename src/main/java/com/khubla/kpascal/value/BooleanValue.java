@@ -121,7 +121,7 @@ public class BooleanValue implements AtomicValue {
    }
 
    @Override
-   public Value not(Value v) {
+   public Value not() {
       return new BooleanValue(!value);
    }
 

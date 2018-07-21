@@ -49,7 +49,7 @@ public interface Value {
 
    BooleanValue neq(Value v);
 
-   Value not(Value v);
+   Value not();
 
    Value or(Value v);
 

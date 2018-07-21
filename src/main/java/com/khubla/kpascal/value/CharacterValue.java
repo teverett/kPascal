@@ -117,7 +117,7 @@ public class CharacterValue implements AtomicValue {
    }
 
    @Override
-   public Value not(Value v) {
+   public Value not() {
       throw new InvalidOperationException();
    }
 
