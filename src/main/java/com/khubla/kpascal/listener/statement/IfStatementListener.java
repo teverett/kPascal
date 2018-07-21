@@ -18,6 +18,9 @@ package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractkPascalListener;
+import com.khubla.kpascal.listener.ExpressionListener;
+import com.khubla.kpascal.listener.StatementListener;
+import com.khubla.kpascal.value.BooleanValue;
 import com.khubla.pascal.pascalParser;
 
 public class IfStatementListener extends AbstractkPascalListener {
@@ -27,7 +30,21 @@ public class IfStatementListener extends AbstractkPascalListener {
 
    @Override
    public void enterIfStatement(pascalParser.IfStatementContext ctx) {
-      throw new RuntimeException("not implemented");
+      if (null != ctx.expression()) {
+         final ExpressionListener expressionListener = new ExpressionListener(getExecutionContext());
+         expressionListener.enterExpression(ctx.expression());
+         if (expressionListener.getValue() instanceof BooleanValue) {
+            if (true == ((BooleanValue) expressionListener.getValue()).isValue()) {
+               if (null != ctx.statement(0)) {
+                  final StatementListener statementListener = new StatementListener(getExecutionContext());
+                  statementListener.enterStatement(ctx.statement(0));
+               }
+            } else if (null != ctx.statement(1)) {
+               final StatementListener statementListener = new StatementListener(getExecutionContext());
+               statementListener.enterStatement(ctx.statement(1));
+            }
+         }
+      }
    }
 
    @Override
