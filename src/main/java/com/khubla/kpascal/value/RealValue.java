@@ -16,7 +16,6 @@
 */
 package com.khubla.kpascal.value;
 
-import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.exception.InvalidOperationException;
 import com.khubla.kpascal.type.RealType;
 import com.khubla.kpascal.type.Type;
@@ -34,7 +33,7 @@ public class RealValue implements AtomicValue {
    }
 
    @Override
-   public Value add(Value v) throws InterpreterException {
+   public Value add(Value v) {
       if (v instanceof IntegerValue) {
          return new RealValue(value + ((IntegerValue) v).getValue());
       } else if (v instanceof RealValue) {
@@ -45,12 +44,12 @@ public class RealValue implements AtomicValue {
    }
 
    @Override
-   public Value and(Value v) throws InterpreterException {
+   public Value and(Value v) {
       throw new InvalidOperationException();
    }
 
    @Override
-   public Value div(Value v) throws InterpreterException {
+   public Value div(Value v) {
       if (v instanceof IntegerValue) {
          return new RealValue(value / ((IntegerValue) v).getValue());
       } else if (v instanceof RealValue) {
@@ -61,7 +60,7 @@ public class RealValue implements AtomicValue {
    }
 
    @Override
-   public BooleanValue eq(Value v) throws InterpreterException {
+   public BooleanValue eq(Value v) {
       if (v instanceof IntegerValue) {
          return new BooleanValue(value == ((IntegerValue) v).getValue());
       } else if (v instanceof RealValue) {
@@ -86,7 +85,7 @@ public class RealValue implements AtomicValue {
    }
 
    @Override
-   public BooleanValue gt(Value v) throws InterpreterException {
+   public BooleanValue gt(Value v) {
       if (v instanceof IntegerValue) {
          return new BooleanValue(value > ((IntegerValue) v).getValue());
       } else if (v instanceof RealValue) {
@@ -97,7 +96,7 @@ public class RealValue implements AtomicValue {
    }
 
    @Override
-   public BooleanValue gte(Value v) throws InterpreterException {
+   public BooleanValue gte(Value v) {
       if (v instanceof IntegerValue) {
          return new BooleanValue(value >= ((IntegerValue) v).getValue());
       } else if (v instanceof RealValue) {
@@ -108,7 +107,7 @@ public class RealValue implements AtomicValue {
    }
 
    @Override
-   public BooleanValue lt(Value v) throws InterpreterException {
+   public BooleanValue lt(Value v) {
       if (v instanceof IntegerValue) {
          return new BooleanValue(value < ((IntegerValue) v).getValue());
       } else if (v instanceof RealValue) {
@@ -119,7 +118,7 @@ public class RealValue implements AtomicValue {
    }
 
    @Override
-   public BooleanValue lte(Value v) throws InterpreterException {
+   public BooleanValue lte(Value v) {
       if (v instanceof IntegerValue) {
          return new BooleanValue(value <= ((IntegerValue) v).getValue());
       } else if (v instanceof RealValue) {
@@ -130,12 +129,12 @@ public class RealValue implements AtomicValue {
    }
 
    @Override
-   public Value mod(Value v) throws InterpreterException {
+   public Value mod(Value v) {
       throw new InvalidOperationException();
    }
 
    @Override
-   public Value mult(Value v) throws InterpreterException {
+   public Value mult(Value v) {
       if (v instanceof IntegerValue) {
          return new RealValue(value * ((IntegerValue) v).getValue());
       } else if (v instanceof RealValue) {
@@ -146,12 +145,12 @@ public class RealValue implements AtomicValue {
    }
 
    @Override
-   public Value neg() throws InterpreterException {
+   public Value neg() {
       return new RealValue(value * -1);
    }
 
    @Override
-   public BooleanValue neq(Value v) throws InterpreterException {
+   public BooleanValue neq(Value v) {
       if (v instanceof IntegerValue) {
          return new BooleanValue(value != ((IntegerValue) v).getValue());
       } else if (v instanceof RealValue) {
@@ -162,12 +161,12 @@ public class RealValue implements AtomicValue {
    }
 
    @Override
-   public Value or(Value v) throws InterpreterException {
+   public Value or(Value v) {
       throw new InvalidOperationException();
    }
 
    @Override
-   public void set(Value v) throws InterpreterException {
+   public void set(Value v) {
       if (v instanceof RealValue) {
          value = ((RealValue) v).getValue();
       } else {
@@ -185,7 +184,7 @@ public class RealValue implements AtomicValue {
    }
 
    @Override
-   public Value subtract(Value v) throws InterpreterException {
+   public Value subtract(Value v) {
       if (v instanceof IntegerValue) {
          return new RealValue(value * ((IntegerValue) v).getValue());
       } else if (v instanceof RealValue) {

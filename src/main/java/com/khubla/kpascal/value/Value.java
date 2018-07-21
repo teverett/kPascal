@@ -16,39 +16,38 @@
 */
 package com.khubla.kpascal.value;
 
-import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.type.Type;
 
 public interface Value {
-   Value add(Value v) throws InterpreterException;
+   Value add(Value v);
 
-   Value and(Value v) throws InterpreterException;
+   Value and(Value v);
 
-   Value div(Value v) throws InterpreterException;
+   Value div(Value v);
 
-   BooleanValue eq(Value v) throws InterpreterException;
+   BooleanValue eq(Value v);
 
    Type getType();
 
-   BooleanValue gt(Value v) throws InterpreterException;
+   BooleanValue gt(Value v);
 
-   BooleanValue gte(Value v) throws InterpreterException;
+   BooleanValue gte(Value v);
 
-   BooleanValue lt(Value v) throws InterpreterException;
+   BooleanValue lt(Value v);
 
-   BooleanValue lte(Value v) throws InterpreterException;
+   BooleanValue lte(Value v);
 
-   Value mod(Value v) throws InterpreterException;
+   Value mod(Value v);
 
-   Value mult(Value v) throws InterpreterException;
+   Value mult(Value v);
 
-   Value neg() throws InterpreterException;
+   Value neg();
 
-   BooleanValue neq(Value v) throws InterpreterException;
+   BooleanValue neq(Value v);
 
-   Value or(Value v) throws InterpreterException;
+   Value or(Value v);
 
-   void set(Value v) throws InterpreterException;
+   void set(Value v);
 
-   Value subtract(Value v) throws InterpreterException;
+   Value subtract(Value v);
 }

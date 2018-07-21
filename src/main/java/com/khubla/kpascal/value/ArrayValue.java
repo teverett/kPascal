@@ -58,22 +58,22 @@ public class ArrayValue implements Value {
    }
 
    @Override
-   public Value add(Value v) throws InterpreterException {
+   public Value add(Value v) {
       throw new InvalidOperationException();
    }
 
    @Override
-   public Value and(Value v) throws InterpreterException {
+   public Value and(Value v) {
       throw new InvalidOperationException();
    }
 
    @Override
-   public Value div(Value v) throws InterpreterException {
+   public Value div(Value v) {
       throw new InvalidOperationException();
    }
 
    @Override
-   public BooleanValue eq(Value v) throws InterpreterException {
+   public BooleanValue eq(Value v) {
       throw new InvalidOperationException();
    }
 
@@ -86,7 +86,7 @@ public class ArrayValue implements Value {
       return arrayType;
    }
 
-   public Value getValue(int idx) throws InterpreterException {
+   public Value getValue(int idx) {
       if ((idx >= lbound) && (idx <= ubound)) {
          return values[idx - 1];
       } else {
@@ -95,56 +95,56 @@ public class ArrayValue implements Value {
    }
 
    @Override
-   public BooleanValue gt(Value v) throws InterpreterException {
+   public BooleanValue gt(Value v) {
       throw new InvalidOperationException();
    }
 
    @Override
-   public BooleanValue gte(Value v) throws InterpreterException {
+   public BooleanValue gte(Value v) {
       throw new InvalidOperationException();
    }
 
    @Override
-   public BooleanValue lt(Value v) throws InterpreterException {
+   public BooleanValue lt(Value v) {
       throw new InvalidOperationException();
    }
 
    @Override
-   public BooleanValue lte(Value v) throws InterpreterException {
+   public BooleanValue lte(Value v) {
       throw new InvalidOperationException();
    }
 
    @Override
-   public Value mod(Value v) throws InterpreterException {
+   public Value mod(Value v) {
       throw new InvalidOperationException();
    }
 
    @Override
-   public Value mult(Value v) throws InterpreterException {
+   public Value mult(Value v) {
       throw new InvalidOperationException();
    }
 
    @Override
-   public Value neg() throws InterpreterException {
+   public Value neg() {
       throw new InvalidOperationException();
    }
 
    @Override
-   public BooleanValue neq(Value v) throws InterpreterException {
+   public BooleanValue neq(Value v) {
       throw new InvalidOperationException();
    }
 
    @Override
-   public Value or(Value v) throws InterpreterException {
+   public Value or(Value v) {
       throw new InvalidOperationException();
    }
 
    @Override
-   public void set(Value v) throws InterpreterException {
+   public void set(Value v) {
       throw new InvalidOperationException();
    }
 
-   public void setValue(int idx, Value value) throws InterpreterException {
+   public void setValue(int idx, Value value) {
       if ((idx >= lbound) && (idx <= ubound)) {
          values[idx - 1] = value;
       } else {
@@ -153,7 +153,7 @@ public class ArrayValue implements Value {
    }
 
    @Override
-   public Value subtract(Value v) throws InterpreterException {
+   public Value subtract(Value v) {
       throw new InvalidOperationException();
    }
 }
