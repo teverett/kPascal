@@ -18,6 +18,8 @@ package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.TypeDefinition;
+import com.khubla.kpascal.listener.type.FunctionTypeListener;
+import com.khubla.kpascal.listener.type.ProcedureTypeListener;
 import com.khubla.pascal.pascalParser;
 
 public class TypeDefinitionListener extends AbstractPascalListener {

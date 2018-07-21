@@ -18,36 +18,33 @@ package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractPascalListener;
-import com.khubla.kpascal.listener.TypeListListener;
-import com.khubla.kpascal.type.ArrayType;
+import com.khubla.kpascal.listener.FormalParameterListListener;
+import com.khubla.kpascal.type.ProcedureOrFunctionType;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
-public class ArrayTypeListener extends AbstractPascalListener {
-   private Type type = null;
+public class FunctionTypeListener extends AbstractPascalListener {
+   private Type type;
 
-   public ArrayTypeListener(ExecutionContext executionContext) {
+   public FunctionTypeListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
-   public void enterArrayType(pascalParser.ArrayTypeContext ctx) {
-      if (null != ctx.typeList()) {
-         final TypeListListener typeListListener = new TypeListListener(getExecutionContext());
-         typeListListener.enterTypeList(ctx.typeList());
-         if (null != ctx.componentType()) {
-            final ComponentTypeListener componentTypeListener = new ComponentTypeListener(getExecutionContext());
-            componentTypeListener.enterComponentType(ctx.componentType());
-            /*
-             * type
-             */
-            type = new ArrayType(componentTypeListener.getType(), typeListListener.getTypelist());
+   public void enterFunctionType(pascalParser.FunctionTypeContext ctx) {
+      if (null != ctx.resultType()) {
+         final ResultTypeListener resultTypeListener = new ResultTypeListener(getExecutionContext());
+         resultTypeListener.enterResultType(ctx.resultType());
+         if (null != ctx.formalParameterList()) {
+            final FormalParameterListListener formalParameterListListener = new FormalParameterListListener(getExecutionContext());
+            formalParameterListListener.enterFormalParameterList(ctx.formalParameterList());
+            type = new ProcedureOrFunctionType(formalParameterListListener.getParameters(), resultTypeListener.getTypeName());
          }
       }
    }
 
    @Override
-   public void exitArrayType(pascalParser.ArrayTypeContext ctx) {
+   public void exitFunctionType(pascalParser.FunctionTypeContext ctx) {
    }
 
    public Type getType() {

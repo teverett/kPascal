@@ -14,31 +14,28 @@
  *    You should have received a copy of the GNU General Public License
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.khubla.kpascal.listener;
+package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.type.ProcedureOrFunctionType;
+import com.khubla.kpascal.exception.NotImplementedException;
+import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
-public class ProcedureTypeListener extends AbstractPascalListener {
+public class SetTypeListener extends AbstractPascalListener {
    private Type type;
 
-   public ProcedureTypeListener(ExecutionContext executionContext) {
+   public SetTypeListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
-   public void enterProcedureType(pascalParser.ProcedureTypeContext ctx) {
-      if (null != ctx.formalParameterList()) {
-         final FormalParameterListListener formalParameterListListener = new FormalParameterListListener(getExecutionContext());
-         formalParameterListListener.enterFormalParameterList(ctx.formalParameterList());
-         type = new ProcedureOrFunctionType(formalParameterListListener.getParameters());
-      }
+   public void enterSetType(pascalParser.SetTypeContext ctx) {
+      throw new NotImplementedException();
    }
 
    @Override
-   public void exitProcedureType(pascalParser.ProcedureTypeContext ctx) {
+   public void exitSetType(pascalParser.SetTypeContext ctx) {
    }
 
    public Type getType() {

@@ -21,6 +21,7 @@ import java.util.List;
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.FunctionOrProcedureDefinition;
 import com.khubla.kpascal.listener.ParameterGroupListener.Parameter;
+import com.khubla.kpascal.listener.type.ResultTypeListener;
 import com.khubla.pascal.pascalParser;
 
 public class FunctionDeclarationListener extends AbstractPascalListener {

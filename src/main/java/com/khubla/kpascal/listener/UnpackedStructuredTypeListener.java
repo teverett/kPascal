@@ -17,8 +17,10 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.listener.type.ArrayTypeListener;
+import com.khubla.kpascal.listener.type.FileTypeListener;
+import com.khubla.kpascal.listener.type.RecordTypeListener;
+import com.khubla.kpascal.listener.type.SetTypeListener;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
@@ -32,15 +34,33 @@ public class UnpackedStructuredTypeListener extends AbstractPascalListener {
    @Override
    public void enterUnpackedStructuredType(pascalParser.UnpackedStructuredTypeContext ctx) {
       if (null != ctx.arrayType()) {
+         /*
+          * array
+          */
          final ArrayTypeListener arrayTypeListener = new ArrayTypeListener(getExecutionContext());
          arrayTypeListener.enterArrayType(ctx.arrayType());
          type = arrayTypeListener.getType();
       } else if (null != ctx.recordType()) {
-         throw new NotImplementedException();
+         /*
+          * recordx
+          */
+         final RecordTypeListener recordTypeListener = new RecordTypeListener(getExecutionContext());
+         recordTypeListener.enterRecordType(ctx.recordType());
+         type = recordTypeListener.getType();
       } else if (null != ctx.setType()) {
-         throw new NotImplementedException();
+         /*
+          * set
+          */
+         final SetTypeListener setTypeListener = new SetTypeListener(getExecutionContext());
+         setTypeListener.enterSetType(ctx.setType());
+         type = setTypeListener.getType();
       } else if (null != ctx.fileType()) {
-         throw new NotImplementedException();
+         /*
+          * file
+          */
+         final FileTypeListener fileTypeListener = new FileTypeListener(getExecutionContext());
+         fileTypeListener.enterFileType(ctx.fileType());
+         type = fileTypeListener.getType();
       }
    }
 

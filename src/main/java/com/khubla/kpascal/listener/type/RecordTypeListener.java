@@ -14,35 +14,28 @@
  *    You should have received a copy of the GNU General Public License
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.khubla.kpascal.listener;
+package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.type.ProcedureOrFunctionType;
+import com.khubla.kpascal.exception.NotImplementedException;
+import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
-public class FunctionTypeListener extends AbstractPascalListener {
+public class RecordTypeListener extends AbstractPascalListener {
    private Type type;
 
-   public FunctionTypeListener(ExecutionContext executionContext) {
+   public RecordTypeListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
-   public void enterFunctionType(pascalParser.FunctionTypeContext ctx) {
-      if (null != ctx.resultType()) {
-         final ResultTypeListener resultTypeListener = new ResultTypeListener(getExecutionContext());
-         resultTypeListener.enterResultType(ctx.resultType());
-         if (null != ctx.formalParameterList()) {
-            final FormalParameterListListener formalParameterListListener = new FormalParameterListListener(getExecutionContext());
-            formalParameterListListener.enterFormalParameterList(ctx.formalParameterList());
-            type = new ProcedureOrFunctionType(formalParameterListListener.getParameters(), resultTypeListener.getTypeName());
-         }
-      }
+   public void enterRecordType(pascalParser.RecordTypeContext ctx) {
+      throw new NotImplementedException();
    }
 
    @Override
-   public void exitFunctionType(pascalParser.FunctionTypeContext ctx) {
+   public void exitRecordType(pascalParser.RecordTypeContext ctx) {
    }
 
    public Type getType() {

@@ -14,30 +14,28 @@
  *    You should have received a copy of the GNU General Public License
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.khubla.kpascal.listener;
+package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.NotImplementedException;
+import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
-public class ComponentTypeListener extends AbstractPascalListener {
+public class FileTypeListener extends AbstractPascalListener {
    private Type type;
 
-   public ComponentTypeListener(ExecutionContext executionContext) {
+   public FileTypeListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
-   public void enterComponentType(pascalParser.ComponentTypeContext ctx) {
-      if (null != ctx.type()) {
-         final TypeListener typeListener = new TypeListener(getExecutionContext());
-         typeListener.enterType(ctx.type());
-         type = typeListener.getType();
-      }
+   public void enterFileType(pascalParser.FileTypeContext ctx) {
+      throw new NotImplementedException();
    }
 
    @Override
-   public void exitComponentType(pascalParser.ComponentTypeContext ctx) {
+   public void exitFileType(pascalParser.FileTypeContext ctx) {
    }
 
    public Type getType() {

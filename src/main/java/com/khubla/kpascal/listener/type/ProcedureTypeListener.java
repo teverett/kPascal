@@ -18,36 +18,29 @@ package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractPascalListener;
-import com.khubla.kpascal.listener.TypeListListener;
-import com.khubla.kpascal.type.ArrayType;
+import com.khubla.kpascal.listener.FormalParameterListListener;
+import com.khubla.kpascal.type.ProcedureOrFunctionType;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
-public class ArrayTypeListener extends AbstractPascalListener {
-   private Type type = null;
+public class ProcedureTypeListener extends AbstractPascalListener {
+   private Type type;
 
-   public ArrayTypeListener(ExecutionContext executionContext) {
+   public ProcedureTypeListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 
    @Override
-   public void enterArrayType(pascalParser.ArrayTypeContext ctx) {
-      if (null != ctx.typeList()) {
-         final TypeListListener typeListListener = new TypeListListener(getExecutionContext());
-         typeListListener.enterTypeList(ctx.typeList());
-         if (null != ctx.componentType()) {
-            final ComponentTypeListener componentTypeListener = new ComponentTypeListener(getExecutionContext());
-            componentTypeListener.enterComponentType(ctx.componentType());
-            /*
-             * type
-             */
-            type = new ArrayType(componentTypeListener.getType(), typeListListener.getTypelist());
-         }
+   public void enterProcedureType(pascalParser.ProcedureTypeContext ctx) {
+      if (null != ctx.formalParameterList()) {
+         final FormalParameterListListener formalParameterListListener = new FormalParameterListListener(getExecutionContext());
+         formalParameterListListener.enterFormalParameterList(ctx.formalParameterList());
+         type = new ProcedureOrFunctionType(formalParameterListListener.getParameters());
       }
    }
 
    @Override
-   public void exitArrayType(pascalParser.ArrayTypeContext ctx) {
+   public void exitProcedureType(pascalParser.ProcedureTypeContext ctx) {
    }
 
    public Type getType() {
