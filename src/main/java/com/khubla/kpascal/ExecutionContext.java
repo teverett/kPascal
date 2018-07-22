@@ -126,7 +126,7 @@ public class ExecutionContext {
    }
 
    /**
-    * walk the stack, top to bottom trying to find the type
+    * walk the stack, top to bottom trying to find the function or procedure
     */
    private FunctionOrProcedureDefinition resolveFunctionOrProcedure(String name) {
       for (int i = 0; i < stack.size(); i++) {
@@ -159,7 +159,7 @@ public class ExecutionContext {
    }
 
    /**
-    * walk the stack, top to bottom trying to find the variable
+    * walk the stack, top to bottom trying to find the variable or constant
     */
    public Value resolveVariable(String name) {
       for (int i = 0; i < stack.size(); i++) {
