@@ -41,10 +41,10 @@ public class TypeIndentifierListener extends AbstractPascalListener {
          identifierListener.enterIdentifier(ctx.identifier());
          type = getExecutionContext().resolveType(identifierListener.getIdentifier());
       } else {
-         final String typename = ctx.getText();
+         final String typename = ctx.getText().toLowerCase();
          if (typename.toLowerCase().compareTo("char") == 0) {
             type = new CharacterType();
-         } else if (typename.toLowerCase().compareTo("bool") == 0) {
+         } else if (typename.toLowerCase().compareTo("boolean") == 0) {
             type = new BooleanType();
          } else if (typename.toLowerCase().compareTo("integer") == 0) {
             type = new IntegerType();
@@ -52,6 +52,8 @@ public class TypeIndentifierListener extends AbstractPascalListener {
             type = new RealType();
          } else if (typename.toLowerCase().compareTo("string") == 0) {
             type = new StringType();
+         } else {
+            throw new RuntimeException("unknown type '" + ctx.getText().toLowerCase() + "'");
          }
       }
    }

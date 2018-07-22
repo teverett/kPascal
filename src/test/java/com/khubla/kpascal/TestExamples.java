@@ -154,4 +154,14 @@ public class TestExamples {
          Assert.fail();
       }
    }
+
+   @Test(enabled = false)
+   public void testGussinggame() {
+      try {
+         runProgramToConsole("/guessinggame.pas");
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
 }
