@@ -36,7 +36,6 @@ Using kPascal in code
 FileInputStream fileInputStream = new FileInputStream("myprogram.pas");
 Interpreter interpreter = new Interpreter();
 interpreter.run(fileInputStream);
-
 ````
 
 Using kPascal from the command line
