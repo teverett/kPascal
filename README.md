@@ -32,7 +32,7 @@ kPascal uses [Antlr](http://www.antlr.org/).  The Pascal grammar is [here](https
 Using kPascal in code
 ---------
 
-####Using a file:
+Using a file:
 
 ````
 FileInputStream fileInputStream = new FileInputStream("myprogram.pas");
@@ -40,7 +40,7 @@ Interpreter interpreter = new Interpreter();
 interpreter.run(fileInputStream);
 ````
 
-####Using a string:
+Using a string:
 
 ````
 String myProgram = "program HelloWorld; begin writeln('hello'); end."
