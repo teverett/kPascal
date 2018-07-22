@@ -28,10 +28,10 @@ import com.khubla.kpascal.type.StringType;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
-public class TypeIndentifierListener extends AbstractPascalListener {
+public class TypeIdentifierListener extends AbstractPascalListener {
    private Type type = null;
 
-   public TypeIndentifierListener(ExecutionContext executionContext) {
+   public TypeIdentifierListener(ExecutionContext executionContext) {
       super(executionContext);
    }
 

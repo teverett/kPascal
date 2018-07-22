@@ -18,7 +18,6 @@ package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractPascalListener;
-import com.khubla.kpascal.listener.TypeIdentifierListener;
 import com.khubla.kpascal.type.PointerType;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
@@ -35,7 +34,7 @@ public class PointerTypeListener extends AbstractPascalListener {
       if (null != ctx.typeIdentifier()) {
          final TypeIdentifierListener typeIdentifierListener = new TypeIdentifierListener(getExecutionContext());
          typeIdentifierListener.enterTypeIdentifier(ctx.typeIdentifier());
-         type = new PointerType(typeIdentifierListener.getTypeName());
+         type = new PointerType(typeIdentifierListener.getType());
       }
    }
 

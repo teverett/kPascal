@@ -56,7 +56,7 @@ public class FunctionDeclarationListener extends AbstractPascalListener {
              * declare
              */
             final FunctionOrProcedureDefinition functionOrProcedureDefinition = new FunctionOrProcedureDefinition(identifierListener.getIdentifier(), parameters, ctx.block(),
-                  resultTypeListener.getTypeName());
+                  resultTypeListener.getType());
             getExecutionContext().getCurrentStackframe().declareFunctionOrProcedure(functionOrProcedureDefinition);
          }
       }

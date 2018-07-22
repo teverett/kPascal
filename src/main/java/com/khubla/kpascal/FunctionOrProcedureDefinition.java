@@ -29,7 +29,7 @@ import com.khubla.pascal.pascalParser.BlockContext;
 public class FunctionOrProcedureDefinition {
    private final String name;
    private final List<Parameter> parameters;
-   private final String resultType;
+   private final Type resultType;
    private final BlockContext blockContext;
 
    /**
@@ -45,7 +45,7 @@ public class FunctionOrProcedureDefinition {
    /**
     * function
     */
-   public FunctionOrProcedureDefinition(String name, List<Parameter> parameters, BlockContext blockContext, String resultType) {
+   public FunctionOrProcedureDefinition(String name, List<Parameter> parameters, BlockContext blockContext, Type resultType) {
       this.name = name;
       this.parameters = parameters;
       this.resultType = resultType;
@@ -82,8 +82,7 @@ public class FunctionOrProcedureDefinition {
        * if there is a return type, then its a function, and we need to put a variable into scope, with the name of the function and type of the function return type
        */
       if (isFunction()) {
-         final Type t = executionContext.resolveType(resultType);
-         stackFrame.declareVariable(getName(), t.createValue());
+         stackFrame.declareVariable(getName(), resultType.createValue());
       }
       /*
        * run the block
@@ -119,7 +118,7 @@ public class FunctionOrProcedureDefinition {
       return parameters;
    }
 
-   public String getResultType() {
+   public Type getResultType() {
       return resultType;
    }
 

@@ -20,9 +20,9 @@ import com.khubla.kpascal.value.PointerValue;
 import com.khubla.kpascal.value.Value;
 
 public class PointerType implements Type {
-   private final String pointerType;
+   private final Type pointerType;
 
-   public PointerType(String pointerType) {
+   public PointerType(Type pointerType) {
       this.pointerType = pointerType;
    }
 
@@ -36,7 +36,7 @@ public class PointerType implements Type {
       return new PointerValue(this);
    }
 
-   public String getPointerType() {
+   public Type getPointerType() {
       return pointerType;
    }
 }

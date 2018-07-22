@@ -27,6 +27,12 @@ public class TagListener extends AbstractPascalListener {
 
    @Override
    public void enterTag(pascalParser.TagContext ctx) {
+      if (null != ctx.typeIdentifier()) {
+      }
+      if (null != ctx.identifier()) {
+         final IdentifierListener identifierListener = new IdentifierListener(getExecutionContext());
+         identifierListener.enterIdentifier(ctx.identifier());
+      }
       throw new NotImplementedException();
    }
 }

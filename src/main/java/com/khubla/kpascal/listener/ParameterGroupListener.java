@@ -20,16 +20,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.listener.type.TypeIdentifierListener;
+import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
 public class ParameterGroupListener extends AbstractPascalListener {
    public class Parameter {
-      private final String typename;
+      private final Type type;
       private final String name;
       private ParameterType parameterType;
 
-      public Parameter(String name, String typename) {
-         this.typename = typename;
+      public Parameter(String name, Type type) {
+         this.type = type;
          this.name = name;
          parameterType = null;
       }
@@ -42,8 +44,8 @@ public class ParameterGroupListener extends AbstractPascalListener {
          return parameterType;
       }
 
-      public String getTypename() {
-         return typename;
+      public Type getType() {
+         return type;
       }
 
       public void setParameterType(ParameterType parameterType) {
@@ -70,7 +72,7 @@ public class ParameterGroupListener extends AbstractPascalListener {
             final TypeIdentifierListener typeIdentifierListener = new TypeIdentifierListener(getExecutionContext());
             typeIdentifierListener.enterTypeIdentifier(ctx.typeIdentifier());
             for (final String identifier : identifierListListener.getIdentifiers()) {
-               parameters.add(new Parameter(identifier, typeIdentifierListener.getTypeName()));
+               parameters.add(new Parameter(identifier, typeIdentifierListener.getType()));
             }
          } else {
             for (final String identifier : identifierListListener.getIdentifiers()) {
