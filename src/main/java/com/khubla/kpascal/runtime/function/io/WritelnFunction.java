@@ -25,9 +25,6 @@ import com.khubla.kpascal.value.AtomicValue;
 import com.khubla.kpascal.value.Value;
 
 public class WritelnFunction extends AbstractRuntimeFunction {
-   public WritelnFunction() {
-   }
-
    @Override
    public Value execute(ExecutionContext executionContext, List<Value> args) {
       if (null != args) {
