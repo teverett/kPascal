@@ -37,8 +37,4 @@ public class VariantListener extends AbstractPascalListener {
       }
       throw new NotImplementedException();
    }
-
-   @Override
-   public void exitVariant(pascalParser.VariantContext ctx) {
-   }
 }

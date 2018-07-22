@@ -34,10 +34,4 @@ public class ProcedureOrFunctionDeclarationListener extends AbstractPascalListen
          functionDeclarationListener.enterFunctionDeclaration(ctx.functionDeclaration());
       }
    }
-
-   @Override
-   public void exitProcedureOrFunctionDeclaration(pascalParser.ProcedureOrFunctionDeclarationContext ctx) {
-      final FunctionDeclarationListener functionDeclarationListener = new FunctionDeclarationListener(getExecutionContext());
-      functionDeclarationListener.enterFunctionDeclaration(ctx.functionDeclaration());
-   }
 }

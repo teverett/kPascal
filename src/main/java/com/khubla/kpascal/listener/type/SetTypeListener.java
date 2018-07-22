@@ -38,10 +38,6 @@ public class SetTypeListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitSetType(pascalParser.SetTypeContext ctx) {
-   }
-
    public Type getType() {
       return type;
    }

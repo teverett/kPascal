@@ -43,10 +43,6 @@ public class ProgramHeadingListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitProgramHeading(pascalParser.ProgramHeadingContext ctx) {
-   }
-
    public List<String> getIdentifiers() {
       return identifiers;
    }

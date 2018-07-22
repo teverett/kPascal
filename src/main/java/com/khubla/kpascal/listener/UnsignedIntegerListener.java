@@ -32,10 +32,6 @@ public class UnsignedIntegerListener extends AbstractPascalListener {
       value = new IntegerValue(Integer.parseInt(ctx.getText()));
    }
 
-   @Override
-   public void exitUnsignedInteger(pascalParser.UnsignedIntegerContext ctx) {
-   }
-
    public IntegerValue getValue() {
       return value;
    }

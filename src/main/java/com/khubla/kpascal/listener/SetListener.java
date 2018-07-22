@@ -40,10 +40,6 @@ public class SetListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitSet(pascalParser.SetContext ctx) {
-   }
-
    public Value getValue() {
       return value;
    }

@@ -32,8 +32,4 @@ public class StatementListener extends AbstractPascalListener {
          unlabelledStatementListener.enterUnlabelledStatement(ctx.unlabelledStatement());
       }
    }
-
-   @Override
-   public void exitStatement(pascalParser.StatementContext ctx) {
-   }
 }

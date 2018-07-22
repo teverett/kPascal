@@ -50,10 +50,6 @@ public class UnsignedConstantListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitUnsignedConstant(pascalParser.UnsignedConstantContext ctx) {
-   }
-
    public Value getValue() {
       return value;
    }

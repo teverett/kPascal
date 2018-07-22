@@ -33,8 +33,4 @@ public class GotoStatementListener extends AbstractPascalListener {
          throw new NotImplementedException();
       }
    }
-
-   @Override
-   public void exitGotoStatement(pascalParser.GotoStatementContext ctx) {
-   }
 }

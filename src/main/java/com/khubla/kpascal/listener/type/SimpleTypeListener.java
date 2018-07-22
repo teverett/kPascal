@@ -63,10 +63,6 @@ public class SimpleTypeListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitSimpleType(pascalParser.SimpleTypeContext ctx) {
-   }
-
    public Type getType() {
       return type;
    }

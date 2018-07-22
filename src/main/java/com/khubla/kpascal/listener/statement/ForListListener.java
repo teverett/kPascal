@@ -54,10 +54,6 @@ public class ForListListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitForList(pascalParser.ForListContext ctx) {
-   }
-
    public IntegerValue getFinalValue() {
       return finalValue;
    }

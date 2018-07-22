@@ -36,8 +36,4 @@ public class ConstantDefinitionPartListener extends AbstractPascalListener {
          }
       }
    }
-
-   @Override
-   public void exitConstantDefinitionPart(pascalParser.ConstantDefinitionPartContext ctx) {
-   }
 }

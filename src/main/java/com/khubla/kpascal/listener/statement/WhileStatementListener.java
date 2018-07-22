@@ -39,8 +39,4 @@ public class WhileStatementListener extends AbstractPascalListener {
          }
       }
    }
-
-   @Override
-   public void exitWhileStatement(pascalParser.WhileStatementContext ctx) {
-   }
 }

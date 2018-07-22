@@ -31,10 +31,6 @@ public class RelationalOperatorListener extends AbstractPascalListener {
       operator = ctx.getText();
    }
 
-   @Override
-   public void exitRelationaloperator(pascalParser.RelationaloperatorContext ctx) {
-   }
-
    public String getOperator() {
       return operator;
    }

@@ -41,8 +41,4 @@ public class StructuredStatementListener extends AbstractPascalListener {
          repetetiveStatementListener.enterRepetetiveStatement(ctx.repetetiveStatement());
       }
    }
-
-   @Override
-   public void exitStructuredStatement(pascalParser.StructuredStatementContext ctx) {
-   }
 }

@@ -38,10 +38,6 @@ public class ComponentTypeListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitComponentType(pascalParser.ComponentTypeContext ctx) {
-   }
-
    public Type getType() {
       return type;
    }

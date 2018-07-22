@@ -38,10 +38,6 @@ public class FinalValueListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitFinalValue(pascalParser.FinalValueContext ctx) {
-   }
-
    public Value getValue() {
       return value;
    }

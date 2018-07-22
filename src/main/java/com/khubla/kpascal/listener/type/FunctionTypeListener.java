@@ -43,10 +43,6 @@ public class FunctionTypeListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitFunctionType(pascalParser.FunctionTypeContext ctx) {
-   }
-
    public Type getType() {
       return type;
    }

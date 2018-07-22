@@ -39,8 +39,4 @@ public class RepeatStatementListener extends AbstractPascalListener {
          }
       }
    }
-
-   @Override
-   public void exitRepeatStatement(pascalParser.RepeatStatementContext ctx) {
-   }
 }

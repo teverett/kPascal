@@ -42,10 +42,6 @@ public class ElementListListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitElementList(pascalParser.ElementListContext ctx) {
-   }
-
    public List<List<Value>> getElementList() {
       return elementList;
    }

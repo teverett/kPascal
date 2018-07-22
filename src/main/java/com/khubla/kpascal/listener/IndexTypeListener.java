@@ -43,10 +43,6 @@ public class IndexTypeListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitIndexType(pascalParser.IndexTypeContext ctx) {
-   }
-
    public SubrangeType getType() {
       return type;
    }

@@ -49,10 +49,6 @@ public class FunctionDesignatorListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitFunctionDesignator(pascalParser.FunctionDesignatorContext ctx) {
-   }
-
    public Value getValue() {
       return value;
    }

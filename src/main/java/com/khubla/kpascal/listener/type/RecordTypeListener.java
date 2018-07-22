@@ -39,10 +39,6 @@ public class RecordTypeListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitRecordType(pascalParser.RecordTypeContext ctx) {
-   }
-
    public Type getType() {
       return type;
    }

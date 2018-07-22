@@ -39,10 +39,6 @@ public class UsesUnitsPartListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitUsesUnitsPart(pascalParser.UsesUnitsPartContext ctx) {
-   }
-
    public List<String> getUnits() {
       return units;
    }

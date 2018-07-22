@@ -50,10 +50,6 @@ public class RecordSectionListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitRecordSection(pascalParser.RecordSectionContext ctx) {
-   }
-
    public List<Field> getFields() {
       return fields;
    }

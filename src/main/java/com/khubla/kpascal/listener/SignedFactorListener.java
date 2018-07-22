@@ -43,10 +43,6 @@ public class SignedFactorListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitSignedFactor(pascalParser.SignedFactorContext ctx) {
-   }
-
    public Value getValue() {
       return value;
    }

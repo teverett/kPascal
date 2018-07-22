@@ -44,10 +44,6 @@ public class LabelDeclarationPartListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitLabelDeclarationPart(pascalParser.LabelDeclarationPartContext ctx) {
-   }
-
    public List<IntegerValue> getValues() {
       return values;
    }

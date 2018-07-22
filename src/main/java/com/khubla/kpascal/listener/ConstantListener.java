@@ -64,10 +64,6 @@ public class ConstantListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitConstant(pascalParser.ConstantContext ctx) {
-   }
-
    public Value getValue() {
       return value;
    }

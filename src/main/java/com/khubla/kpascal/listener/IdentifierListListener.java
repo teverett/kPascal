@@ -40,10 +40,6 @@ public class IdentifierListListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitIdentifierList(pascalParser.IdentifierListContext ctx) {
-   }
-
    public ArrayList<String> getIdentifiers() {
       return identifiers;
    }

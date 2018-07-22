@@ -31,10 +31,6 @@ public class SignListener extends AbstractPascalListener {
       sign = ctx.getText();
    }
 
-   @Override
-   public void exitSign(pascalParser.SignContext ctx) {
-   }
-
    public String getSign() {
       return sign;
    }

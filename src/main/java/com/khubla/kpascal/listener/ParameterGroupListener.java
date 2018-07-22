@@ -80,10 +80,6 @@ public class ParameterGroupListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitParameterGroup(pascalParser.ParameterGroupContext ctx) {
-   }
-
    public List<Parameter> getParameters() {
       return parameters;
    }

@@ -36,10 +36,6 @@ public class LabelListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitLabel(pascalParser.LabelContext ctx) {
-   }
-
    public IntegerValue getValue() {
       return value;
    }

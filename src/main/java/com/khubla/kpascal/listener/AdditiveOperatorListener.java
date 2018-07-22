@@ -31,10 +31,6 @@ public class AdditiveOperatorListener extends AbstractPascalListener {
       operator = ctx.getText();
    }
 
-   @Override
-   public void exitAdditiveoperator(pascalParser.AdditiveoperatorContext ctx) {
-   }
-
    public String getOperator() {
       return operator;
    }

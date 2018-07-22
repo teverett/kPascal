@@ -30,8 +30,4 @@ public class CaseStatementListener extends AbstractPascalListener {
    public void enterCaseStatement(pascalParser.CaseStatementContext ctx) {
       throw new NotImplementedException();
    }
-
-   @Override
-   public void exitCaseStatement(pascalParser.CaseStatementContext ctx) {
-   }
 }

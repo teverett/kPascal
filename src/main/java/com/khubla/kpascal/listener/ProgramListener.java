@@ -46,8 +46,4 @@ public class ProgramListener extends AbstractPascalListener {
          getExecutionContext().popStackframe();
       }
    }
-
-   @Override
-   public void exitProgram(pascalParser.ProgramContext ctx) {
-   }
 }

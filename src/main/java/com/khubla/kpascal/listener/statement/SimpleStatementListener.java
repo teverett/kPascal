@@ -44,8 +44,4 @@ public class SimpleStatementListener extends AbstractPascalListener {
          throw new RuntimeException("Unknown statement");
       }
    }
-
-   @Override
-   public void exitSimpleStatement(pascalParser.SimpleStatementContext ctx) {
-   }
 }

@@ -37,10 +37,6 @@ public class ResultTypeListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitResultType(pascalParser.ResultTypeContext ctx) {
-   }
-
    public String getTypeName() {
       return typeName;
    }

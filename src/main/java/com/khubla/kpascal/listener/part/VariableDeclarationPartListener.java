@@ -36,8 +36,4 @@ public class VariableDeclarationPartListener extends AbstractPascalListener {
          }
       }
    }
-
-   @Override
-   public void exitVariableDeclarationPart(pascalParser.VariableDeclarationPartContext ctx) {
-   }
 }

@@ -42,10 +42,6 @@ public class FixedPartListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitFixedPart(pascalParser.FixedPartContext ctx) {
-   }
-
    public List<Field> getFields() {
       return fields;
    }

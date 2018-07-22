@@ -66,10 +66,6 @@ public class VariableListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitVariable(pascalParser.VariableContext ctx) {
-   }
-
    public Value getValue() {
       return value;
    }

@@ -37,10 +37,6 @@ public class BoolListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitBool(pascalParser.BoolContext ctx) {
-   }
-
    public Value getValue() {
       return value;
    }

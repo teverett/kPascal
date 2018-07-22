@@ -29,8 +29,4 @@ public class EmptyStatementListener extends AbstractPascalListener {
    public void enterEmptyStatement(pascalParser.EmptyStatementContext ctx) {
       // do nothing
    }
-
-   @Override
-   public void exitEmptyStatement(pascalParser.EmptyStatementContext ctx) {
-   }
 }

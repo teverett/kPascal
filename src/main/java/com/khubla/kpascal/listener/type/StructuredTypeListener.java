@@ -38,10 +38,6 @@ public class StructuredTypeListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitStructuredType(pascalParser.StructuredTypeContext ctx) {
-   }
-
    public Type getType() {
       return type;
    }

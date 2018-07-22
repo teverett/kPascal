@@ -38,10 +38,6 @@ public class InitialValueListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitInitialValue(pascalParser.InitialValueContext ctx) {
-   }
-
    public Value getValue() {
       return value;
    }

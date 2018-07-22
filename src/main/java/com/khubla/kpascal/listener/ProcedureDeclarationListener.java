@@ -52,8 +52,4 @@ public class ProcedureDeclarationListener extends AbstractPascalListener {
          getExecutionContext().getCurrentStackframe().declareFunctionOrProcedure(functionOrProcedureDefinition);
       }
    }
-
-   @Override
-   public void exitProcedureDeclaration(pascalParser.ProcedureDeclarationContext ctx) {
-   }
 }

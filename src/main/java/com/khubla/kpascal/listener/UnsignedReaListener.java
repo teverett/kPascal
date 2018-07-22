@@ -32,10 +32,6 @@ public class UnsignedReaListener extends AbstractPascalListener {
       value = new RealValue(Double.parseDouble(ctx.getText()));
    }
 
-   @Override
-   public void exitUnsignedReal(pascalParser.UnsignedRealContext ctx) {
-   }
-
    public RealValue getValue() {
       return value;
    }

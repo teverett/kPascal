@@ -37,8 +37,4 @@ public class UnlabelledStatementListener extends AbstractPascalListener {
          throw new RuntimeException("unknown statement");
       }
    }
-
-   @Override
-   public void exitUnlabelledStatement(pascalParser.UnlabelledStatementContext ctx) {
-   }
 }

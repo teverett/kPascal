@@ -42,8 +42,4 @@ public class ProcedureStatementListener extends AbstractPascalListener {
          }
       }
    }
-
-   @Override
-   public void exitProcedureStatement(pascalParser.ProcedureStatementContext ctx) {
-   }
 }

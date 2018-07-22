@@ -45,8 +45,4 @@ public class AssignmentStatementListener extends AbstractPascalListener {
          }
       }
    }
-
-   @Override
-   public void exitAssignmentStatement(pascalParser.AssignmentStatementContext ctx) {
-   }
 }

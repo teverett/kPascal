@@ -44,10 +44,6 @@ public class FieldListListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitFieldList(pascalParser.FieldListContext ctx) {
-   }
-
    public List<Field> getFields() {
       return fields;
    }

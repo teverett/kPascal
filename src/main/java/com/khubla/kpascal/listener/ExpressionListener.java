@@ -73,10 +73,6 @@ public class ExpressionListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitExpression(pascalParser.ExpressionContext ctx) {
-   }
-
    public Value getValue() {
       return value;
    }

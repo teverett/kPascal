@@ -42,10 +42,6 @@ public class FormalParameterListListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitFormalParameterList(pascalParser.FormalParameterListContext ctx) {
-   }
-
    public List<Parameter> getParameters() {
       return parameters;
    }

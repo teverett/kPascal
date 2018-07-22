@@ -42,10 +42,6 @@ public class ConstListListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitConstList(pascalParser.ConstListContext ctx) {
-   }
-
    public List<Value> getConstants() {
       return constants;
    }

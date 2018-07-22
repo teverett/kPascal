@@ -58,10 +58,6 @@ public class StringTypeListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitStringtype(pascalParser.StringtypeContext ctx) {
-   }
-
    public StringType getType() {
       return type;
    }

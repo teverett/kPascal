@@ -39,10 +39,6 @@ public class FileTypeListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitFileType(pascalParser.FileTypeContext ctx) {
-   }
-
    public Type getType() {
       return type;
    }

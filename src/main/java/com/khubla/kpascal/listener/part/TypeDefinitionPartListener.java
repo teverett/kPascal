@@ -36,8 +36,4 @@ public class TypeDefinitionPartListener extends AbstractPascalListener {
          }
       }
    }
-
-   @Override
-   public void exitTypeDefinitionPart(pascalParser.TypeDefinitionPartContext ctx) {
-   }
 }

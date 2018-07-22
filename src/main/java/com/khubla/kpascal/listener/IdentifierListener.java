@@ -31,10 +31,6 @@ public class IdentifierListener extends AbstractPascalListener {
       identifier = ctx.getText();
    }
 
-   @Override
-   public void exitIdentifier(pascalParser.IdentifierContext ctx) {
-   }
-
    public String getIdentifier() {
       return identifier;
    }

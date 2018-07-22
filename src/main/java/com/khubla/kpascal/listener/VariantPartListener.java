@@ -40,8 +40,4 @@ public class VariantPartListener extends AbstractPascalListener {
       }
       throw new NotImplementedException();
    }
-
-   @Override
-   public void exitVariantPart(pascalParser.VariantPartContext ctx) {
-   }
 }

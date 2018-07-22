@@ -64,10 +64,6 @@ public class UnpackedStructuredTypeListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitUnpackedStructuredType(pascalParser.UnpackedStructuredTypeContext ctx) {
-   }
-
    public Type getType() {
       return type;
    }

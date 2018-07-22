@@ -49,10 +49,6 @@ public class TypeListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitType(pascalParser.TypeContext ctx) {
-   }
-
    public Type getType() {
       return type;
    }

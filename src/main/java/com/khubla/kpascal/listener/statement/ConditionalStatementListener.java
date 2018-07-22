@@ -35,8 +35,4 @@ public class ConditionalStatementListener extends AbstractPascalListener {
          caseStatementListener.enterCaseStatement(ctx.caseStatement());
       }
    }
-
-   @Override
-   public void exitConditionalStatement(pascalParser.ConditionalStatementContext ctx) {
-   }
 }

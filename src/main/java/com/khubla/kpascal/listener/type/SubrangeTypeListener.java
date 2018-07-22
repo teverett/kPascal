@@ -51,10 +51,6 @@ public class SubrangeTypeListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitSubrangeType(pascalParser.SubrangeTypeContext ctx) {
-   }
-
    public Type getType() {
       return type;
    }

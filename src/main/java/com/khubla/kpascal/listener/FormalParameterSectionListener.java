@@ -52,10 +52,6 @@ public class FormalParameterSectionListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitFormalParameterSection(pascalParser.FormalParameterSectionContext ctx) {
-   }
-
    public List<Parameter> getParameters() {
       return parameters;
    }

@@ -61,8 +61,4 @@ public class TypeDefinitionListener extends AbstractPascalListener {
          getExecutionContext().getCurrentStackframe().declareType(typeDefinition);
       }
    }
-
-   @Override
-   public void exitTypeDefinition(pascalParser.TypeDefinitionContext ctx) {
-   }
 }

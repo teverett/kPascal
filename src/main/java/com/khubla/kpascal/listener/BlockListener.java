@@ -101,8 +101,4 @@ public class BlockListener extends AbstractPascalListener {
          compoundStatementListener.enterCompoundStatement(ctx.compoundStatement());
       }
    }
-
-   @Override
-   public void exitBlock(pascalParser.BlockContext ctx) {
-   }
 }

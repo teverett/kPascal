@@ -34,8 +34,4 @@ public class StatementsListener extends AbstractPascalListener {
          }
       }
    }
-
-   @Override
-   public void exitStatements(pascalParser.StatementsContext ctx) {
-   }
 }

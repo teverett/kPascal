@@ -39,10 +39,6 @@ public class ScalarTypeListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitScalarType(pascalParser.ScalarTypeContext ctx) {
-   }
-
    public Type getType() {
       return type;
    }

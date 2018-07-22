@@ -40,10 +40,6 @@ public class UnsignedNumberListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitUnsignedNumber(pascalParser.UnsignedNumberContext ctx) {
-   }
-
    public Value getValue() {
       return value;
    }

@@ -33,8 +33,4 @@ public class ProcedureAndFunctionDeclarationPartListener extends AbstractPascalL
          procedureOrFunctionDeclarationListener.enterProcedureOrFunctionDeclaration(ctx.procedureOrFunctionDeclaration());
       }
    }
-
-   @Override
-   public void exitProcedureAndFunctionDeclarationPart(pascalParser.ProcedureAndFunctionDeclarationPartContext ctx) {
-   }
 }

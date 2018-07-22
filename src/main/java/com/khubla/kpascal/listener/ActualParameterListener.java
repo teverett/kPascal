@@ -36,10 +36,6 @@ public class ActualParameterListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitActualParameter(pascalParser.ActualParameterContext ctx) {
-   }
-
    public Value getValue() {
       return value;
    }

@@ -44,10 +44,6 @@ public class StringListener extends AbstractPascalListener {
       value = new StringValue(s);
    }
 
-   @Override
-   public void exitString(pascalParser.StringContext ctx) {
-   }
-
    public StringValue getValue() {
       return value;
    }

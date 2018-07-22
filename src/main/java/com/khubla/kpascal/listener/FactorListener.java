@@ -91,10 +91,6 @@ public class FactorListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitFactor(pascalParser.FactorContext ctx) {
-   }
-
    public Value getValue() {
       return value;
    }

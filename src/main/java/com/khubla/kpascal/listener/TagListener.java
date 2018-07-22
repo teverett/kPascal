@@ -29,8 +29,4 @@ public class TagListener extends AbstractPascalListener {
    public void enterTag(pascalParser.TagContext ctx) {
       throw new NotImplementedException();
    }
-
-   @Override
-   public void exitTag(pascalParser.TagContext ctx) {
-   }
 }

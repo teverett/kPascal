@@ -33,8 +33,4 @@ public class CompoundStatementListener extends AbstractPascalListener {
          statementsListener.enterStatements(ctx.statements());
       }
    }
-
-   @Override
-   public void exitCompoundStatement(pascalParser.CompoundStatementContext ctx) {
-   }
 }

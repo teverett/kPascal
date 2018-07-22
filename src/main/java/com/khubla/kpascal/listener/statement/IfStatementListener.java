@@ -46,8 +46,4 @@ public class IfStatementListener extends AbstractPascalListener {
          }
       }
    }
-
-   @Override
-   public void exitIfStatement(pascalParser.IfStatementContext ctx) {
-   }
 }

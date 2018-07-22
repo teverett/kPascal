@@ -39,10 +39,6 @@ public class ProcedureTypeListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitProcedureType(pascalParser.ProcedureTypeContext ctx) {
-   }
-
    public Type getType() {
       return type;
    }

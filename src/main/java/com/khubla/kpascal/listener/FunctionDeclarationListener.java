@@ -61,8 +61,4 @@ public class FunctionDeclarationListener extends AbstractPascalListener {
          }
       }
    }
-
-   @Override
-   public void exitFunctionDeclaration(pascalParser.FunctionDeclarationContext ctx) {
-   }
 }

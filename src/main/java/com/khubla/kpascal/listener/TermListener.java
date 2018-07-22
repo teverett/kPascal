@@ -65,10 +65,6 @@ public class TermListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitTerm(pascalParser.TermContext ctx) {
-   }
-
    public Value getValue() {
       return value;
    }

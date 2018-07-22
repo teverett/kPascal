@@ -42,10 +42,6 @@ public class TypeListListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitTypeList(pascalParser.TypeListContext ctx) {
-   }
-
    public List<SubrangeType> getTypelist() {
       return typelist;
    }

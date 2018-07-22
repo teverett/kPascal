@@ -36,10 +36,6 @@ public class ConstantChrListener extends AbstractPascalListener {
       }
    }
 
-   @Override
-   public void exitConstantChr(pascalParser.ConstantChrContext ctx) {
-   }
-
    public IntegerValue getValue() {
       return value;
    }

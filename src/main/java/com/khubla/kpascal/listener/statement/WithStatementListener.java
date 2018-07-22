@@ -30,8 +30,4 @@ public class WithStatementListener extends AbstractPascalListener {
    public void enterWithStatement(pascalParser.WithStatementContext ctx) {
       throw new NotImplementedException();
    }
-
-   @Override
-   public void exitWithStatement(pascalParser.WithStatementContext ctx) {
-   }
 }
