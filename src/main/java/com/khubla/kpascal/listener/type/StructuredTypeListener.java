@@ -18,7 +18,6 @@ package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractPascalListener;
-import com.khubla.kpascal.listener.UnpackedStructuredTypeListener;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 

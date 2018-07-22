@@ -14,13 +14,10 @@
  *    You should have received a copy of the GNU General Public License
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.khubla.kpascal.listener;
+package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.listener.type.ArrayTypeListener;
-import com.khubla.kpascal.listener.type.FileTypeListener;
-import com.khubla.kpascal.listener.type.RecordTypeListener;
-import com.khubla.kpascal.listener.type.SetTypeListener;
+import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
