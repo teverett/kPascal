@@ -18,6 +18,7 @@ package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.NotImplementedException;
+import com.khubla.kpascal.listener.type.TypeIdentifierListener;
 import com.khubla.pascal.pascalParser;
 
 public class TagListener extends AbstractPascalListener {
@@ -28,10 +29,12 @@ public class TagListener extends AbstractPascalListener {
    @Override
    public void enterTag(pascalParser.TagContext ctx) {
       if (null != ctx.typeIdentifier()) {
-      }
-      if (null != ctx.identifier()) {
-         final IdentifierListener identifierListener = new IdentifierListener(getExecutionContext());
-         identifierListener.enterIdentifier(ctx.identifier());
+         final TypeIdentifierListener typeIdentifierListener = new TypeIdentifierListener(getExecutionContext());
+         typeIdentifierListener.enterTypeIdentifier(ctx.typeIdentifier());
+         if (null != ctx.identifier()) {
+            final IdentifierListener identifierListener = new IdentifierListener(getExecutionContext());
+            identifierListener.enterIdentifier(ctx.identifier());
+         }
       }
       throw new NotImplementedException();
    }
