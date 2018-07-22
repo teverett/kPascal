@@ -115,14 +115,11 @@ public class ExecutionContext {
          return new IntegerType();
       } else if (name.toLowerCase().compareTo("real") == 0) {
          return new RealType();
-      }
-      if (name.toLowerCase().compareTo("string") == 0) {
+      } else if (name.toLowerCase().compareTo("string") == 0) {
          return new StringType();
-      }
-      if (name.toLowerCase().compareTo("boolean") == 0) {
+      } else if (name.toLowerCase().compareTo("boolean") == 0) {
          return new BooleanType();
-      }
-      if (name.toLowerCase().compareTo("char") == 0) {
+      } else if (name.toLowerCase().compareTo("char") == 0) {
          return new CharacterType();
       }
       return null;
