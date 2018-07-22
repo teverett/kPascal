@@ -17,6 +17,7 @@
 package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.listener.ConstantListener;
 import com.khubla.kpascal.type.SubrangeType;
@@ -45,7 +46,7 @@ public class SubrangeTypeListener extends AbstractPascalListener {
             if ((constantListener.getValue() instanceof IntegerValue) && (constantListener2.getValue() instanceof IntegerValue)) {
                type = new SubrangeType((IntegerValue) constantListener.getValue(), (IntegerValue) constantListener2.getValue());
             } else {
-               throw new RuntimeException("Invalid subrange type");
+               throw new InterpreterException("Invalid subrange type");
             }
          }
       }

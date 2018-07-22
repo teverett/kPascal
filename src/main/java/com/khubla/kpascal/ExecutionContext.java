@@ -23,6 +23,7 @@ import java.io.PrintStream;
 import java.util.List;
 import java.util.Stack;
 
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.listener.ExpressionListener;
 import com.khubla.kpascal.runtime.function.RuntimeFunction;
 import com.khubla.kpascal.runtime.function.RuntimeFunctionFactory;
@@ -94,7 +95,7 @@ public class ExecutionContext {
          if (null != functionOrProcedureDefinition) {
             return functionOrProcedureDefinition.execute(this, values);
          } else {
-            throw new RuntimeException("Unknown procedure '" + name + "'");
+            throw new InterpreterException("Unknown procedure '" + name + "'");
          }
       }
    }
@@ -138,7 +139,7 @@ public class ExecutionContext {
             return functionOrProcedureDefinition;
          }
       }
-      throw new RuntimeException("Unable to resolve '" + name + "'");
+      throw new InterpreterException("Unable to resolve '" + name + "'");
    }
 
    /**
@@ -157,7 +158,7 @@ public class ExecutionContext {
             }
          }
       }
-      throw new RuntimeException("Unable to resolve '" + name + "'");
+      throw new InterpreterException("Unable to resolve '" + name + "'");
    }
 
    /**
@@ -174,7 +175,7 @@ public class ExecutionContext {
             return value;
          }
       }
-      throw new RuntimeException("Unable to resolve '" + name + "'");
+      throw new InterpreterException("Unable to resolve '" + name + "'");
    }
 
    /**
@@ -187,7 +188,7 @@ public class ExecutionContext {
       if (cond instanceof BooleanValue) {
          return ((BooleanValue) cond).isValue();
       } else {
-         throw new RuntimeException("Expected Boolean");
+         throw new InterpreterException("Expected Boolean");
       }
    }
 }

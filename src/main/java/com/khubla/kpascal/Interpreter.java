@@ -35,7 +35,7 @@ public class Interpreter {
    /*
     * execution context
     */
-   final ExecutionContext executionContext;;
+   private final ExecutionContext executionContext;
 
    public Interpreter() {
       executionContext = new ExecutionContext();

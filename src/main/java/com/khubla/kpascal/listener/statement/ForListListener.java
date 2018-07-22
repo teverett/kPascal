@@ -17,6 +17,7 @@
 package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.value.IntegerValue;
 import com.khubla.kpascal.value.Value;
@@ -39,7 +40,7 @@ public class ForListListener extends AbstractPascalListener {
          if (v instanceof IntegerValue) {
             initialValue = (IntegerValue) v;
          } else {
-            throw new RuntimeException("must be IntegerValue");
+            throw new InterpreterException("must be IntegerValue");
          }
       }
       if (null != ctx.finalValue()) {
@@ -49,7 +50,7 @@ public class ForListListener extends AbstractPascalListener {
          if (v instanceof IntegerValue) {
             finalValue = (IntegerValue) v;
          } else {
-            throw new RuntimeException("must be IntegerValue");
+            throw new InterpreterException("must be IntegerValue");
          }
       }
    }

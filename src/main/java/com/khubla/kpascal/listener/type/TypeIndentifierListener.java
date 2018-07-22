@@ -17,6 +17,7 @@
 package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.listener.IdentifierListener;
 import com.khubla.kpascal.type.BooleanType;
@@ -53,7 +54,7 @@ public class TypeIndentifierListener extends AbstractPascalListener {
          } else if (typename.toLowerCase().compareTo("string") == 0) {
             type = new StringType();
          } else {
-            throw new RuntimeException("unknown type '" + ctx.getText().toLowerCase() + "'");
+            throw new InterpreterException("unknown type '" + ctx.getText().toLowerCase() + "'");
          }
       }
    }

@@ -17,6 +17,7 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.value.Value;
 import com.khubla.pascal.pascalParser;
 
@@ -38,7 +39,7 @@ public class SignedFactorListener extends AbstractPascalListener {
          try {
             value = value.neg();
          } catch (final Exception e) {
-            throw new RuntimeException(e);
+            throw new InterpreterException(e);
          }
       }
    }

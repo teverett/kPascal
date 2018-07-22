@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.value.ArrayValue;
 import com.khubla.kpascal.value.IntegerValue;
 import com.khubla.kpascal.value.Value;
@@ -56,10 +57,10 @@ public class VariableListener extends AbstractPascalListener {
                   try {
                      value = av.getValue(sv.getValue());
                   } catch (final Exception e) {
-                     throw new RuntimeException(e);
+                     throw new InterpreterException(e);
                   }
                } else {
-                  throw new RuntimeException("cannot index into non-array type");
+                  throw new InterpreterException("cannot index into non-array type");
                }
             }
          }

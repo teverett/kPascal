@@ -17,6 +17,7 @@
 package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.listener.IdentifierListener;
 import com.khubla.kpascal.listener.StatementListener;
@@ -53,7 +54,7 @@ public class ForStatementListener extends AbstractPascalListener {
                   try {
                      indexValue.increment();
                   } catch (final Exception e) {
-                     throw new RuntimeException(e);
+                     throw new InterpreterException(e);
                   }
                   /*
                    * check

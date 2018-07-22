@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.listener.type.IndexTypeListener;
 import com.khubla.kpascal.type.SubrangeType;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.IndexTypeContext;

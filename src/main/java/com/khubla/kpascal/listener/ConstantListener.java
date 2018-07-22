@@ -44,7 +44,7 @@ public class ConstantListener extends AbstractPascalListener {
             try {
                value = value.neg();
             } catch (final Exception e) {
-               throw new RuntimeException(e);
+               throw new InterpreterException(e);
             }
          }
       } else if (null != ctx.constantChr()) {

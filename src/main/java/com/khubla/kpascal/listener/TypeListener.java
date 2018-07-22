@@ -17,6 +17,7 @@
 package com.khubla.kpascal.listener;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.listener.type.PointerTypeListener;
 import com.khubla.kpascal.listener.type.SimpleTypeListener;
 import com.khubla.kpascal.listener.type.StructuredTypeListener;
@@ -45,7 +46,7 @@ public class TypeListener extends AbstractPascalListener {
          structuredTypeListener.enterStructuredType(ctx.structuredType());
          type = structuredTypeListener.getType();
       } else {
-         throw new RuntimeException("Unknown type");
+         throw new InterpreterException("Unknown type");
       }
    }
 

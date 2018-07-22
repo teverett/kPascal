@@ -66,7 +66,7 @@ public class ExpressionListener extends AbstractPascalListener {
                      throw new InterpreterException("Unexpected " + relationalOperatorListener.getOperator());
                   }
                } catch (final InterpreterException e) {
-                  throw new RuntimeException(e);
+                  throw new InterpreterException(e);
                }
             }
          }

@@ -17,6 +17,7 @@
 package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.pascal.pascalParser;
 
@@ -34,7 +35,7 @@ public class UnlabelledStatementListener extends AbstractPascalListener {
          final StructuredStatementListener structuredStatementListener = new StructuredStatementListener(getExecutionContext());
          structuredStatementListener.enterStructuredStatement(ctx.structuredStatement());
       } else {
-         throw new RuntimeException("unknown statement");
+         throw new InterpreterException("unknown statement");
       }
    }
 }

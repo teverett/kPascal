@@ -17,6 +17,7 @@
 package com.khubla.kpascal.listener.statement;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.listener.ExpressionListener;
 import com.khubla.kpascal.listener.VariableListener;
@@ -40,7 +41,7 @@ public class AssignmentStatementListener extends AbstractPascalListener {
             try {
                value.set(expressionListener.getValue());
             } catch (final Exception e) {
-               throw new RuntimeException(e);
+               throw new InterpreterException(e);
             }
          }
       }

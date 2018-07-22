@@ -54,7 +54,7 @@ public class SimpleExpressionListener extends AbstractPascalListener {
                      throw new InterpreterException("Unexpected " + additiveOperatorListener.getOperator());
                   }
                } catch (final InterpreterException e) {
-                  throw new RuntimeException(e);
+                  throw new InterpreterException(e);
                }
             }
          }

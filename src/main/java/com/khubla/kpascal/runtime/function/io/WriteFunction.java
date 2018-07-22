@@ -19,6 +19,7 @@ package com.khubla.kpascal.runtime.function.io;
 import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.runtime.function.AbstractRuntimeFunction;
 import com.khubla.kpascal.value.AtomicValue;
 import com.khubla.kpascal.value.Value;
@@ -32,7 +33,7 @@ public class WriteFunction extends AbstractRuntimeFunction {
                final AtomicValue v = (AtomicValue) value;
                executionContext.getConsoleOut().print(v.getAsString());
             } else {
-               throw new RuntimeException("Illegal value type");
+               throw new InterpreterException("Illegal value type");
             }
          }
       }

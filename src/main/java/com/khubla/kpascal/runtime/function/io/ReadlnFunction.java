@@ -19,6 +19,7 @@ package com.khubla.kpascal.runtime.function.io;
 import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
+import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.runtime.function.AbstractRuntimeFunction;
 import com.khubla.kpascal.value.AtomicValue;
 import com.khubla.kpascal.value.Value;
@@ -33,10 +34,10 @@ public class ReadlnFunction extends AbstractRuntimeFunction {
                   final String s = executionContext.getConsoleInput().readLine();
                   ((AtomicValue) v).setFromString(s);
                } catch (final Exception e) {
-                  throw new RuntimeException(e);
+                  throw new InterpreterException(e);
                }
             } else {
-               throw new RuntimeException("Expected atomic value");
+               throw new InterpreterException("Expected atomic value");
             }
          }
       }
