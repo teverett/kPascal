@@ -32,11 +32,24 @@ kPascal uses [Antlr](http://www.antlr.org/).  The Pascal grammar is [here](https
 Using kPascal in code
 ---------
 
+From a file:
+
 ````
 FileInputStream fileInputStream = new FileInputStream("myprogram.pas");
 Interpreter interpreter = new Interpreter();
 interpreter.run(fileInputStream);
 ````
+
+From a string:
+
+
+````
+String myProgram = "program HelloWorld; begin writeln('hello'); end."
+ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(myProgram.getBytes());
+Interpreter interpreter = new Interpreter();
+interpreter.run(byteArrayInputStream);
+````
+
 
 Using kPascal from the command line
 ---------
