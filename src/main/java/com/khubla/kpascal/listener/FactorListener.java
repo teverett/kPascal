@@ -79,6 +79,13 @@ public class FactorListener extends AbstractPascalListener {
          final FunctionDesignatorListener functionDesignatorListener = new FunctionDesignatorListener(getExecutionContext());
          functionDesignatorListener.enterFunctionDesignator(ctx.functionDesignator());
          value = functionDesignatorListener.getValue();
+      } else if (null != ctx.bool()) {
+         /*
+          * boolean
+          */
+         final BoolListener boolListener = new BoolListener(getExecutionContext());
+         boolListener.enterBool(ctx.bool());
+         value = boolListener.getValue();
       } else {
          throw new InterpreterException("Unexpected " + ctx.getText());
       }

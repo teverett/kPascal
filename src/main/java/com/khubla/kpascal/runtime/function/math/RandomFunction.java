@@ -16,28 +16,25 @@
  */
 package com.khubla.kpascal.runtime.function.math;
 
+import java.util.List;
+import java.util.Random;
+
+import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.InterpreterException;
-import com.khubla.kpascal.runtime.function.AbstractRuntimeFunction;
 import com.khubla.kpascal.value.IntegerValue;
-import com.khubla.kpascal.value.RealValue;
 import com.khubla.kpascal.value.Value;
 
-public abstract class MathFunction extends AbstractRuntimeFunction {
-   protected double getDouble(Value value) {
-      if (value instanceof IntegerValue) {
-         return ((IntegerValue) value).getValue();
-      } else if (value instanceof RealValue) {
-         return ((RealValue) value).getValue();
-      } else {
-         throw new InterpreterException("Invalid value");
-      }
-   }
+public class RandomFunction extends MathFunction {
+   private final Random random = new Random();
 
-   protected int getInteger(Value value) {
-      if (value instanceof IntegerValue) {
-         return ((IntegerValue) value).getValue();
+   @Override
+   public Value execute(ExecutionContext executionContext, List<Value> args) {
+      if (null != args) {
+         final int max = getInteger(args.get(0));
+         final int r = random.nextInt((max - 1) + 1) + 1;
+         return new IntegerValue(r);
       } else {
-         throw new InterpreterException("Invalid value");
+         throw new InterpreterException("Invalid argument");
       }
    }
 }

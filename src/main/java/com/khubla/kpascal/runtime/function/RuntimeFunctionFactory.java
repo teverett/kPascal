@@ -27,6 +27,7 @@ import com.khubla.kpascal.runtime.function.math.ArcCosFunction;
 import com.khubla.kpascal.runtime.function.math.ArcSinFunction;
 import com.khubla.kpascal.runtime.function.math.ArcTanFunction;
 import com.khubla.kpascal.runtime.function.math.CosFunction;
+import com.khubla.kpascal.runtime.function.math.RandomFunction;
 import com.khubla.kpascal.runtime.function.math.SinFunction;
 import com.khubla.kpascal.runtime.function.math.SqrFunction;
 import com.khubla.kpascal.runtime.function.math.SqrtFunction;
@@ -55,6 +56,7 @@ public class RuntimeFunctionFactory {
       addFunction("abs", new AbsFunction());
       addFunction("sqr", new SqrFunction());
       addFunction("sqrt", new SqrtFunction());
+      addFunction("random", new RandomFunction());
    }
 
    private void addFunction(String name, RuntimeFunction runtimeFunction) {
