@@ -58,7 +58,7 @@ public class SimpleTypeListener extends AbstractPascalListener {
           */
          final TypeIdentifierListener typeIndentifierListener = new TypeIdentifierListener(getExecutionContext());
          typeIndentifierListener.enterTypeIdentifier(ctx.typeIdentifier());
-         type = typeIndentifierListener.getType();
+         type = getExecutionContext().resolveType(typeIndentifierListener.getTypeName());
       } else {
          throw new InterpreterException("Unknown type");
       }

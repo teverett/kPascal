@@ -29,7 +29,7 @@ import com.khubla.pascal.pascalParser.BlockContext;
 public class FunctionOrProcedureDefinition {
    private final String name;
    private final List<Parameter> parameters;
-   private final Type resultType;
+   private final String resultTypeName;
    private final BlockContext blockContext;
 
    /**
@@ -38,17 +38,17 @@ public class FunctionOrProcedureDefinition {
    public FunctionOrProcedureDefinition(String name, List<Parameter> parameters, BlockContext blockContext) {
       this.name = name;
       this.parameters = parameters;
-      resultType = null;
+      resultTypeName = null;
       this.blockContext = blockContext;
    }
 
    /**
     * function
     */
-   public FunctionOrProcedureDefinition(String name, List<Parameter> parameters, BlockContext blockContext, Type resultType) {
+   public FunctionOrProcedureDefinition(String name, List<Parameter> parameters, BlockContext blockContext, String resultTypeName) {
       this.name = name;
       this.parameters = parameters;
-      this.resultType = resultType;
+      this.resultTypeName = resultTypeName;
       this.blockContext = blockContext;
    }
 
@@ -82,6 +82,7 @@ public class FunctionOrProcedureDefinition {
        * if there is a return type, then its a function, and we need to put a variable into scope, with the name of the function and type of the function return type
        */
       if (isFunction()) {
+         final Type resultType = executionContext.resolveType(resultTypeName);
          stackFrame.declareVariable(getName(), resultType.createValue());
       }
       /*
@@ -118,11 +119,11 @@ public class FunctionOrProcedureDefinition {
       return parameters;
    }
 
-   public Type getResultType() {
-      return resultType;
+   public String getResultTypeName() {
+      return resultTypeName;
    }
 
    public boolean isFunction() {
-      return null != getResultType();
+      return null != getResultTypeName();
    }
 }

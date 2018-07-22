@@ -1,5 +1,3 @@
-package com.khubla.kpascal.type;
-
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -16,14 +14,16 @@ package com.khubla.kpascal.type;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+package com.khubla.kpascal.type;
+
 import com.khubla.kpascal.value.PointerValue;
 import com.khubla.kpascal.value.Value;
 
 public class PointerType implements Type {
-   private final Type pointerType;
+   private final String pointerTypeName;
 
-   public PointerType(Type pointerType) {
-      this.pointerType = pointerType;
+   public PointerType(String pointerTypeName) {
+      this.pointerTypeName = pointerTypeName;
    }
 
    @Override
@@ -36,7 +36,7 @@ public class PointerType implements Type {
       return new PointerValue(this);
    }
 
-   public Type getPointerType() {
-      return pointerType;
+   public String getPointerTypeName() {
+      return pointerTypeName;
    }
 }

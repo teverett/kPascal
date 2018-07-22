@@ -18,11 +18,10 @@ package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.listener.AbstractPascalListener;
-import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
 public class ResultTypeListener extends AbstractPascalListener {
-   private Type type;
+   private String typeName;
 
    public ResultTypeListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -33,15 +32,15 @@ public class ResultTypeListener extends AbstractPascalListener {
       if (null != ctx.typeIdentifier()) {
          final TypeIdentifierListener typeIdentifierListener = new TypeIdentifierListener(getExecutionContext());
          typeIdentifierListener.enterTypeIdentifier(ctx.typeIdentifier());
-         type = typeIdentifierListener.getType();
+         typeName = typeIdentifierListener.getTypeName();
       }
    }
 
-   public Type getType() {
-      return type;
+   public String getTypeName() {
+      return typeName;
    }
 
-   public void setType(Type type) {
-      this.type = type;
+   public void setTypeName(String typeName) {
+      this.typeName = typeName;
    }
 }

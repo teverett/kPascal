@@ -111,18 +111,18 @@ public class ExecutionContext {
    }
 
    private Type resolveBuiltinType(String name) {
-      if (name.compareTo("integer") == 0) {
+      if (name.toLowerCase().compareTo("integer") == 0) {
          return new IntegerType();
-      } else if (name.compareTo("real") == 0) {
+      } else if (name.toLowerCase().compareTo("real") == 0) {
          return new RealType();
       }
-      if (name.compareTo("string") == 0) {
+      if (name.toLowerCase().compareTo("string") == 0) {
          return new StringType();
       }
-      if (name.compareTo("boolean") == 0) {
+      if (name.toLowerCase().compareTo("boolean") == 0) {
          return new BooleanType();
       }
-      if (name.compareTo("character") == 0) {
+      if (name.toLowerCase().compareTo("char") == 0) {
          return new CharacterType();
       }
       return null;

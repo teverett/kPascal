@@ -23,16 +23,16 @@ import com.khubla.kpascal.value.Value;
 
 public class ProcedureOrFunctionType implements Type {
    private final List<Parameter> parameters;
-   private final Type resultType;
+   private final String resultTypeName;
 
    public ProcedureOrFunctionType(List<Parameter> parameters) {
       this.parameters = parameters;
-      resultType = null;
+      resultTypeName = null;
    }
 
-   public ProcedureOrFunctionType(List<Parameter> parameters, Type resultType) {
+   public ProcedureOrFunctionType(List<Parameter> parameters, String resultTypeName) {
       this.parameters = parameters;
-      this.resultType = resultType;
+      this.resultTypeName = resultTypeName;
    }
 
    @Override
@@ -50,7 +50,7 @@ public class ProcedureOrFunctionType implements Type {
       return parameters;
    }
 
-   public Type getResultType() {
-      return resultType;
+   public String getResultTypeName() {
+      return resultTypeName;
    }
 }

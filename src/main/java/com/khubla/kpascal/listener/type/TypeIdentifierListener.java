@@ -17,19 +17,12 @@
 package com.khubla.kpascal.listener.type;
 
 import com.khubla.kpascal.ExecutionContext;
-import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.listener.AbstractPascalListener;
 import com.khubla.kpascal.listener.IdentifierListener;
-import com.khubla.kpascal.type.BooleanType;
-import com.khubla.kpascal.type.CharacterType;
-import com.khubla.kpascal.type.IntegerType;
-import com.khubla.kpascal.type.RealType;
-import com.khubla.kpascal.type.StringType;
-import com.khubla.kpascal.type.Type;
 import com.khubla.pascal.pascalParser;
 
 public class TypeIdentifierListener extends AbstractPascalListener {
-   private Type type = null;
+   private String typeName = null;
 
    public TypeIdentifierListener(ExecutionContext executionContext) {
       super(executionContext);
@@ -40,30 +33,17 @@ public class TypeIdentifierListener extends AbstractPascalListener {
       if (null != ctx.identifier()) {
          final IdentifierListener identifierListener = new IdentifierListener(getExecutionContext());
          identifierListener.enterIdentifier(ctx.identifier());
-         type = getExecutionContext().resolveType(identifierListener.getIdentifier());
+         typeName = identifierListener.getIdentifier();
       } else {
-         final String typename = ctx.getText().toLowerCase();
-         if (typename.toLowerCase().compareTo("char") == 0) {
-            type = new CharacterType();
-         } else if (typename.toLowerCase().compareTo("boolean") == 0) {
-            type = new BooleanType();
-         } else if (typename.toLowerCase().compareTo("integer") == 0) {
-            type = new IntegerType();
-         } else if (typename.toLowerCase().compareTo("real") == 0) {
-            type = new RealType();
-         } else if (typename.toLowerCase().compareTo("string") == 0) {
-            type = new StringType();
-         } else {
-            throw new InterpreterException("unknown type '" + ctx.getText().toLowerCase() + "'");
-         }
+         typeName = ctx.getText().toLowerCase();
       }
    }
 
-   public Type getType() {
-      return type;
+   public String getTypeName() {
+      return typeName;
    }
 
-   public void setType(Type type) {
-      this.type = type;
+   public void setTypeName(String typeName) {
+      this.typeName = typeName;
    }
 }

@@ -3,5 +3,3 @@ jdk:
   - oraclejdk8
   - openjdk7
 sudo: required
-
-
