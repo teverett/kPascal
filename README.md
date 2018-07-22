@@ -32,7 +32,7 @@ kPascal uses [Antlr](http://www.antlr.org/).  The Pascal grammar is [here](https
 Using kPascal in code
 ---------
 
-From a file:
+####Using a file:
 
 ````
 FileInputStream fileInputStream = new FileInputStream("myprogram.pas");
@@ -40,8 +40,7 @@ Interpreter interpreter = new Interpreter();
 interpreter.run(fileInputStream);
 ````
 
-From a string:
-
+####Using a string:
 
 ````
 String myProgram = "program HelloWorld; begin writeln('hello'); end."
@@ -50,6 +49,17 @@ Interpreter interpreter = new Interpreter();
 interpreter.run(byteArrayInputStream);
 ````
 
+Custom input and output streams
+---------
+
+kPascal uses `System.in` and `System.out` as the console by default. However, it is possible to provide your own input and output IO streams.
+
+````
+public void runPascalProgram(InputStream pascalInputStream, InputStream consoleIn, PrintStream consoleOut){
+   Interpreter interpreter = new Interpreter(consoleIn, consoleOut);
+   interpreter.run(programInputStream);
+}
+````
 
 Using kPascal from the command line
 ---------
