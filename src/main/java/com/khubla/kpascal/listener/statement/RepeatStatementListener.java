@@ -34,8 +34,8 @@ public class RepeatStatementListener extends AbstractPascalListener {
             while (true == c) {
                final StatementsListener statementsListener = new StatementsListener(getExecutionContext());
                statementsListener.enterStatements(ctx.statements());
+               c = getExecutionContext().testExpression(ctx.expression());
             }
-            c = getExecutionContext().testExpression(ctx.expression());
          }
       }
    }
