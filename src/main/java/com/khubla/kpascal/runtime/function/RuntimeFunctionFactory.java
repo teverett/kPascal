@@ -19,6 +19,7 @@ package com.khubla.kpascal.runtime.function;
 import java.util.Hashtable;
 
 import com.khubla.kpascal.runtime.function.io.ReadFunction;
+import com.khubla.kpascal.runtime.function.io.ReadKeyFunction;
 import com.khubla.kpascal.runtime.function.io.ReadlnFunction;
 import com.khubla.kpascal.runtime.function.io.WriteFunction;
 import com.khubla.kpascal.runtime.function.io.WritelnFunction;
@@ -44,6 +45,7 @@ public class RuntimeFunctionFactory {
       addFunction("write", new WriteFunction());
       addFunction("read", new ReadFunction());
       addFunction("readln", new ReadlnFunction());
+      addFunction("readkey", new ReadKeyFunction());
       /*
        * math
        */
