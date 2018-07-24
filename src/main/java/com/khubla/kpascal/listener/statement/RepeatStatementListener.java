@@ -31,7 +31,7 @@ public class RepeatStatementListener extends AbstractPascalListener {
       if (null != ctx.statements()) {
          if (null != ctx.expression()) {
             boolean c = getExecutionContext().testExpression(ctx.expression());
-            while (true == c) {
+            while (true != c) {
                final StatementsListener statementsListener = new StatementsListener(getExecutionContext());
                statementsListener.enterStatements(ctx.statements());
                c = getExecutionContext().testExpression(ctx.expression());

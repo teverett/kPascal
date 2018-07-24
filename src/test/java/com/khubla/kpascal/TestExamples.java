@@ -31,6 +31,37 @@ public class TestExamples extends AbstractTest {
       }
    }
 
+   @Test(enabled = false)
+   public void testCalc() {
+      try {
+         runProgramToConsole("/calc.pas");
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
+
+   @Test(enabled = true)
+   public void testFact() {
+      try {
+         final String output = runProgram("/fact.pas", "");
+         Assert.assertTrue(output.compareTo("Factorial of \n" + "5\n" + " is \n" + "120\n") == 0);
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
+
+   @Test(enabled = false)
+   public void testGussinggame() {
+      try {
+         runProgramToConsole("/guessinggame.pas");
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
+
    @Test(enabled = true)
    public void testHelloWorld() {
       try {
@@ -47,17 +78,6 @@ public class TestExamples extends AbstractTest {
       try {
          final String output = runProgram("/if.pas", "50\n");
          Assert.assertTrue(output.compareTo("Please enter an integer between 0 and 100\n" + "If this was a grade, you would receive a grade of:  F") == 0);
-      } catch (final Exception e) {
-         e.printStackTrace();
-         Assert.fail();
-      }
-   }
-
-   @Test(enabled = true)
-   public void testFact() {
-      try {
-         final String output = runProgram("/fact.pas", "");
-         Assert.assertTrue(output.compareTo("Factorial of \n" + "5\n" + " is \n" + "120\n") == 0);
       } catch (final Exception e) {
          e.printStackTrace();
          Assert.fail();
@@ -96,6 +116,17 @@ public class TestExamples extends AbstractTest {
    }
 
    @Test(enabled = false)
+   public void testQuadratic() {
+      try {
+         final String output = runProgram("/quadratic.pas", "13\n13\n14\n");
+         Assert.assertTrue(output.compareTo("A = B = C = x1 = (\n" + "-84.5\n" + ",\n" + "153.68067542797954\n" + ")\n") == 0);
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
+
+   @Test(enabled = false)
    public void testSet() {
       try {
          runProgramToConsole("/set.pas");
@@ -109,37 +140,6 @@ public class TestExamples extends AbstractTest {
    public void testSet2() {
       try {
          runProgramToConsole("/set2.pas");
-      } catch (final Exception e) {
-         e.printStackTrace();
-         Assert.fail();
-      }
-   }
-
-   @Test(enabled = false)
-   public void testQuadratic() {
-      try {
-         final String output = runProgram("/quadratic.pas", "13\n13\n14\n");
-         Assert.assertTrue(output.compareTo("A = B = C = x1 = (\n" + "-84.5\n" + ",\n" + "153.68067542797954\n" + ")\n") == 0);
-      } catch (final Exception e) {
-         e.printStackTrace();
-         Assert.fail();
-      }
-   }
-
-   @Test(enabled = false)
-   public void testCalc() {
-      try {
-         runProgramToConsole("/calc.pas");
-      } catch (final Exception e) {
-         e.printStackTrace();
-         Assert.fail();
-      }
-   }
-
-   @Test(enabled = false)
-   public void testGussinggame() {
-      try {
-         runProgramToConsole("/guessinggame.pas");
       } catch (final Exception e) {
          e.printStackTrace();
          Assert.fail();

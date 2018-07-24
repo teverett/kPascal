@@ -33,6 +33,18 @@ public class TestStatements extends AbstractTest {
    }
 
    @Test(enabled = true)
+   public void testRepeatLoop() {
+      try {
+         final String output = runProgram("/statements/repeatloop.pas", "");
+         Assert.assertTrue(output.compareTo("value of a: \n" + "10\n" + "value of a: \n" + "11\n" + "value of a: \n" + "12\n" + "value of a: \n" + "13\n" + "value of a: \n" + "14\n" + "value of a: \n"
+               + "15\n" + "value of a: \n" + "16\n" + "value of a: \n" + "17\n" + "value of a: \n" + "18\n" + "value of a: \n" + "19\n" + "") == 0);
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
+
+   @Test(enabled = true)
    public void testWhileLoop() {
       try {
          final String output = runProgram("/statements/whileloop.pas", "");
