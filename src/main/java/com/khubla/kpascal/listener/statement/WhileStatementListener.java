@@ -34,8 +34,8 @@ public class WhileStatementListener extends AbstractPascalListener {
             while (true == c) {
                final StatementListener statementListener = new StatementListener(getExecutionContext());
                statementListener.enterStatement(ctx.statement());
+               c = getExecutionContext().testExpression(ctx.expression());
             }
-            c = getExecutionContext().testExpression(ctx.expression());
          }
       }
    }
