@@ -16,29 +16,10 @@
  */
 package com.khubla.kpascal;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.PrintStream;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TestExamples {
-   public String runProgram(String mumpsfile, String input) throws Exception {
-      final InputStream inputStream = Main.class.getResourceAsStream(mumpsfile);
-      final ByteArrayOutputStream baos = new ByteArrayOutputStream();
-      final Interpreter interpreter = new Interpreter(new ByteArrayInputStream(input.getBytes()), new PrintStream(baos));
-      interpreter.run(inputStream);
-      return baos.toString();
-   }
-
-   public void runProgramToConsole(String mumpsfile) throws Exception {
-      final InputStream inputStream = Main.class.getResourceAsStream(mumpsfile);
-      final Interpreter interpreter = new Interpreter(System.in, System.out);
-      interpreter.run(inputStream);
-   }
-
+public class TestExamples extends AbstractTest {
    @Test(enabled = true)
    public void testAdd() {
       try {
