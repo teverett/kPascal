@@ -19,6 +19,7 @@ package com.khubla.kpascal;
 import java.util.HashMap;
 
 import com.khubla.kpascal.value.Value;
+import com.khubla.pascal.pascalParser.BlockContext;
 
 /**
  * a stack frame, containing variables
@@ -40,6 +41,10 @@ public class StackFrame {
     * named types
     */
    private final HashMap<String, TypeDefinition> types = new HashMap<String, TypeDefinition>();
+   /**
+    * labels
+    */
+   private final HashMap<Integer, BlockContext> labels = new HashMap<Integer, BlockContext>();
 
    public void declareConstant(String name, Value value) {
       constants.put(name, value);
@@ -47,6 +52,10 @@ public class StackFrame {
 
    public void declareFunctionOrProcedure(FunctionOrProcedureDefinition functionOrProcedureDefinition) {
       functionsAndProcedures.put(functionOrProcedureDefinition.getName(), functionOrProcedureDefinition);
+   }
+
+   public void declareLabel(Integer id, BlockContext blockContext) {
+      labels.put(id, blockContext);
    }
 
    public void declareType(TypeDefinition typeDefinition) {

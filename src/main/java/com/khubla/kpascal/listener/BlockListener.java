@@ -24,6 +24,7 @@ import com.khubla.kpascal.listener.part.TypeDefinitionPartListener;
 import com.khubla.kpascal.listener.part.UsesUnitsPartListener;
 import com.khubla.kpascal.listener.part.VariableDeclarationPartListener;
 import com.khubla.kpascal.listener.statement.CompoundStatementListener;
+import com.khubla.kpascal.value.IntegerValue;
 import com.khubla.pascal.pascalParser;
 import com.khubla.pascal.pascalParser.ConstantDefinitionPartContext;
 import com.khubla.pascal.pascalParser.LabelDeclarationPartContext;
@@ -82,6 +83,12 @@ public class BlockListener extends AbstractPascalListener {
          for (final LabelDeclarationPartContext labelDeclarationPartContext : ctx.labelDeclarationPart()) {
             final LabelDeclarationPartListener labelDeclarationPartListener = new LabelDeclarationPartListener(getExecutionContext());
             labelDeclarationPartListener.enterLabelDeclarationPart(labelDeclarationPartContext);
+            /*
+             * declare the labels
+             */
+            for (IntegerValue label : labelDeclarationPartListener.getValues()) {
+               this.getExecutionContext().getCurrentStackframe().declareLabel(label.getValue(), ctx);
+            }
          }
       }
       /*
