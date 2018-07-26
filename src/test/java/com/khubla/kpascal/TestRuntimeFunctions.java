@@ -16,5 +16,53 @@
  */
 package com.khubla.kpascal;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import com.khubla.kpascal.runtime.function.io.ReadlnFunction;
+import com.khubla.kpascal.runtime.function.io.WritelnFunction;
+import com.khubla.kpascal.value.IntegerValue;
+import com.khubla.kpascal.value.Value;
+
 public class TestRuntimeFunctions {
+   @Test(enabled = true)
+   public void testReadln() {
+      try {
+         final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(new String("10\n").getBytes());
+         final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+         final ExecutionContext executionContext = new ExecutionContext(byteArrayInputStream, byteArrayOutputStream);
+         final ReadlnFunction readlnFunction = new ReadlnFunction();
+         final List<Value> args = new ArrayList<Value>();
+         final IntegerValue iv = new IntegerValue(0);
+         args.add(iv);
+         readlnFunction.execute(executionContext, args);
+         Assert.assertTrue(iv.getValue() == 10);
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
+
+   @Test(enabled = true)
+   public void testWriteln() {
+      try {
+         final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(new String("").getBytes());
+         final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+         final ExecutionContext executionContext = new ExecutionContext(byteArrayInputStream, byteArrayOutputStream);
+         final WritelnFunction writelnFunction = new WritelnFunction();
+         final List<Value> args = new ArrayList<Value>();
+         args.add(new IntegerValue(100));
+         writelnFunction.execute(executionContext, args);
+         final String output = byteArrayOutputStream.toString();
+         Assert.assertTrue(output.compareTo("100\n") == 0);
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
 }
