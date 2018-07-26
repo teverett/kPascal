@@ -19,7 +19,6 @@ package com.khubla.kpascal.listener.statement;
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.InterpreterException;
 import com.khubla.kpascal.listener.AbstractPascalListener;
-import com.khubla.kpascal.listener.GotoStatementListener;
 import com.khubla.pascal.pascalParser;
 
 public class SimpleStatementListener extends AbstractPascalListener {
