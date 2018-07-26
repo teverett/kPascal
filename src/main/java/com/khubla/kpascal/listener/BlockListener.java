@@ -86,8 +86,8 @@ public class BlockListener extends AbstractPascalListener {
             /*
              * declare the labels
              */
-            for (IntegerValue label : labelDeclarationPartListener.getValues()) {
-               this.getExecutionContext().getCurrentStackframe().declareLabel(label.getValue(), ctx);
+            for (final IntegerValue label : labelDeclarationPartListener.getValues()) {
+               getExecutionContext().getCurrentStackframe().declareLabel(label.getValue(), ctx);
             }
          }
       }
