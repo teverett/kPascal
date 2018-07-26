@@ -24,8 +24,8 @@ public class TestStatements extends AbstractTest {
    public void testForLoop() {
       try {
          final String output = runProgram("/statements/forloop.pas", "");
-         Assert.assertTrue(output.compareTo("value of a: \n" + "10\n" + "value of a: \n" + "11\n" + "value of a: \n" + "12\n" + "value of a: \n" + "13\n" + "value of a: \n" + "14\n" + "value of a: \n"
-               + "15\n" + "value of a: \n" + "16\n" + "value of a: \n" + "17\n" + "value of a: \n" + "18\n" + "value of a: \n" + "19\n" + "value of a: \n" + "20\n") == 0);
+         Assert.assertTrue(output.compareTo("value of a: 10\n" + "value of a: 11\n" + "value of a: 12\n" + "value of a: 13\n" + "value of a: 14\n" + "value of a: 15\n" + "value of a: 16\n"
+               + "value of a: 17\n" + "value of a: 18\n" + "value of a: 19\n" + "value of a: 20\n") == 0);
       } catch (final Exception e) {
          e.printStackTrace();
          Assert.fail();
@@ -36,8 +36,8 @@ public class TestStatements extends AbstractTest {
    public void testRepeatLoop() {
       try {
          final String output = runProgram("/statements/repeatloop.pas", "");
-         Assert.assertTrue(output.compareTo("value of a: \n" + "10\n" + "value of a: \n" + "11\n" + "value of a: \n" + "12\n" + "value of a: \n" + "13\n" + "value of a: \n" + "14\n" + "value of a: \n"
-               + "15\n" + "value of a: \n" + "16\n" + "value of a: \n" + "17\n" + "value of a: \n" + "18\n" + "value of a: \n" + "19\n" + "") == 0);
+         Assert.assertTrue(output.compareTo("value of a: 10\n" + "value of a: 11\n" + "value of a: 12\n" + "value of a: 13\n" + "value of a: 14\n" + "value of a: 15\n" + "value of a: 16\n"
+               + "value of a: 17\n" + "value of a: 18\n" + "value of a: 19\n") == 0);
       } catch (final Exception e) {
          e.printStackTrace();
          Assert.fail();
@@ -48,8 +48,8 @@ public class TestStatements extends AbstractTest {
    public void testWhileLoop() {
       try {
          final String output = runProgram("/statements/whileloop.pas", "");
-         Assert.assertTrue(output.compareTo("value of a: \n" + "10\n" + "value of a: \n" + "11\n" + "value of a: \n" + "12\n" + "value of a: \n" + "13\n" + "value of a: \n" + "14\n" + "value of a: \n"
-               + "15\n" + "value of a: \n" + "16\n" + "value of a: \n" + "17\n" + "value of a: \n" + "18\n" + "value of a: \n" + "19\n" + "") == 0);
+         Assert.assertTrue(output.compareTo("value of a: 10\n" + "value of a: 11\n" + "value of a: 12\n" + "value of a: 13\n" + "value of a: 14\n" + "value of a: 15\n" + "value of a: 16\n"
+               + "value of a: 17\n" + "value of a: 18\n" + "value of a: 19\n") == 0);
       } catch (final Exception e) {
          e.printStackTrace();
          Assert.fail();

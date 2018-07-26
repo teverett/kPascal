@@ -45,7 +45,7 @@ public class TestExamples extends AbstractTest {
    public void testFact() {
       try {
          final String output = runProgram("/fact.pas", "");
-         Assert.assertTrue(output.compareTo("Factorial of \n" + "5\n" + " is \n" + "120\n") == 0);
+         Assert.assertTrue(output.compareTo("Factorial of " + "5" + " is " + "120\n") == 0);
       } catch (final Exception e) {
          e.printStackTrace();
          Assert.fail();

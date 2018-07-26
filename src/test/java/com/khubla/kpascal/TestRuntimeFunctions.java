@@ -27,6 +27,8 @@ import org.testng.annotations.Test;
 import com.khubla.kpascal.runtime.function.io.ReadlnFunction;
 import com.khubla.kpascal.runtime.function.io.WritelnFunction;
 import com.khubla.kpascal.value.IntegerValue;
+import com.khubla.kpascal.value.RealValue;
+import com.khubla.kpascal.value.StringValue;
 import com.khubla.kpascal.value.Value;
 
 public class TestRuntimeFunctions {
@@ -60,6 +62,27 @@ public class TestRuntimeFunctions {
          writelnFunction.execute(executionContext, args);
          final String output = byteArrayOutputStream.toString();
          Assert.assertTrue(output.compareTo("100\n") == 0);
+      } catch (final Exception e) {
+         e.printStackTrace();
+         Assert.fail();
+      }
+   }
+
+   @Test(enabled = true)
+   public void testWritelnMultiple() {
+      try {
+         final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(new String("").getBytes());
+         final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+         final ExecutionContext executionContext = new ExecutionContext(byteArrayInputStream, byteArrayOutputStream);
+         final WritelnFunction writelnFunction = new WritelnFunction();
+         final List<Value> args = new ArrayList<Value>();
+         args.add(new IntegerValue(100));
+         args.add(new IntegerValue(107));
+         args.add(new RealValue(12.2));
+         args.add(new StringValue("cat"));
+         writelnFunction.execute(executionContext, args);
+         final String output = byteArrayOutputStream.toString();
+         Assert.assertTrue(output.compareTo("10010712.2cat\n") == 0);
       } catch (final Exception e) {
          e.printStackTrace();
          Assert.fail();
