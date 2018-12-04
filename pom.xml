@@ -4,7 +4,7 @@
 	<artifactId>kpascal</artifactId>
 	<packaging>jar</packaging>
 	<name>khubla.com Pascal Interpreter</name>
-	<version>1.0</version>
+	<version>1.1-SNAPSHOT</version>
 	<description>khubla.com Pascal Interpreter</description>
 	<url>https://github.com/teverett/kPascal</url>
 	<developers>
@@ -20,7 +20,7 @@
 	</organization>
 	<scm>
 		<connection>scm:git:https://github.com/teverett/kPascal.git</connection>
-	  <tag>kpascal-1.0</tag>
+	  <tag>HEAD</tag>
   </scm>
 	<prerequisites>
 		<maven>3.1.0</maven>
