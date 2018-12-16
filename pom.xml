@@ -20,8 +20,8 @@
 	</organization>
 	<scm>
 		<connection>scm:git:https://github.com/teverett/kPascal.git</connection>
-	  <tag>HEAD</tag>
-  </scm>
+		<tag>HEAD</tag>
+	</scm>
 	<prerequisites>
 		<maven>3.1.0</maven>
 	</prerequisites>
@@ -72,6 +72,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.1.0</version>
 				<configuration>
 					<archive>
 						<manifest>
@@ -85,6 +86,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
@@ -92,7 +94,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.2</version>
+				<version>3.1.0</version>
 				<executions>
 					<execution>
 						<id>make-my-jar-with-dependencies</id>
