@@ -196,7 +196,9 @@ public class RealValue implements AtomicValue {
 
    @Override
    public void setFromString(String s) {
-      value = Double.parseDouble(s);
+      if ((null != s) && (s.length() > 0)) {
+         value = Double.parseDouble(s);
+      }
    }
 
    public void setValue(double value) {

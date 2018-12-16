@@ -150,7 +150,9 @@ public class BooleanValue implements AtomicValue {
 
    @Override
    public void setFromString(String s) {
-      value = Boolean.parseBoolean(s);
+      if ((null != s) && (s.length() > 0)) {
+         value = Boolean.parseBoolean(s);
+      }
    }
 
    public void setValue(boolean value) {

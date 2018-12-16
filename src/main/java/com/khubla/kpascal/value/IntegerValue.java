@@ -206,7 +206,9 @@ public class IntegerValue implements AtomicValue {
 
    @Override
    public void setFromString(String s) {
-      value = Integer.parseInt(s);
+      if ((null != s) && (s.length() > 0)) {
+         value = Integer.parseInt(s);
+      }
    }
 
    public void setValue(int value) {

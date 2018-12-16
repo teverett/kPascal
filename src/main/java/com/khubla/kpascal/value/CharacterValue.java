@@ -180,7 +180,9 @@ public class CharacterValue implements AtomicValue {
 
    @Override
    public void setFromString(String s) {
-      value = s.charAt(0);
+      if ((null != s) && (s.length() > 0)) {
+         value = s.charAt(0);
+      }
    }
 
    public void setValue(char value) {
