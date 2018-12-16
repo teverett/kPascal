@@ -66,13 +66,13 @@ public class ExecutionContext {
       consoleInput = new BufferedReader(new InputStreamReader(System.in));
    }
 
-   public ExecutionContext(InputStream consoleInput, PrintStream consoleOut) {
-      this.consoleOut = consoleOut;
+   public ExecutionContext(InputStream consoleInput, OutputStream consoleOut) {
+      this.consoleOut = new PrintStream(consoleOut);
       this.consoleInput = new BufferedReader(new InputStreamReader(consoleInput));
    }
 
-   public ExecutionContext(InputStream consoleInput, OutputStream consoleOut) {
-      this.consoleOut = new PrintStream(consoleOut);
+   public ExecutionContext(InputStream consoleInput, PrintStream consoleOut) {
+      this.consoleOut = consoleOut;
       this.consoleInput = new BufferedReader(new InputStreamReader(consoleInput));
    }
 
@@ -182,7 +182,7 @@ public class ExecutionContext {
    }
 
    /**
-    * test an expression.  used in while loop, etc
+    * test an expression. used in while loop, etc
     */
    public boolean testExpression(ExpressionContext expressionContext) {
       final ExpressionListener expressionListener = new ExpressionListener(this);
