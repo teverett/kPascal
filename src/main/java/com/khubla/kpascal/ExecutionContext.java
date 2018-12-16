@@ -142,7 +142,7 @@ public class ExecutionContext {
             return functionOrProcedureDefinition;
          }
       }
-      throw new InterpreterException("Unable to resolve '" + name + "'");
+      return null;
    }
 
    /**
@@ -176,6 +176,24 @@ public class ExecutionContext {
          }
          if (null != value) {
             return value;
+         }
+      }
+      /*
+       * it could be a function which takes no parameters, such as "readkey".
+       */
+      final RuntimeFunction runtimeFunction = runtimeFunctionFactory.getRuntimeFunction(name);
+      if (null != runtimeFunction) {
+         /*
+          * no parameters
+          */
+         return runtimeFunction.execute(this, null);
+      } else {
+         final FunctionOrProcedureDefinition functionOrProcedureDefinition = resolveFunctionOrProcedure(name);
+         if (null != functionOrProcedureDefinition) {
+            /*
+             * no parameters
+             */
+            return functionOrProcedureDefinition.execute(this, null);
          }
       }
       throw new InterpreterException("Unable to resolve '" + name + "'");

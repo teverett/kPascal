@@ -14,24 +14,33 @@
  *    You should have received a copy of the GNU General Public License
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.khubla.kpascal.runtime.function.io;
+package com.khubla.kpascal.runtime.function.string;
 
 import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.InterpreterException;
-import com.khubla.kpascal.runtime.function.AbstractRuntimeFunction;
+import com.khubla.kpascal.runtime.function.math.MathFunction;
 import com.khubla.kpascal.value.CharacterValue;
+import com.khubla.kpascal.value.StringValue;
 import com.khubla.kpascal.value.Value;
 
-public class ReadKeyFunction extends AbstractRuntimeFunction {
+public class LowerCaseFunction extends MathFunction {
    @Override
    public Value execute(ExecutionContext executionContext, List<Value> args) {
-      try {
-         final int k = executionContext.getConsoleInput().read();
-         return new CharacterValue((char) k);
-      } catch (final Exception e) {
-         throw new InterpreterException(e);
+      if (null != args) {
+         final Value v = args.get(0);
+         if (v instanceof CharacterValue) {
+            final CharacterValue cv = (CharacterValue) v;
+            return new CharacterValue(Character.toLowerCase(cv.getValue()));
+         } else if (v instanceof StringValue) {
+            final StringValue sv = (StringValue) v;
+            return new StringValue(sv.getAsString().toLowerCase());
+         } else {
+            throw new InterpreterException("Invalid argument");
+         }
+      } else {
+         throw new InterpreterException("Invalid argument");
       }
    }
 }

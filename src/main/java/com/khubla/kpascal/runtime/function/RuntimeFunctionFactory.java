@@ -73,6 +73,7 @@ import com.khubla.kpascal.runtime.function.string.CopyFunction;
 import com.khubla.kpascal.runtime.function.string.DeleteFunction;
 import com.khubla.kpascal.runtime.function.string.InsertFunction;
 import com.khubla.kpascal.runtime.function.string.LengthFunction;
+import com.khubla.kpascal.runtime.function.string.LowerCaseFunction;
 import com.khubla.kpascal.runtime.function.string.PosFunction;
 import com.khubla.kpascal.runtime.function.string.StrConcatFunction;
 import com.khubla.kpascal.runtime.function.string.StrDeleteFunction;
@@ -82,6 +83,8 @@ import com.khubla.kpascal.runtime.function.string.StrLenFunction;
 import com.khubla.kpascal.runtime.function.string.StrScanFunction;
 import com.khubla.kpascal.runtime.function.string.StrSizeFunction;
 import com.khubla.kpascal.runtime.function.string.SubStrFunction;
+import com.khubla.kpascal.runtime.function.string.UpCaseFunction;
+import com.khubla.kpascal.runtime.function.string.UpperCaseFunction;
 import com.khubla.kpascal.runtime.function.string.ValFunction;
 
 public class RuntimeFunctionFactory {
@@ -142,6 +145,9 @@ public class RuntimeFunctionFactory {
       addFunction("Pos", new PosFunction());
       addFunction("Str", new StrFunction());
       addFunction("Val", new ValFunction());
+      addFunction("upcase", new UpCaseFunction());
+      addFunction("LowerCase", new LowerCaseFunction());
+      addFunction("UpperCase", new UpperCaseFunction());
       /*
        * pointer
        */

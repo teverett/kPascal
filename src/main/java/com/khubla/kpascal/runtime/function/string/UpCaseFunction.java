@@ -20,15 +20,25 @@ import java.util.List;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.InterpreterException;
-import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.runtime.function.math.MathFunction;
+import com.khubla.kpascal.value.CharacterValue;
+import com.khubla.kpascal.value.StringValue;
 import com.khubla.kpascal.value.Value;
 
 public class UpCaseFunction extends MathFunction {
    @Override
    public Value execute(ExecutionContext executionContext, List<Value> args) {
       if (null != args) {
-         throw new NotImplementedException();
+         final Value v = args.get(0);
+         if (v instanceof CharacterValue) {
+            final CharacterValue cv = (CharacterValue) v;
+            return new CharacterValue(Character.toUpperCase(cv.getValue()));
+         } else if (v instanceof StringValue) {
+            final StringValue sv = (StringValue) v;
+            return new StringValue(sv.getAsString().toUpperCase());
+         } else {
+            throw new InterpreterException("Invalid argument");
+         }
       } else {
          throw new InterpreterException("Invalid argument");
       }

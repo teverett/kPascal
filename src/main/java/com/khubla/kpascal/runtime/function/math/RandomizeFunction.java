@@ -17,7 +17,6 @@
 package com.khubla.kpascal.runtime.function.math;
 
 import java.util.List;
-import java.util.Random;
 
 import com.khubla.kpascal.ExecutionContext;
 import com.khubla.kpascal.exception.InterpreterException;
@@ -25,8 +24,6 @@ import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.value.Value;
 
 public class RandomizeFunction extends MathFunction {
-   private final Random random = new Random();
-
    @Override
    public Value execute(ExecutionContext executionContext, List<Value> args) {
       if (null != args) {
