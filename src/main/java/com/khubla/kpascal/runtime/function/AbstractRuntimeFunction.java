@@ -16,5 +16,18 @@
  */
 package com.khubla.kpascal.runtime.function;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+
+import com.khubla.kpascal.ExecutionContext;
+
 public abstract class AbstractRuntimeFunction implements RuntimeFunction {
+   protected BufferedReader getBufferedReader(ExecutionContext executionContext) {
+      return new BufferedReader(new InputStreamReader(executionContext.getConsoleInput()));
+   }
+
+   protected PrintStream getPrintStream(ExecutionContext executionContext) {
+      return new PrintStream(executionContext.getConsoleOut());
+   }
 }

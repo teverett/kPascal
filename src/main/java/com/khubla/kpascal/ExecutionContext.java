@@ -16,11 +16,8 @@
  */
 package com.khubla.kpascal;
 
-import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.PrintStream;
 import java.util.List;
 import java.util.Stack;
 
@@ -47,11 +44,11 @@ public class ExecutionContext {
    /**
     * input
     */
-   private final BufferedReader consoleInput;
+   private final InputStream consoleInput;
    /**
     * output
     */
-   private final PrintStream consoleOut;
+   private final OutputStream consoleOut;
    /**
     * stack
     */
@@ -63,24 +60,19 @@ public class ExecutionContext {
 
    public ExecutionContext() {
       consoleOut = System.out;
-      consoleInput = new BufferedReader(new InputStreamReader(System.in));
+      consoleInput = System.in;
    }
 
    public ExecutionContext(InputStream consoleInput, OutputStream consoleOut) {
-      this.consoleOut = new PrintStream(consoleOut);
-      this.consoleInput = new BufferedReader(new InputStreamReader(consoleInput));
-   }
-
-   public ExecutionContext(InputStream consoleInput, PrintStream consoleOut) {
       this.consoleOut = consoleOut;
-      this.consoleInput = new BufferedReader(new InputStreamReader(consoleInput));
+      this.consoleInput = consoleInput;
    }
 
-   public BufferedReader getConsoleInput() {
+   public InputStream getConsoleInput() {
       return consoleInput;
    }
 
-   public PrintStream getConsoleOut() {
+   public OutputStream getConsoleOut() {
       return consoleOut;
    }
 

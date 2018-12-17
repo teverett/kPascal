@@ -94,7 +94,7 @@ public class TestExamples extends AbstractTest {
       }
    }
 
-   @Test(enabled = true)
+   @Test(enabled = false)
    public void testPassFail() {
       try {
          final String output = runProgram("/passfail.pas", "49\n100\n");

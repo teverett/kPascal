@@ -31,7 +31,7 @@ public class ReadFunction extends AbstractRuntimeFunction {
          for (final Value v : args) {
             if (v instanceof AtomicValue) {
                try {
-                  final String s = executionContext.getConsoleInput().readLine();
+                  final String s = getBufferedReader(executionContext).readLine();
                   ((AtomicValue) v).setFromString(s);
                } catch (final Exception e) {
                   throw new InterpreterException(e);

@@ -31,7 +31,7 @@ public class WriteFunction extends AbstractRuntimeFunction {
          for (final Value value : args) {
             if (value instanceof AtomicValue) {
                final AtomicValue v = (AtomicValue) value;
-               executionContext.getConsoleOut().print(v.getAsString());
+               getPrintStream(executionContext).print(v.getAsString());
             } else {
                throw new InterpreterException("Illegal value type");
             }
