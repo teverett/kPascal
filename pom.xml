@@ -26,7 +26,7 @@
 		<maven>3.1.0</maven>
 	</prerequisites>
 	<properties>
-		<antlr.version>4.7.1</antlr.version>
+		<antlr.version>4.7.2</antlr.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<commons-cli.version>1.4</commons-cli.version>
 		<testng.version>6.14.3</testng.version>
