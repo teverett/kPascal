@@ -1,7 +1,3 @@
-package com.khubla.kpascal.value;
-
-import com.khubla.kpascal.exception.InvalidOperationException;
-import com.khubla.kpascal.exception.NotImplementedException;
 /*
 * kPascal Copyright 2015, khubla.com
 *
@@ -18,6 +14,10 @@ import com.khubla.kpascal.exception.NotImplementedException;
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+package com.khubla.kpascal.value;
+
+import com.khubla.kpascal.exception.InvalidOperationException;
+import com.khubla.kpascal.exception.NotImplementedException;
 import com.khubla.kpascal.type.FileType;
 import com.khubla.kpascal.type.Type;
 
