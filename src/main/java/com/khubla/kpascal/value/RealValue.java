@@ -208,9 +208,9 @@ public class RealValue implements AtomicValue {
    @Override
    public Value subtract(Value v) {
       if (v instanceof IntegerValue) {
-         return new RealValue(value * ((IntegerValue) v).getValue());
+         return new RealValue(value - ((IntegerValue) v).getValue());
       } else if (v instanceof RealValue) {
-         return new RealValue(value * ((RealValue) v).getValue());
+         return new RealValue(value - ((RealValue) v).getValue());
       } else {
          throw new InvalidOperationException();
       }
