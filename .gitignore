@@ -5,3 +5,5 @@
 /**/.settings/
 /**/target
 /**/test-output
+/.idea
+/kpascal.iml
