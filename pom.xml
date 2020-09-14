@@ -28,7 +28,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<commons-cli.version>1.4</commons-cli.version>
 		<testng.version>7.3.0</testng.version>
-		<spotless.version>2.2.0</spotless.version>
+		<spotless.version>2.3.1</spotless.version>
 		<required-maven-version>3.3.1</required-maven-version>
 	</properties>
 	<dependencies>
