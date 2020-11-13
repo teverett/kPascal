@@ -1,5 +1,4 @@
 ![CI](https://github.com/teverett/kPascal/workflows/CI/badge.svg)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4990c2bde63b4380aada591d17334fd7)](https://www.codacy.com/app/teverett/kPascal?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=teverett/kPascal&amp;utm_campaign=Badge_Grade)
 [![DepShield Badge](https://depshield.sonatype.org/badges/teverett/kPascal/depshield.svg)](https://depshield.github.io)
 
 kPascal
