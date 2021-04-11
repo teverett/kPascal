@@ -24,7 +24,7 @@
 	</scm>
 	<properties>
 		<target.jvm>1.7</target.jvm>
-		<antlr.version>4.9.1</antlr.version>
+		<antlr.version>4.9.2</antlr.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<commons-cli.version>1.4</commons-cli.version>
 		<testng.version>7.3.0</testng.version>
