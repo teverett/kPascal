@@ -13,7 +13,7 @@ Maven Coordinates
 ```
 <groupId>com.khubla.kpascal</groupId>
 <artifactId>kpascal</artifactId>
-<version>1.0-SNAPSHOT</version>
+<version>1.1.0</version>
 <packaging>jar</packaging>
 ```
 
