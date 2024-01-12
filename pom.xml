@@ -35,7 +35,7 @@
 		<antlr.version>4.13.1</antlr.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<commons-cli.version>1.6.0</commons-cli.version>
-		<testng.version>7.8.0</testng.version>
+		<testng.version>7.9.0</testng.version>
 		<required-maven-version>3.3.1</required-maven-version>
 	</properties>
 	<dependencies>
