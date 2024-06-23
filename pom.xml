@@ -31,7 +31,7 @@
 		<url>https://github.com/teverett/kPascal</url>
 	</scm>
 	<properties>
-		<target.jvm>1.7</target.jvm>
+		<target.jvm>21</target.jvm>
 		<antlr.version>4.13.1</antlr.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<commons-cli.version>1.6.0</commons-cli.version>
