@@ -32,7 +32,7 @@
 	</scm>
 	<properties>
 		<target.jvm>21</target.jvm>
-		<antlr.version>4.13.1</antlr.version>
+		<antlr.version>4.13.2</antlr.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<commons-cli.version>1.9.0</commons-cli.version>
 		<testng.version>7.10.2</testng.version>
